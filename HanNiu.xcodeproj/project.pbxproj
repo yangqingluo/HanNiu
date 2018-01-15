@@ -110,7 +110,7 @@
 				TargetAttributes = {
 					E47887D2200C48D6009C86A7 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = SLC55J99V5;
+						DevelopmentTeam = 5TL5JG9J98;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -273,7 +273,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SLC55J99V5;
+				DEVELOPMENT_TEAM = 5TL5JG9J98;
 				INFOPLIST_FILE = HanNiu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zdz.HanNiu;
@@ -285,7 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SLC55J99V5;
+				DEVELOPMENT_TEAM = 5TL5JG9J98;
 				INFOPLIST_FILE = HanNiu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zdz.HanNiu;
@@ -312,6 +312,7 @@
 				E47887EC200C48D6009C86A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
