@@ -12,6 +12,15 @@
 @interface PublicViewController : UIViewController
 
 @property (weak, nonatomic) PublicViewController *parentVC;
+@property (assign, nonatomic) BOOL needRefresh;
+
+- (void)createNavWithTitle:(NSString *)szTitle createMenuItem:(UIView *(^)(int nIndex))menuItem;
+- (void)dismissKeyboard;
+- (void)needRefreshNotification:(NSNotification *)notification;
+- (void)doShowHintFunction:(NSString *)hint;
+- (void)doShowHudFunction;
+- (void)doShowHudFunction:(NSString *)hint;
+- (void)doHideHudFunction;
 
 - (void)doPushViewController:(UIViewController *)viewController animated:(BOOL)animated;
 - (void)showFromVC:(PublicViewController *)fromVC;

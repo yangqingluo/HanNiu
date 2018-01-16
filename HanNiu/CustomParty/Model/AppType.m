@@ -11,3 +11,9 @@
 @implementation AppType
 
 @end
+
+
+@implementation AppUserInfo
+
+
+@end

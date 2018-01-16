@@ -25,4 +25,7 @@
 /** 获得灰度图 */
 - (UIImage *)convertToGrayImage;
 
+/** 设置透明度 */
+- (UIImage *)imageByApplyingAlpha:(CGFloat)alpha;
+
 @end

@@ -11,3 +11,8 @@
 @interface AppType : NSObject
 
 @end
+
+
+@interface AppUserInfo : AppType
+
+@end

@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"";
+//    self.title = @"";
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 24)];
     [btn setImage:[UIImage imageNamed:@"main_me_icon"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(accountButtonAction) forControlEvents:UIControlEventTouchUpInside];
