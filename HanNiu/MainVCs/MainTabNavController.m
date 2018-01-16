@@ -7,7 +7,6 @@
 //
 
 #import "MainTabNavController.h"
-#import "AccountViewController.h"
 
 @interface MainTabNavController ()
 
@@ -18,17 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 22, 24)];
-    [btn setImage:[UIImage imageNamed:@"main_me_icon"] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(accountButtonAction) forControlEvents:UIControlEventTouchUpInside];
+//    self.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"navigation_bar_back"]];
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_bar_back"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.tintColor = [UIColor whiteColor];
     
-    [self.navigationBar addSubview:btn];
-    self.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"navigation_bar_back"]];
-}
+//    最近iOS项目中要求导航栏的返回按钮只保留那个箭头，去掉后边的文字，在网上查了一些资料，最简单且没有副作用的方法就是
+//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
 
-- (void)accountButtonAction {
-    AccountViewController *vc = [AccountViewController new];
-    [self pushViewController:vc animated:YES];
 }
 
 @end

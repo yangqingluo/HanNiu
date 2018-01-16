@@ -11,4 +11,12 @@
 
 @interface PublicViewController : UIViewController
 
+@property (weak, nonatomic) PublicViewController *parentVC;
+
+- (void)doPushViewController:(UIViewController *)viewController animated:(BOOL)animated;
+- (void)showFromVC:(PublicViewController *)fromVC;
+- (UIViewController *)doPopViewControllerAnimated:(BOOL)animated;
+- (NSArray<__kindof UIViewController *> *)doPopToViewController:(UIViewController *)viewController animated:(BOOL)animated;
+- (NSArray<__kindof UIViewController *> *)doPopToLastViewControllerSkip:(NSUInteger)skip animated:(BOOL)animated;
+
 @end

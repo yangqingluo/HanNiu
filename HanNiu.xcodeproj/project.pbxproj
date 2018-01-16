@@ -200,6 +200,7 @@
 		E4B3CCBE200D96DD006807AE /* UIButton+ImageAndText.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CCBA200D96DD006807AE /* UIButton+ImageAndText.m */; };
 		E4B3CCC1200D9740006807AE /* PublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CCC0200D9740006807AE /* PublicViewController.m */; };
 		E4B3CCC5200D98A3006807AE /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CCC4200D98A3006807AE /* AccountViewController.m */; };
+		E4B3CCC9200D9F1E006807AE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CCC8200D9F1E006807AE /* HomeViewController.m */; };
 		E4FA9DAC200CB1B700EB8852 /* PublicNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FA9DAB200CB1B700EB8852 /* PublicNavigationController.m */; };
 		E4FA9DB0200CB2FC00EB8852 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FA9DAF200CB2FC00EB8852 /* MainTabBarController.m */; };
 /* End PBXBuildFile section */
@@ -485,6 +486,8 @@
 		E4B3CCC0200D9740006807AE /* PublicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicViewController.m; sourceTree = "<group>"; };
 		E4B3CCC3200D98A3006807AE /* AccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		E4B3CCC4200D98A3006807AE /* AccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		E4B3CCC7200D9F1E006807AE /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		E4B3CCC8200D9F1E006807AE /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		E4FA9DAA200CB1B700EB8852 /* PublicNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicNavigationController.h; sourceTree = "<group>"; };
 		E4FA9DAB200CB1B700EB8852 /* PublicNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicNavigationController.m; sourceTree = "<group>"; };
 		E4FA9DAE200CB2FC00EB8852 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
@@ -923,6 +926,15 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		E4B3CCC6200D9F11006807AE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E4B3CCC7200D9F1E006807AE /* HomeViewController.h */,
+				E4B3CCC8200D9F1E006807AE /* HomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		E4FA9DA4200CB14E00EB8852 /* CustomParty */ = {
 			isa = PBXGroup;
 			children = (
@@ -1003,6 +1015,7 @@
 				E4FA9DAF200CB2FC00EB8852 /* MainTabBarController.m */,
 				E410D1A4200CB5EE00C6ACED /* MainTabNavController.h */,
 				E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */,
+				E4B3CCC6200D9F11006807AE /* Home */,
 				E4B3CCC2200D9786006807AE /* Account */,
 			);
 			path = MainVCs;
@@ -1218,6 +1231,7 @@
 				E47887DB200C48D6009C86A7 /* AppDelegate.m in Sources */,
 				E4B3CC96200D9616006807AE /* UIViewController+HUD.m in Sources */,
 				E4B3CC97200D9616006807AE /* NSData+ImageContentType.m in Sources */,
+				E4B3CCC9200D9F1E006807AE /* HomeViewController.m in Sources */,
 				E4B3CC95200D9616006807AE /* MBProgressHUD.m in Sources */,
 				E4B3CC80200D9616006807AE /* NSString+MJExtension.m in Sources */,
 				E4B3CCB0200D9617006807AE /* UIActivityIndicatorView+AFNetworking.m in Sources */,
