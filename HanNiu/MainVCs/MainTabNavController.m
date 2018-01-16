@@ -7,6 +7,7 @@
 //
 
 #import "MainTabNavController.h"
+#import "AccountViewController.h"
 
 @interface MainTabNavController ()
 
@@ -17,11 +18,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 5, 22, 24)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 22, 24)];
     [btn setImage:[UIImage imageNamed:@"main_me_icon"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(accountButtonAction) forControlEvents:UIControlEventTouchUpInside];
     
     [self.navigationBar addSubview:btn];
-    self.navigationBar.barTintColor = [UIColor colorWithRed:0xff / 255.0 green:0x69 / 255.0 blue:0x45 / 255.0 alpha:1.0];
+    self.navigationBar.barTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"navigation_bar_back"]];
+}
+
+- (void)accountButtonAction {
+    AccountViewController *vc = [AccountViewController new];
+    [self pushViewController:vc animated:YES];
 }
 
 @end

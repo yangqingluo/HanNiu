@@ -1,0 +1,14 @@
+//
+//  HanNiuPrefix.pch
+//  HanNiu
+//
+//  Created by 7kers on 2018/1/16.
+//  Copyright © 2018年 zdz. All rights reserved.
+//
+
+#ifndef HanNiuPrefix_pch
+#define HanNiuPrefix_pch
+
+#import "AppPublic.h"
+
+#endif /* HanNiuPrefix_pch */
