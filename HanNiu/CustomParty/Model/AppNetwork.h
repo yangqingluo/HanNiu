@@ -48,9 +48,19 @@ typedef void(^Progress)(float progress);
 
 + (AppNetwork *)getInstance;
 
+//Get
+- (void)Get:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter completion:(AppNetworkBlock)completion;
 
 //Post
 - (void)Post:(id)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter completion:(AppNetworkBlock)completion;
+- (void)Post:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block completion:(AppNetworkBlock)completion;
+
+//Put
+- (void)Put:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter completion:(AppNetworkBlock)completion;
+
+//Delete
+- (void)Delete:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter completion:(AppNetworkBlock)completion;
+
 
 //login
 - (void)loginWithID:(NSString *)username Password:(NSString *)password completion:(AppNetworkBlock)completion;

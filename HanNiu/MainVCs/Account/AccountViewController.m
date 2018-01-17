@@ -8,6 +8,7 @@
 
 #import "AccountViewController.h"
 #import "LoginViewController.h"
+#import "AccountSettingsVC.h"
 
 #import "PublicTableViewCell.h"
 
@@ -42,7 +43,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section == 0 ? kCellHeightBig: kCellHeightFilter;
+    return indexPath.section == 0 ? kCellHeightBig: kCellHeightMiddle;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,7 +63,7 @@
             cell.titleLabel.numberOfLines = 0;
         }
         if ([UserPublic getInstance].userData) {
-            cell.titleLabel.text = @"";
+            cell.titleLabel.text = [UserPublic getInstance].userData.Extra.userinfo.NickName;
         }
         else {
             cell.titleLabel.text = @"点击登录";
@@ -101,8 +102,9 @@
     }
     else {
         switch (indexPath.row) {
-            case 0: {
-                
+            case 3: {
+                AccountSettingsVC *vc = [AccountSettingsVC new];
+                [self doPushViewController:vc animated:YES];
             }
                 break;
                 

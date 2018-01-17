@@ -201,6 +201,7 @@
 		E4B3CCC1200D9740006807AE /* PublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CCC0200D9740006807AE /* PublicViewController.m */; };
 		E4B3CCC5200D98A3006807AE /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CCC4200D98A3006807AE /* AccountViewController.m */; };
 		E4B3CCC9200D9F1E006807AE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CCC8200D9F1E006807AE /* HomeViewController.m */; };
+		E4BA2FCA200F2D4000395F70 /* AccountSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BA2FC9200F2D4000395F70 /* AccountSettingsVC.m */; };
 		E4EE1910200DC97B005BD00F /* PublicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE190F200DC97B005BD00F /* PublicTableViewController.m */; };
 		E4EE1913200DCD74005BD00F /* PublicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE1912200DCD74005BD00F /* PublicTableViewCell.m */; };
 		E4EE1916200DCE87005BD00F /* PublicShowTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE1915200DCE87005BD00F /* PublicShowTableVC.m */; };
@@ -496,6 +497,8 @@
 		E4B3CCC4200D98A3006807AE /* AccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		E4B3CCC7200D9F1E006807AE /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		E4B3CCC8200D9F1E006807AE /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		E4BA2FC8200F2D4000395F70 /* AccountSettingsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountSettingsVC.h; sourceTree = "<group>"; };
+		E4BA2FC9200F2D4000395F70 /* AccountSettingsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountSettingsVC.m; sourceTree = "<group>"; };
 		E4EE190E200DC97B005BD00F /* PublicTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicTableViewController.h; sourceTree = "<group>"; };
 		E4EE190F200DC97B005BD00F /* PublicTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicTableViewController.m; sourceTree = "<group>"; };
 		E4EE1911200DCD74005BD00F /* PublicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicTableViewCell.h; sourceTree = "<group>"; };
@@ -946,6 +949,8 @@
 			children = (
 				E4B3CCC3200D98A3006807AE /* AccountViewController.h */,
 				E4B3CCC4200D98A3006807AE /* AccountViewController.m */,
+				E4BA2FC8200F2D4000395F70 /* AccountSettingsVC.h */,
+				E4BA2FC9200F2D4000395F70 /* AccountSettingsVC.m */,
 				E4EE191C200DE8AC005BD00F /* LoginViewController.h */,
 				E4EE191D200DE8AC005BD00F /* LoginViewController.m */,
 			);
@@ -1312,6 +1317,7 @@
 				E4B3CCAF200D9617006807AE /* AFNetworkActivityIndicatorManager.m in Sources */,
 				E4B3CC94200D9616006807AE /* MBProgressHUD+Add.m in Sources */,
 				E4B3CC92200D9616006807AE /* UIScrollView+MJRefresh.m in Sources */,
+				E4BA2FCA200F2D4000395F70 /* AccountSettingsVC.m in Sources */,
 				E4EE1919200DD458005BD00F /* UserPublic.m in Sources */,
 				E4B3CCBC200D96DD006807AE /* QCSlideSwitchView.m in Sources */,
 				E4EE1921200DF5A0005BD00F /* PublicInputView.m in Sources */,

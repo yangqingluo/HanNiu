@@ -47,6 +47,21 @@ NSString *urlStringWithService(NSString *service){
 }
 
 #pragma mark - public
+//Get
+- (void)Get:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter completion:(AppNetworkBlock)completion {
+    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm andSuffix:urlFooter];
+    NSString *urlStr = [urlStringWithService(urlFooter) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    QKWEAKSELF;
+    [manager GET:urlStr parameters:userInfo progress:^(NSProgress * _Nonnull progress){
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject){
+        [weakself doResponseCompletion:responseObject block:completion];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError *error){
+        [weakself doResponseCompletion:nil block:completion];
+    }];
+}
+
+//Post
 - (void)Post:(id)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter completion:(AppNetworkBlock)completion {
     AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm andSuffix:urlFooter];
     NSString *urlStr = [urlStringWithService(urlFooter) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -55,12 +70,49 @@ NSString *urlStringWithService(NSString *service){
         
     } success:^(NSURLSessionDataTask *task, id responseObject){
         [weakself doResponseCompletion:responseObject block:completion];
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError *error){
         [weakself doResponseCompletion:nil block:completion];
     }];
 }
 
+- (void)Post:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block completion:(AppNetworkBlock)completion {
+    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm andSuffix:urlFooter];
+    NSString *urlStr = [urlStringWithService(urlFooter) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    QKWEAKSELF;
+    [manager POST:urlStr parameters:userInfo constructingBodyWithBlock:block progress:^(NSProgress * _Nonnull Progress){
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject){
+        [weakself doResponseCompletion:responseObject block:completion];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError *error){
+        [weakself doResponseCompletion:nil block:completion];
+    }];
+}
+
+//Put
+- (void)Put:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter completion:(AppNetworkBlock)completion {
+    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm andSuffix:urlFooter];
+    NSString *urlStr = [urlStringWithService(urlFooter) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    QKWEAKSELF;
+    [manager PUT:urlStr parameters:userInfo success:^(NSURLSessionDataTask *task, id responseObject){
+        [weakself doResponseCompletion:responseObject block:completion];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError *error){
+        [weakself doResponseCompletion:nil block:completion];
+    }];
+}
+
+//Delete
+- (void)Delete:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter completion:(AppNetworkBlock)completion {
+    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm andSuffix:urlFooter];
+    NSString *urlStr = [urlStringWithService(urlFooter) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    QKWEAKSELF;
+    [manager DELETE:urlStr parameters:userInfo success:^(NSURLSessionDataTask *task, id responseObject){
+        [weakself doResponseCompletion:responseObject block:completion];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError *error){
+        [weakself doResponseCompletion:nil block:completion];
+    }];
+}
+
+//Login
 - (void)loginWithID:(NSString *)username Password:(NSString *)password completion:(AppNetworkBlock)completion {
     NSMutableDictionary *m_dic = [[NSMutableDictionary alloc]initWithDictionary:@{@"ClientId":@"2", @"PwdMode":@"0", @"Name":username}];
     if (password) {
