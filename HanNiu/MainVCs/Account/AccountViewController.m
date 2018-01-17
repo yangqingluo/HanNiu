@@ -18,6 +18,25 @@
 
 @implementation AccountViewController
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needRefreshNotification:) name:kNotification_Login_StateRefresh object:nil];
+    }
+    return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.needRefresh) {
+        [self beginRefreshing];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的";
@@ -31,6 +50,12 @@
                        @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},
                        @{@"title":@"设置",@"subTitle":@"",@"key":@"icon_me_setting"},
                        @{@"title":@"关于我们",@"subTitle":@"",@"key":@"icon_me_about_us"}];
+}
+
+- (void)beginRefreshing {
+    self.needRefresh = NO;
+    self.isResetCondition = NO;
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableView

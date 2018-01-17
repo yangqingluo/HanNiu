@@ -11,7 +11,7 @@
 #import "PublicInputView.h"
 #import "UILabel+YBAttributeTextTapAction.h"
 
-@interface LoginViewController ()<UITextViewDelegate>
+@interface LoginViewController ()<UITextFieldDelegate>
 
 @property (strong, nonatomic) PublicInputView *usernameInputView;
 @property (strong, nonatomic) PublicInputView *passwordInputView;
@@ -43,6 +43,7 @@
     self.usernameInputView = NewPublicInputView(CGRectMake(kEdgeToScreen, 120, screen_width - 2 * kEdgeToScreen, 44), @"请输入手机号", @"icon_login_username");
     self.usernameInputView.textField.textAlignment = NSTextAlignmentCenter;
     self.usernameInputView.textField.keyboardType = UIKeyboardTypePhonePad;
+    self.usernameInputView.textField.delegate = self;
     [self.view addSubview:self.usernameInputView];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     self.usernameInputView.textField.text = [ud objectForKey:kUserName];
@@ -51,6 +52,7 @@
     self.passwordInputView.top = self.usernameInputView.bottom + 40;
     self.passwordInputView.textField.textAlignment = NSTextAlignmentCenter;
     self.passwordInputView.textField.secureTextEntry = YES;
+    self.passwordInputView.textField.delegate = self;
     [self.view addSubview:self.passwordInputView];
     
     UIButton *loginBtn = NewTextButton(@"登录", RGBA(0xff, 0x4f, 0x6e, 1.0));

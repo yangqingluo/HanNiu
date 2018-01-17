@@ -12,7 +12,7 @@
 
 PublicInputView *NewPublicInputView(CGRect frame, NSString *placeHolder, NSString *leftImageName) {
     PublicInputView *inputView = [[PublicInputView alloc] initWithFrame:frame];
-    UITextField *textField = [[UITextField alloc] initWithFrame:inputView.bounds];
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(30, 0, inputView.width - 2 * 30, inputView.height)];
     textField.placeholder = placeHolder;
     textField.font = [AppPublic appFontOfSize:appLabelFontSizeSmall];
     textField.textColor = [UIColor whiteColor];
@@ -27,15 +27,18 @@ PublicInputView *NewPublicInputView(CGRect frame, NSString *placeHolder, NSStrin
 }
 
 - (void)addTextField:(UITextField *)textField imageName:(NSString *)imageName {
-    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MIN(textField.height, 30), textField.height)];
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MIN(self.height, 30), self.height)];
     leftView.backgroundColor = [UIColor clearColor];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
     imageView.centerY = 0.5 * leftView.height;
     [leftView addSubview:imageView];
     
-    textField.leftView = leftView;
-    textField.leftViewMode = UITextFieldViewModeAlways;
+    leftView.centerY = 0.5 * self.height;
+    [self addSubview:leftView];
+    
+//    textField.leftView = leftView;
+//    textField.leftViewMode = UITextFieldViewModeAlways;
 }
 
 #pragma mark - getter

@@ -18,6 +18,18 @@
 
 @implementation AccountSettingsVC
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStateRefreshNotification:) name:kNotification_Login_StateRefresh object:nil];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"设置";
@@ -26,13 +38,16 @@
 
 //初始化数据
 - (void)initializeData {
-    self.showArray = @[@{@"title":@"2G/3G/4G下播放",@"subTitle":@"",@"key":@""},
-                       @{@"title":@"打开应用后自动播放",@"subTitle":@"充值",@"key":@""},
-                       @{@"title":@"检查更新",@"subTitle":@"",@"key":@""},
-                       @{@"title":@"修改密码",@"subTitle":@"",@"key":@""}];
-    if ([UserPublic getInstance].userData) {
-        self.tableView.tableFooterView = self.footerView;
+    NSMutableArray *m_array = [NSMutableArray arrayWithArray:@[@{@"title":@"2G/3G/4G下播放",@"subTitle":@"",@"key":@""},
+    @{@"title":@"打开应用后自动播放",@"subTitle":@"充值",@"key":@""},
+    @{@"title":@"检查更新",@"subTitle":@"",@"key":@""},
+    @{@"title":@"修改密码",@"subTitle":@"",@"key":@""}]];
+    if (![UserPublic getInstance].userData) {
+        [m_array removeLastObject];
     }
+    self.showArray = [NSArray arrayWithArray:m_array];
+    self.tableView.tableFooterView = [UserPublic getInstance].userData ? self.footerView : nil;
+    [self.tableView reloadData];
 }
 
 - (void)logoutButtonAction {
@@ -100,6 +115,11 @@
     cell.textLabel.text = dic[@"title"];
     
     return cell;
+}
+
+#pragma mark - notification
+- (void)loginStateRefreshNotification:(NSNotification *)notification {
+    [self initializeData];
 }
 
 @end
