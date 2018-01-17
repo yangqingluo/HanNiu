@@ -8,6 +8,7 @@
 
 #import "AccountViewController.h"
 #import "AccountSettingsVC.h"
+#import "AccountAboutVC.h"
 
 #import "PublicTableViewCell.h"
 
@@ -126,6 +127,12 @@
         switch (indexPath.row) {
             case 3: {
                 AccountSettingsVC *vc = [AccountSettingsVC new];
+                [self doPushViewController:vc animated:YES];
+            }
+                break;
+                
+            case 4: {
+                AccountAboutVC *vc = [AccountAboutVC new];
                 [self doPushViewController:vc animated:YES];
             }
                 break;

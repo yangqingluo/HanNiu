@@ -339,6 +339,20 @@ NSDate *dateWithPriousorLaterDate(NSDate *date, int month) {
 }
 
 #pragma mark - getter
+- (NSString *)appName {
+    if (!_appName) {
+        _appName = [NSBundle mainBundle].infoDictionary[@"CFBundleDisplayName"];
+    }
+    return _appName;
+}
+
+- (NSString *)appVersion {
+    if (!_appVersion) {
+        _appVersion = [NSBundle mainBundle].infoDictionary [@"CFBundleShortVersionString"];
+    }
+    return _appVersion;
+}
+
 - (UIViewController *)topViewController {
     UIViewController *resultVC;
     resultVC = [self _topViewController:[[UIApplication sharedApplication].keyWindow rootViewController]];

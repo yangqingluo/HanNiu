@@ -95,6 +95,12 @@ typedef void(^AppDoneBlock)(id object);
 
 + (AppPublic *)getInstance;
 
+//应用名称
+@property (strong, nonatomic) NSString *appName;
+//应用版本
+@property (strong, nonatomic) NSString *appVersion;
+
+
 /*!
  @brief 检查版本是否第一次使用
  */
