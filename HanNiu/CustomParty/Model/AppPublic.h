@@ -28,6 +28,7 @@ NSData *dataOfImageCompression(UIImage *image, BOOL isHead);
 UIButton *NewBackButton(UIColor *color);
 UIButton *NewRightButton(UIImage *image, UIColor *color);
 UIButton *NewTextButton(NSString *title, UIColor *textColor);
+UIButton *NewButton(CGRect frame, NSString *title, UIColor *textColor, UIFont *font);
 UILabel *NewLabel(CGRect frame, UIColor *textColor, UIFont *font, NSTextAlignment alignment);
 UIView *NewSeparatorLine(CGRect frame);
 

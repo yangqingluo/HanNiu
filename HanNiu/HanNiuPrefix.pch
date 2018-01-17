@@ -22,6 +22,7 @@
 #define appMainColor                    RGBA(0x00, 0xbc, 0xd4, 1.0)
 #define appSeparatorColor               RGBA(0xdb, 0xdb, 0xdb, 1.0)
 #define appTextColor                    RGBA(0x21, 0x21, 0x21, 1.0)
+#define appTextLightColor               RGBA(0xf2, 0xb4, 0xa9, 1.0)
 #define appRedColor                     RGBA(0xd9, 0x55, 0x55, 1.0)
 #define appLightWhiteColor              RGBA(0xf8, 0xf8, 0xf8, 1.0)
 
@@ -49,9 +50,11 @@
 #define kEdgeMiddle                  12.0
 #define kEdgeBig                     16.0
 #define kEdgeHuge                    28.0
+#define kEdgeToScreen                60
 
 #define appButtonTitleFontSizeSmall    14.0
 #define appButtonTitleFontSize         16.0
+#define appLabelFontSizeLittle         12.0
 #define appLabelFontSizeSmall          14.0
 #define appLabelFontSize               16.0
 #define appLabelFontSizeMiddle         18.0

@@ -107,10 +107,14 @@ UIButton *NewRightButton(UIImage *image, UIColor *color) {
 }
 
 UIButton *NewTextButton(NSString *title, UIColor *textColor) {
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(screen_width - 64, 0, 64, 44)];
+    return NewButton(CGRectMake(screen_width - 64, 0, 64, 44), title, textColor, nil);
+}
+
+UIButton *NewButton(CGRect frame, NSString *title, UIColor *textColor, UIFont *font) {
+    UIButton *btn = [[UIButton alloc] initWithFrame:frame];
     [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:textColor forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:appButtonTitleFontSize];
+    [btn setTitleColor:textColor ? textColor : appTextColor forState:UIControlStateNormal];
+    btn.titleLabel.font = font ? font : [AppPublic appFontOfSize:appButtonTitleFontSize];
     return btn;
 }
 
