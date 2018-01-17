@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "ForgetViewController.h"
 
 #import "PublicInputView.h"
 #import "UILabel+YBAttributeTextTapAction.h"
@@ -20,18 +21,25 @@
 
 @implementation LoginViewController
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     //设置导航栏背景图片为一个空的image，这样就透明了
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    
     //去掉透明后导航栏下边的黑边
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    //如果不想让其他页面的导航栏变为透明 需要重置
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_bar_back"] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSArray *m_array = self.navigationController.viewControllers;
+    if (m_array.count > 1 && [m_array objectAtIndex:m_array.count - 2] == self) {
+        //当前视图控制器在栈中，故为push操作
+        NSLog(@"push");
+    } else if ([m_array indexOfObject:self] == NSNotFound) {
+        //当前视图控制器不在栈中，故为pop操作
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_bar_back"] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setShadowImage:nil];
+    }
 }
 
 - (void)viewDidLoad {
@@ -66,7 +74,7 @@
     lineView.centerX = 0.5 * screen_width;
     [self.view addSubview:lineView];
     
-    UIButton *forgetBtn = NewButton(CGRectMake(0, 0, 80, lineView.height), @"忘记密码", [UIColor whiteColor], [AppPublic appFontOfSize:appButtonTitleFontSizeSmall]);
+    UIButton *forgetBtn = NewButton(CGRectMake(0, 0, 80, 30), @"忘记密码", [UIColor whiteColor], [AppPublic appFontOfSize:appButtonTitleFontSizeSmall]);
     forgetBtn.centerY = lineView.centerY;
     forgetBtn.right = lineView.left;
     [self.view addSubview:forgetBtn];
@@ -126,7 +134,8 @@
 }
 
 - (void)forgetButtonAction {
-    [self doShowHintFunction:@"忘记"];
+    ForgetViewController *vc = [ForgetViewController new];
+    [self doPushViewController:vc animated:YES];
 }
 
 - (void)registButtonAction {

@@ -217,6 +217,7 @@
 		E4BA2FFC200F38C900395F70 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BA2FEB200F38C900395F70 /* IQToolbar.m */; };
 		E4BA2FFD200F38C900395F70 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BA2FED200F38C900395F70 /* IQUIView+IQKeyboardToolbar.m */; };
 		E4BA2FFE200F38C900395F70 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E4BA2FEF200F38C900395F70 /* IQKeyboardManager.bundle */; };
+		E4BA3002200F51B700395F70 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BA3001200F51B700395F70 /* ForgetViewController.m */; };
 		E4EE1910200DC97B005BD00F /* PublicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE190F200DC97B005BD00F /* PublicTableViewController.m */; };
 		E4EE1913200DCD74005BD00F /* PublicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE1912200DCD74005BD00F /* PublicTableViewCell.m */; };
 		E4EE1916200DCE87005BD00F /* PublicShowTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE1915200DCE87005BD00F /* PublicShowTableVC.m */; };
@@ -545,6 +546,8 @@
 		E4BA2FEC200F38C900395F70 /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
 		E4BA2FED200F38C900395F70 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		E4BA2FEF200F38C900395F70 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		E4BA3000200F51B600395F70 /* ForgetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgetViewController.h; sourceTree = "<group>"; };
+		E4BA3001200F51B700395F70 /* ForgetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgetViewController.m; sourceTree = "<group>"; };
 		E4EE190E200DC97B005BD00F /* PublicTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicTableViewController.h; sourceTree = "<group>"; };
 		E4EE190F200DC97B005BD00F /* PublicTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicTableViewController.m; sourceTree = "<group>"; };
 		E4EE1911200DCD74005BD00F /* PublicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicTableViewCell.h; sourceTree = "<group>"; };
@@ -999,6 +1002,8 @@
 				E4BA2FC9200F2D4000395F70 /* AccountSettingsVC.m */,
 				E4EE191C200DE8AC005BD00F /* LoginViewController.h */,
 				E4EE191D200DE8AC005BD00F /* LoginViewController.m */,
+				E4BA3000200F51B600395F70 /* ForgetViewController.h */,
+				E4BA3001200F51B700395F70 /* ForgetViewController.m */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1435,6 +1440,7 @@
 				E4B3CCB2200D9617006807AE /* UIImageView+AFNetworking.m in Sources */,
 				E4B3CCB4200D9617006807AE /* UIRefreshControl+AFNetworking.m in Sources */,
 				E4BA2FF3200F38C900395F70 /* IQUIView+Hierarchy.m in Sources */,
+				E4BA3002200F51B700395F70 /* ForgetViewController.m in Sources */,
 				E4B3CC82200D9616006807AE /* MJRefreshBackFooter.m in Sources */,
 				E4B3CBDF200D95B7006807AE /* NSData+HTTPRequest.m in Sources */,
 				E4BA2FFA200F38C900395F70 /* IQPreviousNextView.m in Sources */,
