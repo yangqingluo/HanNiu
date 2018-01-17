@@ -27,7 +27,7 @@ __strong static UserPublic *_singleManger = nil;
 
 #pragma mark - public
 //保存用户数据
-- (void)saveUserData:(AppUserInfo *)data{
+- (void)saveUserData:(AppSecureModel *)data{
     if (data) {
         _userData = data;
     }
@@ -45,12 +45,12 @@ __strong static UserPublic *_singleManger = nil;
 }
 
 #pragma mark - getter
-- (AppUserInfo *)userData{
+- (AppSecureModel *)userData{
     if (!_userData) {
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         NSDictionary *data = [ud objectForKey:kUserData];
         if (data) {
-            _userData = [AppUserInfo mj_objectWithKeyValues:data];
+            _userData = [AppSecureModel mj_objectWithKeyValues:data];
         }
     }
     return _userData;

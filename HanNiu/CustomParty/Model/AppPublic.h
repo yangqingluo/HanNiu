@@ -10,13 +10,45 @@
 #import "UIImage+Color.h"
 #import "UIViewController+HUD.h"
 #import "UIView+KGViewExtend.h"
+#import "BlockAlertView.h"
 #import "AppType.h"
 #import "MJExtension.h"
-#import "AppType.h"
+#import "AppNetwork.h"
+
 
 @interface AppPublic : NSObject
 
 + (AppPublic *)getInstance;
+
+/*!
+ @brief 检查版本是否第一次使用
+ */
+BOOL isFirstUsing();
+
+/*!
+ @brief 检查字符串是否是手机号码
+ */
+BOOL isMobilePhone(NSString *string);
+
+/*!
+ @brief 检查字符串是否是邮件地址
+ */
+BOOL isEmailAdress(NSString *string);
+
+/*!
+ @brief sha1加密
+ */
+NSString *sha1(NSString *string);
+
+/*!
+ @brief 替换空字符串
+ */
+NSString *notNilString(NSString *string, NSString *placeString);
+
+/*!
+ @brief 字典转中文字符串
+ */
++ (NSString *)logDic:(NSDictionary *)dic;
 
 //判断是否是全数字
 BOOL stringIsNumberString(NSString *string, BOOL withPoint);
@@ -46,5 +78,12 @@ NSDate *dateWithPriousorLaterDate(NSDate *date, int month);
 + (UIFont *)appFontOfSize:(CGFloat)fontSize;
 + (UIFont *)boldAppFontOfSize:(CGFloat)fontSize;
 + (UIFont *)appFontOfPxSize:(CGFloat)pxSize;
+
+
+- (void)logout;
+- (void)loginDoneWithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password;
+
+- (void)goToMainVC;
+- (void)goToLoginCompletion:(void (^)(void))completion;
 
 @end

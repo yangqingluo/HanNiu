@@ -44,6 +44,8 @@
     self.usernameInputView.textField.textAlignment = NSTextAlignmentCenter;
     self.usernameInputView.textField.keyboardType = UIKeyboardTypePhonePad;
     [self.view addSubview:self.usernameInputView];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    self.usernameInputView.textField.text = [ud objectForKey:kUserName];
     
     self.passwordInputView = NewPublicInputView(self.usernameInputView.frame, @"请输入密码", @"icon_login_password");
     self.passwordInputView.top = self.usernameInputView.bottom + 40;
@@ -98,7 +100,24 @@
 }
 
 - (void)loginButtonAction {
-    [self doShowHintFunction:@"登录"];
+    [self dismissKeyboard];
+    if (!isMobilePhone(self.usernameInputView.text)) {
+        [self showHint:@"请输入正确的手机号"];
+        return;
+    }
+    else if (self.passwordInputView.text.length < kPasswordLengthMin) {
+        [self showHint:@"密码为6-16位字母数字组合"];
+        return;
+    }
+    
+    [self doShowHudFunction];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] loginWithID:self.usernameInputView.text Password:self.passwordInputView.text completion:^(id responseBody, NSError *error){
+        [weakself doHideHudFunction];
+        if (error) {
+            [weakself showHint:error.userInfo[@"message"]];
+        }
+    }];
 }
 
 - (void)forgetButtonAction {
@@ -112,5 +131,8 @@
 - (void)agreeButtonAction {
     [self doShowHintFunction:@"服务条款"];
 }
+
+
+
 
 @end

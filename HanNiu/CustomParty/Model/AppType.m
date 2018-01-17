@@ -12,8 +12,17 @@
 
 @end
 
-
 @implementation AppUserInfo
+
+
+@end
+
+@implementation AppExtra
+
+
+@end
+
+@implementation AppSecureModel
 
 
 @end

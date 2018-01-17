@@ -7,6 +7,7 @@
 //
 
 #import "AppPublic.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @interface AppPublic()
 
@@ -36,6 +37,96 @@ __strong static AppPublic  *_singleManger = nil;
 }
 
 #pragma mark - public
+//检查该版本是否第一次使用
+BOOL isFirstUsing() {
+    //#if DEBUG
+    //    NSString *key = @"CFBundleVersion";
+    //#else
+    NSString *key = @"CFBundleShortVersionString";
+    //#endif
+    
+    // 1.当前版本号
+    NSString *version = [NSBundle mainBundle].infoDictionary[key];
+    
+    // 2.从沙盒中取出上次存储的版本号
+    NSString *saveVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    
+    // 3.写入本次版本号
+    [[NSUserDefaults standardUserDefaults] setObject:version forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    return ![version isEqualToString:saveVersion];
+}
+
+BOOL isMobilePhone(NSString *string) {
+    if (!string || string.length == 0) {
+        return NO;
+    }
+    
+    NSMutableAttributedString *parsedOutput = [[NSMutableAttributedString alloc]initWithString:string attributes:nil];
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^1\\d{10}$" options:0 error:nil];
+    NSArray* matches = [regex matchesInString:[parsedOutput string]
+                                      options:NSMatchingWithoutAnchoringBounds
+                                        range:NSMakeRange(0, parsedOutput.length)];
+    
+    return matches.count > 0;
+}
+
+BOOL isEmailAdress(NSString *string) {
+    if (!string || string.length == 0) {
+        return NO;
+    }
+    
+    //匹配Email地址
+    NSMutableAttributedString *parsedOutput = [[NSMutableAttributedString alloc]initWithString:string attributes:nil];
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*.\\w+([-.]\\w+)*" options:0 error:nil];
+    NSArray* matches = [regex matchesInString:[parsedOutput string]
+                                      options:NSMatchingWithoutAnchoringBounds
+                                        range:NSMakeRange(0, parsedOutput.length)];
+    
+    return matches.count > 0;
+}
+
+NSString *sha1(NSString *string) {
+    const char *cstr = [string cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cstr length:string.length];
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    CC_SHA1(data.bytes, (unsigned int)data.length, digest);
+    NSMutableString *outputStr = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
+        [outputStr appendFormat:@"%02x", digest[i]];
+    }
+    
+    return outputStr;
+}
+
+/*!
+ @brief 替换空字符串
+ */
+NSString *notNilString(NSString *string, NSString *placeString) {
+    return string.length ? string : (placeString ? placeString : @"");
+}
+
+// 字典转中文字符串 log NSSet with UTF8
+// if not ,log will be \Uxxx
++ (NSString *)logDic:(NSDictionary *)dic {
+    if (![dic count]) {
+        return nil;
+    }
+    NSString *tempStr1 = [[dic description] stringByReplacingOccurrencesOfString:@"\\u"
+                                                                      withString:@"\\U"];
+    NSString *tempStr2 = [tempStr1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    NSString *tempStr3 = [[@"\"" stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
+    NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *str = [NSPropertyListSerialization propertyListWithData:tempData options:NSPropertyListMutableContainersAndLeaves format:NULL error:NULL];
+    if (!str) {
+        str = tempStr3;
+    }
+    return str;
+}
+
 //判断是否是全数字
 BOOL stringIsNumberString(NSString *string, BOOL withPoint) {
     NSCharacterSet *notNumber=[[NSCharacterSet characterSetWithCharactersInString:withPoint ? NumberWithPoint : NumberWithoutPoint] invertedSet];
@@ -214,6 +305,33 @@ NSDate *dateWithPriousorLaterDate(NSDate *date, int month) {
 
 + (UIFont *)appFontOfPxSize:(CGFloat)pxSize {
     return [UIFont systemFontOfSize:[AppPublic systemFontOfPXSize:pxSize]];
+}
+
+- (void)logout {
+    [[UserPublic getInstance] clearUserData];
+}
+
+- (void)loginDoneWithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password {
+    if (!data || !username) {
+        return;
+    }
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:username forKey:kUserName];
+    
+    [[UserPublic getInstance] saveUserData:[AppSecureModel mj_objectWithKeyValues:data]];
+//    [self goToMainVC];
+}
+
+- (void)goToMainVC {
+    
+}
+
+- (void)goToLoginCompletion:(void (^)(void))completion {
+//    [[UIApplication sharedApplication].delegate window].rootViewController = [LoginViewController new];
+    if (completion) {
+        completion();
+    }
 }
 
 @end
