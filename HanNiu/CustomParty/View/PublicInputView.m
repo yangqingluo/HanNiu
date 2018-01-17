@@ -15,6 +15,7 @@ PublicInputView *NewPublicInputView(CGRect frame, NSString *placeHolder, NSStrin
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(30, 0, inputView.width - 2 * 30, inputView.height)];
     textField.placeholder = placeHolder;
     textField.font = [AppPublic appFontOfSize:appLabelFontSizeSmall];
+//    textField.clearButtonMode = UITextFieldViewModeAlways;
     textField.textColor = [UIColor whiteColor];
     [textField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [inputView addSubview:textField];

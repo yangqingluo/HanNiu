@@ -117,7 +117,10 @@
     [[AppNetwork getInstance] loginWithID:self.usernameInputView.text Password:self.passwordInputView.text completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];
         if (error) {
-            [weakself showHint:error.userInfo[@"message"]];
+            [weakself showHint:error.userInfo[appHttpMessage ]];
+        }
+        else {
+            [weakself goBackWithDone:NO];
         }
     }];
 }

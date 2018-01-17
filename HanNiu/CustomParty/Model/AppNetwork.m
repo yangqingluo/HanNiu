@@ -46,6 +46,63 @@ NSString *urlStringWithService(NSString *service){
     return [NSString stringWithFormat:@"%@%@", appUrlAddress, service];
 }
 
+NSString *httpRespString(NSError *error, NSObject *object){
+    NSString *noticeString = @"出错";
+    if (error) {
+        noticeString = @"网络出错";
+    }
+    else {
+        if ([object isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dic = (NSDictionary *)object;
+            if (dic[@"msg"]) {
+                noticeString = dic[@"msg"];
+            }
+            else if (dic[@"State"]) {
+                NSString *State = [NSString stringWithFormat:@"%@", dic[@"State"]];
+                NSDictionary *m_dic = [AppNetwork getInstance].httpRespCodeDic;
+                NSString *m_string = m_dic[State];
+                noticeString = m_string.length ? m_string : [NSString stringWithFormat:@"错误码：%@", dic[@"State"]];
+            }
+        }
+    }
+    return noticeString;
+}
+
+#pragma mark - getter
+- (NSDictionary *)httpRespCodeDic {
+    if (!_httpRespCodeDic) {
+        _httpRespCodeDic = @{[NSString stringWithFormat:@"%d", 0x10000] : @"成功(目前版本中不保证该结果的正确性)",
+        @"3" : @"成功(重复提交:之前已受理过此请求,因此未执行,或单位时间内执行次数超出限额)",
+        @"1" : @"执行成功(分页：只返回部分结果)",
+        @"0" : @"成功",
+        @"-1" : @"数据库错误",
+        @"-2" : @"未登录",
+        @"-3" : @"找不到此用户",
+        @"-4" : @"用户名或密码错误",
+        @"-5" : @"非法参数",
+        @"-6" : @"数据冲突",
+        @"-7" : @"没有权限",
+        @"-8" : @"验证码错误",
+        @"-9" : @"从远程服务器读取数据出错",
+        @"-10" : @"远程服务器连接失败",
+        @"-11" : @"远程服务器未找到",
+        @"-12" : @"未找到指定对象",
+//        @"-13" : @"保留",
+        @"-14" : @"IO错误",
+        @"-15" : @"账号异地登录",
+        @"-16" : @"数据过期",
+        @"-17" : @"用户名已存在",
+        @"-18" : @"发送验证码失败",
+        @"-19" : @"找不到家庭",
+        @"-20" : @"在黑名单中",
+        @"-21" : @"不再受支持",
+        @"-22" : @"未实现",
+        [NSString stringWithFormat:@"%d", 0xff] : @"未知错误",
+                             };
+    }
+    return _httpRespCodeDic;
+}
+
 #pragma mark - public
 //Get
 - (void)Get:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter completion:(AppNetworkBlock)completion {
@@ -164,9 +221,17 @@ NSString *urlStringWithService(NSString *service){
         NSError *serializationError = nil;
         responseObject = [NSJSONSerialization JSONObjectWithData:responseBody options:NSJSONReadingAllowFragments error:&serializationError];
         if (!serializationError && [responseObject isKindOfClass:[NSDictionary class]]) {
-            completionObject = responseObject;
-            if ([self occuredRemoteLogin:responseObject]) {
-                return;
+            if (responseObject[@"State"]) {
+                NSInteger State = [responseObject[@"State"] integerValue];
+                if (State >= HTTP_SUCCESS) {
+                    completionObject = responseObject;
+                }
+                else {
+                    message = httpRespString(nil, responseObject);
+                    if ([self occuredRemoteLogin:responseObject]) {
+                        return;
+                    }
+                }
             }
         }
     }
@@ -175,7 +240,8 @@ NSString *urlStringWithService(NSString *service){
         completion(completionObject, nil);
     }
     else {
-        completion(nil, [NSError errorWithDomain:@"www.hanniu.com" code:code userInfo:@{@"message" : message}]);
+        completion(nil, [NSError errorWithDomain:@"www.hanniu.com" code:code userInfo:@{appHttpMessage : message}]);
     }
 }
+
 @end

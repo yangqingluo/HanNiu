@@ -7,7 +7,6 @@
 //
 
 #import "AccountViewController.h"
-#import "LoginViewController.h"
 #import "AccountSettingsVC.h"
 
 #import "PublicTableViewCell.h"
@@ -120,9 +119,7 @@
             
         }
         else {
-            LoginViewController *vc = [LoginViewController new];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self doPushViewController:vc animated:YES];
+             [[AppPublic getInstance] goToLoginCompletion:nil];
         }
     }
     else {

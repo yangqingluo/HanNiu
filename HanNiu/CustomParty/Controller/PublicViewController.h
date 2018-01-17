@@ -12,6 +12,7 @@
 @interface PublicViewController : UIViewController
 
 @property (weak, nonatomic) PublicViewController *parentVC;
+@property (copy,   nonatomic) AppDoneBlock doneBlock;
 @property (assign, nonatomic) BOOL needRefresh;
 
 - (void)createNavWithTitle:(NSString *)szTitle createMenuItem:(UIView *(^)(int nIndex))menuItem;
@@ -27,5 +28,9 @@
 - (UIViewController *)doPopViewControllerAnimated:(BOOL)animated;
 - (NSArray<__kindof UIViewController *> *)doPopToViewController:(UIViewController *)viewController animated:(BOOL)animated;
 - (NSArray<__kindof UIViewController *> *)doPopToLastViewControllerSkip:(NSUInteger)skip animated:(BOOL)animated;
+
+- (void)cancelButtonAction;
+- (void)goBackWithDone:(BOOL)done;
+- (void)doDoneAction;
 
 @end

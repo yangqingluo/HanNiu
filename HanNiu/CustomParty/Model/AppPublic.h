@@ -89,6 +89,8 @@
 
 #define kNotification_Login_StateRefresh @"kNotification_Login_StateRefresh"//登录状态变化
 
+typedef void(^AppDoneBlock)(id object);
+
 @interface AppPublic : NSObject
 
 + (AppPublic *)getInstance;

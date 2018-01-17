@@ -123,6 +123,28 @@
     }
 }
 
+- (void)cancelButtonAction {
+    [self goBackWithDone:NO];
+}
+- (void)goBackWithDone:(BOOL)done {
+    if (done) {
+        [self doDoneAction];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+    //    QKWEAKSELF;
+    //    [self.navigationController dismissViewControllerAnimated:NO completion:^{
+    //        if (done) {
+    //            [weakself doDoneAction];
+    //        }
+    //    }];
+}
+
+- (void)doDoneAction {
+    if (self.doneBlock) {
+        self.doneBlock(nil);
+    }
+}
+
 #pragma mark - TextField
 //- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
 //
