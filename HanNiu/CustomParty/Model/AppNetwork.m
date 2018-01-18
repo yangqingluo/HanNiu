@@ -222,8 +222,8 @@ NSString *httpRespString(NSError *error, NSObject *object){
         responseObject = [NSJSONSerialization JSONObjectWithData:responseBody options:NSJSONReadingAllowFragments error:&serializationError];
         if (!serializationError && [responseObject isKindOfClass:[NSDictionary class]]) {
             if (responseObject[@"State"]) {
-                NSInteger State = [responseObject[@"State"] integerValue];
-                if (State >= HTTP_SUCCESS) {
+                code = [responseObject[@"State"] integerValue];
+                if (code >= HTTP_SUCCESS) {
                     completionObject = responseObject;
                 }
                 else {

@@ -117,6 +117,7 @@
 		E410D27F200CB79100C6ACED /* yalantis_phoenix_buildings.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D212200CB79000C6ACED /* yalantis_phoenix_buildings.png */; };
 		E410D280200CB79100C6ACED /* yalantis_phoenix_sky.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D213200CB79000C6ACED /* yalantis_phoenix_sky.png */; };
 		E410D281200CB79100C6ACED /* yalantis_phoenix_sun.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D214200CB79000C6ACED /* yalantis_phoenix_sun.png */; };
+		E437F4A020104E33001DA60E /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E437F49F20104E33001DA60E /* RegistViewController.m */; };
 		E47887D8200C48D6009C86A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887D7200C48D6009C86A7 /* main.m */; };
 		E47887DB200C48D6009C86A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887DA200C48D6009C86A7 /* AppDelegate.m */; };
 		E47887DE200C48D6009C86A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887DD200C48D6009C86A7 /* ViewController.m */; };
@@ -343,6 +344,8 @@
 		E410D212200CB79000C6ACED /* yalantis_phoenix_buildings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yalantis_phoenix_buildings.png; sourceTree = "<group>"; };
 		E410D213200CB79000C6ACED /* yalantis_phoenix_sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yalantis_phoenix_sky.png; sourceTree = "<group>"; };
 		E410D214200CB79000C6ACED /* yalantis_phoenix_sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yalantis_phoenix_sun.png; sourceTree = "<group>"; };
+		E437F49E20104E33001DA60E /* RegistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		E437F49F20104E33001DA60E /* RegistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
 		E47887D3200C48D6009C86A7 /* HanNiu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanNiu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47887D7200C48D6009C86A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E47887D9200C48D6009C86A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1009,6 +1012,8 @@
 				E4EE191D200DE8AC005BD00F /* LoginViewController.m */,
 				E4BA3000200F51B600395F70 /* ForgetViewController.h */,
 				E4BA3001200F51B700395F70 /* ForgetViewController.m */,
+				E437F49E20104E33001DA60E /* RegistViewController.h */,
+				E437F49F20104E33001DA60E /* RegistViewController.m */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1489,6 +1494,7 @@
 				E4B3CB1D200D931D006807AE /* AppPublic.m in Sources */,
 				E4B3CC98200D9616006807AE /* SDImageCache.m in Sources */,
 				E4BA2FF8200F38C900395F70 /* IQTextView.m in Sources */,
+				E437F4A020104E33001DA60E /* RegistViewController.m in Sources */,
 				E4B3CB26200D94E9006807AE /* UIImage+Rotate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

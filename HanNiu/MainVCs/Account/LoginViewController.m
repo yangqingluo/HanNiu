@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "ForgetViewController.h"
+#import "RegistViewController.h"
 
 #import "PublicInputView.h"
 #import "UILabel+YBAttributeTextTapAction.h"
@@ -139,7 +140,8 @@
 }
 
 - (void)registButtonAction {
-    [self doShowHintFunction:@"注册"];
+    RegistViewController *vc = [RegistViewController new];
+    [self doPushViewController:vc animated:YES];
 }
 
 - (void)agreeButtonAction {

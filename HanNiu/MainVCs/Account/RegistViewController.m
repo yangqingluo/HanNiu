@@ -1,16 +1,16 @@
 //
-//  ForgetViewController.m
+//  RegistViewController.m
 //  HanNiu
 //
-//  Created by 7kers on 2018/1/17.
+//  Created by 7kers on 2018/1/18.
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "ForgetViewController.h"
+#import "RegistViewController.h"
 
 #import "PublicInputView.h"
 
-@interface ForgetViewController ()<UITextFieldDelegate>
+@interface RegistViewController ()<UITextFieldDelegate>
 
 @property (strong, nonatomic) PublicInputView *phoneInputView;
 @property (strong, nonatomic) PublicInputView *vcodeInputView;
@@ -19,11 +19,11 @@
 
 @end
 
-@implementation ForgetViewController
+@implementation RegistViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"重置密码";
+    self.title = @"注册";
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back_login_fragment"]];
     
@@ -38,7 +38,7 @@
     self.vcodeInputView.top = self.phoneInputView.bottom + 40;
     [self.view addSubview:self.vcodeInputView];
     
-    self.passwordInputView = NewPublicInputView(self.phoneInputView.frame, @"新密码", @"icon_login_password");
+    self.passwordInputView = NewPublicInputView(self.phoneInputView.frame, @"密码", @"icon_login_password");
     self.passwordInputView.textField.secureTextEntry = YES;
     self.passwordInputView.textField.delegate = self;
     self.passwordInputView.top = self.vcodeInputView.bottom + 30;
@@ -52,7 +52,7 @@
     self.vcodeInputView.textField.width -= (self.vcodeBtn.width + kEdge);
     [self.vcodeInputView addSubview:self.vcodeBtn];
     
-    UIButton *sureBtn = NewTextButton(@"确定", appMainColor);
+    UIButton *sureBtn = NewTextButton(@"注册", appMainColor);
     sureBtn.frame = self.passwordInputView.frame;
     sureBtn.top = self.passwordInputView.bottom + 50;
     [sureBtn setBackgroundImage:[UIImage imageNamed:@"back_login_btn"] forState:UIControlStateNormal];
@@ -87,7 +87,7 @@
         [self doShowHintFunction:@"密码长度不正确"];
     }
     else {
-        [self doResetPasswordFunction];
+        [self doRegistPasswordFunction];
     }
 }
 
@@ -101,7 +101,7 @@
 }
 
 - (void)doGetVCodeFunction {
-    NSDictionary *m_dic = @{@"Username" : self.phoneInputView.text, @"Type" : @(1)};
+    NSDictionary *m_dic = @{@"Username" : self.phoneInputView.text, @"Type" : @(0)};
     [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:@"Account/Vfy/SendSms" completion:^(id responseBody, NSError *error){
@@ -115,7 +115,7 @@
     }];
 }
 
-- (void)doResetPasswordFunction {
+- (void)doRegistPasswordFunction {
     UserParam *parm = [UserParam new];
     parm.Name = self.phoneInputView.text;
     parm.NewPwd = self.passwordInputView.text;
@@ -127,13 +127,13 @@
     NSDictionary *m_dic = [parm mj_keyValues];
     [self doShowHudFunction];
     QKWEAKSELF;
-    [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:@"Account/Pwd/Rst" completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:@"Account/Regist" completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            [weakself doShowHintFunction:@"重置密码成功"];
+            [weakself doShowHintFunction:@"注册成功"];
             [weakself goBackWithDone:NO];
         }
     }];
