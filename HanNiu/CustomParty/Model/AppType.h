@@ -37,4 +37,18 @@
 
 @end
 
+//密码相关参数类
+@interface UserParam : AppType
+
+@property (strong, nonatomic) NSString *Name;//用户名, 第三方登录时为三方openId
+@property (strong, nonatomic) NSString *LoginType;//验证码的获取途径->{2:手机} 登录账号类型->{0:自动,1:用户名,2:手机}
+@property (strong, nonatomic) NSString *CurPwd;//当前密码, 重置密码和注册时可不传, PwdMode=2时不传; 第三方登录channel->{1: QQ, 2:微信}
+@property (strong, nonatomic) NSString *NewPwd;//新密码
+@property (strong, nonatomic) NSString *PwdMode;//密码加密模式->{0: 不加密, 1: MD5, 2: 短信验证码(自动登录或注册), 3: 三方登录[用户名为三方openId, 当前密码为三方channel]}
+@property (strong, nonatomic) NSString *Role;//角色->{128:超级管理员, 64:普通管理员, 1:普通用户}, 默认0(不检查角色或由后台控制); PwdMode=2或3时角色可不传(由后台控制哪些角色允许登录)，如传值角色只能是普通用户
+@property (strong, nonatomic) NSString *ClientId;//客户端类型, 1:Android, 2:IOS, 3:Web, 4:Test, 5:Weixin
+@property (strong, nonatomic) NSString *VerifyCode;//验证码, GBK(6字节)
+
+@end
+
 

@@ -63,7 +63,7 @@
     self.passwordInputView.textField.delegate = self;
     [self.view addSubview:self.passwordInputView];
     
-    UIButton *loginBtn = NewTextButton(@"登录", RGBA(0xff, 0x4f, 0x6e, 1.0));
+    UIButton *loginBtn = NewTextButton(@"登录", appMainColor);
     loginBtn.frame = self.usernameInputView.frame;
     loginBtn.top = self.passwordInputView.bottom + 50;
     [loginBtn setBackgroundImage:[UIImage imageNamed:@"back_login_btn"] forState:UIControlStateNormal];
@@ -112,11 +112,11 @@
 - (void)loginButtonAction {
     [self dismissKeyboard];
     if (!isMobilePhone(self.usernameInputView.text)) {
-        [self showHint:@"请输入正确的手机号"];
+        [self doShowHintFunction:@"请输入正确的手机号"];
         return;
     }
     else if (self.passwordInputView.text.length < kPasswordLengthMin) {
-        [self showHint:@"密码为6-16位字母数字组合"];
+        [self doShowHintFunction:@"密码为6-16位字母数字组合"];
         return;
     }
     
@@ -125,7 +125,7 @@
     [[AppNetwork getInstance] loginWithID:self.usernameInputView.text Password:self.passwordInputView.text completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];
         if (error) {
-            [weakself showHint:error.userInfo[appHttpMessage ]];
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
             [weakself goBackWithDone:NO];

@@ -37,7 +37,7 @@ PublicInputView *NewPublicInputView(CGRect frame, NSString *placeHolder, NSStrin
     
     leftView.centerY = 0.5 * self.height;
     [self addSubview:leftView];
-    
+    self.leftView = leftView;
 //    textField.leftView = leftView;
 //    textField.leftViewMode = UITextFieldViewModeAlways;
 }

@@ -11,6 +11,7 @@
 @interface PublicInputView : UIView
 
 @property (strong, nonatomic) UITextField *textField;
+@property (strong, nonatomic) UIView *leftView;
 @property (strong, nonatomic) NSString *text;
 
 PublicInputView *NewPublicInputView(CGRect frame, NSString *placeHolder, NSString *leftImageName);

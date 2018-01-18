@@ -145,7 +145,12 @@
     }
 }
 
-#pragma mark - TextField
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    [self dismissKeyboard];
+}
+
+#pragma mark - TextFieldDelegate
 //- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
 //
 //}

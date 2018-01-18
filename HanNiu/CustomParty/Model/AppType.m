@@ -26,3 +26,9 @@
 
 
 @end
+
+
+@implementation UserParam
+
+
+@end

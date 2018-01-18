@@ -131,7 +131,7 @@ NSString *notNilString(NSString *string, NSString *placeString) {
 
 //判断是否是全数字
 BOOL stringIsNumberString(NSString *string, BOOL withPoint) {
-    NSCharacterSet *notNumber=[[NSCharacterSet characterSetWithCharactersInString:withPoint ? NumberWithPoint : NumberWithoutPoint] invertedSet];
+    NSCharacterSet *notNumber=[[NSCharacterSet characterSetWithCharactersInString:withPoint ? appNumberWithPoint : appNumberWithoutPoint] invertedSet];
     NSString *string1 = [[string componentsSeparatedByCharactersInSet:notNumber] componentsJoinedByString:@""];
     return [string isEqualToString:string1];
 }
