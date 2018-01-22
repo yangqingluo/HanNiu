@@ -220,6 +220,9 @@
 		E4BA2FFE200F38C900395F70 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E4BA2FEF200F38C900395F70 /* IQKeyboardManager.bundle */; };
 		E4BA3002200F51B700395F70 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BA3001200F51B700395F70 /* ForgetViewController.m */; };
 		E4BA3005200FA0E200395F70 /* AccountAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BA3004200FA0E200395F70 /* AccountAboutVC.m */; };
+		E4DB3C502015B26500D5C465 /* AccountCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C4F2015B26500D5C465 /* AccountCollectionVC.m */; };
+		E4DB3C532015B31900D5C465 /* AccountSuggestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C522015B31900D5C465 /* AccountSuggestVC.m */; };
+		E4DB3C562015B81900D5C465 /* XHMessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C542015B81800D5C465 /* XHMessageTextView.m */; };
 		E4EE1910200DC97B005BD00F /* PublicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE190F200DC97B005BD00F /* PublicTableViewController.m */; };
 		E4EE1913200DCD74005BD00F /* PublicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE1912200DCD74005BD00F /* PublicTableViewCell.m */; };
 		E4EE1916200DCE87005BD00F /* PublicShowTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE1915200DCE87005BD00F /* PublicShowTableVC.m */; };
@@ -557,6 +560,12 @@
 		E4BA3001200F51B700395F70 /* ForgetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgetViewController.m; sourceTree = "<group>"; };
 		E4BA3003200FA0E200395F70 /* AccountAboutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountAboutVC.h; sourceTree = "<group>"; };
 		E4BA3004200FA0E200395F70 /* AccountAboutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountAboutVC.m; sourceTree = "<group>"; };
+		E4DB3C4E2015B26500D5C465 /* AccountCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountCollectionVC.h; sourceTree = "<group>"; };
+		E4DB3C4F2015B26500D5C465 /* AccountCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountCollectionVC.m; sourceTree = "<group>"; };
+		E4DB3C512015B31900D5C465 /* AccountSuggestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountSuggestVC.h; sourceTree = "<group>"; };
+		E4DB3C522015B31900D5C465 /* AccountSuggestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountSuggestVC.m; sourceTree = "<group>"; };
+		E4DB3C542015B81800D5C465 /* XHMessageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHMessageTextView.m; sourceTree = "<group>"; };
+		E4DB3C552015B81800D5C465 /* XHMessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHMessageTextView.h; sourceTree = "<group>"; };
 		E4EE190E200DC97B005BD00F /* PublicTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicTableViewController.h; sourceTree = "<group>"; };
 		E4EE190F200DC97B005BD00F /* PublicTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicTableViewController.m; sourceTree = "<group>"; };
 		E4EE1911200DCD74005BD00F /* PublicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicTableViewCell.h; sourceTree = "<group>"; };
@@ -1013,6 +1022,10 @@
 			children = (
 				E4B3CCC3200D98A3006807AE /* AccountViewController.h */,
 				E4B3CCC4200D98A3006807AE /* AccountViewController.m */,
+				E4DB3C4E2015B26500D5C465 /* AccountCollectionVC.h */,
+				E4DB3C4F2015B26500D5C465 /* AccountCollectionVC.m */,
+				E4DB3C512015B31900D5C465 /* AccountSuggestVC.h */,
+				E4DB3C522015B31900D5C465 /* AccountSuggestVC.m */,
 				E4BA2FC8200F2D4000395F70 /* AccountSettingsVC.h */,
 				E4BA2FC9200F2D4000395F70 /* AccountSettingsVC.m */,
 				E4BA3003200FA0E200395F70 /* AccountAboutVC.h */,
@@ -1192,6 +1205,8 @@
 				E4B3CCB9200D96DD006807AE /* UIView+KGViewExtend.m */,
 				E4EE1923200EE67D005BD00F /* UILabel+YBAttributeTextTapAction.h */,
 				E4EE1922200EE67C005BD00F /* UILabel+YBAttributeTextTapAction.m */,
+				E4DB3C552015B81800D5C465 /* XHMessageTextView.h */,
+				E4DB3C542015B81800D5C465 /* XHMessageTextView.m */,
 				E4EE1911200DCD74005BD00F /* PublicTableViewCell.h */,
 				E4EE1912200DCD74005BD00F /* PublicTableViewCell.m */,
 				E4EE191F200DF5A0005BD00F /* PublicInputView.h */,
@@ -1438,6 +1453,7 @@
 				E4B3CC97200D9616006807AE /* NSData+ImageContentType.m in Sources */,
 				E4BA2FF6200F38C900395F70 /* IQKeyboardManager.m in Sources */,
 				E4B3CCC9200D9F1E006807AE /* HomeViewController.m in Sources */,
+				E4DB3C562015B81900D5C465 /* XHMessageTextView.m in Sources */,
 				E4EE191E200DE8AC005BD00F /* LoginViewController.m in Sources */,
 				E4B3CC95200D9616006807AE /* MBProgressHUD.m in Sources */,
 				E4B3CC80200D9616006807AE /* NSString+MJExtension.m in Sources */,
@@ -1479,6 +1495,7 @@
 				E4B3CC8A200D9616006807AE /* MJRefreshBackNormalFooter.m in Sources */,
 				E4BA2FFC200F38C900395F70 /* IQToolbar.m in Sources */,
 				E4B3CCA5200D9617006807AE /* BlockActionSheet.m in Sources */,
+				E4DB3C502015B26500D5C465 /* AccountCollectionVC.m in Sources */,
 				E4B3CC7C200D9616006807AE /* NSObject+MJClass.m in Sources */,
 				E4B3CC93200D9616006807AE /* UIView+MJExtension.m in Sources */,
 				E4B3CCAF200D9617006807AE /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -1511,6 +1528,7 @@
 				E4B3CC98200D9616006807AE /* SDImageCache.m in Sources */,
 				E4BA2FF8200F38C900395F70 /* IQTextView.m in Sources */,
 				E437F4A020104E33001DA60E /* RegistViewController.m in Sources */,
+				E4DB3C532015B31900D5C465 /* AccountSuggestVC.m in Sources */,
 				E4B3CB26200D94E9006807AE /* UIImage+Rotate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1634,6 +1652,7 @@
 				DEVELOPMENT_TEAM = 5TL5JG9J98;
 				GCC_PREFIX_HEADER = HanNiu/HanNiuPrefix.pch;
 				INFOPLIST_FILE = HanNiu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zdz.HanNiu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1647,6 +1666,7 @@
 				DEVELOPMENT_TEAM = 5TL5JG9J98;
 				GCC_PREFIX_HEADER = HanNiu/HanNiuPrefix.pch;
 				INFOPLIST_FILE = HanNiu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zdz.HanNiu;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -21,7 +21,7 @@
     if (self) {
         _baseView = [[UIView alloc] initWithFrame:CGRectMake(kEdgeHuge, 0, self.width - 2 * kEdgeHuge, 280)];
         _baseView.backgroundColor = [UIColor whiteColor];
-        [AppPublic roundCornerRadius:_baseView cornerRadius:kViewCornerRadiusBig];
+        [AppPublic roundCornerRadius:_baseView cornerRadius:appViewCornerRadiusBig];
         _baseView.centerY = 0.4 * self.height;
         [self addSubview:_baseView];
         

@@ -7,6 +7,8 @@
 //
 
 #import "AccountViewController.h"
+#import "AccountCollectionVC.h"
+#import "AccountSuggestVC.h"
 #import "AccountSettingsVC.h"
 #import "AccountAboutVC.h"
 
@@ -45,7 +47,8 @@
 
 //初始化数据
 - (void)initializeData {
-    self.showArray = @[@{@"title":@"我的购买",@"subTitle":@"",@"key":@"icon_me_bought"},
+    self.showArray = @[@{@"title":@"我的收藏",@"subTitle":@"",@"key":@"icon_me_suggestion"},
+                      @{@"title":@"我的购买",@"subTitle":@"",@"key":@"icon_me_bought"},
                        @{@"title":@"我的M币",@"subTitle":@"充值",@"key":@"icon_me_coin"},
                        @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},
                        @{@"title":@"设置",@"subTitle":@"",@"key":@"icon_me_setting"},
@@ -124,21 +127,43 @@
         }
     }
     else {
+        if (indexPath.row <= 3) {
+            if (![UserPublic getInstance].userData) {
+                [[AppPublic getInstance] goToLoginCompletion:nil];
+                return;
+            }
+        }
+        NSDictionary *m_dic = self.showArray[indexPath.row];
+        PublicViewController *vc = nil;
         switch (indexPath.row) {
-            case 3: {
-                AccountSettingsVC *vc = [AccountSettingsVC new];
-                [self doPushViewController:vc animated:YES];
+            case 0:{
+                vc = [AccountCollectionVC new];
+            }
+                break;
+                
+            case 3:{
+                vc = [AccountSuggestVC new];
             }
                 break;
                 
             case 4: {
-                AccountAboutVC *vc = [AccountAboutVC new];
-                [self doPushViewController:vc animated:YES];
+                vc = [AccountSettingsVC new];
+            }
+                break;
+                
+            case 5: {
+                vc = [AccountAboutVC new];
             }
                 break;
                 
             default:
                 break;
+        }
+        if (vc) {
+            [self doPushViewController:vc animated:YES];
+        }
+        else {
+            [self doShowHintFunction:[NSString stringWithFormat:@"%@ 敬请期待", m_dic[@"title"]]];
         }
     }
 }
