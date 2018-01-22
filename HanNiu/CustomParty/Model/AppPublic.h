@@ -37,6 +37,7 @@
 #define kRefreshTime                    24 * 60 * 60//自动刷新间隔时间
 #define kButtonCornerRadius             4.0
 #define kViewCornerRadius               4.0
+#define kViewCornerRadiusBig            12.0
 
 #define kImageDataMax                   100 * 1024//图像大小上限
 #define kHeadImageSizeMax               96//头像图像 宽/高 大小上限
@@ -100,7 +101,8 @@ typedef void(^AppDoneBlock)(id object);
 @property (strong, nonatomic) NSString *appName;
 //应用版本
 @property (strong, nonatomic) NSString *appVersion;
-
+//栈顶视图控制器
+@property (strong, nonatomic) UIViewController *topViewController;
 
 /*!
  @brief 检查版本是否第一次使用
@@ -160,6 +162,11 @@ NSDate *dateWithPriousorLaterDate(NSDate *date, int month);
 + (UIFont *)appFontOfSize:(CGFloat)fontSize;
 + (UIFont *)boldAppFontOfSize:(CGFloat)fontSize;
 + (UIFont *)appFontOfPxSize:(CGFloat)pxSize;
+
+//切圆角
++ (void)roundCornerRadius:(UIView *)view;
++ (void)roundCornerRadius:(UIView *)view cornerRadius:(CGFloat)radius;
+
 
 
 - (void)logout;

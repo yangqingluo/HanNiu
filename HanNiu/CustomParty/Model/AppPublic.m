@@ -309,6 +309,21 @@ NSDate *dateWithPriousorLaterDate(NSDate *date, int month) {
     return [UIFont systemFontOfSize:[AppPublic systemFontOfPXSize:pxSize]];
 }
 
+//切圆角
++ (void)roundCornerRadius:(UIView *)view {
+    [AppPublic roundCornerRadius:view cornerRadius:0.5 * MAX(view.width, view.height)];
+}
+
++ (void)roundCornerRadius:(UIView *)view cornerRadius:(CGFloat)radius {
+    view.layer.cornerRadius = radius;
+    view.layer.masksToBounds = YES;
+}
+
+
+
+
+
+
 - (void)logout {
     [[UserPublic getInstance] clearUserData];
 }

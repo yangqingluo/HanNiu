@@ -9,6 +9,9 @@
 #import "RegistViewController.h"
 
 #import "PublicInputView.h"
+#import "PublicAlertShowGraphView.h"
+#import "UIImageView+WebCache.h"
+#import "SDImageCache.h"
 
 @interface RegistViewController ()<UITextFieldDelegate>
 
@@ -97,17 +100,25 @@
         [self doShowHintFunction:@"请输入正确的手机号"];
         return;
     }
-    [self doGetVCodeFunction];
+    [self doGetVCodeFunction:nil];
 }
 
-- (void)doGetVCodeFunction {
-    NSDictionary *m_dic = @{@"Username" : self.phoneInputView.text, @"Type" : @(0)};
+- (void)doGetVCodeFunction:(NSString *)gphCode {
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"Username" : self.phoneInputView.text, @"Type" : @0}];
+    if (gphCode.length) {
+        [m_dic setObject:gphCode forKey:@"gphCode"];
+    }
     [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:@"Account/Vfy/SendSms" completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];
         if (error) {
-            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+            if (error.code == HTTP_ERR_NEED_VFY) {
+                [weakself doVfyGetGphFunction];
+            }
+            else {
+                [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+            }
         }
         else {
             [weakself waitForGettingCodeAgain:@120];
@@ -137,6 +148,22 @@
             [weakself goBackWithDone:NO];
         }
     }];
+}
+
+- (void)doVfyGetGphFunction {
+    NSString *key = urlStringWithService([NSString stringWithFormat:@"Account/Vfy/GetGph?username=%@", self.phoneInputView.text]);
+    PublicAlertShowGraphView *alert = [PublicAlertShowGraphView new];
+    [alert.graphView sd_setImageWithURL:[NSURL URLWithString:key] placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName] options:SDWebImageProgressiveDownload completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+        [[SDImageCache sharedImageCache] removeImageForKey:key];
+    }];
+    
+    QKWEAKSELF;
+    alert.block = ^(PublicAlertView *view, NSInteger index) {
+        if (index == 1) {
+            [weakself doGetVCodeFunction:((PublicAlertShowGraphView *)view).inputView.text];
+        }
+    };
+    [alert show];
 }
 
 #pragma mark - TextFieldDelegate

@@ -23,11 +23,15 @@ PublicInputView *NewPublicInputView(CGRect frame, NSString *placeHolder, NSStrin
     
     [inputView addTextField:textField imageName:leftImageName];
     
-    [inputView addSubview:NewSeparatorLine(CGRectMake(0, inputView.height - 1, inputView.width, 1))];
+    inputView.lineView = NewSeparatorLine(CGRectMake(0, inputView.height - 1, inputView.width, 1));
+    [inputView addSubview:inputView.lineView];
     return inputView;
 }
 
 - (void)addTextField:(UITextField *)textField imageName:(NSString *)imageName {
+    if (!imageName.length) {
+        return;
+    }
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MIN(self.height, 30), self.height)];
     leftView.backgroundColor = [UIColor clearColor];
     

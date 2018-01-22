@@ -42,7 +42,7 @@
     return manager;
 }
 
-NSString *urlStringWithService(NSString *service){
+NSString *urlStringWithService(NSString *service) {
     return [NSString stringWithFormat:@"%@%@", appUrlAddress, service];
 }
 
@@ -97,6 +97,10 @@ NSString *httpRespString(NSError *error, NSObject *object){
         @"-20" : @"在黑名单中",
         @"-21" : @"不再受支持",
         @"-22" : @"未实现",
+        @"-23" : @"触发业务流控限制",
+        @"-24" : @"需要提供验证码(或验证码失效)",
+        @"-25" : @"被禁用",
+        @"-26" : @"二维码过期",
         [NSString stringWithFormat:@"%d", 0xff] : @"未知错误",
                              };
     }
