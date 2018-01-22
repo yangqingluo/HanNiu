@@ -19,23 +19,23 @@
     [super viewDidLoad];
     
 //    self.title = @"";
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, DEFAULT_BAR_HEIGHT)];
     [btn setImage:[UIImage imageNamed:@"main_me_icon"] forState:UIControlStateNormal];
     btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [btn addTarget:self action:@selector(accountButtonAction) forControlEvents:UIControlEventTouchUpInside];
 //    [self.navigationController.navigationBar addSubview:btn];
     
-    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, DEFAULT_BAR_HEIGHT)];
     leftView.clipsToBounds = NO;
     [leftView addSubview:btn];
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
     self.navigationItem.leftBarButtonItems = @[leftItem];
     
-    UITextField *searchField = [[UITextField alloc] initWithFrame:CGRectMake(-20, 5, screen_width - 2 * kEdgeToScreen, 30)];
+    UITextField *searchField = [[UITextField alloc] initWithFrame:CGRectMake(0, 7, screen_width - 2 * kEdgeToScreen, 30)];
     searchField.borderStyle = UITextBorderStyleRoundedRect;
     
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 40)];
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, DEFAULT_BAR_HEIGHT)];
     [titleView addSubview:searchField];
     [self.navigationItem setTitleView:titleView];
 }

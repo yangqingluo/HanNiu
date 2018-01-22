@@ -7,6 +7,7 @@
 //
 
 #import "AccountViewController.h"
+#import "AccountDetailVC.h"
 #import "AccountCollectionVC.h"
 #import "AccountSuggestVC.h"
 #import "AccountSettingsVC.h"
@@ -86,7 +87,7 @@
             CGFloat i_radius = c_height - 2 * kEdgeMiddle;
             cell.showImageView.frame = CGRectMake(kEdgeHuge, kEdgeMiddle, i_radius, i_radius);
             cell.titleLabel.frame = CGRectMake(cell.showImageView.right + kEdgeHuge, 0, screen_width - (cell.showImageView.right + kEdgeHuge) - kEdgeHuge, c_height);
-            cell.showImageView.image = [UIImage imageNamed:defaultDownloadPlaceImageName];
+            cell.showImageView.image = [UIImage imageNamed:defaultHeadPlaceImageName];
             
             cell.titleLabel.numberOfLines = 0;
         }
@@ -120,7 +121,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0) {
         if ([UserPublic getInstance].userData) {
-            
+            AccountDetailVC *vc = [AccountDetailVC new];
+            [self doPushViewController:vc animated:YES];
         }
         else {
              [[AppPublic getInstance] goToLoginCompletion:nil];

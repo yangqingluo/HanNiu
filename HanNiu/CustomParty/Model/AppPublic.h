@@ -27,7 +27,7 @@
 #define appTextColor                    RGBA(0x21, 0x21, 0x21, 1.0)
 #define appTextLightColor               RGBA(0xf2, 0xb4, 0xa9, 1.0)
 #define appRedColor                     RGBA(0xd9, 0x55, 0x55, 1.0)
-#define appLightWhiteColor              RGBA(0xf8, 0xf8, 0xf8, 1.0)
+#define appLightWhiteColor              RGBA(0xf2, 0xf2, 0xf2, 1.0)
 
 #define STATUS_HEIGHT                   20.0
 #define STATUS_BAR_HEIGHT               64.0
@@ -81,7 +81,7 @@
 #define appNumberWithDash               @"0123456789-"
 
 #define defaultDateFormat               @"yyyy-MM-dd"
-#define defaultHeadPlaceImageName       @"默认头像"
+#define defaultHeadPlaceImageName       @"placeholder_user_portrait"
 #define defaultDownloadPlaceImageName   @"download_image_default"
 #define defaultNoticeNotComplete        @"精彩功能，敬请期待"
 
