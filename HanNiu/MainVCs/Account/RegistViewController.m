@@ -66,6 +66,11 @@
     [_vcodeBtn addTarget:self action:@selector(vcodeButtonAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)initializeNavigationBar {
+    [super initializeNavigationBar];
+    self.navigationBarView.image = nil;
+}
+
 - (void)waitForGettingCodeAgain:(NSNumber *)timeToGetCodeAgain{
     if ([timeToGetCodeAgain intValue]) {
         self.vcodeBtn.enabled = NO;

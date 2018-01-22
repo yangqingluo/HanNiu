@@ -36,6 +36,7 @@
 }
 
 - (void)initInteractivePopGestureRecognizer {
+    self.navigationBarHidden = YES;
     self.interactivePopGestureRecognizer.delegate = self;
 }
 

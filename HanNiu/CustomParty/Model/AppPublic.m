@@ -179,18 +179,18 @@ NSData *dataOfImageCompression(UIImage *image, BOOL isHead) {
 //生成视图
 UIButton *NewBackButton(UIColor *color) {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *i = [UIImage imageNamed:@"navbar_icon_back"];
+    UIImage *i = [UIImage imageNamed:@"icon_go_back"];
     if (color) {
         i = [i imageWithColor:color];
     }
     [btn setImage:i forState:UIControlStateNormal];
     [btn setFrame:CGRectMake(0, 0, 64, 44)];
-    btn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0);
     return btn;
 }
 
 UIButton *NewRightButton(UIImage *image, UIColor *color) {
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(screen_width - 64, 0, 64, 44)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(screen_width - 64, 0, 64, DEFAULT_BAR_HEIGHT)];
     if (color) {
         image = [image imageWithColor:color];
     }
@@ -200,7 +200,7 @@ UIButton *NewRightButton(UIImage *image, UIColor *color) {
 }
 
 UIButton *NewTextButton(NSString *title, UIColor *textColor) {
-    return NewButton(CGRectMake(screen_width - 64, 0, 64, 44), title, textColor, nil);
+    return NewButton(CGRectMake(screen_width - 64, 0, 64, DEFAULT_BAR_HEIGHT), title, textColor, nil);
 }
 
 UIButton *NewButton(CGRect frame, NSString *title, UIColor *textColor, UIFont *font) {

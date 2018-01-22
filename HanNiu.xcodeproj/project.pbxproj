@@ -101,7 +101,7 @@
 		E410D26F200CB79100C6ACED /* placeholder_news_cover.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D202200CB79000C6ACED /* placeholder_news_cover.png */; };
 		E410D270200CB79100C6ACED /* placeholder_user_portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D203200CB79000C6ACED /* placeholder_user_portrait@2x.png */; };
 		E410D271200CB79100C6ACED /* rotate_progress.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D204200CB79000C6ACED /* rotate_progress.png */; };
-		E410D272200CB79100C6ACED /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D205200CB79000C6ACED /* search.png */; };
+		E410D272200CB79100C6ACED /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D205200CB79000C6ACED /* search@2x.png */; };
 		E410D273200CB79100C6ACED /* select_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D206200CB79000C6ACED /* select_icon.png */; };
 		E410D274200CB79100C6ACED /* status_bar_back.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D207200CB79000C6ACED /* status_bar_back.png */; };
 		E410D275200CB79100C6ACED /* toolbar_back.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D208200CB79000C6ACED /* toolbar_back.png */; };
@@ -118,6 +118,8 @@
 		E410D280200CB79100C6ACED /* yalantis_phoenix_sky.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D213200CB79000C6ACED /* yalantis_phoenix_sky.png */; };
 		E410D281200CB79100C6ACED /* yalantis_phoenix_sun.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D214200CB79000C6ACED /* yalantis_phoenix_sun.png */; };
 		E437F4A020104E33001DA60E /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E437F49F20104E33001DA60E /* RegistViewController.m */; };
+		E4481EE22015E06400F69201 /* PublicBarTextFiled.m in Sources */ = {isa = PBXBuildFile; fileRef = E4481EE12015E06400F69201 /* PublicBarTextFiled.m */; };
+		E469F12B2015EAA8000B3C04 /* HomeSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */; };
 		E47887D8200C48D6009C86A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887D7200C48D6009C86A7 /* main.m */; };
 		E47887DB200C48D6009C86A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887DA200C48D6009C86A7 /* AppDelegate.m */; };
 		E47887DE200C48D6009C86A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887DD200C48D6009C86A7 /* ViewController.m */; };
@@ -335,7 +337,7 @@
 		E410D202200CB79000C6ACED /* placeholder_news_cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_news_cover.png; sourceTree = "<group>"; };
 		E410D203200CB79000C6ACED /* placeholder_user_portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder_user_portrait@2x.png"; sourceTree = "<group>"; };
 		E410D204200CB79000C6ACED /* rotate_progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotate_progress.png; sourceTree = "<group>"; };
-		E410D205200CB79000C6ACED /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		E410D205200CB79000C6ACED /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
 		E410D206200CB79000C6ACED /* select_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_icon.png; sourceTree = "<group>"; };
 		E410D207200CB79000C6ACED /* status_bar_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_bar_back.png; sourceTree = "<group>"; };
 		E410D208200CB79000C6ACED /* toolbar_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_back.png; sourceTree = "<group>"; };
@@ -353,6 +355,10 @@
 		E410D214200CB79000C6ACED /* yalantis_phoenix_sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yalantis_phoenix_sun.png; sourceTree = "<group>"; };
 		E437F49E20104E33001DA60E /* RegistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
 		E437F49F20104E33001DA60E /* RegistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		E4481EE02015E06400F69201 /* PublicBarTextFiled.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicBarTextFiled.h; sourceTree = "<group>"; };
+		E4481EE12015E06400F69201 /* PublicBarTextFiled.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicBarTextFiled.m; sourceTree = "<group>"; };
+		E469F1292015EAA8000B3C04 /* HomeSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSearchVC.h; sourceTree = "<group>"; };
+		E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSearchVC.m; sourceTree = "<group>"; };
 		E47887D3200C48D6009C86A7 /* HanNiu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanNiu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47887D7200C48D6009C86A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E47887D9200C48D6009C86A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -704,7 +710,7 @@
 				E410D202200CB79000C6ACED /* placeholder_news_cover.png */,
 				E410D203200CB79000C6ACED /* placeholder_user_portrait@2x.png */,
 				E410D204200CB79000C6ACED /* rotate_progress.png */,
-				E410D205200CB79000C6ACED /* search.png */,
+				E410D205200CB79000C6ACED /* search@2x.png */,
 				E410D206200CB79000C6ACED /* select_icon.png */,
 				E410D207200CB79000C6ACED /* status_bar_back.png */,
 				E410D208200CB79000C6ACED /* toolbar_back.png */,
@@ -1050,6 +1056,8 @@
 			children = (
 				E4B3CCC7200D9F1E006807AE /* HomeViewController.h */,
 				E4B3CCC8200D9F1E006807AE /* HomeViewController.m */,
+				E469F1292015EAA8000B3C04 /* HomeSearchVC.h */,
+				E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1212,6 +1220,8 @@
 				E4EE1922200EE67C005BD00F /* UILabel+YBAttributeTextTapAction.m */,
 				E4DB3C552015B81800D5C465 /* XHMessageTextView.h */,
 				E4DB3C542015B81800D5C465 /* XHMessageTextView.m */,
+				E4481EE02015E06400F69201 /* PublicBarTextFiled.h */,
+				E4481EE12015E06400F69201 /* PublicBarTextFiled.m */,
 				E4EE1911200DCD74005BD00F /* PublicTableViewCell.h */,
 				E4EE1912200DCD74005BD00F /* PublicTableViewCell.m */,
 				E4EE191F200DF5A0005BD00F /* PublicInputView.h */,
@@ -1332,7 +1342,7 @@
 				E410D281200CB79100C6ACED /* yalantis_phoenix_sun.png in Resources */,
 				E410D26B200CB79100C6ACED /* placeholder_company_logo.png in Resources */,
 				E47887E3200C48D6009C86A7 /* Assets.xcassets in Resources */,
-				E410D272200CB79100C6ACED /* search.png in Resources */,
+				E410D272200CB79100C6ACED /* search@2x.png in Resources */,
 				E410D22A200CB79100C6ACED /* ic_skip_previous_white_24dp.png in Resources */,
 				E410D260200CB79100C6ACED /* logo.png in Resources */,
 				E410D24A200CB79100C6ACED /* icon_next_music_gray.png in Resources */,
@@ -1479,6 +1489,7 @@
 				E4B3CC8D200D9616006807AE /* MJRefreshNormalHeader.m in Sources */,
 				E4B3CC84200D9616006807AE /* MJRefreshFooter.m in Sources */,
 				E4B3CC99200D9616006807AE /* SDWebImageCompat.m in Sources */,
+				E469F12B2015EAA8000B3C04 /* HomeSearchVC.m in Sources */,
 				E4F7E9DB20158158009E22E3 /* PublicAlertView.m in Sources */,
 				E4B3CC87200D9616006807AE /* MJRefreshAutoNormalFooter.m in Sources */,
 				E4B3CBE0200D95B7006807AE /* UIResponder+Router.m in Sources */,
@@ -1497,6 +1508,7 @@
 				E4B3CC90200D9616006807AE /* MJRefreshConst.m in Sources */,
 				E4B3CCA2200D9617006807AE /* UIImageView+HighlightedWebCache.m in Sources */,
 				E4B3CC8C200D9616006807AE /* MJRefreshGifHeader.m in Sources */,
+				E4481EE22015E06400F69201 /* PublicBarTextFiled.m in Sources */,
 				E4B3CC8A200D9616006807AE /* MJRefreshBackNormalFooter.m in Sources */,
 				E4BA2FFC200F38C900395F70 /* IQToolbar.m in Sources */,
 				E4B3CCA5200D9617006807AE /* BlockActionSheet.m in Sources */,

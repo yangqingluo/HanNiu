@@ -22,26 +22,26 @@
 
 @implementation LoginViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    //设置导航栏背景图片为一个空的image，这样就透明了
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    //去掉透明后导航栏下边的黑边
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    NSArray *m_array = self.navigationController.viewControllers;
-    if (m_array.count > 1 && [m_array objectAtIndex:m_array.count - 2] == self) {
-        //当前视图控制器在栈中，故为push操作
-        NSLog(@"push");
-    } else if ([m_array indexOfObject:self] == NSNotFound) {
-        //当前视图控制器不在栈中，故为pop操作
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_bar_back"] forBarMetrics:UIBarMetricsDefault];
-        [self.navigationController.navigationBar setShadowImage:nil];
-    }
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    //设置导航栏背景图片为一个空的image，这样就透明了
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    //去掉透明后导航栏下边的黑边
+//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+//}
+//
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//    NSArray *m_array = self.navigationController.viewControllers;
+//    if (m_array.count > 1 && [m_array objectAtIndex:m_array.count - 2] == self) {
+//        //当前视图控制器在栈中，故为push操作
+//        NSLog(@"push");
+//    } else if ([m_array indexOfObject:self] == NSNotFound) {
+//        //当前视图控制器不在栈中，故为pop操作
+//        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_bar_back"] forBarMetrics:UIBarMetricsDefault];
+//        [self.navigationController.navigationBar setShadowImage:nil];
+//    }
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -108,6 +108,11 @@
     [agreementLabel yb_addAttributeTapActionWithStrings:@[agreementString] tapClicked:^(NSString *string, NSRange range, NSInteger index) {
         [weakself agreeButtonAction];
     }];
+}
+
+- (void)initializeNavigationBar {
+    [super initializeNavigationBar];
+    self.navigationBarView.image = nil;
 }
 
 - (void)loginButtonAction {

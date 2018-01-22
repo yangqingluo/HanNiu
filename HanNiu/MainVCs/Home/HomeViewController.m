@@ -8,8 +8,11 @@
 
 #import "HomeViewController.h"
 #import "AccountViewController.h"
+#import "HomeSearchVC.h"
 
-@interface HomeViewController ()
+#import "PublicBarTextFiled.h"
+
+@interface HomeViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -40,9 +43,48 @@
     [self.navigationItem setTitleView:titleView];
 }
 
+- (void)initializeNavigationBar {
+    [self createNavWithTitle:self.title createMenuItem:^UIView *(int nIndex) {
+        if (nIndex == 0) {
+            UIButton *btn = NewBackButton(nil);
+            [btn setImage:[UIImage imageNamed:@"main_me_icon"] forState:UIControlStateNormal];
+            btn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+            [btn addTarget:self action:@selector(accountButtonAction) forControlEvents:UIControlEventTouchUpInside];
+            return btn;
+        }
+        else if (nIndex == 1) {
+            UIButton *btn = NewRightButton([UIImage imageNamed:@"main_msg_icon"], nil);
+            [btn addTarget:self action:@selector(messageButtonAction) forControlEvents:UIControlEventTouchUpInside];
+            return btn;
+        }
+        else if (nIndex == 2) {
+            PublicBarTextFiled *searchTextFiled = [[PublicBarTextFiled alloc] initWithFrame:CGRectMake(STATUS_BAR_HEIGHT, 7, screen_width - 2 * STATUS_BAR_HEIGHT, 30)];
+            searchTextFiled.backgroundColor = [UIColor whiteColor];
+            searchTextFiled.placeholder = @"搜索您感兴趣的内容";
+            searchTextFiled.font = [AppPublic appFontOfSize:appLabelFontSizeSmall];
+            searchTextFiled.borderStyle = UITextBorderStyleNone;
+            searchTextFiled.layer.cornerRadius = 0.5 * searchTextFiled.bounds.size.height;
+            searchTextFiled.delegate = self;
+            return searchTextFiled;
+        }
+        return nil;
+    }];
+}
+
 - (void)accountButtonAction {
     AccountViewController *vc = [AccountViewController new];
     [self doPushViewController:vc animated:YES];
+}
+
+- (void)messageButtonAction {
+    
+}
+
+#pragma mark - TextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    HomeSearchVC *vc = [HomeSearchVC new];
+    [self doPushViewController:vc animated:YES];
+    return NO;
 }
 
 @end
