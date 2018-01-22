@@ -120,6 +120,8 @@
 		E437F4A020104E33001DA60E /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E437F49F20104E33001DA60E /* RegistViewController.m */; };
 		E4481EE22015E06400F69201 /* PublicBarTextFiled.m in Sources */ = {isa = PBXBuildFile; fileRef = E4481EE12015E06400F69201 /* PublicBarTextFiled.m */; };
 		E469F12B2015EAA8000B3C04 /* HomeSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */; };
+		E469F12E2015EBEA000B3C04 /* AccountPurchaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F12D2015EBEA000B3C04 /* AccountPurchaseVC.m */; };
+		E469F1312015EBF9000B3C04 /* AccountCoinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1302015EBF9000B3C04 /* AccountCoinVC.m */; };
 		E47887D8200C48D6009C86A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887D7200C48D6009C86A7 /* main.m */; };
 		E47887DB200C48D6009C86A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887DA200C48D6009C86A7 /* AppDelegate.m */; };
 		E47887DE200C48D6009C86A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887DD200C48D6009C86A7 /* ViewController.m */; };
@@ -359,6 +361,10 @@
 		E4481EE12015E06400F69201 /* PublicBarTextFiled.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicBarTextFiled.m; sourceTree = "<group>"; };
 		E469F1292015EAA8000B3C04 /* HomeSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSearchVC.h; sourceTree = "<group>"; };
 		E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSearchVC.m; sourceTree = "<group>"; };
+		E469F12C2015EBEA000B3C04 /* AccountPurchaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountPurchaseVC.h; sourceTree = "<group>"; };
+		E469F12D2015EBEA000B3C04 /* AccountPurchaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountPurchaseVC.m; sourceTree = "<group>"; };
+		E469F12F2015EBF9000B3C04 /* AccountCoinVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountCoinVC.h; sourceTree = "<group>"; };
+		E469F1302015EBF9000B3C04 /* AccountCoinVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountCoinVC.m; sourceTree = "<group>"; };
 		E47887D3200C48D6009C86A7 /* HanNiu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanNiu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47887D7200C48D6009C86A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E47887D9200C48D6009C86A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1035,6 +1041,10 @@
 				E48FE18C2015BE18007F1427 /* AccountDetailVC.m */,
 				E4DB3C4E2015B26500D5C465 /* AccountCollectionVC.h */,
 				E4DB3C4F2015B26500D5C465 /* AccountCollectionVC.m */,
+				E469F12C2015EBEA000B3C04 /* AccountPurchaseVC.h */,
+				E469F12D2015EBEA000B3C04 /* AccountPurchaseVC.m */,
+				E469F12F2015EBF9000B3C04 /* AccountCoinVC.h */,
+				E469F1302015EBF9000B3C04 /* AccountCoinVC.m */,
 				E4DB3C512015B31900D5C465 /* AccountSuggestVC.h */,
 				E4DB3C522015B31900D5C465 /* AccountSuggestVC.m */,
 				E4BA2FC8200F2D4000395F70 /* AccountSettingsVC.h */,
@@ -1463,6 +1473,7 @@
 				E4B3CCC5200D98A3006807AE /* AccountViewController.m in Sources */,
 				E4FA9DB0200CB2FC00EB8852 /* MainTabBarController.m in Sources */,
 				E47887DB200C48D6009C86A7 /* AppDelegate.m in Sources */,
+				E469F1312015EBF9000B3C04 /* AccountCoinVC.m in Sources */,
 				E4EE1910200DC97B005BD00F /* PublicTableViewController.m in Sources */,
 				E4B3CC96200D9616006807AE /* UIViewController+HUD.m in Sources */,
 				E4B3CC97200D9616006807AE /* NSData+ImageContentType.m in Sources */,
@@ -1488,6 +1499,7 @@
 				E4B3CCB1200D9617006807AE /* UIButton+AFNetworking.m in Sources */,
 				E4B3CC8D200D9616006807AE /* MJRefreshNormalHeader.m in Sources */,
 				E4B3CC84200D9616006807AE /* MJRefreshFooter.m in Sources */,
+				E469F12E2015EBEA000B3C04 /* AccountPurchaseVC.m in Sources */,
 				E4B3CC99200D9616006807AE /* SDWebImageCompat.m in Sources */,
 				E469F12B2015EAA8000B3C04 /* HomeSearchVC.m in Sources */,
 				E4F7E9DB20158158009E22E3 /* PublicAlertView.m in Sources */,

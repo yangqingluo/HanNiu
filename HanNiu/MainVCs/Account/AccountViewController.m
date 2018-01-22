@@ -9,6 +9,8 @@
 #import "AccountViewController.h"
 #import "AccountDetailVC.h"
 #import "AccountCollectionVC.h"
+#import "AccountPurchaseVC.h"
+#import "AccountCoinVC.h"
 #import "AccountSuggestVC.h"
 #import "AccountSettingsVC.h"
 #import "AccountAboutVC.h"
@@ -140,6 +142,16 @@
         switch (indexPath.row) {
             case 0:{
                 vc = [AccountCollectionVC new];
+            }
+                break;
+                
+            case 1:{
+                vc = [AccountPurchaseVC new];
+            }
+                break;
+                
+            case 2:{
+                vc = [AccountCoinVC new];
             }
                 break;
                 
