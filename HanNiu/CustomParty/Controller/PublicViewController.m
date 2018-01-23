@@ -49,13 +49,13 @@
     [_navView addSubview:self.titleLabel];
 }
 
-#pragma setter
+#pragma mark - setter
 - (void)setTitle:(NSString *)title{
     [super setTitle:title];
     self.titleLabel.text = title;
 }
 
-#pragma getter
+#pragma mark - getter
 - (UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
@@ -65,6 +65,13 @@
         [_titleLabel setBackgroundColor:[UIColor clearColor]];
     }
     return _titleLabel;
+}
+
+- (NSString *)dateKey{
+    if (!_dateKey) {
+        _dateKey = [NSString stringWithFormat:@"%@_dateKey_%d", [self class], (int)self.indextag];
+    }
+    return _dateKey;
 }
 
 #pragma mark - public

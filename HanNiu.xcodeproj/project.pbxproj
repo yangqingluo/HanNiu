@@ -90,8 +90,8 @@
 		E410D264200CB79100C6ACED /* navigation_bar_back.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1F7200CB79000C6ACED /* navigation_bar_back.png */; };
 		E410D265200CB79100C6ACED /* news_cover_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E410D1F8200CB79000C6ACED /* news_cover_0.jpg */; };
 		E410D266200CB79100C6ACED /* page_welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1F9200CB79000C6ACED /* page_welcome.png */; };
-		E410D267200CB79100C6ACED /* placeholder_adv_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1FA200CB79000C6ACED /* placeholder_adv_logo.png */; };
-		E410D268200CB79100C6ACED /* placeholder_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1FB200CB79000C6ACED /* placeholder_banner.png */; };
+		E410D267200CB79100C6ACED /* placeholder_adv_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1FA200CB79000C6ACED /* placeholder_adv_logo@2x.png */; };
+		E410D268200CB79100C6ACED /* placeholder_banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1FB200CB79000C6ACED /* placeholder_banner@2x.png */; };
 		E410D269200CB79100C6ACED /* placeholder_college_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1FC200CB79000C6ACED /* placeholder_college_logo.png */; };
 		E410D26A200CB79100C6ACED /* placeholder_common_image.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1FD200CB79000C6ACED /* placeholder_common_image.png */; };
 		E410D26B200CB79100C6ACED /* placeholder_company_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1FE200CB79000C6ACED /* placeholder_company_logo.png */; };
@@ -342,8 +342,8 @@
 		E410D1F7200CB79000C6ACED /* navigation_bar_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_bar_back.png; sourceTree = "<group>"; };
 		E410D1F8200CB79000C6ACED /* news_cover_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = news_cover_0.jpg; sourceTree = "<group>"; };
 		E410D1F9200CB79000C6ACED /* page_welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page_welcome.png; sourceTree = "<group>"; };
-		E410D1FA200CB79000C6ACED /* placeholder_adv_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_adv_logo.png; sourceTree = "<group>"; };
-		E410D1FB200CB79000C6ACED /* placeholder_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_banner.png; sourceTree = "<group>"; };
+		E410D1FA200CB79000C6ACED /* placeholder_adv_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder_adv_logo@2x.png"; sourceTree = "<group>"; };
+		E410D1FB200CB79000C6ACED /* placeholder_banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder_banner@2x.png"; sourceTree = "<group>"; };
 		E410D1FC200CB79000C6ACED /* placeholder_college_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_college_logo.png; sourceTree = "<group>"; };
 		E410D1FD200CB79000C6ACED /* placeholder_common_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_common_image.png; sourceTree = "<group>"; };
 		E410D1FE200CB79000C6ACED /* placeholder_company_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_company_logo.png; sourceTree = "<group>"; };
@@ -747,8 +747,8 @@
 				E410D1F7200CB79000C6ACED /* navigation_bar_back.png */,
 				E410D1F8200CB79000C6ACED /* news_cover_0.jpg */,
 				E410D1F9200CB79000C6ACED /* page_welcome.png */,
-				E410D1FA200CB79000C6ACED /* placeholder_adv_logo.png */,
-				E410D1FB200CB79000C6ACED /* placeholder_banner.png */,
+				E410D1FA200CB79000C6ACED /* placeholder_adv_logo@2x.png */,
+				E410D1FB200CB79000C6ACED /* placeholder_banner@2x.png */,
 				E410D1FC200CB79000C6ACED /* placeholder_college_logo.png */,
 				E410D1FD200CB79000C6ACED /* placeholder_common_image.png */,
 				E410D1FE200CB79000C6ACED /* placeholder_company_logo.png */,
@@ -1470,7 +1470,7 @@
 				E410D26C200CB79100C6ACED /* placeholder_institute_logo.png in Resources */,
 				E4B3CC8F200D9616006807AE /* MJRefresh.bundle in Resources */,
 				E410D255200CB79100C6ACED /* icon_play_list_gray.png in Resources */,
-				E410D268200CB79100C6ACED /* placeholder_banner.png in Resources */,
+				E410D268200CB79100C6ACED /* placeholder_banner@2x.png in Resources */,
 				E410D250200CB79100C6ACED /* icon_phone@2x.png in Resources */,
 				E410D216200CB79100C6ACED /* back_comment_list_input.png in Resources */,
 				E410D266200CB79100C6ACED /* page_welcome.png in Resources */,
@@ -1498,7 +1498,7 @@
 				E410D263200CB79100C6ACED /* main_msg_icon@2x.png in Resources */,
 				E410D270200CB79100C6ACED /* placeholder_user_portrait@2x.png in Resources */,
 				E410D251200CB79100C6ACED /* icon_play.png in Resources */,
-				E410D267200CB79100C6ACED /* placeholder_adv_logo.png in Resources */,
+				E410D267200CB79100C6ACED /* placeholder_adv_logo@2x.png in Resources */,
 				E410D262200CB79100C6ACED /* main_me_icon@2x.png in Resources */,
 				E410D220200CB79100C6ACED /* back_sqaure_white.png in Resources */,
 				E410D259200CB79100C6ACED /* icon_right_arrow@2x.png in Resources */,

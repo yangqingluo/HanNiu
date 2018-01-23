@@ -96,9 +96,9 @@
         [self addSubview:_rightImageView];
         
         
-        _leftImageView.contentMode = UIViewContentModeScaleAspectFill;
-        _centerImageView.contentMode = UIViewContentModeScaleAspectFill;
-        _rightImageView.contentMode = UIViewContentModeScaleAspectFill;
+//        _leftImageView.contentMode = UIViewContentModeScaleAspectFill;
+//        _centerImageView.contentMode = UIViewContentModeScaleAspectFill;
+//        _rightImageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return self;
 }

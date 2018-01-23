@@ -12,4 +12,13 @@
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 
+- (void)updateScrollViewHeader;
+- (void)updateScrollViewFooter;
+- (void)beginRefreshing;
+- (void)endRefreshing;
+- (void)updateSubviews;
+- (void)loadFirstPageData;
+- (void)loadMoreData;
+- (void)pullBaseListData:(BOOL)isReset;
+
 @end

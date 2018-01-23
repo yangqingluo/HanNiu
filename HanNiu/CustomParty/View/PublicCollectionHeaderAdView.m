@@ -13,6 +13,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.layer.contents = (id)[UIImage imageNamed:@"placeholder_banner"].CGImage;
         [self addSubview:self.adView];
     }
     return self;

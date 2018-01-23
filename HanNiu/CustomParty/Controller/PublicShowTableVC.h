@@ -11,10 +11,6 @@
 @interface PublicShowTableVC : PublicTableViewController
 
 @property (strong, nonatomic) NSArray *showArray;
-@property (strong, nonatomic) NSString *dateKey;
-@property (assign, nonatomic) NSInteger indextag;
-@property (assign, nonatomic) BOOL isResetCondition;
-
 
 - (void)updateTableViewHeader;
 - (void)updateTableViewFooter;

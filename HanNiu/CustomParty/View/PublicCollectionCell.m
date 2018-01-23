@@ -17,7 +17,7 @@
         
         CGFloat i_radius = self.contentView.width - 2 * kEdgeSmall;
         _showImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kEdgeSmall, 0, i_radius, i_radius)];
-        _showImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _showImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:_showImageView];
         [AppPublic roundCornerRadius:_showImageView cornerRadius:appViewCornerRadius];
         _showImageView.layer.borderColor = appSeparatorColor.CGColor;

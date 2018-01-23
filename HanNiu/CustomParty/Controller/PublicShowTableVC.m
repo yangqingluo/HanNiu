@@ -68,12 +68,7 @@
 }
 
 #pragma mark - getter
-- (NSString *)dateKey{
-    if (!_dateKey) {
-        _dateKey = [NSString stringWithFormat:@"%@_dateKey_%d", [self class], (int)self.indextag];
-    }
-    return _dateKey;
-}
+
 
 #pragma mark - UITableView
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

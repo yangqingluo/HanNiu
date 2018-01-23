@@ -8,6 +8,7 @@
 
 #import "PublicCollectionViewController.h"
 
+#import "MJRefresh.h"
 #import "LongPressFlowLayout.h"
 
 @interface PublicCollectionViewController ()
@@ -28,7 +29,54 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma getter
+#pragma mark - public
+- (void)loadFirstPageData {
+    [self pullBaseListData:YES];
+}
+
+- (void)loadMoreData {
+    [self pullBaseListData:NO];
+}
+
+- (void)pullBaseListData:(BOOL)isReset {
+    
+}
+
+- (void)updateScrollViewHeader {
+    QKWEAKSELF;
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakself loadFirstPageData];
+    }];
+}
+
+- (void)updateScrollViewFooter {
+    QKWEAKSELF;
+    if (!self.collectionView.mj_footer) {
+        self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [weakself loadMoreData];
+        }];
+    }
+}
+
+- (void)beginRefreshing {
+    self.needRefresh = NO;
+    self.isResetCondition = NO;
+    [self.collectionView.mj_header beginRefreshing];
+}
+
+- (void)endRefreshing {
+    //记录刷新时间
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:self.dateKey];
+    [self doHideHudFunction];
+    [self.collectionView.mj_header endRefreshing];
+    [self.collectionView.mj_footer endRefreshing];
+}
+
+- (void)updateSubviews {
+    [self.collectionView reloadData];
+}
+
+#pragma mark - getter
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         NSUInteger countH = 3;

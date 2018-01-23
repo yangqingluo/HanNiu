@@ -19,6 +19,10 @@
 @property (copy,   nonatomic) AppDoneBlock doneBlock;
 @property (assign, nonatomic) BOOL needRefresh;
 
+@property (strong, nonatomic) NSString *dateKey;
+@property (assign, nonatomic) NSInteger indextag;
+@property (assign, nonatomic) BOOL isResetCondition;
+
 - (void)createNavWithTitle:(NSString *)szTitle createMenuItem:(UIView *(^)(int nIndex))menuItem;
 - (void)dismissKeyboard;
 - (void)needRefreshNotification:(NSNotification *)notification;
