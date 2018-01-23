@@ -12,8 +12,6 @@
 #import "PublicCollectionHeaderTitleView.h"
 #import "PublicCollectionCell.h"
 
-#import "UIImageView+WebCache.h"
-
 static NSString *reuseId_header_ad = @"reuseId_header_ad";
 static NSString *reuseId_header_title = @"reuseId_header_title";
 static NSString *reuseId_cell_school = @"reuseId_cell_school";
@@ -125,13 +123,6 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
     return _quantityList;
 }
 
-//- (PublicCollectionHeaderAdView *)adHeadView {
-//    if (!_adHeadView) {
-//        _adHeadView = [[PublicCollectionHeaderAdView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_width * 320.0 / 1050.0)];
-//    }
-//    return _adHeadView;
-//}
-
 #pragma mark - <UICollectionViewDataSource>
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 3;
@@ -151,11 +142,7 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         self.adHeadView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reuseId_header_ad forIndexPath:indexPath];
-        NSMutableArray *m_array = [NSMutableArray arrayWithCapacity:self.bannerList.count];
-        for (NSDictionary *item in self.bannerList) {
-            [m_array addObject:urlStringWithService([NSString stringWithFormat:@"File/?pid=%@", item[@"Image"]])];
-        }
-        [self.adHeadView.adView setImageNameArray:m_array];
+        [self.adHeadView.adView updateAdvertisements:self.bannerList];
         return self.adHeadView;
     }
     else {
@@ -181,7 +168,7 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return CGSizeMake(screen_width, screen_width * 1.0 / 2.5);
+        return [AdScrollView adSize];
     }
     else {
         return CGSizeMake(screen_width, kCellHeight);

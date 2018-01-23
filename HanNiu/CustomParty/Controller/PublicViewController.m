@@ -49,6 +49,11 @@
     [_navView addSubview:self.titleLabel];
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    [self dismissKeyboard];
+}
+
 #pragma mark - setter
 - (void)setTitle:(NSString *)title{
     [super setTitle:title];
@@ -210,9 +215,12 @@
     }
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesBegan:touches withEvent:event];
-    [self dismissKeyboard];
+- (void)becomeListed {
+    
+}
+
+- (void)becomeUnListed {
+    
 }
 
 #pragma mark - TextFieldDelegate
@@ -244,7 +252,7 @@
 //    }
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([string isEqualToString:@""]) {
         return YES;
     }

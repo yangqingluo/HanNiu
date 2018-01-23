@@ -13,7 +13,6 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.layer.contents = (id)[UIImage imageNamed:@"placeholder_banner"].CGImage;
         [self addSubview:self.adView];
     }
     return self;
@@ -23,9 +22,6 @@
 - (AdScrollView *)adView{
     if (!_adView) {
         _adView = [[AdScrollView alloc] initWithFrame:self.bounds];
-        _adView.PageControlShowStyle = UIPageControlShowStyleCenter;
-        _adView.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-        _adView.pageControl.currentPageIndicatorTintColor = appMainColor;
     }
     return _adView;
 }

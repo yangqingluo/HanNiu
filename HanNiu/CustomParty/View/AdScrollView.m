@@ -7,7 +7,6 @@
 //
 
 #import "AdScrollView.h"
-#import "UIImageView+WebCache.h"
 
 #define UISCREENWIDTH  self.bounds.size.width//广告的宽度
 #define UISCREENHEIGHT  self.bounds.size.height//广告的高度
@@ -52,6 +51,15 @@
     }
 }
 
+- (instancetype)init {
+    CGSize size = [AdScrollView adSize];
+    self = [[AdScrollView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (void)stop{
 //    if ([_moveTime isValid]) {
 //        [_moveTime invalidate];
@@ -71,11 +79,29 @@
     [[NSRunLoop currentRunLoop]addTimer:_moveTime forMode:UITrackingRunLoopMode];
 }
 
+- (void)updateAdvertisements:(NSArray *)list {
+    NSMutableArray *m_array = [NSMutableArray arrayWithCapacity:list.count];
+    for (NSDictionary *item in list) {
+        [m_array addObject:urlStringWithService([NSString stringWithFormat:@"File/?pid=%@", item[@"Image"]])];
+    }
+    self.imageNameArray = m_array;
+}
+
+#pragma mark - getter
++ (CGSize)adSize {
+    return CGSizeMake(screen_width, screen_width * 1.0 / 2.5);
+}
+
 #pragma mark - 自由指定广告所占的frame
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.layer.contents = (id)[UIImage imageNamed:@"placeholder_banner"].CGImage;
+        self.PageControlShowStyle = UIPageControlShowStyleCenter;
+        self.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+        self.pageControl.currentPageIndicatorTintColor = appMainColor;
+        
         self.bounces = NO;
         
         self.showsHorizontalScrollIndicator = NO;
@@ -96,9 +122,9 @@
         [self addSubview:_rightImageView];
         
         
-//        _leftImageView.contentMode = UIViewContentModeScaleAspectFill;
-//        _centerImageView.contentMode = UIViewContentModeScaleAspectFill;
-//        _rightImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _leftImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _centerImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _rightImageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return self;
 }

@@ -8,7 +8,12 @@
 
 #import "HomeClassifyVC.h"
 
+#import "PublicCollectionHeaderAdView.h"
+
 @interface HomeClassifyVC ()
+
+@property (strong, nonatomic) AdScrollView *adHeadView;
+@property (strong, nonatomic) NSMutableArray *bannerList;
 
 @end
 
@@ -16,22 +21,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self.view addSubview:self.adHeadView];
+    [self doGetBannerListFunction];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)becomeListed {
+    NSDate *lastRefreshTime = [[NSUserDefaults standardUserDefaults] objectForKey:self.dateKey];
+    if (self.isResetCondition || self.needRefresh || !self.bannerList.count || !lastRefreshTime || [lastRefreshTime timeIntervalSinceNow] < -appRefreshTime) {
+        
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)doGetBannerListFunction {
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"type" : @"1"}];
+    [self doShowHudFunction];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Config/Banner/List" completion:^(id responseBody, NSError *error){
+        [weakself doHideHudFunction];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            [weakself.bannerList removeAllObjects];
+            [weakself.bannerList addObjectsFromArray:responseBody[@"Data"]];
+        }
+        [weakself updateSubviews];
+    }];
 }
-*/
+
+- (void)updateSubviews {
+    [self.adHeadView updateAdvertisements:self.bannerList];
+}
+
+#pragma mark - getter
+- (AdScrollView *)adHeadView {
+    if (!_adHeadView) {
+        _adHeadView = [AdScrollView new];
+    }
+    return _adHeadView;
+}
+
+- (NSMutableArray *)bannerList {
+    if (!_bannerList) {
+        _bannerList = [NSMutableArray new];
+    }
+    return _bannerList;
+}
 
 @end

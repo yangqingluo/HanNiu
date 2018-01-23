@@ -43,4 +43,7 @@
 - (void)goBackWithDone:(BOOL)done;
 - (void)doDoneAction;
 
+- (void)becomeListed;
+- (void)becomeUnListed;
+
 @end

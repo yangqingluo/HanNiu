@@ -45,6 +45,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的";
+    
+    self.tableView.height = screen_height - self.tabBarController.tabBar.height - self.navigationBarView.height;
     [self initializeData];
 }
 

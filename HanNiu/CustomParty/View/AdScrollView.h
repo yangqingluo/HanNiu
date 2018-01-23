@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImageView+WebCache.h"
 
 typedef NS_ENUM(NSUInteger, UIPageControlShowStyle)
 {
@@ -39,6 +40,10 @@ typedef NS_ENUM(NSUInteger, AdTitleShowStyle)
 
 - (void)stop;
 - (void)start;
+
+- (void)updateAdvertisements:(NSArray *)list;
+
++ (CGSize)adSize;
 
 @end
 
