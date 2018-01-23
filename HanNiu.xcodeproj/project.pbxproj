@@ -122,6 +122,13 @@
 		E469F12B2015EAA8000B3C04 /* HomeSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */; };
 		E469F12E2015EBEA000B3C04 /* AccountPurchaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F12D2015EBEA000B3C04 /* AccountPurchaseVC.m */; };
 		E469F1312015EBF9000B3C04 /* AccountCoinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1302015EBF9000B3C04 /* AccountCoinVC.m */; };
+		E469F1342016D2CA000B3C04 /* HomeRecommendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1332016D2CA000B3C04 /* HomeRecommendVC.m */; };
+		E469F1372016D2ED000B3C04 /* HomeClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1362016D2ED000B3C04 /* HomeClassifyVC.m */; };
+		E469F13A2016D335000B3C04 /* HomeBetterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1392016D335000B3C04 /* HomeBetterVC.m */; };
+		E469F13D2016D349000B3C04 /* HomeJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F13C2016D349000B3C04 /* HomeJobVC.m */; };
+		E469F1402016D366000B3C04 /* HomeSchoolAndCompanyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F13F2016D366000B3C04 /* HomeSchoolAndCompanyVC.m */; };
+		E469F1432016D4B5000B3C04 /* PublicSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1422016D4B5000B3C04 /* PublicSlideViewController.m */; };
+		E469F1462016D69C000B3C04 /* PublicSlideSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1452016D69C000B3C04 /* PublicSlideSubVC.m */; };
 		E47887D8200C48D6009C86A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887D7200C48D6009C86A7 /* main.m */; };
 		E47887DB200C48D6009C86A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887DA200C48D6009C86A7 /* AppDelegate.m */; };
 		E47887DE200C48D6009C86A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887DD200C48D6009C86A7 /* ViewController.m */; };
@@ -365,6 +372,20 @@
 		E469F12D2015EBEA000B3C04 /* AccountPurchaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountPurchaseVC.m; sourceTree = "<group>"; };
 		E469F12F2015EBF9000B3C04 /* AccountCoinVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountCoinVC.h; sourceTree = "<group>"; };
 		E469F1302015EBF9000B3C04 /* AccountCoinVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountCoinVC.m; sourceTree = "<group>"; };
+		E469F1322016D2C9000B3C04 /* HomeRecommendVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeRecommendVC.h; sourceTree = "<group>"; };
+		E469F1332016D2CA000B3C04 /* HomeRecommendVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendVC.m; sourceTree = "<group>"; };
+		E469F1352016D2ED000B3C04 /* HomeClassifyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeClassifyVC.h; sourceTree = "<group>"; };
+		E469F1362016D2ED000B3C04 /* HomeClassifyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeClassifyVC.m; sourceTree = "<group>"; };
+		E469F1382016D335000B3C04 /* HomeBetterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeBetterVC.h; sourceTree = "<group>"; };
+		E469F1392016D335000B3C04 /* HomeBetterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeBetterVC.m; sourceTree = "<group>"; };
+		E469F13B2016D349000B3C04 /* HomeJobVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeJobVC.h; sourceTree = "<group>"; };
+		E469F13C2016D349000B3C04 /* HomeJobVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeJobVC.m; sourceTree = "<group>"; };
+		E469F13E2016D366000B3C04 /* HomeSchoolAndCompanyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSchoolAndCompanyVC.h; sourceTree = "<group>"; };
+		E469F13F2016D366000B3C04 /* HomeSchoolAndCompanyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSchoolAndCompanyVC.m; sourceTree = "<group>"; };
+		E469F1412016D4B5000B3C04 /* PublicSlideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicSlideViewController.h; sourceTree = "<group>"; };
+		E469F1422016D4B5000B3C04 /* PublicSlideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicSlideViewController.m; sourceTree = "<group>"; };
+		E469F1442016D69C000B3C04 /* PublicSlideSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicSlideSubVC.h; sourceTree = "<group>"; };
+		E469F1452016D69C000B3C04 /* PublicSlideSubVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicSlideSubVC.m; sourceTree = "<group>"; };
 		E47887D3200C48D6009C86A7 /* HanNiu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanNiu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47887D7200C48D6009C86A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E47887D9200C48D6009C86A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1068,6 +1089,16 @@
 				E4B3CCC8200D9F1E006807AE /* HomeViewController.m */,
 				E469F1292015EAA8000B3C04 /* HomeSearchVC.h */,
 				E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */,
+				E469F1322016D2C9000B3C04 /* HomeRecommendVC.h */,
+				E469F1332016D2CA000B3C04 /* HomeRecommendVC.m */,
+				E469F1352016D2ED000B3C04 /* HomeClassifyVC.h */,
+				E469F1362016D2ED000B3C04 /* HomeClassifyVC.m */,
+				E469F1382016D335000B3C04 /* HomeBetterVC.h */,
+				E469F1392016D335000B3C04 /* HomeBetterVC.m */,
+				E469F13B2016D349000B3C04 /* HomeJobVC.h */,
+				E469F13C2016D349000B3C04 /* HomeJobVC.m */,
+				E469F13E2016D366000B3C04 /* HomeSchoolAndCompanyVC.h */,
+				E469F13F2016D366000B3C04 /* HomeSchoolAndCompanyVC.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1193,6 +1224,10 @@
 				E4EE190F200DC97B005BD00F /* PublicTableViewController.m */,
 				E4EE1914200DCE87005BD00F /* PublicShowTableVC.h */,
 				E4EE1915200DCE87005BD00F /* PublicShowTableVC.m */,
+				E469F1412016D4B5000B3C04 /* PublicSlideViewController.h */,
+				E469F1422016D4B5000B3C04 /* PublicSlideViewController.m */,
+				E469F1442016D69C000B3C04 /* PublicSlideSubVC.h */,
+				E469F1452016D69C000B3C04 /* PublicSlideSubVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1447,6 +1482,7 @@
 				E4BA2FF7200F38C900395F70 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				E4B3CC8E200D9616006807AE /* MJRefreshStateHeader.m in Sources */,
 				E4B3CCAE200D9617006807AE /* AFImageDownloader.m in Sources */,
+				E469F1462016D69C000B3C04 /* PublicSlideSubVC.m in Sources */,
 				E4BA2FF0200F38C900395F70 /* IQNSArray+Sort.m in Sources */,
 				E4B3CC77200D9616006807AE /* MJExtensionConst.m in Sources */,
 				E4BA2FF9200F38C900395F70 /* IQBarButtonItem.m in Sources */,
@@ -1466,6 +1502,7 @@
 				E4B3CC81200D9616006807AE /* MJRefreshAutoFooter.m in Sources */,
 				E4B3CC85200D9616006807AE /* MJRefreshHeader.m in Sources */,
 				E4BA3005200FA0E200395F70 /* AccountAboutVC.m in Sources */,
+				E469F1432016D4B5000B3C04 /* PublicSlideViewController.m in Sources */,
 				E4B3CC86200D9616006807AE /* MJRefreshAutoGifFooter.m in Sources */,
 				E47887DE200C48D6009C86A7 /* ViewController.m in Sources */,
 				E4B3CCAD200D9617006807AE /* AFAutoPurgingImageCache.m in Sources */,
@@ -1476,6 +1513,7 @@
 				E469F1312015EBF9000B3C04 /* AccountCoinVC.m in Sources */,
 				E4EE1910200DC97B005BD00F /* PublicTableViewController.m in Sources */,
 				E4B3CC96200D9616006807AE /* UIViewController+HUD.m in Sources */,
+				E469F13A2016D335000B3C04 /* HomeBetterVC.m in Sources */,
 				E4B3CC97200D9616006807AE /* NSData+ImageContentType.m in Sources */,
 				E4BA2FF6200F38C900395F70 /* IQKeyboardManager.m in Sources */,
 				E4B3CCC9200D9F1E006807AE /* HomeViewController.m in Sources */,
@@ -1498,11 +1536,13 @@
 				E4B3CCAA200D9617006807AE /* AFURLRequestSerialization.m in Sources */,
 				E4B3CCB1200D9617006807AE /* UIButton+AFNetworking.m in Sources */,
 				E4B3CC8D200D9616006807AE /* MJRefreshNormalHeader.m in Sources */,
+				E469F13D2016D349000B3C04 /* HomeJobVC.m in Sources */,
 				E4B3CC84200D9616006807AE /* MJRefreshFooter.m in Sources */,
 				E469F12E2015EBEA000B3C04 /* AccountPurchaseVC.m in Sources */,
 				E4B3CC99200D9616006807AE /* SDWebImageCompat.m in Sources */,
 				E469F12B2015EAA8000B3C04 /* HomeSearchVC.m in Sources */,
 				E4F7E9DB20158158009E22E3 /* PublicAlertView.m in Sources */,
+				E469F1342016D2CA000B3C04 /* HomeRecommendVC.m in Sources */,
 				E4B3CC87200D9616006807AE /* MJRefreshAutoNormalFooter.m in Sources */,
 				E4B3CBE0200D95B7006807AE /* UIResponder+Router.m in Sources */,
 				E4EE1924200EE67D005BD00F /* UILabel+YBAttributeTextTapAction.m in Sources */,
@@ -1538,6 +1578,7 @@
 				E4BA2FFB200F38C900395F70 /* IQTitleBarButtonItem.m in Sources */,
 				E4BA2FF5200F38C900395F70 /* IQUIWindow+Hierarchy.m in Sources */,
 				E4EE1921200DF5A0005BD00F /* PublicInputView.m in Sources */,
+				E469F1372016D2ED000B3C04 /* HomeClassifyVC.m in Sources */,
 				E4BA2FF2200F38C900395F70 /* IQUITextFieldView+Additions.m in Sources */,
 				E4B3CC7D200D9616006807AE /* NSObject+MJCoding.m in Sources */,
 				E4B3CCA4200D9617006807AE /* UIView+WebCacheOperation.m in Sources */,
@@ -1548,6 +1589,7 @@
 				E4B3CBE3200D95C3006807AE /* AppType.m in Sources */,
 				E4B3CCBE200D96DD006807AE /* UIButton+ImageAndText.m in Sources */,
 				E4B3CC83200D9616006807AE /* MJRefreshComponent.m in Sources */,
+				E469F1402016D366000B3C04 /* HomeSchoolAndCompanyVC.m in Sources */,
 				E4BA2FF4200F38C900395F70 /* IQUIViewController+Additions.m in Sources */,
 				E47887D8200C48D6009C86A7 /* main.m in Sources */,
 				E4EE1913200DCD74005BD00F /* PublicTableViewCell.m in Sources */,

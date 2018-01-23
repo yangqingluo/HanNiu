@@ -6,8 +6,8 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "PublicViewController.h"
+#import "PublicSlideViewController.h"
 
-@interface HomeViewController : PublicViewController
+@interface HomeViewController : PublicSlideViewController
 
 @end

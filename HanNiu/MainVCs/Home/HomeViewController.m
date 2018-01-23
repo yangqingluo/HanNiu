@@ -9,8 +9,14 @@
 #import "HomeViewController.h"
 #import "AccountViewController.h"
 #import "HomeSearchVC.h"
+#import "HomeRecommendVC.h"
+#import "HomeClassifyVC.h"
+#import "HomeBetterVC.h"
+#import "HomeJobVC.h"
+#import "HomeSchoolAndCompanyVC.h"
 
 #import "PublicBarTextFiled.h"
+#import "QCSlideSwitchView.h"
 
 @interface HomeViewController ()<UITextFieldDelegate>
 
@@ -18,29 +24,23 @@
 
 @implementation HomeViewController
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.viewArray = [NSMutableArray new];
+        [self.viewArray addObject:@{@"title":@"推荐",@"VC":[HomeRecommendVC new]}];
+        [self.viewArray addObject:@{@"title":@"分类",@"VC":[HomeClassifyVC new]}];
+        [self.viewArray addObject:@{@"title":@"纷声",@"VC":[HomeBetterVC new]}];
+        [self.viewArray addObject:@{@"title":@"就业",@"VC":[HomeJobVC new]}];
+        [self.viewArray addObject:@{@"title":@"校&企",@"VC":[HomeSchoolAndCompanyVC new]}];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.title = @"";
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, DEFAULT_BAR_HEIGHT)];
-    [btn setImage:[UIImage imageNamed:@"main_me_icon"] forState:UIControlStateNormal];
-    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [btn addTarget:self action:@selector(accountButtonAction) forControlEvents:UIControlEventTouchUpInside];
-//    [self.navigationController.navigationBar addSubview:btn];
     
-    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, DEFAULT_BAR_HEIGHT)];
-    leftView.clipsToBounds = NO;
-    [leftView addSubview:btn];
-    
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
-    self.navigationItem.leftBarButtonItems = @[leftItem];
-    
-    UITextField *searchField = [[UITextField alloc] initWithFrame:CGRectMake(0, 7, screen_width - 2 * kEdgeToScreen, 30)];
-    searchField.borderStyle = UITextBorderStyleRoundedRect;
-    
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, DEFAULT_BAR_HEIGHT)];
-    [titleView addSubview:searchField];
-    [self.navigationItem setTitleView:titleView];
 }
 
 - (void)initializeNavigationBar {
