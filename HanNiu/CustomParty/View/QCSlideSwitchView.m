@@ -10,7 +10,7 @@
 #define redPointBaseTag 1000
 #define shadowWidthScale 0.8
 
-static const CGFloat kHeightOfTopScrollView = 44.0f;
+CGFloat kHeightOfTopScrollView = 144.0f;
 static const CGFloat kWidthOfButtonMargin = 0.0f;
 static const CGFloat kFontSizeOfTabButton = 16.0f;
 static const NSUInteger kTagOfRightSideButton = 999;
@@ -19,7 +19,10 @@ static const NSUInteger kTagOfRightSideButton = 999;
 
 #pragma mark - 初始化参数
 
-- (void)initValues{
+- (void)initValues {
+    if ([self.delegate respondsToSelector:@selector(heightOfTopBar)]) {
+        kHeightOfTopScrollView = [self.delegate heightOfTopBar];
+    }
     //创建顶部可滑动的tab
     _topScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, kHeightOfTopScrollView)];
     _topScrollView.delegate = self;
@@ -48,11 +51,9 @@ static const NSUInteger kTagOfRightSideButton = 999;
     _viewArray = [[NSMutableArray alloc] init];
     
     _isBuildUI = NO;
-    
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self initValues];
@@ -60,8 +61,7 @@ static const NSUInteger kTagOfRightSideButton = 999;
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self initValues];
@@ -74,8 +74,7 @@ static const NSUInteger kTagOfRightSideButton = 999;
     return _userSelectedChannelID - 100;
 }
 
-- (void)setRigthSideButton:(UIButton *)rigthSideButton
-{
+- (void)setRigthSideButton:(UIButton *)rigthSideButton {
     UIButton *button = (UIButton *)[self viewWithTag:kTagOfRightSideButton];
     [button removeFromSuperview];
     rigthSideButton.tag = kTagOfRightSideButton;
@@ -87,14 +86,12 @@ static const NSUInteger kTagOfRightSideButton = 999;
 #pragma mark - 创建控件
 
 //当横竖屏切换时可通过此方法调整布局
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
     //创建完子视图UI才需要调整布局
     if (_isBuildUI) {
         //如果有设置右侧视图，缩小顶部滚动视图的宽度以适应按钮
         if (self.rigthSideButton.bounds.size.width > 0) {
-            _rigthSideButton.frame = CGRectMake(self.bounds.size.width - self.rigthSideButton.bounds.size.width, 0,
-                                                _rigthSideButton.bounds.size.width, _topScrollView.bounds.size.height);
+            _rigthSideButton.frame = CGRectMake(self.bounds.size.width - self.rigthSideButton.bounds.size.width, 0, _rigthSideButton.bounds.size.width, _topScrollView.bounds.size.height);
             
             _topScrollView.frame = CGRectMake(0, 0,
                                               self.bounds.size.width - self.rigthSideButton.bounds.size.width, kHeightOfTopScrollView);
@@ -102,9 +99,6 @@ static const NSUInteger kTagOfRightSideButton = 999;
         
         //更新主视图的总宽度
         _rootScrollView.contentSize = CGSizeMake(self.bounds.size.width * [_viewArray count], 0);
-        
-        
-        
         
         //更新主视图各个子视图的宽度
         for (int i = 0; i < [_viewArray count]; i++) {
@@ -126,7 +120,7 @@ static const NSUInteger kTagOfRightSideButton = 999;
  * @method 创建子视图UI
 
  */
-- (void)buildUI{
+- (void)buildUI {
     NSUInteger number = [self.delegate numberOfTab:self];
     
     for (int i=0; i<number; i++) {
@@ -200,6 +194,13 @@ static const NSUInteger kTagOfRightSideButton = 999;
         [button setBackgroundImage:self.tabItemSelectedBackgroundImage forState:UIControlStateSelected];
         [button addTarget:self action:@selector(selectNameButton:) forControlEvents:UIControlEventTouchUpInside];
         [_topScrollView addSubview:button];
+        
+        if ([self.delegate respondsToSelector:@selector(normalImageNameOfTab:)]) {
+            [button setImage:[self.delegate normalImageNameOfTab:i] forState:UIControlStateNormal];
+        }
+        if ([self.delegate respondsToSelector:@selector(selectedImageNameOfTab:)]) {
+            [button setImage:[UIImage imageNamed:[self.delegate selectedImageNameOfTab:i]] forState:UIControlStateNormal];
+        }
         
         NSMutableParagraphStyle *paragraphStyle= [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
@@ -304,8 +305,7 @@ static const NSUInteger kTagOfRightSideButton = 999;
  * @method 调整顶部滚动视图x位置
 
  */
-- (void)adjustScrollViewContentX:(UIControl *)sender
-{
+- (void)adjustScrollViewContentX:(UIControl *)sender {
     //如果 当前显示的最后一个tab文字超出右边界
     if (sender.frame.origin.x - _topScrollView.contentOffset.x > self.bounds.size.width - (kWidthOfButtonMargin+sender.bounds.size.width)) {
         //向左滚动视图，显示完整tab文字
@@ -322,16 +322,14 @@ static const NSUInteger kTagOfRightSideButton = 999;
 #pragma mark 主视图逻辑方法
 
 //滚动视图开始时
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if (scrollView == _rootScrollView) {
         _userContentOffsetX = scrollView.contentOffset.x;
     }
 }
 
 //滚动视图结束
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == _rootScrollView) {
         //判断用户是否左滚动还是右滚动
         if (_userContentOffsetX < scrollView.contentOffset.x) {
@@ -344,8 +342,7 @@ static const NSUInteger kTagOfRightSideButton = 999;
 }
 
 //滚动视图释放滚动
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == _rootScrollView) {
         _isRootScroll = YES;
         //调整顶部滑条按钮状态
@@ -356,8 +353,7 @@ static const NSUInteger kTagOfRightSideButton = 999;
 }
 
 //传递滑动事件给下一层
--(void)scrollHandlePan:(UIPanGestureRecognizer*) panParam
-{
+-(void)scrollHandlePan:(UIPanGestureRecognizer*) panParam {
     //当滑道左边界时，传递滑动事件给代理
     if(_rootScrollView.contentOffset.x <= 0) {
         if (self.delegate

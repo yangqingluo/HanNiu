@@ -7,27 +7,6 @@
 
 @protocol QCSlideSwitchViewDelegate;
 @interface QCSlideSwitchView : UIView<UIScrollViewDelegate>
-{
-    UIScrollView *_rootScrollView;                  //主视图
-    UIScrollView *_topScrollView;                   //顶部页签视图
-    
-    CGFloat _userContentOffsetX;
-    BOOL _isLeftScroll;                             //是否左滑动
-    BOOL _isRootScroll;                             //是否主视图滑动
-    BOOL _isBuildUI;                                //是否建立了ui
-    
-    NSInteger _userSelectedChannelID;               //点击按钮选择名字ID
-
-    UIColor *_tabItemNormalColor;                   //正常时tab文字颜色
-    UIColor *_tabItemSelectedColor;                 //选中时tab文字颜色
-    UIImage *_tabItemNormalBackgroundImage;         //正常时tab的背景
-    UIImage *_tabItemSelectedBackgroundImage;       //选中时tab的背景
-    NSMutableArray *_viewArray;                     //主视图的子视图数组
-    
-    UIButton *_rigthSideButton;                     //右侧按钮
-    
-    __weak id<QCSlideSwitchViewDelegate> _slideSwitchViewDelegate;
-}
 
 @property (nonatomic, strong) UIImageView *shadowImageView;
 @property (nonatomic, strong) UIScrollView *rootScrollView;
@@ -43,6 +22,10 @@
 @property (nonatomic, strong) NSMutableArray *viewArray;
 @property (nonatomic, strong) UIButton *rigthSideButton;
 @property (nonatomic, assign, readonly) NSUInteger selectedIndex;
+
+@property (assign, nonatomic) BOOL isLeftScroll;//是否左滑动
+@property (assign, nonatomic) BOOL isRootScroll;//是否主视图滑动
+@property (assign, nonatomic) BOOL isBuildUI;//是否建立了ui
 
 /*!
  * @method 创建子视图UI
@@ -75,6 +58,10 @@
 - (UIViewController *)slideSwitchView:(QCSlideSwitchView *)view viewOfTab:(NSUInteger)number;
 
 @optional
+
+- (CGFloat)heightOfTopBar;
+- (UIImage *)normalImageNameOfTab:(NSUInteger)index;
+- (NSString *)selectedImageNameOfTab:(NSUInteger)index;
 
 /*!
  * @method 滑动左边界时传递手势
