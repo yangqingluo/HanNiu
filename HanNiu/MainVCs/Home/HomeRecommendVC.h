@@ -6,8 +6,8 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "PublicSlideSubVC.h"
+#import "PublicCollectionViewController.h"
 
-@interface HomeRecommendVC : PublicSlideSubVC
+@interface HomeRecommendVC : PublicCollectionViewController
 
 @end

@@ -45,6 +45,7 @@
         _slidePageView.tabItemNormalColor = appTextColor;
         _slidePageView.tabItemSelectedColor = appMainColor;
         _slidePageView.shadowImageView.backgroundColor = appSeparatorColor;
+        _slidePageView.rootScrollView.scrollEnabled = YES;
     }
     
     return _slidePageView;

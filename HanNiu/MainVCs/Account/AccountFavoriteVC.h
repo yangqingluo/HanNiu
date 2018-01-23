@@ -8,6 +8,6 @@
 
 #import "PublicShowTableVC.h"
 
-@interface AccountCollectionVC : PublicShowTableVC
+@interface AccountFavoriteVC : PublicShowTableVC
 
 @end

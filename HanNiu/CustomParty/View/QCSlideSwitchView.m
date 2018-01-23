@@ -8,6 +8,7 @@
 #import "UIView+KGViewExtend.h"
 
 #define redPointBaseTag 1000
+#define shadowWidthScale 0.8
 
 static const CGFloat kHeightOfTopScrollView = 44.0f;
 static const CGFloat kWidthOfButtonMargin = 0.0f;
@@ -177,15 +178,14 @@ static const NSUInteger kTagOfRightSideButton = 999;
         //计算下一个tab的x偏移量
         xOffset += tabWidth + kWidthOfButtonMargin;
         
-        [button setTag:i+100];
+        [button setTag:i + 100];
         
         UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, button.height - 0.5, button.width, 0.5)];
         lineView.backgroundColor = RGBA(0x66, 0x66, 0x66, 0.4);
         lineView.tag = 10;
         [button addSubview:lineView];
         if (i == 0) {
-            _shadowImageView.frame = CGRectMake(kWidthOfButtonMargin, _topScrollView.bounds.size.height - 1, tabWidth, 2);
-//            lineView.hidden = YES;
+            _shadowImageView.frame = CGRectMake(kWidthOfButtonMargin + 0.5 * (1 - shadowWidthScale) * tabWidth, _topScrollView.bounds.size.height - 1, shadowWidthScale * tabWidth, 2);
             button.selected = YES;
         }
         
@@ -275,12 +275,9 @@ static const NSUInteger kTagOfRightSideButton = 999;
     //按钮选中状态
     if (!sender.selected) {
         sender.selected = YES;
-        UIView *lineView = [sender viewWithTag:10];
-        lineView.hidden = sender.selected;
         
         [UIView animateWithDuration:0.25 animations:^{
-            
-            [_shadowImageView setFrame:CGRectMake(sender.frame.origin.x, _shadowImageView.frame.origin.y, sender.frame.size.width, _shadowImageView.frame.size.height)];
+            _shadowImageView.frame = CGRectMake(sender.frame.origin.x + 0.5 * (1 - shadowWidthScale) * sender.frame.size.width, _shadowImageView.frame.origin.y, shadowWidthScale * sender.frame.size.width, _shadowImageView.frame.size.height);
             
         } completion:^(BOOL finished) {
             if (finished) {

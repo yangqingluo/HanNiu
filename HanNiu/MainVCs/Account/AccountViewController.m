@@ -8,7 +8,7 @@
 
 #import "AccountViewController.h"
 #import "AccountDetailVC.h"
-#import "AccountCollectionVC.h"
+#import "AccountFavoriteVC.h"
 #import "AccountPurchaseVC.h"
 #import "AccountCoinVC.h"
 #import "AccountSuggestVC.h"
@@ -55,7 +55,13 @@
                        @{@"title":@"我的M币",@"subTitle":@"充值",@"key":@"icon_me_coin"},
                        @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},
                        @{@"title":@"设置",@"subTitle":@"",@"key":@"icon_me_setting"},
-                       @{@"title":@"关于我们",@"subTitle":@"",@"key":@"icon_me_about_us"}];
+                       @{@"title":@"关于我们",@"subTitle":@"",@"key":@"icon_me_about_us"},
+                       @{@"title":@"我的购买",@"subTitle":@"",@"key":@"icon_me_bought"},
+                       @{@"title":@"我的M币",@"subTitle":@"充值",@"key":@"icon_me_coin"},
+                       @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},
+                       @{@"title":@"我的购买",@"subTitle":@"",@"key":@"icon_me_bought"},
+                       @{@"title":@"我的M币",@"subTitle":@"充值",@"key":@"icon_me_coin"},
+                       @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},];
 }
 
 - (void)beginRefreshing {
@@ -141,7 +147,7 @@
         PublicViewController *vc = nil;
         switch (indexPath.row) {
             case 0:{
-                vc = [AccountCollectionVC new];
+                vc = [AccountFavoriteVC new];
             }
                 break;
                 

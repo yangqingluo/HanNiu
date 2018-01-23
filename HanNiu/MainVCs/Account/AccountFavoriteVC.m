@@ -6,13 +6,13 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "AccountCollectionVC.h"
+#import "AccountFavoriteVC.h"
 
-@interface AccountCollectionVC ()
+@interface AccountFavoriteVC ()
 
 @end
 
-@implementation AccountCollectionVC
+@implementation AccountFavoriteVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
