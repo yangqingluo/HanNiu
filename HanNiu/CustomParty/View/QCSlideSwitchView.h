@@ -6,7 +6,9 @@
 #import <UIKit/UIKit.h>
 
 @protocol QCSlideSwitchViewDelegate;
-@interface QCSlideSwitchView : UIView<UIScrollViewDelegate>
+@interface QCSlideSwitchView : UIView<UIScrollViewDelegate> {
+    CGFloat kHeightOfTopScrollView;
+}
 
 @property (nonatomic, strong) UIImageView *shadowImageView;
 @property (nonatomic, strong) UIScrollView *rootScrollView;
@@ -26,6 +28,8 @@
 @property (assign, nonatomic) BOOL isLeftScroll;//是否左滑动
 @property (assign, nonatomic) BOOL isRootScroll;//是否主视图滑动
 @property (assign, nonatomic) BOOL isBuildUI;//是否建立了ui
+
+- (instancetype)initWithFrame:(CGRect)frame withHeightOfTop:(CGFloat)topHeight;
 
 /*!
  * @method 创建子视图UI
@@ -59,7 +63,6 @@
 
 @optional
 
-- (CGFloat)heightOfTopBar;
 - (UIImage *)normalImageNameOfTab:(NSUInteger)index;
 - (NSString *)selectedImageNameOfTab:(NSUInteger)index;
 

@@ -6,13 +6,13 @@
 
 #import "QCSlideSwitchView.h"
 #import "UIView+KGViewExtend.h"
+#import "UIButton+ImageAndText.h"
 
 #define redPointBaseTag 1000
 #define shadowWidthScale 0.8
 
-CGFloat kHeightOfTopScrollView = 144.0f;
 static const CGFloat kWidthOfButtonMargin = 0.0f;
-static const CGFloat kFontSizeOfTabButton = 16.0f;
+static const CGFloat kFontSizeOfTabButton = 14.0f;
 static const NSUInteger kTagOfRightSideButton = 999;
 
 @implementation QCSlideSwitchView
@@ -20,9 +20,6 @@ static const NSUInteger kTagOfRightSideButton = 999;
 #pragma mark - 初始化参数
 
 - (void)initValues {
-    if ([self.delegate respondsToSelector:@selector(heightOfTopBar)]) {
-        kHeightOfTopScrollView = [self.delegate heightOfTopBar];
-    }
     //创建顶部可滑动的tab
     _topScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, kHeightOfTopScrollView)];
     _topScrollView.delegate = self;
@@ -56,6 +53,7 @@ static const NSUInteger kTagOfRightSideButton = 999;
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        kHeightOfTopScrollView = 44.0;
         [self initValues];
     }
     return self;
@@ -64,6 +62,16 @@ static const NSUInteger kTagOfRightSideButton = 999;
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        kHeightOfTopScrollView = 44.0;
+        [self initValues];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame withHeightOfTop:(CGFloat)topHeight {
+    self = [super initWithFrame:frame];
+    if (self) {
+        kHeightOfTopScrollView = topHeight;
         [self initValues];
     }
     return self;
@@ -196,10 +204,14 @@ static const NSUInteger kTagOfRightSideButton = 999;
         [_topScrollView addSubview:button];
         
         if ([self.delegate respondsToSelector:@selector(normalImageNameOfTab:)]) {
-            [button setImage:[self.delegate normalImageNameOfTab:i] forState:UIControlStateNormal];
+            UIImage *normal_image = [self.delegate normalImageNameOfTab:i];
+            if (normal_image) {
+                [button setImage:normal_image  forState:UIControlStateNormal];
+                [button verticalImageAndTitle:kEdge];
+            }
         }
         if ([self.delegate respondsToSelector:@selector(selectedImageNameOfTab:)]) {
-            [button setImage:[UIImage imageNamed:[self.delegate selectedImageNameOfTab:i]] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:[self.delegate selectedImageNameOfTab:i]] forState:UIControlStateSelected];
         }
         
         NSMutableParagraphStyle *paragraphStyle= [[NSMutableParagraphStyle alloc] init];
