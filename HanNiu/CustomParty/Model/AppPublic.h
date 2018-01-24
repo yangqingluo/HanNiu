@@ -170,7 +170,6 @@ NSDate *dateWithPriousorLaterDate(NSDate *date, int month);
 + (void)roundCornerRadius:(UIView *)view cornerRadius:(CGFloat)radius;
 
 
-
 - (void)logout;
 - (void)loginDoneWithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password;
 

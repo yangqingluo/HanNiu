@@ -27,5 +27,6 @@
 
 /** 将两个图片生成一张图片 */
 + (UIImage*)mergeImage:(UIImage*)firstImage withImage:(UIImage*)secondImage;
++ (UIImage*)mergeImage:(UIImage*)firstImage mergeSize:(CGSize)mergeSize withImage:(UIImage*)secondImage secondFrame:(CGRect)secondFrame;
 
 @end

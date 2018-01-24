@@ -41,7 +41,7 @@
 		E410D233200CB79100C6ACED /* icon_circle_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1C6200CB79000C6ACED /* icon_circle_unselected.png */; };
 		E410D234200CB79100C6ACED /* icon_classify_sub_recycler_item_back_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1C7200CB79000C6ACED /* icon_classify_sub_recycler_item_back_normal.png */; };
 		E410D235200CB79100C6ACED /* icon_classify_sub_recycler_item_back_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1C8200CB79000C6ACED /* icon_classify_sub_recycler_item_back_selected.png */; };
-		E410D236200CB79100C6ACED /* icon_classify_tab_title_back.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1C9200CB79000C6ACED /* icon_classify_tab_title_back.png */; };
+		E410D236200CB79100C6ACED /* icon_classify_tab_title_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1C9200CB79000C6ACED /* icon_classify_tab_title_back@2x.png */; };
 		E410D237200CB79100C6ACED /* icon_classify_tab_title_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1CA200CB79000C6ACED /* icon_classify_tab_title_left@2x.png */; };
 		E410D238200CB79100C6ACED /* icon_classify_tab_title_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1CB200CB79000C6ACED /* icon_classify_tab_title_right@2x.png */; };
 		E410D239200CB79100C6ACED /* icon_close_playlist.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1CC200CB79000C6ACED /* icon_close_playlist.png */; };
@@ -294,7 +294,7 @@
 		E410D1C6200CB79000C6ACED /* icon_circle_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_circle_unselected.png; sourceTree = "<group>"; };
 		E410D1C7200CB79000C6ACED /* icon_classify_sub_recycler_item_back_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_classify_sub_recycler_item_back_normal.png; sourceTree = "<group>"; };
 		E410D1C8200CB79000C6ACED /* icon_classify_sub_recycler_item_back_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_classify_sub_recycler_item_back_selected.png; sourceTree = "<group>"; };
-		E410D1C9200CB79000C6ACED /* icon_classify_tab_title_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_classify_tab_title_back.png; sourceTree = "<group>"; };
+		E410D1C9200CB79000C6ACED /* icon_classify_tab_title_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_classify_tab_title_back@2x.png"; sourceTree = "<group>"; };
 		E410D1CA200CB79000C6ACED /* icon_classify_tab_title_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_classify_tab_title_left@2x.png"; sourceTree = "<group>"; };
 		E410D1CB200CB79000C6ACED /* icon_classify_tab_title_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_classify_tab_title_right@2x.png"; sourceTree = "<group>"; };
 		E410D1CC200CB79000C6ACED /* icon_close_playlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close_playlist.png; sourceTree = "<group>"; };
@@ -701,7 +701,7 @@
 				E410D1C6200CB79000C6ACED /* icon_circle_unselected.png */,
 				E410D1C7200CB79000C6ACED /* icon_classify_sub_recycler_item_back_normal.png */,
 				E410D1C8200CB79000C6ACED /* icon_classify_sub_recycler_item_back_selected.png */,
-				E410D1C9200CB79000C6ACED /* icon_classify_tab_title_back.png */,
+				E410D1C9200CB79000C6ACED /* icon_classify_tab_title_back@2x.png */,
 				E410D1CA200CB79000C6ACED /* icon_classify_tab_title_left@2x.png */,
 				E410D1CB200CB79000C6ACED /* icon_classify_tab_title_right@2x.png */,
 				E410D1CC200CB79000C6ACED /* icon_close_playlist.png */,
@@ -1464,7 +1464,7 @@
 				E410D265200CB79100C6ACED /* news_cover_0.jpg in Resources */,
 				E410D257200CB79100C6ACED /* icon_prev_music.png in Resources */,
 				E410D26E200CB79100C6ACED /* placeholder_major_logo.png in Resources */,
-				E410D236200CB79100C6ACED /* icon_classify_tab_title_back.png in Resources */,
+				E410D236200CB79100C6ACED /* icon_classify_tab_title_back@2x.png in Resources */,
 				E410D240200CB79100C6ACED /* icon_hotspot_recycler_image_back.png in Resources */,
 				E410D254200CB79100C6ACED /* icon_play_list_colorful.png in Resources */,
 				E410D275200CB79100C6ACED /* toolbar_back.png in Resources */,

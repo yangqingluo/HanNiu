@@ -109,4 +109,12 @@
     return image;
 }
 
++ (UIImage*)mergeImage:(UIImage*)firstImage mergeSize:(CGSize)mergedSize withImage:(UIImage*)secondImage secondFrame:(CGRect)secondFrame {
+    UIGraphicsBeginImageContext(mergedSize);
+    [firstImage drawInRect:CGRectMake(0, 0, mergedSize.width, mergedSize.height)];
+    [secondImage drawInRect:secondFrame];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
 @end

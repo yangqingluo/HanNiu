@@ -35,7 +35,7 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
     [self.collectionView registerClass:[PublicCollectionCell class] forCellWithReuseIdentifier:reuseId_cell_school];
     
     [self updateScrollViewHeader];
-    [self beginRefreshing];
+    [self pullBaseListData:YES];
 }
 
 - (void)initializeNavigationBar {

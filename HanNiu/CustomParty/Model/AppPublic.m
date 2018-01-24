@@ -321,9 +321,6 @@ NSDate *dateWithPriousorLaterDate(NSDate *date, int month) {
 
 
 
-
-
-
 - (void)logout {
     [[UserPublic getInstance] clearUserData];
 }
