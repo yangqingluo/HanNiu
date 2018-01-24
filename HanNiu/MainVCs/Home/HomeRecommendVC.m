@@ -53,7 +53,7 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
             [weakself.bannerList removeAllObjects];
             [weakself.bannerList addObjectsFromArray:responseBody[@"Data"]];
         }
-        [weakself updateSubviews];
+        [weakself.adHeadView.adView updateAdvertisements:weakself.bannerList];
     }];
 }
 

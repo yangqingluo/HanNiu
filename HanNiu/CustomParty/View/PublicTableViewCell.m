@@ -17,7 +17,7 @@
         _showImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kEdgeMiddle, kEdgeSmall, i_radius, i_radius)];
         [self.contentView addSubview:_showImageView];
         
-        _titleLabel = NewLabel(CGRectMake(_showImageView.right + kEdgeMiddle, 0, self.contentView.width - (_showImageView.right + kEdge), self.contentView.height), nil, nil, NSTextAlignmentLeft);
+        _titleLabel = NewLabel(CGRectMake(_showImageView.right + kEdgeMiddle, 0, self.contentView.width - (_showImageView.right + kEdgeMiddle), self.contentView.height), nil, nil, NSTextAlignmentLeft);
         [self.contentView addSubview:_titleLabel];
     }
     

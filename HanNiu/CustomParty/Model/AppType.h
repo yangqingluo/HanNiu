@@ -12,6 +12,14 @@
 
 @end
 
+@interface AppItemInfo : AppType
+
+@property (strong, nonatomic) NSString *Id;
+@property (strong, nonatomic) NSString *Name;
+@property (strong, nonatomic) NSString *Image;
+
+@end
+
 @interface AppUserInfo : AppType
 
 @property (strong, nonatomic) NSString *Coin;
@@ -51,4 +59,31 @@
 
 @end
 
+@interface AppMusicInfo : AppItemInfo
+
+@property (strong, nonatomic) NSString *TrackNumber;
+@property (strong, nonatomic) NSString *TotolTrackCount;
+@property (strong, nonatomic) NSString *Duration;
+@property (strong, nonatomic) NSString *Collect;
+@property (strong, nonatomic) NSString *IsInCollect;
+@property (strong, nonatomic) NSString *Comment;
+@property (strong, nonatomic) NSString *PlayTimes;
+@property (strong, nonatomic) NSString *Price;
+
+@end
+
+
+@interface AppQualityInfo : AppItemInfo
+
+@property (strong, nonatomic) NSString *Price;
+@property (strong, nonatomic) AppItemInfo *University;
+@property (strong, nonatomic) AppItemInfo *Institute;
+@property (strong, nonatomic) NSString *Introduce;
+@property (strong, nonatomic) NSString *TotalPlayTimes;
+@property (strong, nonatomic) NSString *CreateTime;
+@property (strong, nonatomic) NSString *UpdateTime;
+@property (strong, nonatomic) AppMusicInfo *Music;
+@property (strong, nonatomic) NSString *Status;
+
+@end
 

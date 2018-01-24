@@ -261,6 +261,12 @@ NSDate *dateWithPriousorLaterDate(NSDate *date, int month) {
     return mDate;
 }
 
+NSString *stringWithTimeInterval(NSTimeInterval interval) {
+    NSInteger minutes = interval / 60;
+    NSInteger seconds = (NSInteger)interval % 60;
+    return [NSString stringWithFormat:@"%02ld:%02ld", minutes, seconds];
+}
+
 //文本尺寸
 + (CGSize)textSizeWithString:(NSString *)text font:(UIFont *)font constantWidth:(CGFloat)width {
     NSMutableParagraphStyle *paragraphStyle= [[NSMutableParagraphStyle alloc] init];

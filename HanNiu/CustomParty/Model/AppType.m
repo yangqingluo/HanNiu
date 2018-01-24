@@ -12,6 +12,10 @@
 
 @end
 
+@implementation AppItemInfo
+
+@end
+
 @implementation AppUserInfo
 
 
@@ -30,5 +34,15 @@
 
 @implementation UserParam
 
+
+@end
+
+
+@implementation AppMusicInfo
+
+@end
+
+
+@implementation AppQualityInfo
 
 @end

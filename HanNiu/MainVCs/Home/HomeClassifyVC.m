@@ -46,7 +46,7 @@
 
 - (void)doGetBannerListFunction {
     NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"type" : @"1"}];
-    [self doShowHudFunction];
+//    [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Config/Banner/List" completion:^(id responseBody, NSError *error){
         [weakself endRefreshing];
@@ -57,7 +57,7 @@
             [weakself.bannerList removeAllObjects];
             [weakself.bannerList addObjectsFromArray:responseBody[@"Data"]];
         }
-        [weakself updateSubviews];
+        [weakself.adHeadView updateAdvertisements:weakself.bannerList];
     }];
 }
 
@@ -68,7 +68,7 @@
 }
 
 - (void)updateSubviews {
-    [self.adHeadView updateAdvertisements:self.bannerList];
+    
 }
 
 #pragma mark - getter
