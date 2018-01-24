@@ -9,11 +9,14 @@
 #import "AccountDetailVC.h"
 
 #import "PublicTableViewCell.h"
+#import "UIButton+WebCache.h"
 
 @interface AccountDetailVC ()
 
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) UIButton *headerBtn;
+
+@property (strong, nonatomic) AppUserInfo *userData;
 
 @end
 
@@ -25,6 +28,7 @@
     
     self.tableView.tableHeaderView = self.headerView;
     [self initializeData];
+    [self updateSubviews];
 //    [self pullBaseListData:YES];
 }
 
@@ -38,7 +42,7 @@
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            
+            [weakself updateSubviews];
         }
     }];
 }
@@ -46,6 +50,11 @@
 //初始化数据
 - (void)initializeData {
     self.showArray = @[@{@"title":@"昵称",@"subTitle":@"请输入",@"key":@"NickName"}];
+}
+
+- (void)updateSubviews {
+    [self.headerBtn sd_setImageWithURL:imageURLWithPID(self.userData.Image) forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:defaultHeadPlaceImageName]];
+    [self.tableView reloadData];
 }
 
 #pragma mark - getter
@@ -59,8 +68,16 @@
         _headerBtn.center = CGPointMake(0.5 * _headerView.width, 0.5 * _headerView.height);
         [_headerBtn setBackgroundImage:[UIImage imageNamed:defaultHeadPlaceImageName] forState:UIControlStateNormal];
         [_headerView addSubview:_headerBtn];
+        [AppPublic roundCornerRadius:_headerBtn];
     }
     return _headerView;
+}
+
+- (AppUserInfo *)userData {
+    if (!_userData) {
+        _userData = [[UserPublic getInstance].userData.Extra.userinfo copy];
+    }
+    return _userData;
 }
 
 #pragma mark - UITableView

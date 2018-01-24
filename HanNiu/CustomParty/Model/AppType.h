@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSString *NickName;
 @property (strong, nonatomic) NSString *Status;
 @property (strong, nonatomic) NSString *Type;
+@property (strong, nonatomic) NSString *Image;
 
 @end
 

@@ -46,6 +46,14 @@ NSString *urlStringWithService(NSString *service) {
     return [NSString stringWithFormat:@"%@%@", appUrlAddress, service];
 }
 
+NSString *imageURLStringWithPID(NSString *pID) {
+    return urlStringWithService([NSString stringWithFormat:@"File/?pid=%@", pID]);
+}
+
+NSURL *imageURLWithPID(NSString *pID) {
+    return [NSURL URLWithString:imageURLStringWithPID(pID)];
+}
+
 NSString *httpRespString(NSError *error, NSObject *object){
     NSString *noticeString = @"出错";
     if (error) {

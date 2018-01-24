@@ -30,6 +30,8 @@
     [super viewDidLoad];
     self.title = [NSString stringWithFormat:@"%@-%@-%@", self.data.University.Name, self.data.Institute.Name, self.data.Music.Name];
     [self.view addSubview:self.playView];
+    
+    [self pullBaseListData:YES];
 }
 
 - (void)initializeNavigationBar {
@@ -57,6 +59,21 @@
 
 - (void)playButtonAction:(UIButton *)button {
 //    button.selected = !button.selected;
+}
+
+- (void)pullBaseListData:(BOOL)isReset {
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Id}];
+    [self doShowHudFunction];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Music/Detail" completion:^(id responseBody, NSError *error){
+        [weakself doHideHudFunction];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+//            [weakself updateSubviews];
+        }
+    }];
 }
 
 #pragma mark - getter

@@ -82,7 +82,7 @@
 - (void)updateAdvertisements:(NSArray *)list {
     NSMutableArray *m_array = [NSMutableArray arrayWithCapacity:list.count];
     for (NSDictionary *item in list) {
-        [m_array addObject:urlStringWithService([NSString stringWithFormat:@"File/?pid=%@", item[@"Image"]])];
+        [m_array addObject:imageURLStringWithPID(item[@"Image"])];
     }
     self.imageNameArray = m_array;
 }

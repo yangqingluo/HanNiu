@@ -16,6 +16,7 @@
 #define HTTP_SUCCESS_DUP                3//成功, 但之前已受理过此请求因此未执行或单位时间内执行次数超出限额(重复提交)
 #define HTTP_SUCCESS_PARTLY             1//执行成功, 但只返回部分结果(分页)
 #define HTTP_SUCCESS                    0//成功
+#define HTTP_DATA_CONFLICT             -6//数据冲突（购买音频时即为余额不足）
 #define HTTP_REMOTE_LOGIN              -15//账号异地登录
 #define HTTP_ERR_NEED_VFY              -24//需要提供验证码(或验证码失效)
 
@@ -30,6 +31,8 @@ typedef void(^Progress)(float progress);
 @property (strong, nonatomic) NSDictionary *httpRespCodeDic;
 
 NSString *urlStringWithService(NSString *service);
+NSString *imageURLStringWithPID(NSString *pID);
+NSURL *imageURLWithPID(NSString *pID);
 NSString *httpRespString(NSError *error, NSObject *object);
 
 //Get

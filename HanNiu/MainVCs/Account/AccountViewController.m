@@ -16,6 +16,7 @@
 #import "AccountAboutVC.h"
 
 #import "PublicTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface AccountViewController ()
 
@@ -90,16 +91,17 @@
             CGFloat c_height = [self tableView:tableView heightForRowAtIndexPath:indexPath];
             CGFloat i_radius = c_height - 2 * kEdgeMiddle;
             cell.showImageView.frame = CGRectMake(kEdgeHuge, kEdgeMiddle, i_radius, i_radius);
+            [AppPublic roundCornerRadius:cell.showImageView];
             cell.titleLabel.frame = CGRectMake(cell.showImageView.right + kEdgeHuge, 0, screen_width - (cell.showImageView.right + kEdgeHuge) - kEdgeHuge, c_height);
-            cell.showImageView.image = [UIImage imageNamed:defaultHeadPlaceImageName];
-            
             cell.titleLabel.numberOfLines = 0;
         }
         if ([UserPublic getInstance].userData) {
             cell.titleLabel.text = [UserPublic getInstance].userData.Extra.userinfo.NickName;
+            [cell.showImageView sd_setImageWithURL:imageURLWithPID([UserPublic getInstance].userData.Extra.userinfo.Image) placeholderImage:[UIImage imageNamed:defaultHeadPlaceImageName]];
         }
         else {
             cell.titleLabel.text = @"点击登录";
+            cell.showImageView.image = [UIImage imageNamed:defaultHeadPlaceImageName];
         }
         
         return cell;

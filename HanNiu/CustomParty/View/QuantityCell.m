@@ -67,7 +67,7 @@
 - (void)setData:(AppQualityInfo *)data {
     _data = data;
     
-    [self.showImageView sd_setImageWithURL:[NSURL URLWithString:urlStringWithService([NSString stringWithFormat:@"File/?pid=%@", data.Image])]];
+    [self.showImageView sd_setImageWithURL:imageURLWithPID(data.Image)];
     self.titleLabel.text = data.Name;
     self.subTitleLabel.text = stringFromDate([NSDate dateWithTimeIntervalSince1970:0.001 * [data.UpdateTime integerValue]], @"yyyy.MM.dd");
     self.playBtn.showLabel.text = data.Music.PlayTimes;
