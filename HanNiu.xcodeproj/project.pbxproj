@@ -151,6 +151,7 @@
 		E48A2298201865C50017977A /* PublicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A2297201865C50017977A /* PublicButton.m */; };
 		E48A229B20187B400017977A /* MusicDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A229A20187B400017977A /* MusicDetailVC.m */; };
 		E48A229E201888630017977A /* PublicPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A229D201888630017977A /* PublicPlayView.m */; };
+		E48A22A12018CAE70017977A /* PublicMusicPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22A02018CAE70017977A /* PublicMusicPlayerManager.m */; };
 		E48FE18D2015BE18007F1427 /* AccountDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FE18C2015BE18007F1427 /* AccountDetailVC.m */; };
 		E4B3CB1D200D931D006807AE /* AppPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB1C200D931D006807AE /* AppPublic.m */; };
 		E4B3CB25200D94E9006807AE /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB20200D94E9006807AE /* UIImage+Color.m */; };
@@ -443,6 +444,8 @@
 		E48A229A20187B400017977A /* MusicDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicDetailVC.m; sourceTree = "<group>"; };
 		E48A229C201888630017977A /* PublicPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicPlayView.h; sourceTree = "<group>"; };
 		E48A229D201888630017977A /* PublicPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicPlayView.m; sourceTree = "<group>"; };
+		E48A229F2018CAE60017977A /* PublicMusicPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicMusicPlayerManager.h; sourceTree = "<group>"; };
+		E48A22A02018CAE70017977A /* PublicMusicPlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicMusicPlayerManager.m; sourceTree = "<group>"; };
 		E48FE18B2015BE18007F1427 /* AccountDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailVC.h; sourceTree = "<group>"; };
 		E48FE18C2015BE18007F1427 /* AccountDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailVC.m; sourceTree = "<group>"; };
 		E4B3CB1A200D92D9006807AE /* HanNiuPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HanNiuPrefix.pch; sourceTree = "<group>"; };
@@ -1307,6 +1310,8 @@
 				E4B3CBD9200D9596006807AE /* AppNetwork.m */,
 				E4B3CBE1200D95C3006807AE /* AppType.h */,
 				E4B3CBE2200D95C3006807AE /* AppType.m */,
+				E48A229F2018CAE60017977A /* PublicMusicPlayerManager.h */,
+				E48A22A02018CAE70017977A /* PublicMusicPlayerManager.m */,
 				E4B3CBDD200D95B6006807AE /* NSData+HTTPRequest.h */,
 				E4B3CBDB200D95B6006807AE /* NSData+HTTPRequest.m */,
 				E4B3CBDE200D95B7006807AE /* UIResponder+Router.h */,
@@ -1411,6 +1416,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 5TL5JG9J98;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1694,6 +1704,7 @@
 				E48A228F201855750017977A /* PublicCollectionButtonCell.m in Sources */,
 				E469F15B20171A66000B3C04 /* PublicLabel.m in Sources */,
 				E4EE1916200DCE87005BD00F /* PublicShowTableVC.m in Sources */,
+				E48A22A12018CAE70017977A /* PublicMusicPlayerManager.m in Sources */,
 				E4B3CCA9200D9617006807AE /* AFSecurityPolicy.m in Sources */,
 				E4B3CCB5200D9617006807AE /* UIWebView+AFNetworking.m in Sources */,
 				E4B3CB1D200D931D006807AE /* AppPublic.m in Sources */,

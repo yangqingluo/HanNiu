@@ -10,6 +10,9 @@
 
 #import "PublicPlayView.h"
 
+#import "PublicMusicPlayerManager.h"
+
+PublicMusicPlayerManager *musicPlayer;
 @interface MusicDetailVC ()
 
 @property (strong, nonatomic) PublicPlayView *playView;
@@ -21,6 +24,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        musicPlayer = [PublicMusicPlayerManager getInstance];
         self.hidesBottomBarWhenPushed = YES;
     }
     return self;
@@ -31,7 +35,8 @@
     self.title = [NSString stringWithFormat:@"%@-%@-%@", self.data.University.Name, self.data.Institute.Name, self.data.Music.Name];
     [self.view addSubview:self.playView];
     
-    [self pullBaseListData:YES];
+    [self resetPlayer];
+//    [self pullBaseListData:YES];
 }
 
 - (void)initializeNavigationBar {
@@ -58,14 +63,21 @@
 }
 
 - (void)playButtonAction:(UIButton *)button {
-//    button.selected = !button.selected;
+    if (musicPlayer.player.rate == 0) {
+        button.selected = YES;
+        [musicPlayer startPlay];
+    }
+    else {
+        button.selected = NO;
+        [musicPlayer stopPlay];
+    }
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
     NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Music.Id}];
     [self doShowHudFunction];
     QKWEAKSELF;
-    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Quality/Detail" completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Music/Detail" completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
@@ -74,6 +86,13 @@
 //            [weakself updateSubviews];
         }
     }];
+}
+
+- (void)resetPlayer {
+    if (self.data.Music.Url) {
+        [musicPlayer resetPlayItem:fileURLStringWithPID(self.data.Music.Url)];
+        [musicPlayer resetPlayer];
+    }
 }
 
 #pragma mark - getter
