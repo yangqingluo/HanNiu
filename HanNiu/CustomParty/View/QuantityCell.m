@@ -67,12 +67,12 @@
 - (void)setData:(AppQualityInfo *)data {
     _data = data;
     
-    [self.showImageView sd_setImageWithURL:imageURLWithPID(data.Image)];
+    [self.showImageView sd_setImageWithURL:fileURLWithPID(data.Image)];
     self.titleLabel.text = data.Name;
     self.subTitleLabel.text = stringFromDate([NSDate dateWithTimeIntervalSince1970:0.001 * [data.UpdateTime integerValue]], @"yyyy.MM.dd");
-    self.playBtn.showLabel.text = data.Music.PlayTimes;
-    self.messageBtn.showLabel.text = data.Music.Comment;
-    self.timeBtn.showLabel.text = stringWithTimeInterval([data.Music.Duration integerValue]);
+    self.playBtn.showLabel.text = [NSString stringWithFormat:@"%d", data.Music.PlayTimes];
+    self.messageBtn.showLabel.text = [NSString stringWithFormat:@"%d", data.Music.Comment];
+    self.timeBtn.showLabel.text = stringWithTimeInterval(data.Music.Duration);
 }
 
 @end

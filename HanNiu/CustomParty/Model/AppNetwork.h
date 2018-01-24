@@ -31,8 +31,8 @@ typedef void(^Progress)(float progress);
 @property (strong, nonatomic) NSDictionary *httpRespCodeDic;
 
 NSString *urlStringWithService(NSString *service);
-NSString *imageURLStringWithPID(NSString *pID);
-NSURL *imageURLWithPID(NSString *pID);
+NSString *fileURLStringWithPID(NSString *pID);
+NSURL *fileURLWithPID(NSString *pID);
 NSString *httpRespString(NSError *error, NSObject *object);
 
 //Get

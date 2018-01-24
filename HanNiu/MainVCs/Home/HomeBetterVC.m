@@ -94,4 +94,5 @@
     vc.data = self.dataSource[indexPath.row];
     [self doPushViewController:vc animated:YES];
 }
+
 @end

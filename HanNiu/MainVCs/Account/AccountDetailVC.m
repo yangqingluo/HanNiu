@@ -53,7 +53,7 @@
 }
 
 - (void)updateSubviews {
-    [self.headerBtn sd_setImageWithURL:imageURLWithPID(self.userData.Image) forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:defaultHeadPlaceImageName]];
+    [self.headerBtn sd_setImageWithURL:fileURLWithPID(self.userData.Image) forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:defaultHeadPlaceImageName]];
     [self.tableView reloadData];
 }
 

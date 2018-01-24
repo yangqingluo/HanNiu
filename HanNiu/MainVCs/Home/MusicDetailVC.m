@@ -62,10 +62,10 @@
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Id}];
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Music.Id}];
     [self doShowHudFunction];
     QKWEAKSELF;
-    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Music/Detail" completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Quality/Detail" completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];

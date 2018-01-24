@@ -62,14 +62,15 @@
 
 @interface AppMusicInfo : AppItemInfo
 
-@property (strong, nonatomic) NSString *TrackNumber;
-@property (strong, nonatomic) NSString *TotolTrackCount;
-@property (strong, nonatomic) NSString *Duration;
-@property (strong, nonatomic) NSString *Collect;
-@property (strong, nonatomic) NSString *IsInCollect;
-@property (strong, nonatomic) NSString *Comment;
-@property (strong, nonatomic) NSString *PlayTimes;
-@property (strong, nonatomic) NSString *Price;
+@property (strong, nonatomic) NSString *Url;//地址(未购买时为null)
+@property (assign, nonatomic) int TrackNumber;//***未知, -1***
+@property (assign, nonatomic) int TotolTrackCount;//***未知, -1***
+@property (assign, nonatomic) int Duration;//
+@property (assign, nonatomic) int Collect;//收藏数
+@property (assign, nonatomic) BOOL IsInCollect;//自己是否收藏(未登录情况下始终为false)
+@property (assign, nonatomic) int Comment;//评论数
+@property (assign, nonatomic) int PlayTimes;//播放次数(总购买次数)
+@property (assign, nonatomic) int Price;//价格,单位为内购金币
 
 @end
 

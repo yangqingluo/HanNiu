@@ -97,7 +97,7 @@
         }
         if ([UserPublic getInstance].userData) {
             cell.titleLabel.text = [UserPublic getInstance].userData.Extra.userinfo.NickName;
-            [cell.showImageView sd_setImageWithURL:imageURLWithPID([UserPublic getInstance].userData.Extra.userinfo.Image) placeholderImage:[UIImage imageNamed:defaultHeadPlaceImageName]];
+            [cell.showImageView sd_setImageWithURL:fileURLWithPID([UserPublic getInstance].userData.Extra.userinfo.Image) placeholderImage:[UIImage imageNamed:defaultHeadPlaceImageName]];
         }
         else {
             cell.titleLabel.text = @"点击登录";

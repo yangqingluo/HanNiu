@@ -172,7 +172,7 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
     if (indexPath.section == 1) {
         if (indexPath.row < self.universityList.count) {
             NSDictionary *item = self.universityList[indexPath.row];
-            [cell.showImageView sd_setImageWithURL:imageURLWithPID(item[@"Image"]) placeholderImage:nil];
+            [cell.showImageView sd_setImageWithURL:fileURLWithPID(item[@"Image"]) placeholderImage:nil];
             cell.showImageView.hidden = NO;
             cell.titleLabel.text = item[@"Name"];
         }
@@ -180,7 +180,7 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
     else if (indexPath.section == 2) {
         if (indexPath.row < self.quantityList.count) {
             NSDictionary *item = self.quantityList[indexPath.row];
-            [cell.showImageView sd_setImageWithURL:imageURLWithPID(item[@"Image"]) placeholderImage:nil];
+            [cell.showImageView sd_setImageWithURL:fileURLWithPID(item[@"Image"]) placeholderImage:nil];
             cell.showImageView.hidden = NO;
             cell.titleLabel.text = item[@"Name"];
         }

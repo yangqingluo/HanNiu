@@ -36,7 +36,7 @@
         }
     }
     if ([UserPublic getInstance].userData.Token) {
-        [manager.requestSerializer setValue:[NSString stringWithFormat:@" CAuth %@",[UserPublic getInstance].userData.Token] forHTTPHeaderField:@"Authorization"];
+        [manager.requestSerializer setValue:[NSString stringWithFormat:@" HAuth %@",[UserPublic getInstance].userData.Token] forHTTPHeaderField:@"Authorization"];
     }
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"application/json",@"text/json",@"text/javascript",@"text/html", nil];
     return manager;
@@ -46,12 +46,12 @@ NSString *urlStringWithService(NSString *service) {
     return [NSString stringWithFormat:@"%@%@", appUrlAddress, service];
 }
 
-NSString *imageURLStringWithPID(NSString *pID) {
+NSString *fileURLStringWithPID(NSString *pID) {
     return urlStringWithService([NSString stringWithFormat:@"File/?pid=%@", pID]);
 }
 
-NSURL *imageURLWithPID(NSString *pID) {
-    return [NSURL URLWithString:imageURLStringWithPID(pID)];
+NSURL *fileURLWithPID(NSString *pID) {
+    return [NSURL URLWithString:fileURLStringWithPID(pID)];
 }
 
 NSString *httpRespString(NSError *error, NSObject *object){
