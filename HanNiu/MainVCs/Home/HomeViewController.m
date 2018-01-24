@@ -28,11 +28,11 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.viewArray = [NSMutableArray new];
-        [self.viewArray addObject:@{@"title":@"推荐",@"VC":[HomeRecommendVC new]}];
-        [self.viewArray addObject:@{@"title":@"分类",@"VC":[HomeClassifyVC new]}];
-        [self.viewArray addObject:@{@"title":@"纷声",@"VC":[HomeBetterVC new]}];
-        [self.viewArray addObject:@{@"title":@"就业",@"VC":[[HomeJobVC alloc] initWithCollectionRowCount:4 cellHeight:38.0]}];
-        [self.viewArray addObject:@{@"title":@"校&企",@"VC":[HomeSchoolAndCompanyVC new]}];
+        [self addViewController:@"推荐" vc:[HomeRecommendVC new]];
+        [self addViewController:@"分类" vc:[HomeClassifyVC new]];
+        [self addViewController:@"纷声" vc:[HomeBetterVC new]];
+        [self addViewController:@"就业" vc:[[HomeJobVC alloc] initWithCollectionRowCount:4 cellHeight:38.0]];
+        [self addViewController:@"校&企" vc:[HomeSchoolAndCompanyVC new]];
     }
     return self;
 }

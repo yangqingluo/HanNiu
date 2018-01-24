@@ -17,12 +17,12 @@ typedef enum {
 
 @interface PublicButton : UIButton
 
-@property (nonatomic, strong) UIImageView *showImageView;
-@property (nonatomic, strong) UILabel *showLabel;
+@property (strong, nonatomic) UIImageView *showImageView;
+@property (strong, nonatomic) UILabel *showLabel;
 
-@property (nonatomic, assign) PublicButtonPositionStyle positionStyle;
-@property (nonatomic, assign) BOOL autoAdjust;
-@property (nonatomic, assign) double edgeInTextImage;//图片和文本的间距
+@property (assign, nonatomic) PublicButtonPositionStyle positionStyle;
+@property (assign, nonatomic) BOOL autoAdjust;
+@property (assign, nonatomic) double edgeInTextImage;//图片和文本的间距
 
 - (void)startAnimation;
 - (void)stopAnimation;

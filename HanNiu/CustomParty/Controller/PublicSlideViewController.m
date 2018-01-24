@@ -35,6 +35,11 @@
     [self.slidePageView buildUI];
 }
 
+- (void)addViewController:(NSString *)title vc:(PublicViewController *)vc {
+    vc.parentVC = self;
+    [self.viewArray addObject:@{@"title" : title, @"VC" : vc}];
+}
+
 #pragma mark - getter
 - (QCSlideSwitchView *)slidePageView{
     if (!_slidePageView) {

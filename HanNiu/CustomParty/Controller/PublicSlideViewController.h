@@ -15,4 +15,6 @@
 @property (strong, nonatomic) QCSlideSwitchView *slidePageView;
 @property (strong, nonatomic) NSMutableArray *viewArray;
 
+- (void)addViewController:(NSString *)title vc:(PublicViewController *)vc;
+
 @end

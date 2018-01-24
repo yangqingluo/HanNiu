@@ -186,8 +186,8 @@
 }
 
 - (void)initializeNavigationBar {
-    [self createNavWithTitle:self.title createMenuItem:^UIView *(int nIndex){
-        if (nIndex == 0){
+    [self createNavWithTitle:self.title createMenuItem:^UIView *(int nIndex) {
+        if (nIndex == 0) {
             UIButton *btn = NewBackButton(nil);
             [btn addTarget:self action:@selector(cancelButtonAction) forControlEvents:UIControlEventTouchUpInside];
             return btn;

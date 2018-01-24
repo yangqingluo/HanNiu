@@ -7,6 +7,7 @@
 //
 
 #import "HomeBetterVC.h"
+#import "MusicDetailVC.h"
 
 #import "QuantityCell.h"
 
@@ -37,7 +38,7 @@
 //    [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Config/Banner/List" completion:^(id responseBody, NSError *error){
-        [weakself endRefreshing];
+//        [weakself endRefreshing];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
@@ -89,5 +90,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    MusicDetailVC *vc = [MusicDetailVC new];
+    vc.data = self.dataSource[indexPath.row];
+    [self doPushViewController:vc animated:YES];
 }
 @end
