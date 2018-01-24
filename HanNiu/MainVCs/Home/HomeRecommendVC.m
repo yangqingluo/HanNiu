@@ -8,18 +8,15 @@
 
 #import "HomeRecommendVC.h"
 
-#import "PublicCollectionHeaderAdView.h"
 #import "PublicCollectionHeaderTitleView.h"
 #import "PublicCollectionCell.h"
 
-static NSString *reuseId_header_ad = @"reuseId_header_ad";
+
 static NSString *reuseId_header_title = @"reuseId_header_title";
 static NSString *reuseId_cell_school = @"reuseId_cell_school";
 
 @interface HomeRecommendVC ()
 
-@property (strong, nonatomic) PublicCollectionHeaderAdView *adHeadView;
-@property (strong, nonatomic) NSMutableArray *bannerList;
 @property (strong, nonatomic) NSMutableArray *universityList;
 @property (strong, nonatomic) NSMutableArray *quantityList;
 
@@ -30,16 +27,11 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.collectionView registerClass:[PublicCollectionHeaderAdView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reuseId_header_ad];
     [self.collectionView registerClass:[PublicCollectionHeaderTitleView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reuseId_header_title];
     [self.collectionView registerClass:[PublicCollectionCell class] forCellWithReuseIdentifier:reuseId_cell_school];
     
     [self updateScrollViewHeader];
     [self pullBaseListData:YES];
-}
-
-- (void)initializeNavigationBar {
-    
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
@@ -102,13 +94,6 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
 
 
 #pragma mark - getter
-- (NSMutableArray *)bannerList {
-    if (!_bannerList) {
-        _bannerList = [NSMutableArray new];
-    }
-    return _bannerList;
-}
-
 - (NSMutableArray *)universityList {
     if (!_universityList) {
         _universityList = [NSMutableArray new];

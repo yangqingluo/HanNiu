@@ -31,7 +31,7 @@
         [self.viewArray addObject:@{@"title":@"推荐",@"VC":[HomeRecommendVC new]}];
         [self.viewArray addObject:@{@"title":@"分类",@"VC":[HomeClassifyVC new]}];
         [self.viewArray addObject:@{@"title":@"纷声",@"VC":[HomeBetterVC new]}];
-        [self.viewArray addObject:@{@"title":@"就业",@"VC":[HomeJobVC new]}];
+        [self.viewArray addObject:@{@"title":@"就业",@"VC":[[HomeJobVC alloc] initWithCollectionRowCount:4 cellHeight:38.0]}];
         [self.viewArray addObject:@{@"title":@"校&企",@"VC":[HomeSchoolAndCompanyVC new]}];
     }
     return self;

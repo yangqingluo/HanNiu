@@ -8,9 +8,14 @@
 
 #import "PublicViewController.h"
 
+#import "LongPressFlowLayout.h"
+
 @interface PublicCollectionViewController : PublicViewController<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) UICollectionView *collectionView;
+
+//- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout;
+- (instancetype)initWithCollectionRowCount:(NSUInteger)count cellHeight:(CGFloat)height;
 
 - (void)updateScrollViewHeader;
 - (void)updateScrollViewFooter;

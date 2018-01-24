@@ -60,4 +60,22 @@ __strong static UserPublic *_singleManger = nil;
     return _userData;
 }
 
+- (NSMutableDictionary *)dataMapDic {
+    if (!_dataMapDic) {
+        _dataMapDic = [NSMutableDictionary new];
+        NSArray *m_array = @[@"province"];
+        for (NSString *key in m_array) {
+            NSString *path = [[NSBundle mainBundle] pathForResource:key ofType:@"txt"];
+            if (path) {
+                NSArray *keyValuesArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:kNilOptions error:nil];
+//                NSArray *objectArray = [AppDataDictionary mj_objectArrayWithKeyValuesArray:keyValuesArray];
+                if (keyValuesArray) {
+                    [_dataMapDic setObject:keyValuesArray forKey:key];
+                }
+            }
+        }
+    }
+    return _dataMapDic;
+}
+
 @end

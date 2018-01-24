@@ -28,20 +28,19 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.adHeadView];
-    [self doGetBannerListFunction];
+    
     
     self.viewArray = [NSMutableArray new];
     [self.viewArray addObject:@{@"title":@"院校大全", @"image" : @"icon_classify_tab_title_left", @"VC":[PublicSlideSubVC new]}];
     [self.viewArray addObject:@{@"title":@"专业大全", @"image" : @"icon_classify_tab_title_right", @"VC":[PublicSlideSubVC new]}];
     [self.view addSubview:self.slidePageView];
     [self.slidePageView buildUI];
-    
 }
 
 - (void)becomeListed {
     NSDate *lastRefreshTime = [[NSUserDefaults standardUserDefaults] objectForKey:self.dateKey];
     if (self.isResetCondition || self.needRefresh || !self.bannerList.count || !lastRefreshTime || [lastRefreshTime timeIntervalSinceNow] < -appRefreshTime) {
-        
+        [self doGetBannerListFunction];
     }
 }
 
@@ -50,7 +49,7 @@
     [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Config/Banner/List" completion:^(id responseBody, NSError *error){
-        [weakself doHideHudFunction];
+        [weakself endRefreshing];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
@@ -60,6 +59,12 @@
         }
         [weakself updateSubviews];
     }];
+}
+
+- (void)endRefreshing {
+    //记录刷新时间
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:self.dateKey];
+    [self doHideHudFunction];
 }
 
 - (void)updateSubviews {

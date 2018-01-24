@@ -14,7 +14,8 @@
 
 //用户登陆数据
 @property (strong, nonatomic) AppSecureModel *userData;
-
+//数据字典数据
+@property (strong, nonatomic) NSMutableDictionary *dataMapDic;
 
 //保存用户数据
 - (void)saveUserData:(AppSecureModel *)data;

@@ -6,8 +6,8 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "PublicSlideSubVC.h"
+#import "PublicSlideSubCollectionVC.h"
 
-@interface HomeJobVC : PublicSlideSubVC
+@interface HomeJobVC : PublicSlideSubCollectionVC
 
 @end

@@ -9,13 +9,31 @@
 #import "PublicCollectionViewController.h"
 
 #import "MJRefresh.h"
-#import "LongPressFlowLayout.h"
 
 @interface PublicCollectionViewController ()
+
+@property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
 
 @end
 
 @implementation PublicCollectionViewController
+
+//- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
+//    self = [super init];
+//    if (self) {
+//        _flowLayout = layout;
+//    }
+//    return self;
+//}
+
+- (instancetype)initWithCollectionRowCount:(NSUInteger)count cellHeight:(CGFloat)height{
+    self = [super init];
+    if (self) {
+        double width = (screen_width ) / count;
+        self.flowLayout.itemSize = CGSizeMake(width, height);
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -79,19 +97,7 @@
 #pragma mark - getter
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        NSUInteger countH = 3;
-        double width = (screen_width ) / countH;
-        
-        LongPressFlowLayout *flowLayout = [[LongPressFlowLayout alloc]  init];
-        flowLayout.scrollDirection =  UICollectionViewScrollDirectionVertical;
-        flowLayout.headerReferenceSize = CGSizeMake(0, 0);
-        flowLayout.footerReferenceSize = CGSizeMake(0, 0);
-        flowLayout.itemSize = CGSizeMake(width, width + 40);
-        flowLayout.minimumInteritemSpacing = 0.0;
-        flowLayout.minimumLineSpacing = 0.0;
-//        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, kEdge, 0);
-        
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) collectionViewLayout:flowLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) collectionViewLayout:self.flowLayout];
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight |  UIViewAutoresizingFlexibleBottomMargin;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
@@ -100,6 +106,22 @@
         _collectionView.showsVerticalScrollIndicator = NO;
     }
     return _collectionView;
+}
+
+- (UICollectionViewFlowLayout *)flowLayout {
+    if (!_flowLayout) {
+        NSUInteger countH = 3;
+        double width = (screen_width ) / countH;
+        _flowLayout = [UICollectionViewFlowLayout new];
+        _flowLayout.scrollDirection =  UICollectionViewScrollDirectionVertical;
+        _flowLayout.headerReferenceSize = CGSizeMake(0, 0);
+        _flowLayout.footerReferenceSize = CGSizeMake(0, 0);
+        _flowLayout.itemSize = CGSizeMake(width, width + 40);
+        _flowLayout.minimumInteritemSpacing = 0.0;
+        _flowLayout.minimumLineSpacing = 0.0;
+//        _flowLayout.sectionInset = UIEdgeInsetsMake(kEdge, 0, 0, 0);
+    }
+    return _flowLayout;
 }
 
 #pragma mark <UICollectionViewDataSource>
