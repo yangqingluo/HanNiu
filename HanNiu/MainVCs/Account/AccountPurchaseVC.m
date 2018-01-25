@@ -8,6 +8,8 @@
 
 #import "AccountPurchaseVC.h"
 
+#import "MusicCell.h"
+
 @interface AccountPurchaseVC ()
 
 @end
@@ -33,10 +35,35 @@
         }
         else {
             [weakself.dataSource removeAllObjects];
-            [weakself.dataSource addObjectsFromArray:[AppQualityInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself.dataSource addObjectsFromArray:[AppMusicBuyInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
         }
         [weakself updateSubviews];
     }];
+}
+
+#pragma mark - UITableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSource.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [MusicCell tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"select_cell";
+    MusicCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[MusicCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    cell.music = self.dataSource[indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
 }
 
 @end

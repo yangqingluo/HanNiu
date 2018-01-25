@@ -9,7 +9,7 @@
 #import "HomeBetterVC.h"
 #import "MusicDetailVC.h"
 
-#import "QuantityCell.h"
+#import "QualityCell.h"
 
 @interface HomeBetterVC ()
 
@@ -73,14 +73,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [QuantityCell tableView:tableView heightForRowAtIndexPath:indexPath];
+    return [QualityCell tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"select_cell";
-    QuantityCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    QualityCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[QuantityCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[QualityCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.data = self.dataSource[indexPath.row];

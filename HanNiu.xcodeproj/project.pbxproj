@@ -63,12 +63,12 @@
 		E410D249200CB79100C6ACED /* icon_next_music.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1DC200CB79000C6ACED /* icon_next_music.png */; };
 		E410D24A200CB79100C6ACED /* icon_next_music_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1DD200CB79000C6ACED /* icon_next_music_gray.png */; };
 		E410D24B200CB79100C6ACED /* icon_not_collect.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1DE200CB79000C6ACED /* icon_not_collect.png */; };
-		E410D24C200CB79100C6ACED /* icon_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1DF200CB79000C6ACED /* icon_pause.png */; };
+		E410D24C200CB79100C6ACED /* icon_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1DF200CB79000C6ACED /* icon_pause@2x.png */; };
 		E410D24D200CB79100C6ACED /* icon_pause_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E0200CB79000C6ACED /* icon_pause_big@2x.png */; };
 		E410D24E200CB79100C6ACED /* icon_pay_by_wx.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E1200CB79000C6ACED /* icon_pay_by_wx.png */; };
 		E410D24F200CB79100C6ACED /* icon_pay_by_zfb.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E2200CB79000C6ACED /* icon_pay_by_zfb.png */; };
 		E410D250200CB79100C6ACED /* icon_phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E3200CB79000C6ACED /* icon_phone@2x.png */; };
-		E410D251200CB79100C6ACED /* icon_play.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E4200CB79000C6ACED /* icon_play.png */; };
+		E410D251200CB79100C6ACED /* icon_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E4200CB79000C6ACED /* icon_play@2x.png */; };
 		E410D252200CB79100C6ACED /* icon_play_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E5200CB79000C6ACED /* icon_play_big@2x.png */; };
 		E410D253200CB79100C6ACED /* icon_play_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E6200CB79000C6ACED /* icon_play_gray@2x.png */; };
 		E410D254200CB79100C6ACED /* icon_play_list_colorful.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E7200CB79000C6ACED /* icon_play_list_colorful.png */; };
@@ -147,11 +147,13 @@
 		E47887E6200C48D6009C86A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47887E4200C48D6009C86A7 /* LaunchScreen.storyboard */; };
 		E48A228F201855750017977A /* PublicCollectionButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A228E201855750017977A /* PublicCollectionButtonCell.m */; };
 		E48A229220185D5A0017977A /* PublicSlideSubTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A229120185D5A0017977A /* PublicSlideSubTableVC.m */; };
-		E48A22952018623C0017977A /* QuantityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22942018623C0017977A /* QuantityCell.m */; };
+		E48A22952018623C0017977A /* QualityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22942018623C0017977A /* QualityCell.m */; };
 		E48A2298201865C50017977A /* PublicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A2297201865C50017977A /* PublicButton.m */; };
 		E48A229B20187B400017977A /* MusicDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A229A20187B400017977A /* MusicDetailVC.m */; };
 		E48A229E201888630017977A /* PublicPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A229D201888630017977A /* PublicPlayView.m */; };
 		E48A22A12018CAE70017977A /* PublicMusicPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22A02018CAE70017977A /* PublicMusicPlayerManager.m */; };
+		E48A22AA201972400017977A /* PublicPlayBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22A9201972400017977A /* PublicPlayBar.m */; };
+		E48A22AD201976790017977A /* MusicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22AC201976790017977A /* MusicCell.m */; };
 		E48FE18D2015BE18007F1427 /* AccountDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FE18C2015BE18007F1427 /* AccountDetailVC.m */; };
 		E4B3CB1D200D931D006807AE /* AppPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB1C200D931D006807AE /* AppPublic.m */; };
 		E4B3CB25200D94E9006807AE /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB20200D94E9006807AE /* UIImage+Color.m */; };
@@ -325,12 +327,12 @@
 		E410D1DC200CB79000C6ACED /* icon_next_music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_next_music.png; sourceTree = "<group>"; };
 		E410D1DD200CB79000C6ACED /* icon_next_music_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_next_music_gray.png; sourceTree = "<group>"; };
 		E410D1DE200CB79000C6ACED /* icon_not_collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_not_collect.png; sourceTree = "<group>"; };
-		E410D1DF200CB79000C6ACED /* icon_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pause.png; sourceTree = "<group>"; };
+		E410D1DF200CB79000C6ACED /* icon_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pause@2x.png"; sourceTree = "<group>"; };
 		E410D1E0200CB79000C6ACED /* icon_pause_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pause_big@2x.png"; sourceTree = "<group>"; };
 		E410D1E1200CB79000C6ACED /* icon_pay_by_wx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pay_by_wx.png; sourceTree = "<group>"; };
 		E410D1E2200CB79000C6ACED /* icon_pay_by_zfb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pay_by_zfb.png; sourceTree = "<group>"; };
 		E410D1E3200CB79000C6ACED /* icon_phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_phone@2x.png"; sourceTree = "<group>"; };
-		E410D1E4200CB79000C6ACED /* icon_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_play.png; sourceTree = "<group>"; };
+		E410D1E4200CB79000C6ACED /* icon_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_play@2x.png"; sourceTree = "<group>"; };
 		E410D1E5200CB79000C6ACED /* icon_play_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_play_big@2x.png"; sourceTree = "<group>"; };
 		E410D1E6200CB79000C6ACED /* icon_play_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_play_gray@2x.png"; sourceTree = "<group>"; };
 		E410D1E7200CB79000C6ACED /* icon_play_list_colorful.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_play_list_colorful.png; sourceTree = "<group>"; };
@@ -436,8 +438,8 @@
 		E48A228E201855750017977A /* PublicCollectionButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicCollectionButtonCell.m; sourceTree = "<group>"; };
 		E48A229020185D5A0017977A /* PublicSlideSubTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicSlideSubTableVC.h; sourceTree = "<group>"; };
 		E48A229120185D5A0017977A /* PublicSlideSubTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicSlideSubTableVC.m; sourceTree = "<group>"; };
-		E48A22932018623C0017977A /* QuantityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuantityCell.h; sourceTree = "<group>"; };
-		E48A22942018623C0017977A /* QuantityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuantityCell.m; sourceTree = "<group>"; };
+		E48A22932018623C0017977A /* QualityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QualityCell.h; sourceTree = "<group>"; };
+		E48A22942018623C0017977A /* QualityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QualityCell.m; sourceTree = "<group>"; };
 		E48A2296201865C50017977A /* PublicButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicButton.h; sourceTree = "<group>"; };
 		E48A2297201865C50017977A /* PublicButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicButton.m; sourceTree = "<group>"; };
 		E48A229920187B400017977A /* MusicDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicDetailVC.h; sourceTree = "<group>"; };
@@ -446,6 +448,10 @@
 		E48A229D201888630017977A /* PublicPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicPlayView.m; sourceTree = "<group>"; };
 		E48A229F2018CAE60017977A /* PublicMusicPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicMusicPlayerManager.h; sourceTree = "<group>"; };
 		E48A22A02018CAE70017977A /* PublicMusicPlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicMusicPlayerManager.m; sourceTree = "<group>"; };
+		E48A22A8201972400017977A /* PublicPlayBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicPlayBar.h; sourceTree = "<group>"; };
+		E48A22A9201972400017977A /* PublicPlayBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicPlayBar.m; sourceTree = "<group>"; };
+		E48A22AB201976790017977A /* MusicCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicCell.h; sourceTree = "<group>"; };
+		E48A22AC201976790017977A /* MusicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicCell.m; sourceTree = "<group>"; };
 		E48FE18B2015BE18007F1427 /* AccountDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailVC.h; sourceTree = "<group>"; };
 		E48FE18C2015BE18007F1427 /* AccountDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailVC.m; sourceTree = "<group>"; };
 		E4B3CB1A200D92D9006807AE /* HanNiuPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HanNiuPrefix.pch; sourceTree = "<group>"; };
@@ -749,12 +755,12 @@
 				E410D1DC200CB79000C6ACED /* icon_next_music.png */,
 				E410D1DD200CB79000C6ACED /* icon_next_music_gray.png */,
 				E410D1DE200CB79000C6ACED /* icon_not_collect.png */,
-				E410D1DF200CB79000C6ACED /* icon_pause.png */,
+				E410D1DF200CB79000C6ACED /* icon_pause@2x.png */,
 				E410D1E0200CB79000C6ACED /* icon_pause_big@2x.png */,
 				E410D1E1200CB79000C6ACED /* icon_pay_by_wx.png */,
 				E410D1E2200CB79000C6ACED /* icon_pay_by_zfb.png */,
 				E410D1E3200CB79000C6ACED /* icon_phone@2x.png */,
-				E410D1E4200CB79000C6ACED /* icon_play.png */,
+				E410D1E4200CB79000C6ACED /* icon_play@2x.png */,
 				E410D1E5200CB79000C6ACED /* icon_play_big@2x.png */,
 				E410D1E6200CB79000C6ACED /* icon_play_gray@2x.png */,
 				E410D1E7200CB79000C6ACED /* icon_play_list_colorful.png */,
@@ -1330,6 +1336,8 @@
 				E469F15D2017707C000B3C04 /* PublicSlideSwitchView.m */,
 				E48A229C201888630017977A /* PublicPlayView.h */,
 				E48A229D201888630017977A /* PublicPlayView.m */,
+				E48A22A8201972400017977A /* PublicPlayBar.h */,
+				E48A22A9201972400017977A /* PublicPlayBar.m */,
 				E4B3CCBB200D96DD006807AE /* UIButton+ImageAndText.h */,
 				E4B3CCBA200D96DD006807AE /* UIButton+ImageAndText.m */,
 				E4B3CCB8200D96DC006807AE /* UIView+KGViewExtend.h */,
@@ -1358,8 +1366,10 @@
 				E4481EE12015E06400F69201 /* PublicBarTextFiled.m */,
 				E4EE1911200DCD74005BD00F /* PublicTableViewCell.h */,
 				E4EE1912200DCD74005BD00F /* PublicTableViewCell.m */,
-				E48A22932018623C0017977A /* QuantityCell.h */,
-				E48A22942018623C0017977A /* QuantityCell.m */,
+				E48A22AB201976790017977A /* MusicCell.h */,
+				E48A22AC201976790017977A /* MusicCell.m */,
+				E48A22932018623C0017977A /* QualityCell.h */,
+				E48A22942018623C0017977A /* QualityCell.m */,
 				E4EE191F200DF5A0005BD00F /* PublicInputView.h */,
 				E4EE1920200DF5A0005BD00F /* PublicInputView.m */,
 				E4F7E9D920158158009E22E3 /* PublicAlertView.h */,
@@ -1454,7 +1464,7 @@
 				E410D239200CB79100C6ACED /* icon_close_playlist.png in Resources */,
 				E410D248200CB79100C6ACED /* icon_me_suggestion@2x.png in Resources */,
 				E410D280200CB79100C6ACED /* yalantis_phoenix_sky.png in Resources */,
-				E410D24C200CB79100C6ACED /* icon_pause.png in Resources */,
+				E410D24C200CB79100C6ACED /* icon_pause@2x.png in Resources */,
 				E4B3CC76200D9616006807AE /* Info.plist in Resources */,
 				E410D276200CB79100C6ACED /* toolbar_back_01.png in Resources */,
 				E410D27D200CB79100C6ACED /* toolbar_back_08.png in Resources */,
@@ -1559,7 +1569,7 @@
 				E410D27B200CB79100C6ACED /* toolbar_back_06.png in Resources */,
 				E410D263200CB79100C6ACED /* main_msg_icon@2x.png in Resources */,
 				E410D270200CB79100C6ACED /* placeholder_user_portrait@2x.png in Resources */,
-				E410D251200CB79100C6ACED /* icon_play.png in Resources */,
+				E410D251200CB79100C6ACED /* icon_play@2x.png in Resources */,
 				E410D267200CB79100C6ACED /* placeholder_adv_logo@2x.png in Resources */,
 				E410D262200CB79100C6ACED /* main_me_icon@2x.png in Resources */,
 				E410D220200CB79100C6ACED /* back_sqaure_white.png in Resources */,
@@ -1575,7 +1585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E48A22952018623C0017977A /* QuantityCell.m in Sources */,
+				E48A22952018623C0017977A /* QualityCell.m in Sources */,
 				E4B3CB27200D94E9006807AE /* UIImage+SubImage.m in Sources */,
 				E4BA2FF7200F38C900395F70 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				E4B3CC8E200D9616006807AE /* MJRefreshStateHeader.m in Sources */,
@@ -1592,6 +1602,7 @@
 				E4BA2FFD200F38C900395F70 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				E4B3CBDA200D9596006807AE /* AppNetwork.m in Sources */,
 				E4B3CC88200D9616006807AE /* MJRefreshAutoStateFooter.m in Sources */,
+				E48A22AA201972400017977A /* PublicPlayBar.m in Sources */,
 				E48A2298201865C50017977A /* PublicButton.m in Sources */,
 				E4B3CC9A200D9616006807AE /* SDWebImageDecoder.m in Sources */,
 				E4B3CCA7200D9617006807AE /* AFHTTPSessionManager.m in Sources */,
@@ -1681,6 +1692,7 @@
 				E4BA2FCA200F2D4000395F70 /* AccountSettingsVC.m in Sources */,
 				E4EE1919200DD458005BD00F /* UserPublic.m in Sources */,
 				E48FE18D2015BE18007F1427 /* AccountDetailVC.m in Sources */,
+				E48A22AD201976790017977A /* MusicCell.m in Sources */,
 				E4B3CCBC200D96DD006807AE /* QCSlideSwitchView.m in Sources */,
 				E4BA2FFB200F38C900395F70 /* IQTitleBarButtonItem.m in Sources */,
 				E4BA2FF5200F38C900395F70 /* IQUIWindow+Hierarchy.m in Sources */,

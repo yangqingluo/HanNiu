@@ -51,3 +51,25 @@
 @implementation AppQualityInfo
 
 @end
+
+
+@implementation AppMusicBuyInfo
+
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        [[self class] mj_setupObjectClassInArray:^NSDictionary *{
+            return @{
+                     @"Qualities" : [AppItemInfo class],
+                     @"Schools" : [AppItemInfo class],
+                     @"Universitys" : [AppItemInfo class],
+                     @"Majors" : [AppItemInfo class],
+                     };
+        }];
+    }
+    
+    
+    return self;
+}
+
+@end

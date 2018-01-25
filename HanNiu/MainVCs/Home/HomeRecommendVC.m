@@ -18,7 +18,7 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
 @interface HomeRecommendVC ()
 
 @property (strong, nonatomic) NSMutableArray *universityList;
-@property (strong, nonatomic) NSMutableArray *quantityList;
+@property (strong, nonatomic) NSMutableArray *qualityList;
 
 @end
 
@@ -84,8 +84,8 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            [weakself.quantityList removeAllObjects];
-            [weakself.quantityList addObjectsFromArray:responseBody[@"Data"]];
+            [weakself.qualityList removeAllObjects];
+            [weakself.qualityList addObjectsFromArray:responseBody[@"Data"]];
         }
         [weakself updateSubviews];
     }];
@@ -101,11 +101,11 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
     return _universityList;
 }
 
-- (NSMutableArray *)quantityList {
-    if (!_quantityList) {
-        _quantityList = [NSMutableArray new];
+- (NSMutableArray *)qualityList {
+    if (!_qualityList) {
+        _qualityList = [NSMutableArray new];
     }
-    return _quantityList;
+    return _qualityList;
 }
 
 #pragma mark - <UICollectionViewDataSource>
@@ -178,8 +178,8 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
         }
     }
     else if (indexPath.section == 2) {
-        if (indexPath.row < self.quantityList.count) {
-            NSDictionary *item = self.quantityList[indexPath.row];
+        if (indexPath.row < self.qualityList.count) {
+            NSDictionary *item = self.qualityList[indexPath.row];
             [cell.showImageView sd_setImageWithURL:fileURLWithPID(item[@"Image"]) placeholderImage:nil];
             cell.showImageView.hidden = NO;
             cell.titleLabel.text = item[@"Name"];

@@ -89,3 +89,12 @@
 
 @end
 
+
+@interface AppMusicBuyInfo : AppMusicInfo
+
+@property (strong, nonatomic) NSArray *Qualities;
+@property (strong, nonatomic) NSArray *Schools;
+@property (strong, nonatomic) NSArray *Universitys;
+@property (strong, nonatomic) NSArray *Majors;
+
+@end

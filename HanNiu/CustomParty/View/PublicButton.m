@@ -23,7 +23,7 @@
         self.showImageView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 0, frame.size.width - 15, edge_scale * frame.size.height)];
         [self addSubview:self.showImageView];
         
-        self.showLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, edge_scale * frame.size.height, frame.size.width, (1 - edge_scale) * frame.size.height)];
+        _showLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, edge_scale * frame.size.height, frame.size.width, (1 - edge_scale) * frame.size.height)];
         self.showLabel.textColor = [UIColor whiteColor];
         self.showLabel.font = [UIFont systemFontOfSize:12.0];
         self.showLabel.textAlignment = NSTextAlignmentCenter;

@@ -18,7 +18,7 @@ typedef enum {
 @interface PublicButton : UIButton
 
 @property (strong, nonatomic) UIImageView *showImageView;
-@property (strong, nonatomic) UILabel *showLabel;
+@property (strong, nonatomic, readonly) UILabel *showLabel;
 
 @property (assign, nonatomic) PublicButtonPositionStyle positionStyle;
 @property (assign, nonatomic) BOOL autoAdjust;
