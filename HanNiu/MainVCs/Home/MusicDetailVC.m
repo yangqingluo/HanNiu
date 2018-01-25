@@ -16,6 +16,7 @@ PublicMusicPlayerManager *musicPlayer;
 @interface MusicDetailVC ()
 
 @property (strong, nonatomic) PublicPlayView *playView;
+@property (strong, nonatomic) UITextView *textView;
 
 @end
 
@@ -34,6 +35,9 @@ PublicMusicPlayerManager *musicPlayer;
     [super viewDidLoad];
     self.title = [NSString stringWithFormat:@"%@-%@-%@", self.data.University.Name, self.data.Institute.Name, self.data.Music.Name];
     [self.view addSubview:self.playView];
+    
+    [self.view addSubview:self.textView];
+    self.textView.text = self.data.Introduce;
     
     [self resetPlayer];
 //    [self pullBaseListData:YES];
@@ -103,6 +107,19 @@ PublicMusicPlayerManager *musicPlayer;
         [_playView.playBtn addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playView;
+}
+
+- (UITextView *)textView {
+    if (!_textView) {
+        _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, self.navigationBarView.bottom, self.view.width, self.playView.top - kEdge - self.navigationBarView.bottom)];
+        _textView.editable = NO;
+        _textView.textColor = [UIColor grayColor];
+        _textView.font = [AppPublic appFontOfSize: appLabelFontSizeSmall];
+        _textView.backgroundColor = [UIColor clearColor];
+        _textView.textContainerInset = UIEdgeInsetsMake(kEdge, kEdge, kEdge, 0);
+        _textView.scrollIndicatorInsets = UIEdgeInsetsMake(kEdge, 0, kEdge, 0);
+    }
+    return _textView;
 }
 
 @end
