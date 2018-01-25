@@ -19,7 +19,7 @@
         [AppPublic roundCornerRadius:self.showImageView];
         self.titleLabel.frame = CGRectMake(self.showImageView.right + kEdgeMiddle, kEdge, self.contentView.width - (self.showImageView.right + kEdgeMiddle), 0.5 * [[self class] tableView:nil heightForRowAtIndexPath:nil]);
         CGFloat m_height = 20.0;
-        self.subTitleLabel = NewLabel(CGRectMake(screen_width - kEdgeMiddle - 120, self.titleLabel.bottom, 120, m_height), [UIColor lightGrayColor], [AppPublic appFontOfSize:appLabelFontSizeLittle], NSTextAlignmentRight);
+        self.subTitleLabel = NewLabel(CGRectMake(screen_width - kEdgeMiddle - 120, self.titleLabel.bottom, 120, m_height), [UIColor grayColor], [AppPublic appFontOfSize:appLabelFontSizeLittle], NSTextAlignmentRight);
         [self.contentView addSubview:self.subTitleLabel];
         
         CGFloat m_width = 60.0;

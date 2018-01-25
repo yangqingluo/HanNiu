@@ -15,7 +15,7 @@
 #import "HomeJobVC.h"
 #import "HomeSchoolAndCompanyVC.h"
 
-#import "PublicBarTextFiled.h"
+#import "PublicBarTextField.h"
 #import "QCSlideSwitchView.h"
 
 @interface HomeViewController ()<UITextFieldDelegate>
@@ -57,14 +57,15 @@
             return btn;
         }
         else if (nIndex == 2) {
-            PublicBarTextFiled *searchTextFiled = [[PublicBarTextFiled alloc] initWithFrame:CGRectMake(STATUS_BAR_HEIGHT, 7, screen_width - 2 * STATUS_BAR_HEIGHT, 30)];
-            searchTextFiled.backgroundColor = [UIColor whiteColor];
-            searchTextFiled.placeholder = @"搜索您感兴趣的内容";
-            searchTextFiled.font = [AppPublic appFontOfSize:appLabelFontSizeSmall];
-            searchTextFiled.borderStyle = UITextBorderStyleNone;
-            searchTextFiled.layer.cornerRadius = 0.5 * searchTextFiled.bounds.size.height;
-            searchTextFiled.delegate = self;
-            return searchTextFiled;
+            PublicBarTextField *searchTextField = [[PublicBarTextField alloc] initWithFrame:CGRectMake(STATUS_BAR_HEIGHT, 7, screen_width - 2 * STATUS_BAR_HEIGHT, 30)];
+            [searchTextField resetLeftView];
+            searchTextField.backgroundColor = [UIColor whiteColor];
+            searchTextField.placeholder = @"搜索您感兴趣的内容";
+            searchTextField.font = [AppPublic appFontOfSize:appLabelFontSizeSmall];
+            searchTextField.borderStyle = UITextBorderStyleNone;
+            searchTextField.layer.cornerRadius = 0.5 * searchTextField.bounds.size.height;
+            searchTextField.delegate = self;
+            return searchTextField;
         }
         return nil;
     }];

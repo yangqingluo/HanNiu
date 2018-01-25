@@ -11,11 +11,19 @@
 
 @interface PublicPlayView : UIView
 
+@property (strong, nonatomic, readonly) UIView *baseView;
 @property (strong, nonatomic) UIButton *playBtn;
 @property (strong, nonatomic) UIButton *lastBtn;
 @property (strong, nonatomic) UIButton *nextBtn;
-@property (nonatomic, strong) PublicSlider *progressSlider;
+@property (strong, nonatomic) PublicSlider *progressSlider;
+@property (strong, nonatomic) UIButton *listBtn;
+@property (strong, nonatomic) UIButton *favorBtn;
+@property (strong, nonatomic) UIButton *messageBtn;
+@property (strong, nonatomic) UILabel *startLabel;
+@property (strong, nonatomic) UILabel *endLabel;
+@property (strong, nonatomic) UITextField *textField;
 
-@property (nonatomic, strong) id playerTimeObserver;
+
+@property (strong, nonatomic) id playerTimeObserver;
 
 @end

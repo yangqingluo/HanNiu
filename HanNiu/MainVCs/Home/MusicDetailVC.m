@@ -7,13 +7,14 @@
 //
 
 #import "MusicDetailVC.h"
+#import "MusicCommentVC.h"
 
 #import "PublicPlayView.h"
 
 #import "PublicMusicPlayerManager.h"
 
 PublicMusicPlayerManager *musicPlayer;
-@interface MusicDetailVC ()
+@interface MusicDetailVC ()<UITextFieldDelegate>
 
 @property (strong, nonatomic) PublicPlayView *playView;
 @property (strong, nonatomic) UITextView *textView;
@@ -105,6 +106,7 @@ PublicMusicPlayerManager *musicPlayer;
         _playView = [PublicPlayView new];
         _playView.bottom = self.view.height;
         [_playView.playBtn addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        _playView.textField.delegate = self;
     }
     return _playView;
 }
@@ -120,6 +122,13 @@ PublicMusicPlayerManager *musicPlayer;
         _textView.scrollIndicatorInsets = UIEdgeInsetsMake(kEdge, 0, kEdge, 0);
     }
     return _textView;
+}
+
+#pragma mark - TextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    MusicCommentVC *vc = [MusicCommentVC new];
+    [self doPushViewController:vc animated:YES];
+    return NO;
 }
 
 @end

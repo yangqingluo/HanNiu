@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PublicBarTextFiled : UITextField
+@interface PublicBarTextField : UITextField
+
+- (void)resetLeftView;
 
 @end

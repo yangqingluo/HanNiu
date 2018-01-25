@@ -6,9 +6,9 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "PublicBarTextFiled.h"
+#import "PublicBarTextField.h"
 
-@implementation PublicBarTextFiled
+@implementation PublicBarTextField
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -16,7 +16,7 @@
         // 设置背景
 //        self.background = [UIImage stretchableImageNamed:@"searchbar_textfield_background"];
         // 设置左边的view
-        [self setLeftView];
+//        [self setLeftView];
         // 设置右边的录音按钮
 //        [self setRightView];
     }
@@ -35,7 +35,7 @@
 }
 
 // 设置左边的view
-- (void)setLeftView {
+- (void)resetLeftView {
     // initWithImage:默认UIImageView的尺寸跟图片一样
     //    UIImageView *leftImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search-icon-"]];
     //    leftImageView.centerX += 10;
