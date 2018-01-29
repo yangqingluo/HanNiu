@@ -91,7 +91,9 @@
 #define kUserData                       @"userdata_HanNiu"
 #define kUserZone                       @"userzone_HanNiu"
 
-#define kNotification_Login_StateRefresh @"kNotification_Login_StateRefresh"//登录状态变化
+#define kAppleSBLockstate               "apple.springboard.lockstate"
+#define kAppleSBHasBlankedScreen        "com.apple.springboard.hasBlankedScreen"
+#define kNotifi_Login_StateRefresh      @"kNn_Login_StateRefresh"//登录状态变化
 
 typedef void(^AppDoneBlock)(id object);
 

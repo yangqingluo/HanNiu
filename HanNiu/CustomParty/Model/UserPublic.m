@@ -36,7 +36,7 @@ __strong static UserPublic *_singleManger = nil;
         [ud setObject:[_userData mj_keyValues] forKey:kUserData];
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_Login_StateRefresh object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotifi_Login_StateRefresh object:nil];
 }
 //清除用户数据
 - (void)clearUserData {
@@ -45,7 +45,7 @@ __strong static UserPublic *_singleManger = nil;
     
     _singleManger = nil;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_Login_StateRefresh object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotifi_Login_StateRefresh object:nil];
 }
 
 #pragma mark - getter

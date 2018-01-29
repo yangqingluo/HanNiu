@@ -25,7 +25,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStateRefreshNotification:) name:kNotification_Login_StateRefresh object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStateRefreshNotification:) name:kNotifi_Login_StateRefresh object:nil];
     }
     return self;
 }

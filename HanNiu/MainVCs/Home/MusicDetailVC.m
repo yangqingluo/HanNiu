@@ -6,12 +6,15 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
+#import <MediaPlayer/MediaPlayer.h>
+#import <notify.h>
 #import "MusicDetailVC.h"
 #import "MusicCommentVC.h"
 
 #import "PublicPlayView.h"
 
 #import "PublicMusicPlayerManager.h"
+#import "SDImageCache.h"
 
 PublicMusicPlayerManager *musicPlayer;
 @interface MusicDetailVC ()<UITextFieldDelegate>
@@ -40,7 +43,7 @@ PublicMusicPlayerManager *musicPlayer;
     [self.view addSubview:self.textView];
     self.textView.text = self.data.Introduce;
     
-    [self resetPlayer];
+    [self resetPlayer:YES];
 //    [self pullBaseListData:YES];
 }
 
@@ -93,11 +96,88 @@ PublicMusicPlayerManager *musicPlayer;
     }];
 }
 
-- (void)resetPlayer {
-    if (self.data.Music.Url) {
-        [musicPlayer resetPlayItem:fileURLStringWithPID(self.data.Music.Url)];
-        [musicPlayer resetPlayer];
+- (void)resetPlayer:(BOOL)autoPlay {
+    if (!self.data.Music.Url) {
+        return;
     }
+    
+    if (_playerTimeObserver) {
+        [musicPlayer.player removeTimeObserver:_playerTimeObserver];
+        _playerTimeObserver = nil;
+        [musicPlayer.player.currentItem cancelPendingSeeks];
+        [musicPlayer.player.currentItem.asset cancelLoading];
+    }
+//    self.playView.playBtn.selected = YES;
+    
+    // 播放设置
+    [musicPlayer resetPlayItem:fileURLStringWithPID(self.data.Music.Url)];
+    [musicPlayer resetPlayer];
+    
+    // 播放结束通知
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:musicPlayer.player.currentItem];
+    
+    // 设置Observer更新播放进度
+    _playerTimeObserver = [musicPlayer.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+        CGFloat currentTime = CMTimeGetSeconds(time);
+        CMTime total = musicPlayer.player.currentItem.duration;
+        CGFloat totalTime = CMTimeGetSeconds(total);
+        
+        // 当前播放时间
+        self.playView.startLabel.text = stringWithTimeInterval(currentTime);
+        // 总时间
+        self.playView.endLabel.text = stringWithTimeInterval(totalTime);
+        // 进度条
+        self.playView.progressSlider.value = (float) ( currentTime / totalTime );
+
+        //监听锁屏状态 lock = 1则为锁屏状态
+        uint64_t locked;
+        __block int token = 0;
+        notify_register_dispatch(kAppleSBLockstate, &token, dispatch_get_main_queue(), ^(int t){
+        });
+        notify_get_state(token, &locked);
+        
+        //监听屏幕点亮状态 screenLight = 1则为变暗关闭状态
+        uint64_t screenLight;
+        __block int lightToken = 0;
+        notify_register_dispatch(kAppleSBHasBlankedScreen, &lightToken, dispatch_get_main_queue(), ^(int t){
+        });
+        notify_get_state(lightToken, &screenLight);
+        
+        BOOL isShowLyricsPoster = NO;
+        // NSLog(@"screenLight=%llu locked=%llu",screenLight,locked);
+        if (screenLight == 0 && locked == 1) {
+            //点亮且锁屏时
+            isShowLyricsPoster = YES;
+        }
+        else if(screenLight) {
+            return;
+        }
+        
+        //展示锁屏歌曲信息，上面监听屏幕锁屏和点亮状态的目的是为了提高效率
+        [self showLockScreenTotaltime:totalTime andCurrentTime:currentTime andLyricsPoster:isShowLyricsPoster];
+    }];
+}
+
+#pragma mark - 锁屏播放设置
+//展示锁屏歌曲信息：图片、歌词、进度、演唱者
+- (void)showLockScreenTotaltime:(float)totalTime andCurrentTime:(float)currentTime andLyricsPoster:(BOOL)isShow {
+    NSMutableDictionary * songDict = [[NSMutableDictionary alloc] init];
+    //设置歌曲题目
+    [songDict setObject:self.data.Name forKey:MPMediaItemPropertyTitle];
+    //设置歌手名
+    [songDict setObject:self.data.Institute.Name forKey:MPMediaItemPropertyArtist];
+    //设置专辑名
+    [songDict setObject:self.data.University.Name forKey:MPMediaItemPropertyAlbumTitle];
+    //设置歌曲时长
+    [songDict setObject:[NSNumber numberWithDouble:totalTime]  forKey:MPMediaItemPropertyPlaybackDuration];
+    //设置已经播放时长
+    [songDict setObject:[NSNumber numberWithDouble:currentTime] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+    UIImage *m_image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:fileURLStringWithPID(self.data.University.Image)];
+    if (m_image) {
+        //设置显示的海报图片
+        [songDict setObject:[[MPMediaItemArtwork alloc] initWithImage:m_image] forKey:MPMediaItemPropertyArtwork];
+    }
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songDict];
 }
 
 #pragma mark - getter

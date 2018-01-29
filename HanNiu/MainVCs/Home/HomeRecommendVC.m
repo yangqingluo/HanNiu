@@ -58,10 +58,10 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
 }
 
 - (void)doGetUniversityListFunction {
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"channel" : @"1"}];
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"type" : @"1"}];
     //    [self doShowHudFunction];
     QKWEAKSELF;
-    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"University/List" completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Featured/List" completion:^(id responseBody, NSError *error){
         [weakself endRefreshing];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
@@ -75,10 +75,10 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
 }
 
 - (void)doGetQuantityListFunction {
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{}];
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"type" : @"2"}];
     //    [self doShowHudFunction];
     QKWEAKSELF;
-    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Quality/List" completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Featured/List" completion:^(id responseBody, NSError *error){
         [weakself endRefreshing];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
