@@ -186,6 +186,7 @@ PublicMusicPlayerManager *musicPlayer;
         _playView = [PublicPlayView new];
         _playView.bottom = self.view.height;
         [_playView.playBtn addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_playView.progressSlider addTarget:self action:@selector(playbackSliderValueChanged) forControlEvents:UIControlEventValueChanged];
         _playView.textField.delegate = self;
     }
     return _playView;
@@ -209,6 +210,28 @@ PublicMusicPlayerManager *musicPlayer;
     MusicCommentVC *vc = [MusicCommentVC new];
     [self doPushViewController:vc animated:YES];
     return NO;
+}
+
+#pragma mark - UISlider
+- (void)playbackSliderValueChanged {
+    [self updateTime];
+    //如果当前时暂停状态，则自动播放
+    if (musicPlayer.player.timeControlStatus == AVPlayerTimeControlStatusPaused) {
+        [musicPlayer startPlay];
+    }
+}
+
+#pragma mark - 更新播放时间
+- (void)updateTime {
+    CMTime duration = musicPlayer.player.currentItem.asset.duration;
+    
+    // 歌曲总时间和当前时间
+    Float64 completeTime = CMTimeGetSeconds(duration);
+    Float64 currentTime = (Float64)(self.playView.progressSlider.value) * completeTime;
+    
+    //播放器定位到对应的位置
+    CMTime targetTime = CMTimeMake((int64_t)(currentTime), 1);
+    [musicPlayer.player seekToTime:targetTime];
 }
 
 @end
