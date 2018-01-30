@@ -39,7 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.slidePageView.height = screen_height - self.navigationBarView.bottom - self.tabBarController.tabBar.height;
+    self.slidePageView.height = screen_height - self.navigationBarView.bottom - TAB_BAR_HEIGHT;
 }
 
 - (void)initializeNavigationBar {

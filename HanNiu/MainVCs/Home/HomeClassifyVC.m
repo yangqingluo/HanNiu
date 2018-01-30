@@ -88,7 +88,7 @@
 
 - (QCSlideSwitchView *)slidePageView{
     if (!_slidePageView) {
-        _slidePageView = [[QCSlideSwitchView alloc] initWithFrame:CGRectMake(0, self.adHeadView.bottom + kEdge, self.view.width, self.view.height - self.tabBarController.tabBar.height - (self.adHeadView.bottom + kEdge)) withHeightOfTop:88.0];
+        _slidePageView = [[QCSlideSwitchView alloc] initWithFrame:CGRectMake(0, self.adHeadView.bottom + kEdge, self.view.width, self.view.height - TAB_BAR_HEIGHT - (self.adHeadView.bottom + kEdge)) withHeightOfTop:88.0];
         _slidePageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
         _slidePageView.delegate = self;
         _slidePageView.topScrollView.backgroundColor = [UIColor whiteColor];

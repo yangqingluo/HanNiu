@@ -47,7 +47,7 @@
     [super viewDidLoad];
     self.title = @"我的";
     
-    self.tableView.height = screen_height - self.tabBarController.tabBar.height - self.navigationBarView.height;
+    self.tableView.height = screen_height - TAB_BAR_HEIGHT - self.navigationBarView.height;
     [self initializeData];
 }
 
@@ -56,6 +56,12 @@
     self.showArray = @[@{@"title":@"我的收藏",@"subTitle":@"",@"key":@"icon_me_suggestion"},
                       @{@"title":@"我的购买",@"subTitle":@"",@"key":@"icon_me_bought"},
                        @{@"title":@"我的M币",@"subTitle":@"充值",@"key":@"icon_me_coin"},
+                       @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},
+                       @{@"title":@"设置",@"subTitle":@"",@"key":@"icon_me_setting"},
+                       @{@"title":@"关于我们",@"subTitle":@"",@"key":@"icon_me_about_us"},
+                       @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},
+                       @{@"title":@"设置",@"subTitle":@"",@"key":@"icon_me_setting"},
+                       @{@"title":@"关于我们",@"subTitle":@"",@"key":@"icon_me_about_us"},
                        @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},
                        @{@"title":@"设置",@"subTitle":@"",@"key":@"icon_me_setting"},
                        @{@"title":@"关于我们",@"subTitle":@"",@"key":@"icon_me_about_us"}];

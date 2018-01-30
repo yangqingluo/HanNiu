@@ -34,6 +34,7 @@
 #define STATUS_HEIGHT                   20.0
 #define STATUS_BAR_HEIGHT               64.0
 #define TAB_BAR_HEIGHT                  49.0
+#define DEFAULT_TAB_BAR_HEIGHT          49.0
 #define DEFAULT_BAR_HEIGHT              44.0
 
 #define appRefreshTime                  24 * 60 * 60//自动刷新间隔时间

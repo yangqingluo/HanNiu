@@ -117,6 +117,7 @@
 		E410D27F200CB79100C6ACED /* yalantis_phoenix_buildings.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D212200CB79000C6ACED /* yalantis_phoenix_buildings.png */; };
 		E410D280200CB79100C6ACED /* yalantis_phoenix_sky.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D213200CB79000C6ACED /* yalantis_phoenix_sky.png */; };
 		E410D281200CB79100C6ACED /* yalantis_phoenix_sun.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D214200CB79000C6ACED /* yalantis_phoenix_sun.png */; };
+		E4211D0E2020707100216EF7 /* UIImageView+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4211D0D2020707100216EF7 /* UIImageView+Rotate.m */; };
 		E437F4A020104E33001DA60E /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E437F49F20104E33001DA60E /* RegistViewController.m */; };
 		E4481EE22015E06400F69201 /* PublicBarTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E4481EE12015E06400F69201 /* PublicBarTextField.m */; };
 		E45BFAAB2019B212002A034A /* MusicCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E45BFAAA2019B212002A034A /* MusicCommentVC.m */; };
@@ -383,6 +384,8 @@
 		E410D212200CB79000C6ACED /* yalantis_phoenix_buildings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yalantis_phoenix_buildings.png; sourceTree = "<group>"; };
 		E410D213200CB79000C6ACED /* yalantis_phoenix_sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yalantis_phoenix_sky.png; sourceTree = "<group>"; };
 		E410D214200CB79000C6ACED /* yalantis_phoenix_sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yalantis_phoenix_sun.png; sourceTree = "<group>"; };
+		E4211D0C2020707100216EF7 /* UIImageView+Rotate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Rotate.h"; sourceTree = "<group>"; };
+		E4211D0D2020707100216EF7 /* UIImageView+Rotate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Rotate.m"; sourceTree = "<group>"; };
 		E437F49E20104E33001DA60E /* RegistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
 		E437F49F20104E33001DA60E /* RegistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
 		E4481EE02015E06400F69201 /* PublicBarTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicBarTextField.h; sourceTree = "<group>"; };
@@ -1350,6 +1353,8 @@
 				E4B3CCBA200D96DD006807AE /* UIButton+ImageAndText.m */,
 				E4B3CCB8200D96DC006807AE /* UIView+KGViewExtend.h */,
 				E4B3CCB9200D96DD006807AE /* UIView+KGViewExtend.m */,
+				E4211D0C2020707100216EF7 /* UIImageView+Rotate.h */,
+				E4211D0D2020707100216EF7 /* UIImageView+Rotate.m */,
 				E4EE1923200EE67D005BD00F /* UILabel+YBAttributeTextTapAction.h */,
 				E4EE1922200EE67C005BD00F /* UILabel+YBAttributeTextTapAction.m */,
 				E4DB3C552015B81800D5C465 /* XHMessageTextView.h */,
@@ -1622,6 +1627,7 @@
 				E4B3CC8B200D9616006807AE /* MJRefreshBackStateFooter.m in Sources */,
 				E4B3CC81200D9616006807AE /* MJRefreshAutoFooter.m in Sources */,
 				E4B3CC85200D9616006807AE /* MJRefreshHeader.m in Sources */,
+				E4211D0E2020707100216EF7 /* UIImageView+Rotate.m in Sources */,
 				E4BA3005200FA0E200395F70 /* AccountAboutVC.m in Sources */,
 				E469F1432016D4B5000B3C04 /* PublicSlideViewController.m in Sources */,
 				E4B3CC86200D9616006807AE /* MJRefreshAutoGifFooter.m in Sources */,

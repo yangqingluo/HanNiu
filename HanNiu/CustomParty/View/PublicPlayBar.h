@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PublicMusicPlayerManager.h"
 
 @interface PublicPlayBar : UIView
 
 + (PublicPlayBar *)getInstance;
 
 @property (strong, nonatomic) UIButton *playBtn;
+@property (strong, nonatomic) UIButton *listBtn;
+@property (strong, nonatomic) UIImageView *playImageView;
+@property (strong, nonatomic) UILabel *songName;
+@property (strong, nonatomic) UILabel *singerName;
 
 @end
