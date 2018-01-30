@@ -69,6 +69,7 @@ static PublicMusicPlayerManager *_sharedManager = nil;
             [self.player removeObserver:self forKeyPath:@"rate"];
         } @catch(id anException) {
         }
+        self.player = nil;
     }
 }
 
@@ -78,8 +79,9 @@ static PublicMusicPlayerManager *_sharedManager = nil;
             [self.playerItem removeObserver:self forKeyPath:@"state"];
         } @catch(id anException) {
         }
-        [self.player.currentItem cancelPendingSeeks];
-        [self.player.currentItem.asset cancelLoading];
+        [self.playerItem cancelPendingSeeks];
+        [self.playerItem.asset cancelLoading];
+        self.playerItem = nil;
     }
 }
 
@@ -155,40 +157,45 @@ static PublicMusicPlayerManager *_sharedManager = nil;
 - (void)play {
     if (self.state == PlayerManagerStatePause || self.state == PlayerManagerStatePrepared) {
         [self.player play];
-        [self clearPlayerTimeObserver];
-        // 设置Observer更新播放进度
-        QKWEAKSELF;
-        self.playerTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-            CMTime total = weakself.player.currentItem.duration;
-            AppTime *m_time = [AppTime new];
-            m_time.totalTime = CMTimeGetSeconds(total);
-            m_time.currentTime = CMTimeGetSeconds(time);
-            [weakself postNotificationName:kNotifi_Play_TimeObserver object:m_time];
-            
-            //监听锁屏状态 lock=1则为锁屏状态
-            uint64_t locked;
-            __block int token = 0;
-            notify_register_dispatch(kAppleSBLockstate, &token, dispatch_get_main_queue(), ^(int t){
-            });
-            notify_get_state(token, &locked);
-            
-            //监听屏幕点亮状态 screenLight = 1则为变暗关闭状态
-            uint64_t screenLight;
-            __block int lightToken = 0;
-            notify_register_dispatch(kAppleSBHasBlankedScreen, &lightToken, dispatch_get_main_queue(), ^(int t){
-            });
-            notify_get_state(lightToken, &screenLight);
-            
-            BOOL isShowLyricsPoster = NO;
-            if (screenLight == 0 && locked == 1) {
-                //点亮且锁屏时
-                isShowLyricsPoster = YES;
-            }
-            else if(screenLight) {
-                return;
-            }
-            [weakself showLockScreenTotaltime:m_time.totalTime andCurrentTime:m_time.currentTime andLyricsPoster:isShowLyricsPoster];
-        }];
+        if (!self.playerTimeObserver) {
+            // 设置Observer更新播放进度
+            QKWEAKSELF;
+            self.playerTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+                CMTime total = weakself.player.currentItem.duration;
+                AppTime *m_time = [AppTime new];
+                m_time.totalTime = CMTimeGetSeconds(total);
+                m_time.currentTime = CMTimeGetSeconds(time);
+                [weakself postNotificationName:kNotifi_Play_TimeObserver object:m_time];
+                
+                //监听锁屏状态 lock=1则为锁屏状态
+                uint64_t locked;
+                __block int token = 0;
+                notify_register_dispatch(kAppleSBLockstate, &token, dispatch_get_main_queue(), ^(int t){
+                });
+                notify_get_state(token, &locked);
+                
+                //监听屏幕点亮状态 screenLight = 1则为变暗关闭状态
+                uint64_t screenLight;
+                __block int lightToken = 0;
+                notify_register_dispatch(kAppleSBHasBlankedScreen, &lightToken, dispatch_get_main_queue(), ^(int t){
+                });
+                notify_get_state(lightToken, &screenLight);
+                
+                BOOL isShowLyricsPoster = NO;
+                if (screenLight == 0 && locked == 1) {
+                    //点亮且锁屏时
+                    isShowLyricsPoster = YES;
+                }
+                else if(screenLight) {
+                    return;
+                }
+                [weakself showLockScreenTotaltime:m_time.totalTime andCurrentTime:m_time.currentTime andLyricsPoster:isShowLyricsPoster];
+            }];
+        }
+    }
+    else if (self.state == PlayerManagerStateEnd) {
+        CMTime targetTime = CMTimeMake(0, 1);
+        [self seekToTime:targetTime];
     }
     else if (self.state == PlayerManagerStateDefault || self.state == PlayerManagerStateFailed) {
         [self prepare];
@@ -197,24 +204,33 @@ static PublicMusicPlayerManager *_sharedManager = nil;
 
 - (void)pause {
     [self.player pause];
+}
+
+- (void)stop {
+    [self pause];
     [self clearPlayerTimeObserver];
+}
+
+- (void)seekToTime:(CMTime)time {
+    [self.player seekToTime:time];
 }
 
 - (void)resetData:(AppQualityInfo *)quality {
     if (!quality.Music.Url) {
         return;
     }
-    if (![quality.Music.Url isEqualToString:self.currentQulity.Music.Url]) {
+    if (![quality.Music.Id isEqualToString:self.currentQulity.Music.Id]) {
         if (self.state == PlayerManagerStatePlaying || self.state == PlayerManagerStatePause) {
-            [self pause];
+            [self stop];
         }
         [self resetPlayState:PlayerManagerStateDefault];
         self.currentQulity = quality;
+        [self clearPlayerItem];
+        [self clearPlayer];
         if (self.isAutoPlay) {
             [self prepare];
         }
     }
-    
 }
 
 #pragma mark - getter
@@ -230,7 +246,7 @@ static PublicMusicPlayerManager *_sharedManager = nil;
 
 #pragma mark - NSNotification
 - (void)playerDidPlayToEndTime {
-    
+    [self resetPlayState:PlayerManagerStateEnd];
 }
 
 #pragma mark - KVO

@@ -20,6 +20,7 @@ typedef enum : NSUInteger {
     PlayerManagerStatePlaying,
     PlayerManagerStatePause,
     PlayerManagerStateFailed,
+    PlayerManagerStateEnd,
 } PlayerManagerState;
 
 typedef enum : NSUInteger {
@@ -40,6 +41,7 @@ typedef enum : NSUInteger {
 
 - (void)play;
 - (void)pause;
+- (void)seekToTime:(CMTime)time;
 - (void)resetData:(AppQualityInfo *)quality;
 
 @end

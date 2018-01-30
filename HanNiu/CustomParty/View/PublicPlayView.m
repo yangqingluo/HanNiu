@@ -23,8 +23,8 @@
         self.backgroundColor = [UIColor clearColor];
         
         [self setupSubviews];
-        [self updateSubviewsWithTime:[PublicMusicPlayerManager getInstance].currentTime];
         [self updateSubviewsWithState:[PublicMusicPlayerManager getInstance].state];
+        [self updateSubviewsWithTime:[PublicMusicPlayerManager getInstance].currentTime];
     }
     return self;
 }
@@ -121,6 +121,9 @@
 #pragma mark - NSNotification
 - (void)playerStateRefreshNotification:(NSNotification *)notification {
     [self updateSubviewsWithState:[PublicMusicPlayerManager getInstance].state];
+    if ([PublicMusicPlayerManager getInstance].state == PlayerManagerStateDefault) {
+        [self updateSubviewsWithTime:[PublicMusicPlayerManager getInstance].currentTime];
+    }
 }
 
 - (void)playerTimeObserverNotification:(NSNotification *)notification {

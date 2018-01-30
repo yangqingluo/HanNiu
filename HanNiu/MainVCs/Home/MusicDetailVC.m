@@ -126,24 +126,20 @@ PublicMusicPlayerManager *musicPlayer;
 
 #pragma mark - UISlider
 - (void)playbackSliderValueChanged {
-//    [self updateTime];
-//    //如果当前时暂停状态，则自动播放
-//    if (musicPlayer.player.timeControlStatus == AVPlayerTimeControlStatusPaused) {
-//        [musicPlayer startPlay];
-//    }
+    [self updateTime];
+    //如果当前时暂停状态，则自动播放
+    if (musicPlayer.state == PlayerManagerStatePause) {
+        [musicPlayer play];
+    }
 }
 
 #pragma mark - 更新播放时间
 - (void)updateTime {
-//    CMTime duration = musicPlayer.player.currentItem.asset.duration;
-//
-//    // 歌曲总时间和当前时间
-//    Float64 completeTime = CMTimeGetSeconds(duration);
-//    Float64 currentTime = (Float64)(self.playView.progressSlider.value) * completeTime;
-//
-//    //播放器定位到对应的位置
-//    CMTime targetTime = CMTimeMake((int64_t)(currentTime), 1);
-//    [musicPlayer.player seekToTime:targetTime];
+    AppTime *m_time = musicPlayer.currentTime;
+    Float64 completeTime = m_time.totalTime;
+    Float64 currentTime = (Float64)(self.playView.progressSlider.value) * completeTime;
+    CMTime targetTime = CMTimeMake((int64_t)(currentTime), 1);
+    [musicPlayer seekToTime:targetTime];
 }
 
 @end
