@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PublicSlider.h"
+#import "PublicMusicPlayerManager.h"
 
 @interface PublicPlayView : UIView
 

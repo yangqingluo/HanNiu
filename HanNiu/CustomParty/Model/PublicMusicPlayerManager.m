@@ -6,7 +6,16 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
+#import <notify.h>
 #import "PublicMusicPlayerManager.h"
+
+@interface PublicMusicPlayerManager ()
+
+@property (strong, nonatomic) AVPlayer *player;
+@property (strong, nonatomic) AVPlayerItem *playerItem;
+@property (strong, nonatomic) id playerTimeObserver;
+
+@end
 
 @implementation PublicMusicPlayerManager
 
@@ -23,32 +32,35 @@ static PublicMusicPlayerManager *_sharedManager = nil;
 - (instancetype)init {
     self = [super init];
     if (self) {
+        // 播放结束通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDidPlayToEndTime) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
         [self createRemoteCommandCenter];
     }
     return self;
 }
 
-#pragma mark - public
-- (void)resetPlayItem:(NSString *)songURLString {
-    _playItem = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:songURLString]];
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)resetPlayer {
-    _player = [[AVPlayer alloc] initWithPlayerItem:_playItem];
+- (void)postNotificationName:(NSString *)name object:(id)anObject{
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        [[NSNotificationCenter defaultCenter] postNotificationName:name object:anObject];
+    });
 }
 
-- (void)startPlay {
-    [_player play];
-}
+- (void)clearPlayerTimeObserver {
+    if (_playerTimeObserver) {
+        @try {
+            [_player removeTimeObserver:_playerTimeObserver];
+            _playerTimeObserver = nil;
+        } @catch(id anException) {
+            
+        }
 
-- (void)stopPlay {
-    [_player pause];
-}
-
-- (void)play:(NSString *)songURLString {
-    [self resetPlayItem:songURLString];
-    [self resetPlayer];
-    [self startPlay];
+        [_player.currentItem cancelPendingSeeks];
+        [_player.currentItem.asset cancelLoading];
+    }
 }
 
 #pragma mark - 锁屏界面开启和监控远程控制事件
@@ -134,8 +146,88 @@ static PublicMusicPlayerManager *_sharedManager = nil;
         }];
         return MPRemoteCommandHandlerStatusSuccess;
     }];
+}
+
+#pragma mark - public
+- (void)startPlay {
+    [_player play];
+    [self clearPlayerTimeObserver];
     
+    // 设置Observer更新播放进度
+    QKWEAKSELF;
+    _playerTimeObserver = [_player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+        CMTime total = weakself.player.currentItem.duration;
+        AppTime *m_time = [AppTime new];
+        m_time.totalTime = CMTimeGetSeconds(total);
+        m_time.currentTime = CMTimeGetSeconds(time);
+        [weakself postNotificationName:kNotifi_Play_TimeObserver object:m_time];
+    }];
+}
+
+- (void)stopPlay {
+    [_player pause];
+    [self clearPlayerTimeObserver];
+}
+
+- (void)resetPlay:(AppQualityInfo *)quality {
+    if (!quality.Music.Id) {
+        return;
+    }
+    if (_playerItem) {
+        [_playerItem removeObserver:self forKeyPath:@"status"];
+    }
+    _playerItem = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:fileURLStringWithPID(quality.Music.Url)]];
+    [_playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+    _player = [[AVPlayer alloc] initWithPlayerItem:_playerItem];
+}
+
+#pragma mark - getter
+- (AVPlayer *)player {
+    if (!_player) {
+        _player = [AVPlayer new];
+    }
+    return _player;
+}
+
+- (AppTime *)currentTime {
+    AppTime *m_time = nil;
+    if (self.player.currentItem) {
+        m_time = [AppTime new];
+        m_time.totalTime = CMTimeGetSeconds(self.player.currentItem.duration);
+        m_time.currentTime = CMTimeGetSeconds(self.player.currentItem.currentTime);
+    }
+    return m_time;
+}
+
+#pragma mark - NSNotification
+- (void)playerDidPlayToEndTime {
     
+}
+
+#pragma mark - KVO
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if ([object isKindOfClass:[AVPlayerItem class]]) {
+        if ([keyPath isEqualToString:@"status"]) {
+            switch (_playerItem.status) {
+                case AVPlayerItemStatusReadyToPlay:{
+                    [self startPlay];
+                }
+                    break;
+                    
+                case AVPlayerItemStatusUnknown:
+                    NSLog(@"AVPlayerItemStatusUnknown");
+                    break;
+                    
+                case AVPlayerItemStatusFailed:
+                    NSLog(@"AVPlayerItemStatusFailed");
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+        }
+    }
 }
 
 @end

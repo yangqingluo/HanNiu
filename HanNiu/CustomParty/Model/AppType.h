@@ -12,6 +12,13 @@
 
 @end
 
+@interface AppTime : NSObject
+
+@property (assign, nonatomic) CGFloat totalTime;//总时长
+@property (assign, nonatomic) CGFloat currentTime;//当前时间
+
+@end
+
 @interface AppItemInfo : AppType
 
 @property (strong, nonatomic) NSString *Id;

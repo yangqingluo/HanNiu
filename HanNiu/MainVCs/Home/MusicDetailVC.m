@@ -43,7 +43,7 @@ PublicMusicPlayerManager *musicPlayer;
     [self.view addSubview:self.textView];
     self.textView.text = self.data.Introduce;
     
-    [self resetPlayer:YES];
+//    [self resetPlayer:YES];
 //    [self pullBaseListData:YES];
 }
 
@@ -71,14 +71,15 @@ PublicMusicPlayerManager *musicPlayer;
 }
 
 - (void)playButtonAction:(UIButton *)button {
-    if (musicPlayer.player.rate == 0) {
-        button.selected = YES;
-        [musicPlayer startPlay];
-    }
-    else {
-        button.selected = NO;
-        [musicPlayer stopPlay];
-    }
+    [musicPlayer resetPlay:self.data];
+//    if (musicPlayer.player.rate == 0) {
+//        button.selected = YES;
+//        [musicPlayer startPlay];
+//    }
+//    else {
+//        button.selected = NO;
+//        [musicPlayer stopPlay];
+//    }
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
@@ -97,65 +98,65 @@ PublicMusicPlayerManager *musicPlayer;
 }
 
 - (void)resetPlayer:(BOOL)autoPlay {
-    if (!self.data.Music.Url) {
-        return;
-    }
-    
-    if (_playerTimeObserver) {
-        [musicPlayer.player removeTimeObserver:_playerTimeObserver];
-        _playerTimeObserver = nil;
-        [musicPlayer.player.currentItem cancelPendingSeeks];
-        [musicPlayer.player.currentItem.asset cancelLoading];
-    }
-//    self.playView.playBtn.selected = YES;
-    
-    // 播放设置
-    [musicPlayer resetPlayItem:fileURLStringWithPID(self.data.Music.Url)];
-    [musicPlayer resetPlayer];
-    
-    // 播放结束通知
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:musicPlayer.player.currentItem];
-    
-    // 设置Observer更新播放进度
-    _playerTimeObserver = [musicPlayer.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-        CGFloat currentTime = CMTimeGetSeconds(time);
-        CMTime total = musicPlayer.player.currentItem.duration;
-        CGFloat totalTime = CMTimeGetSeconds(total);
-        
-        // 当前播放时间
-        self.playView.startLabel.text = stringWithTimeInterval(currentTime);
-        // 总时间
-        self.playView.endLabel.text = stringWithTimeInterval(totalTime);
-        // 进度条
-        self.playView.progressSlider.value = (float) ( currentTime / totalTime );
-
-        //监听锁屏状态 lock = 1则为锁屏状态
-        uint64_t locked;
-        __block int token = 0;
-        notify_register_dispatch(kAppleSBLockstate, &token, dispatch_get_main_queue(), ^(int t){
-        });
-        notify_get_state(token, &locked);
-        
-        //监听屏幕点亮状态 screenLight = 1则为变暗关闭状态
-        uint64_t screenLight;
-        __block int lightToken = 0;
-        notify_register_dispatch(kAppleSBHasBlankedScreen, &lightToken, dispatch_get_main_queue(), ^(int t){
-        });
-        notify_get_state(lightToken, &screenLight);
-        
-        BOOL isShowLyricsPoster = NO;
-        // NSLog(@"screenLight=%llu locked=%llu",screenLight,locked);
-        if (screenLight == 0 && locked == 1) {
-            //点亮且锁屏时
-            isShowLyricsPoster = YES;
-        }
-        else if(screenLight) {
-            return;
-        }
-        
-        //展示锁屏歌曲信息，上面监听屏幕锁屏和点亮状态的目的是为了提高效率
-        [self showLockScreenTotaltime:totalTime andCurrentTime:currentTime andLyricsPoster:isShowLyricsPoster];
-    }];
+//    if (!self.data.Music.Url) {
+//        return;
+//    }
+//
+//    if (_playerTimeObserver) {
+//        [musicPlayer.player removeTimeObserver:_playerTimeObserver];
+//        _playerTimeObserver = nil;
+//        [musicPlayer.player.currentItem cancelPendingSeeks];
+//        [musicPlayer.player.currentItem.asset cancelLoading];
+//    }
+////    self.playView.playBtn.selected = YES;
+//
+//    // 播放设置
+//    [musicPlayer resetPlayItem:fileURLStringWithPID(self.data.Music.Url)];
+//    [musicPlayer resetPlayer];
+//
+//    // 播放结束通知
+////    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:musicPlayer.player.currentItem];
+//
+//    // 设置Observer更新播放进度
+//    _playerTimeObserver = [musicPlayer.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+//        CGFloat currentTime = CMTimeGetSeconds(time);
+//        CMTime total = musicPlayer.player.currentItem.duration;
+//        CGFloat totalTime = CMTimeGetSeconds(total);
+//
+//        // 当前播放时间
+//        self.playView.startLabel.text = stringWithTimeInterval(currentTime);
+//        // 总时间
+//        self.playView.endLabel.text = stringWithTimeInterval(totalTime);
+//        // 进度条
+//        self.playView.progressSlider.value = (float) ( currentTime / totalTime );
+//
+//        //监听锁屏状态 lock = 1则为锁屏状态
+//        uint64_t locked;
+//        __block int token = 0;
+//        notify_register_dispatch(kAppleSBLockstate, &token, dispatch_get_main_queue(), ^(int t){
+//        });
+//        notify_get_state(token, &locked);
+//
+//        //监听屏幕点亮状态 screenLight = 1则为变暗关闭状态
+//        uint64_t screenLight;
+//        __block int lightToken = 0;
+//        notify_register_dispatch(kAppleSBHasBlankedScreen, &lightToken, dispatch_get_main_queue(), ^(int t){
+//        });
+//        notify_get_state(lightToken, &screenLight);
+//
+//        BOOL isShowLyricsPoster = NO;
+//        // NSLog(@"screenLight=%llu locked=%llu",screenLight,locked);
+//        if (screenLight == 0 && locked == 1) {
+//            //点亮且锁屏时
+//            isShowLyricsPoster = YES;
+//        }
+//        else if(screenLight) {
+//            return;
+//        }
+//
+//        //展示锁屏歌曲信息，上面监听屏幕锁屏和点亮状态的目的是为了提高效率
+//        [self showLockScreenTotaltime:totalTime andCurrentTime:currentTime andLyricsPoster:isShowLyricsPoster];
+//    }];
 }
 
 #pragma mark - 锁屏播放设置
@@ -214,24 +215,24 @@ PublicMusicPlayerManager *musicPlayer;
 
 #pragma mark - UISlider
 - (void)playbackSliderValueChanged {
-    [self updateTime];
-    //如果当前时暂停状态，则自动播放
-    if (musicPlayer.player.timeControlStatus == AVPlayerTimeControlStatusPaused) {
-        [musicPlayer startPlay];
-    }
+//    [self updateTime];
+//    //如果当前时暂停状态，则自动播放
+//    if (musicPlayer.player.timeControlStatus == AVPlayerTimeControlStatusPaused) {
+//        [musicPlayer startPlay];
+//    }
 }
 
 #pragma mark - 更新播放时间
 - (void)updateTime {
-    CMTime duration = musicPlayer.player.currentItem.asset.duration;
-    
-    // 歌曲总时间和当前时间
-    Float64 completeTime = CMTimeGetSeconds(duration);
-    Float64 currentTime = (Float64)(self.playView.progressSlider.value) * completeTime;
-    
-    //播放器定位到对应的位置
-    CMTime targetTime = CMTimeMake((int64_t)(currentTime), 1);
-    [musicPlayer.player seekToTime:targetTime];
+//    CMTime duration = musicPlayer.player.currentItem.asset.duration;
+//
+//    // 歌曲总时间和当前时间
+//    Float64 completeTime = CMTimeGetSeconds(duration);
+//    Float64 currentTime = (Float64)(self.playView.progressSlider.value) * completeTime;
+//
+//    //播放器定位到对应的位置
+//    CMTime targetTime = CMTimeMake((int64_t)(currentTime), 1);
+//    [musicPlayer.player seekToTime:targetTime];
 }
 
 @end

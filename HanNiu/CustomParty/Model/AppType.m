@@ -17,6 +17,10 @@
 
 @end
 
+@implementation AppTime
+
+@end
+
 @implementation AppItemInfo
 
 @end
