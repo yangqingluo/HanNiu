@@ -24,6 +24,7 @@
         
         [self setupSubviews];
         [self updateSubviewsWithTime:[PublicMusicPlayerManager getInstance].currentTime];
+        [self updateSubviewsWithState:[PublicMusicPlayerManager getInstance].state];
     }
     return self;
 }
@@ -40,8 +41,6 @@
     
     _playBtn = NewButton(CGRectMake(0, kEdgeHuge, 40, 40), nil, nil, nil);
     _playBtn.centerX = 0.5 * self.baseView.width;
-    [_playBtn setImage:[UIImage imageNamed:@"icon_play_big"] forState:UIControlStateNormal];
-    [_playBtn setImage:[UIImage imageNamed:@"icon_pause_big"] forState:UIControlStateSelected];
     [self.baseView addSubview:_playBtn];
     
     _lastBtn = NewButton(CGRectMake(0, 0, 30, 30), nil, nil, nil);
@@ -110,9 +109,18 @@
     }
 }
 
+- (void)updateSubviewsWithState:(PlayerManagerState)state {
+    if (state == PlayerManagerStatePlaying) {
+        [self.playBtn setImage:[UIImage imageNamed:@"icon_pause_big"] forState:UIControlStateNormal];
+    }
+    else {
+        [self.playBtn setImage:[UIImage imageNamed:@"icon_play_big"] forState:UIControlStateNormal];
+    }
+}
+
 #pragma mark - NSNotification
 - (void)playerStateRefreshNotification:(NSNotification *)notification {
-    
+    [self updateSubviewsWithState:[PublicMusicPlayerManager getInstance].state];
 }
 
 - (void)playerTimeObserverNotification:(NSNotification *)notification {

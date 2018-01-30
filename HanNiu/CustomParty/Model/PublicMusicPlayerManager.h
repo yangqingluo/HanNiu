@@ -14,6 +14,15 @@
 #define kNotifi_Play_TimeObserver      @"kNn_Play_TimeObserver"//播放过程监听
 
 typedef enum : NSUInteger {
+    PlayerManagerStateDefault,
+    PlayerManagerStatePreparing,
+    PlayerManagerStatePrepared,
+    PlayerManagerStatePlaying,
+    PlayerManagerStatePause,
+    PlayerManagerStateFailed,
+} PlayerManagerState;
+
+typedef enum : NSUInteger {
     RepeatPlayMode,
     RepeatOnlyOnePlayMode,
     ShufflePlayMode,
@@ -24,11 +33,13 @@ typedef enum : NSUInteger {
 + (PublicMusicPlayerManager *)getInstance;
 
 @property (strong, nonatomic) AppTime *currentTime;
-@property (assign, nonatomic) ShuffleAndRepeatState shuffleAndRepeatState;
-@property (assign, nonatomic) NSInteger playingIndex;
+@property (assign, nonatomic) BOOL isAutoPlay;
+@property (assign, nonatomic, readonly) PlayerManagerState state;
+//@property (assign, nonatomic) ShuffleAndRepeatState shuffleAndRepeatState;
+//@property (assign, nonatomic) NSInteger playingIndex;
 
-- (void)startPlay;
-- (void)stopPlay;
-- (void)resetPlay:(AppQualityInfo *)quality;
+- (void)play;
+- (void)pause;
+- (void)resetData:(AppQualityInfo *)quality;
 
 @end
