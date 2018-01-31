@@ -9,6 +9,7 @@
 #import "PublicPlayView.h"
 #import "UIButton+ImageAndText.h"
 
+extern PublicMusicPlayerManager *musicPlayer;
 @implementation PublicPlayView
 
 - (void)dealloc {
@@ -91,6 +92,9 @@
     _textField.layer.cornerRadius = 0.5 * _textField.bounds.size.height;
     _textField.centerY = self.messageBtn.centerY;
     [self.baseView addSubview:_textField];
+    
+    [_playBtn addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_progressSlider addTarget:self action:@selector(playbackSliderValueChanged) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)updateSubviewsWithTime:(AppTime *)m_time {
@@ -118,11 +122,37 @@
     }
 }
 
+- (void)playButtonAction:(UIButton *)button {
+    if (musicPlayer.state == PlayerManagerStatePlaying) {
+        [musicPlayer pause];
+    }
+    else {
+        [musicPlayer play];
+    }
+}
+
+- (void)playbackSliderValueChanged {
+    [self updateTime];
+    //如果当前时暂停状态，则自动播放
+    if (musicPlayer.state == PlayerManagerStatePause) {
+        [musicPlayer play];
+    }
+}
+
+#pragma mark - 更新播放时间
+- (void)updateTime {
+    AppTime *m_time = musicPlayer.currentTime;
+    Float64 completeTime = m_time.totalTime;
+    Float64 currentTime = (Float64)(self.progressSlider.value) * completeTime;
+    CMTime targetTime = CMTimeMake((int64_t)(currentTime), 1);
+    [musicPlayer seekToTime:targetTime];
+}
+
 #pragma mark - NSNotification
 - (void)playerStateRefreshNotification:(NSNotification *)notification {
-    [self updateSubviewsWithState:[PublicMusicPlayerManager getInstance].state];
-    if ([PublicMusicPlayerManager getInstance].state == PlayerManagerStateDefault) {
-        [self updateSubviewsWithTime:[PublicMusicPlayerManager getInstance].currentTime];
+    [self updateSubviewsWithState:musicPlayer.state];
+    if (musicPlayer.state == PlayerManagerStateDefault) {
+        [self updateSubviewsWithTime:musicPlayer.currentTime];
     }
 }
 

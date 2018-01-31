@@ -15,8 +15,6 @@
 @property (strong, nonatomic) AVPlayer *player;
 @property (strong, nonatomic) AVPlayerItem *playerItem;
 @property (strong, nonatomic) id playerTimeObserver;
-@property (strong, nonatomic) AppQualityInfo *currentQulity;
-
 
 @end
 
@@ -224,7 +222,8 @@ static PublicMusicPlayerManager *_sharedManager = nil;
             [self stop];
         }
         [self resetPlayState:PlayerManagerStateDefault];
-        self.currentQulity = quality;
+        _currentQulity = quality;
+        [self postNotificationName:kNotifi_Play_DataRefresh object:nil];
         [self clearPlayerItem];
         [self clearPlayer];
         if (self.isAutoPlay) {

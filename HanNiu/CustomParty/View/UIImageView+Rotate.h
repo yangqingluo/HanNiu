@@ -12,6 +12,6 @@
 
 - (void)startRotating;
 - (void)stopRotating;
-- (void)resumeRotate;
+- (void)recoverRotating;
 
 @end

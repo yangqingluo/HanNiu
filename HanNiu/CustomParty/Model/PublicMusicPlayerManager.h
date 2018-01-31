@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 
+#define kNotifi_Play_DataRefresh       @"kNn_Play_DataRefresh"//播放数据变化
 #define kNotifi_Play_StateRefresh      @"kNn_Play_StateRefresh"//播放状态变化
 #define kNotifi_Play_TimeObserver      @"kNn_Play_TimeObserver"//播放过程监听
 
@@ -36,6 +37,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) AppTime *currentTime;
 @property (assign, nonatomic) BOOL isAutoPlay;
 @property (assign, nonatomic, readonly) PlayerManagerState state;
+@property (strong, nonatomic, readonly) AppQualityInfo *currentQulity;
 //@property (assign, nonatomic) ShuffleAndRepeatState shuffleAndRepeatState;
 //@property (assign, nonatomic) NSInteger playingIndex;
 

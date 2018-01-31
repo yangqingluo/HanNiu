@@ -7,7 +7,10 @@
 //
 
 #import "PublicPlayBar.h"
+#import "UIImageView+WebCache.h"
+#import "UIImageView+Rotate.h"
 
+PublicMusicPlayerManager *musicPlayer;
 @implementation PublicPlayBar
 
 static PublicPlayBar *_singleShare = nil;
@@ -21,10 +24,11 @@ static PublicPlayBar *_singleShare = nil;
 }
 
 - (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0, DEFAULT_TAB_BAR_HEIGHT - TAB_BAR_HEIGHT, screen_width, TAB_BAR_HEIGHT)];
+    self = [super initWithFrame:CGRectMake(0, 0, screen_width, TAB_BAR_HEIGHT)];
     if (self) {
+        musicPlayer = [PublicMusicPlayerManager getInstance];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerStateRefreshNotification:) name:kNotifi_Play_StateRefresh object:nil];
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDataRefreshNotification:) name:kNotifi_Play_DataRefresh object:nil];
         self.backgroundColor = [UIColor whiteColor];
         [self setupSubviews];
     }
@@ -66,7 +70,12 @@ static PublicPlayBar *_singleShare = nil;
 }
 
 - (void)playButtonAction {
-    
+    if (musicPlayer.state == PlayerManagerStatePlaying) {
+        [musicPlayer pause];
+    }
+    else {
+        [musicPlayer play];
+    }
 }
 
 - (void)listButtonAction {
@@ -76,15 +85,26 @@ static PublicPlayBar *_singleShare = nil;
 - (void)updateSubviewsWithState:(PlayerManagerState)state {
     if (state == PlayerManagerStatePlaying) {
         [self.playBtn setImage:[UIImage imageNamed:@"icon_pause"] forState:UIControlStateNormal];
+        [self.playImageView startRotating];
     }
     else {
         [self.playBtn setImage:[UIImage imageNamed:@"icon_play"] forState:UIControlStateNormal];
+        [self.playImageView stopRotating];
     }
-    
+}
+
+- (void)updateSubviewsWithData:(AppQualityInfo *)data {
+    [self.playImageView recoverRotating];
+    [self.playImageView sd_setImageWithURL:[NSURL URLWithString:fileURLStringWithPID(data.Image)] placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
 }
 
 #pragma mark - NSNotification
 - (void)playerStateRefreshNotification:(NSNotification *)notification {
-    [self updateSubviewsWithState:[PublicMusicPlayerManager getInstance].state];
+    [self updateSubviewsWithState:musicPlayer.state];
 }
+
+- (void)playerDataRefreshNotification:(NSNotification *)notification {
+    [self updateSubviewsWithData:musicPlayer.currentQulity];
+}
+
 @end

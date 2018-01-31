@@ -58,12 +58,6 @@
                        @{@"title":@"我的M币",@"subTitle":@"充值",@"key":@"icon_me_coin"},
                        @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},
                        @{@"title":@"设置",@"subTitle":@"",@"key":@"icon_me_setting"},
-                       @{@"title":@"关于我们",@"subTitle":@"",@"key":@"icon_me_about_us"},
-                       @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},
-                       @{@"title":@"设置",@"subTitle":@"",@"key":@"icon_me_setting"},
-                       @{@"title":@"关于我们",@"subTitle":@"",@"key":@"icon_me_about_us"},
-                       @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},
-                       @{@"title":@"设置",@"subTitle":@"",@"key":@"icon_me_setting"},
                        @{@"title":@"关于我们",@"subTitle":@"",@"key":@"icon_me_about_us"}];
 }
 

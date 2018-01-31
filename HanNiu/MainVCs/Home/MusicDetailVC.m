@@ -16,7 +16,7 @@
 #import "PublicMusicPlayerManager.h"
 #import "SDImageCache.h"
 
-PublicMusicPlayerManager *musicPlayer;
+extern PublicMusicPlayerManager *musicPlayer;
 @interface MusicDetailVC ()<UITextFieldDelegate>
 
 @property (strong, nonatomic) PublicPlayView *playView;
@@ -29,7 +29,6 @@ PublicMusicPlayerManager *musicPlayer;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        musicPlayer = [PublicMusicPlayerManager getInstance];
         self.hidesBottomBarWhenPushed = YES;
     }
     return self;
@@ -68,15 +67,6 @@ PublicMusicPlayerManager *musicPlayer;
     }];
 }
 
-- (void)playButtonAction:(UIButton *)button {
-    if (musicPlayer.state == PlayerManagerStatePlaying) {
-        [musicPlayer pause];
-    }
-    else {
-        [musicPlayer play];
-    }
-}
-
 - (void)pullBaseListData:(BOOL)isReset {
     NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Music.Id}];
     [self doShowHudFunction];
@@ -97,8 +87,6 @@ PublicMusicPlayerManager *musicPlayer;
     if (!_playView) {
         _playView = [PublicPlayView new];
         _playView.bottom = self.view.height;
-        [_playView.playBtn addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_playView.progressSlider addTarget:self action:@selector(playbackSliderValueChanged) forControlEvents:UIControlEventValueChanged];
         _playView.textField.delegate = self;
     }
     return _playView;
@@ -122,24 +110,6 @@ PublicMusicPlayerManager *musicPlayer;
     MusicCommentVC *vc = [MusicCommentVC new];
     [self doPushViewController:vc animated:YES];
     return NO;
-}
-
-#pragma mark - UISlider
-- (void)playbackSliderValueChanged {
-    [self updateTime];
-    //如果当前时暂停状态，则自动播放
-    if (musicPlayer.state == PlayerManagerStatePause) {
-        [musicPlayer play];
-    }
-}
-
-#pragma mark - 更新播放时间
-- (void)updateTime {
-    AppTime *m_time = musicPlayer.currentTime;
-    Float64 completeTime = m_time.totalTime;
-    Float64 currentTime = (Float64)(self.playView.progressSlider.value) * completeTime;
-    CMTime targetTime = CMTimeMake((int64_t)(currentTime), 1);
-    [musicPlayer seekToTime:targetTime];
 }
 
 @end
