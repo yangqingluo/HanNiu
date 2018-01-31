@@ -95,7 +95,7 @@ static PublicPlayBar *_singleShare = nil;
 
 - (void)updateSubviewsWithData:(AppQualityInfo *)data {
     [self.playImageView recoverRotating];
-    [self.playImageView sd_setImageWithURL:[NSURL URLWithString:fileURLStringWithPID(data.Image)] placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
+    [self.playImageView sd_setImageWithURL:fileURLStringWithPID(data.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
 }
 
 #pragma mark - NSNotification

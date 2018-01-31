@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E402AE512021900A00CF1306 /* PublicImageSubTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE502021900A00CF1306 /* PublicImageSubTitleCell.m */; };
 		E402AE542021929C00CF1306 /* SchoolAndCompanyTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE532021929C00CF1306 /* SchoolAndCompanyTableVC.m */; };
+		E402AE572021AB1900CF1306 /* SchoolAndCompanyDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE562021AB1900CF1306 /* SchoolAndCompanyDetailVC.m */; };
+		E402AE5A2021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE592021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m */; };
 		E410D1A6200CB5EE00C6ACED /* MainTabNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */; };
 		E410D215200CB79100C6ACED /* back_college_list_item_class.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */; };
 		E410D216200CB79100C6ACED /* back_comment_list_input.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A9200CB79000C6ACED /* back_comment_list_input.png */; };
@@ -279,6 +281,10 @@
 		E402AE502021900A00CF1306 /* PublicImageSubTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicImageSubTitleCell.m; sourceTree = "<group>"; };
 		E402AE522021929C00CF1306 /* SchoolAndCompanyTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolAndCompanyTableVC.h; sourceTree = "<group>"; };
 		E402AE532021929C00CF1306 /* SchoolAndCompanyTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolAndCompanyTableVC.m; sourceTree = "<group>"; };
+		E402AE552021AB1900CF1306 /* SchoolAndCompanyDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolAndCompanyDetailVC.h; sourceTree = "<group>"; };
+		E402AE562021AB1900CF1306 /* SchoolAndCompanyDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolAndCompanyDetailVC.m; sourceTree = "<group>"; };
+		E402AE582021AD1C00CF1306 /* SchoolAndCompanyHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolAndCompanyHeaderView.h; sourceTree = "<group>"; };
+		E402AE592021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolAndCompanyHeaderView.m; sourceTree = "<group>"; };
 		E410D1A4200CB5EE00C6ACED /* MainTabNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabNavController.h; sourceTree = "<group>"; };
 		E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabNavController.m; sourceTree = "<group>"; };
 		E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_college_list_item_class.png; sourceTree = "<group>"; };
@@ -1184,6 +1190,8 @@
 				E48A229A20187B400017977A /* MusicDetailVC.m */,
 				E45BFAA92019B212002A034A /* MusicCommentVC.h */,
 				E45BFAAA2019B212002A034A /* MusicCommentVC.m */,
+				E402AE552021AB1900CF1306 /* SchoolAndCompanyDetailVC.h */,
+				E402AE562021AB1900CF1306 /* SchoolAndCompanyDetailVC.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1401,6 +1409,8 @@
 				E4F7E9DA20158158009E22E3 /* PublicAlertView.m */,
 				E4F7E9E320158891009E22E3 /* PublicAlertShowGraphView.h */,
 				E4F7E9E420158891009E22E3 /* PublicAlertShowGraphView.m */,
+				E402AE582021AD1C00CF1306 /* SchoolAndCompanyHeaderView.h */,
+				E402AE592021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1677,6 +1687,7 @@
 				E469F15E2017707C000B3C04 /* PublicSlideSwitchView.m in Sources */,
 				E4B3CCB1200D9617006807AE /* UIButton+AFNetworking.m in Sources */,
 				E4B3CC8D200D9616006807AE /* MJRefreshNormalHeader.m in Sources */,
+				E402AE572021AB1900CF1306 /* SchoolAndCompanyDetailVC.m in Sources */,
 				E469F13D2016D349000B3C04 /* HomeJobVC.m in Sources */,
 				E469F14C2016DAD7000B3C04 /* PublicCollectionViewController.m in Sources */,
 				E48A229220185D5A0017977A /* PublicSlideSubTableVC.m in Sources */,
@@ -1738,6 +1749,7 @@
 				E4B3CCBE200D96DD006807AE /* UIButton+ImageAndText.m in Sources */,
 				E4B3CC83200D9616006807AE /* MJRefreshComponent.m in Sources */,
 				E469F1402016D366000B3C04 /* HomeSchoolAndCompanyVC.m in Sources */,
+				E402AE5A2021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m in Sources */,
 				E4BA2FF4200F38C900395F70 /* IQUIViewController+Additions.m in Sources */,
 				E47887D8200C48D6009C86A7 /* main.m in Sources */,
 				E402AE512021900A00CF1306 /* PublicImageSubTitleCell.m in Sources */,

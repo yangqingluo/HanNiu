@@ -7,6 +7,7 @@
 //
 
 #import "SchoolAndCompanyTableVC.h"
+#import "SchoolAndCompanyDetailVC.h"
 
 #import "PublicImageSubTitleCell.h"
 #import "UIImageView+WebCache.h"
@@ -66,7 +67,7 @@
     }
     
     NSDictionary *item = self.dataSource[indexPath.row];
-    [cell.showImageView sd_setImageWithURL:[NSURL URLWithString:fileURLStringWithPID(item[@"Image"])] placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
+    [cell.showImageView sd_setImageWithURL:fileURLWithPID(item[@"Image"]) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     cell.titleLabel.text = item[@"Name"];
     cell.subTitleLabel.text = item[@"Tag"];
     
@@ -76,6 +77,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    SchoolAndCompanyDetailVC *vc = [SchoolAndCompanyDetailVC new];
+    vc.data = [self.dataSource[indexPath.row] copy];
+    [self doPushViewController:vc animated:YES];
 }
 
 @end

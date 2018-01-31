@@ -12,6 +12,4 @@
 
 @property (strong, nonatomic) AppQualityInfo *data;
 
-@property (nonatomic, strong) id playerTimeObserver;
-
 @end

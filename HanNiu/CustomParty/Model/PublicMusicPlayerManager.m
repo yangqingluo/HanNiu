@@ -98,7 +98,7 @@ static PublicMusicPlayerManager *_sharedManager = nil;
     [self resetPlayState:PlayerManagerStatePreparing];
     
     [self clearPlayerItem];
-    self.playerItem = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:fileURLStringWithPID(self.currentQulity.Music.Url)]];
+    self.playerItem = [[AVPlayerItem alloc] initWithURL:fileURLWithPID(self.currentQulity.Music.Url)];
     [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     
     [self clearPlayer];
