@@ -7,12 +7,13 @@
 //
 
 #import "HomeJobVC.h"
+#import "JobListVC.h"
 
 #import "PublicCollectionButtonCell.h"
 
 @interface HomeJobVC ()
 
-@property (strong, nonatomic) NSMutableArray *provinceList;
+@property (strong, nonatomic) NSArray *provinceList;
 
 @end
 
@@ -53,13 +54,15 @@
 }
 
 - (void)cellButtonAction:(UIButton *)button {
-    NSLog(@"cellButtonAction:%@ tag:%d", button.titleLabel.text, (int)button.tag);
+    JobListVC *vc = [JobListVC new];
+    vc.province = self.provinceList[button.tag];
+    [self doPushViewController:vc animated:YES];
 }
 
 #pragma mark - getter
-- (NSMutableArray *)provinceList {
+- (NSArray *)provinceList {
     if (!_provinceList) {
-        _provinceList = [NSMutableArray arrayWithArray:[UserPublic getInstance].dataMapDic[@"province"]];
+        _provinceList = [AppItemInfo mj_objectArrayWithKeyValuesArray:[UserPublic getInstance].dataMapDic[@"province"]];
     }
     return _provinceList;
 }
@@ -102,8 +105,8 @@
     
     cell.button.hidden = YES;
     if (indexPath.row < self.provinceList.count) {
-        NSDictionary *item = self.provinceList[indexPath.row];
-        [cell.button setTitle:item[@"Name"] forState:UIControlStateNormal];
+        AppItemInfo *item = self.provinceList[indexPath.row];
+        [cell.button setTitle:item.Name forState:UIControlStateNormal];
         cell.button.hidden = NO;
         cell.button.tag = indexPath.row;
         [cell.button addTarget:self action:@selector(cellButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -113,6 +116,8 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
     
 }
 

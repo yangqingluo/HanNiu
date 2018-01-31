@@ -105,3 +105,15 @@
 @property (strong, nonatomic) NSArray *Majors;
 
 @end
+
+@interface AppJobInfo : AppItemInfo
+
+@property (strong, nonatomic) NSString *Area;
+@property (strong, nonatomic) AppItemInfo *Company;
+@property (strong, nonatomic) NSString *Edu;
+@property (strong, nonatomic) NSString *Exp;
+@property (strong, nonatomic) NSString *Introduce;
+@property (strong, nonatomic) NSString *Salary;
+@property (strong, nonatomic) NSString *Status;
+
+@end

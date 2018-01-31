@@ -20,7 +20,7 @@
         
         self.titleLabel.frame = CGRectMake(self.showImageView.right + kEdgeMiddle, self.showImageView.top, self.contentView.width - (self.showImageView.right + kEdgeMiddle), 0.5 * self.showImageView.height);
         
-        self.subTitleLabel = NewLabel(CGRectMake(self.titleLabel.left, self.titleLabel.bottom, self.titleLabel.width, 30), [UIColor grayColor], [AppPublic appFontOfSize:appLabelFontSizeLittle], NSTextAlignmentLeft);
+        self.subTitleLabel = NewLabel(CGRectMake(self.titleLabel.left, self.titleLabel.bottom, self.titleLabel.width, 20), [UIColor grayColor], [AppPublic appFontOfSize:appLabelFontSizeLittle], NSTextAlignmentLeft);
         self.subTitleLabel.numberOfLines = 0;
         self.subTitleLabel.top = self.titleLabel.bottom;
         [self.contentView addSubview:self.subTitleLabel];

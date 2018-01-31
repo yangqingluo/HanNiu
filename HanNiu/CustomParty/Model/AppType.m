@@ -77,3 +77,7 @@
 }
 
 @end
+
+@implementation AppJobInfo
+
+@end

@@ -50,14 +50,6 @@
     return [PublicImageSubTitleCell tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    return kEdgeSmall;
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    return kEdge;
-//}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"show_cell";
     PublicImageSubTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
