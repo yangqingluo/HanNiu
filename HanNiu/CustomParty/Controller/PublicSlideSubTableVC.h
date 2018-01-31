@@ -12,6 +12,8 @@
 
 @interface PublicSlideSubTableVC : PublicShowTableVC
 
+- (instancetype)initWithStyle:(UITableViewStyle)style parentVC:(PublicViewController *)pVC andIndexTag:(NSInteger)index;
+
 @property (strong, nonatomic) AdScrollView *adHeadView;
 @property (strong, nonatomic) NSMutableArray *bannerList;
 

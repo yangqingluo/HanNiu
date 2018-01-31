@@ -18,6 +18,7 @@
         [self.contentView addSubview:_showImageView];
         
         _titleLabel = NewLabel(CGRectMake(_showImageView.right + kEdgeMiddle, 0, self.contentView.width - (_showImageView.right + kEdgeMiddle), self.contentView.height), nil, nil, NSTextAlignmentLeft);
+        _titleLabel.numberOfLines = 0;
         [self.contentView addSubview:_titleLabel];
     }
     

@@ -14,6 +14,15 @@
 
 @implementation PublicSlideSubTableVC
 
+- (instancetype)initWithStyle:(UITableViewStyle)style parentVC:(PublicViewController *)pVC andIndexTag:(NSInteger)index {
+    self = [super initWithStyle:style];
+    if (self) {
+        self.indextag = index;
+        self.parentVC = pVC;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
@@ -21,6 +30,13 @@
 
 - (void)initializeNavigationBar {
     
+}
+
+- (void)becomeListed {
+    NSDate *lastRefreshTime = [[NSUserDefaults standardUserDefaults] objectForKey:self.dateKey];
+    if (self.isResetCondition || self.needRefresh || !self.dataSource.count || !lastRefreshTime || [lastRefreshTime timeIntervalSinceNow] < -appRefreshTime) {
+        [self beginRefreshing];
+    }
 }
 
 #pragma mark - getter

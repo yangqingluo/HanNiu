@@ -6,10 +6,10 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "PublicTableViewCell.h"
+#import "PublicImageSubTitleCell.h"
 #import "PublicButton.h"
 
-@interface MusicCell : PublicTableViewCell
+@interface MusicCell : PublicImageSubTitleCell
 
 @property (strong, nonatomic) PublicButton *playBtn;
 @property (strong, nonatomic) PublicButton *messageBtn;

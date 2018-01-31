@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E402AE512021900A00CF1306 /* PublicImageSubTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE502021900A00CF1306 /* PublicImageSubTitleCell.m */; };
+		E402AE542021929C00CF1306 /* SchoolAndCompanyTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE532021929C00CF1306 /* SchoolAndCompanyTableVC.m */; };
 		E410D1A6200CB5EE00C6ACED /* MainTabNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */; };
 		E410D215200CB79100C6ACED /* back_college_list_item_class.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */; };
 		E410D216200CB79100C6ACED /* back_comment_list_input.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A9200CB79000C6ACED /* back_comment_list_input.png */; };
@@ -273,6 +275,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E402AE4F2021900A00CF1306 /* PublicImageSubTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicImageSubTitleCell.h; sourceTree = "<group>"; };
+		E402AE502021900A00CF1306 /* PublicImageSubTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicImageSubTitleCell.m; sourceTree = "<group>"; };
+		E402AE522021929C00CF1306 /* SchoolAndCompanyTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolAndCompanyTableVC.h; sourceTree = "<group>"; };
+		E402AE532021929C00CF1306 /* SchoolAndCompanyTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolAndCompanyTableVC.m; sourceTree = "<group>"; };
 		E410D1A4200CB5EE00C6ACED /* MainTabNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabNavController.h; sourceTree = "<group>"; };
 		E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabNavController.m; sourceTree = "<group>"; };
 		E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_college_list_item_class.png; sourceTree = "<group>"; };
@@ -1172,6 +1178,8 @@
 				E469F13C2016D349000B3C04 /* HomeJobVC.m */,
 				E469F13E2016D366000B3C04 /* HomeSchoolAndCompanyVC.h */,
 				E469F13F2016D366000B3C04 /* HomeSchoolAndCompanyVC.m */,
+				E402AE522021929C00CF1306 /* SchoolAndCompanyTableVC.h */,
+				E402AE532021929C00CF1306 /* SchoolAndCompanyTableVC.m */,
 				E48A229920187B400017977A /* MusicDetailVC.h */,
 				E48A229A20187B400017977A /* MusicDetailVC.m */,
 				E45BFAA92019B212002A034A /* MusicCommentVC.h */,
@@ -1381,6 +1389,8 @@
 				E4481EE12015E06400F69201 /* PublicBarTextField.m */,
 				E4EE1911200DCD74005BD00F /* PublicTableViewCell.h */,
 				E4EE1912200DCD74005BD00F /* PublicTableViewCell.m */,
+				E402AE4F2021900A00CF1306 /* PublicImageSubTitleCell.h */,
+				E402AE502021900A00CF1306 /* PublicImageSubTitleCell.m */,
 				E48A22AB201976790017977A /* MusicCell.h */,
 				E48A22AC201976790017977A /* MusicCell.m */,
 				E48A22932018623C0017977A /* QualityCell.h */,
@@ -1730,6 +1740,8 @@
 				E469F1402016D366000B3C04 /* HomeSchoolAndCompanyVC.m in Sources */,
 				E4BA2FF4200F38C900395F70 /* IQUIViewController+Additions.m in Sources */,
 				E47887D8200C48D6009C86A7 /* main.m in Sources */,
+				E402AE512021900A00CF1306 /* PublicImageSubTitleCell.m in Sources */,
+				E402AE542021929C00CF1306 /* SchoolAndCompanyTableVC.m in Sources */,
 				E4EE1913200DCD74005BD00F /* PublicTableViewCell.m in Sources */,
 				E48A228F201855750017977A /* PublicCollectionButtonCell.m in Sources */,
 				E469F15B20171A66000B3C04 /* PublicLabel.m in Sources */,

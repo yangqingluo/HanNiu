@@ -14,16 +14,13 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        CGFloat radius = kCellHeightBig - 2 * kEdge;
-        self.showImageView.frame = CGRectMake(kEdgeMiddle, kEdge, radius, radius);
-        [AppPublic roundCornerRadius:self.showImageView];
-        self.titleLabel.frame = CGRectMake(self.showImageView.right + kEdgeMiddle, kEdge, self.contentView.width - (self.showImageView.right + kEdgeMiddle), 0.5 * [[self class] tableView:nil heightForRowAtIndexPath:nil]);
         CGFloat m_height = 20.0;
-        self.subTitleLabel = NewLabel(CGRectMake(screen_width - kEdgeMiddle - 120, self.titleLabel.bottom, 120, m_height), [UIColor grayColor], [AppPublic appFontOfSize:appLabelFontSizeLittle], NSTextAlignmentRight);
+        self.subTitleLabel.frame = CGRectMake(screen_width - kEdgeMiddle - 120, self.showImageView.centerY + kEdgeSmall, 120, m_height);
+        self.subTitleLabel.textAlignment = NSTextAlignmentRight;
         [self.contentView addSubview:self.subTitleLabel];
         
         CGFloat m_width = 60.0;
-        _playBtn = [[PublicButton alloc] initWithFrame:CGRectMake(self.titleLabel.left, self.titleLabel.bottom, m_width, m_height)];
+        _playBtn = [[PublicButton alloc] initWithFrame:CGRectMake(self.titleLabel.left, self.subTitleLabel.top, m_width, m_height)];
         [self adjustPublicButton:_playBtn];
         _messageBtn = [[PublicButton alloc] initWithFrame:CGRectMake(_playBtn.right, _playBtn.top, m_width, m_height)];
         [self adjustPublicButton:_messageBtn];
@@ -59,10 +56,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-
-+ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kCellHeightBig;
 }
 
 #pragma mark - setter

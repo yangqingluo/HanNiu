@@ -22,7 +22,10 @@
 @property (strong, nonatomic) NSString *dateKey;
 @property (assign, nonatomic) NSInteger indextag;
 @property (assign, nonatomic) BOOL isResetCondition;
+@property (assign, nonatomic) BOOL isListed;
 @property (strong, nonatomic) NSMutableArray *dataSource;
+
+- (instancetype)initWithParentVC:(PublicViewController *)pVC;
 
 - (void)createNavWithTitle:(NSString *)szTitle createMenuItem:(UIView *(^)(int nIndex))menuItem;
 - (void)dismissKeyboard;

@@ -32,7 +32,7 @@
         [self addViewController:@"分类" vc:[HomeClassifyVC new]];
         [self addViewController:@"纷声" vc:[HomeBetterVC new]];
         [self addViewController:@"就业" vc:[[HomeJobVC alloc] initWithCollectionRowCount:4 cellHeight:38.0]];
-        [self addViewController:@"校&企" vc:[HomeSchoolAndCompanyVC new]];
+        [self addViewController:@"校&企" vc:[[HomeSchoolAndCompanyVC alloc] initWithParentVC:self]];
     }
     return self;
 }

@@ -77,6 +77,7 @@
 - (void)slideSwitchView:(QCSlideSwitchView *)view didselectTab:(NSUInteger)number{
     NSDictionary *dic = self.viewArray[number];
     PublicViewController *listVC = dic[@"VC"];
+    listVC.isListed = YES;
     if ([listVC respondsToSelector:@selector(becomeListed)]) {
         [listVC performSelector:@selector(becomeListed)];
     }
@@ -87,6 +88,7 @@
 - (void)slideSwitchView:(QCSlideSwitchView *)view didunselectTab:(NSUInteger)number{
     NSDictionary *dic = self.viewArray[number];
     PublicViewController *listVC = dic[@"VC"];
+    listVC.isListed = NO;
     if ([listVC respondsToSelector:@selector(becomeUnListed)]) {
         [listVC performSelector:@selector(becomeUnListed)];
     }

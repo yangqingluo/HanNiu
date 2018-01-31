@@ -19,6 +19,14 @@
 
 @implementation PublicViewController
 
+- (instancetype)initWithParentVC:(PublicViewController *)pVC {
+    self = [super init];
+    if (self) {
+        self.parentVC = pVC;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = appLightWhiteColor;
