@@ -62,7 +62,7 @@
 #pragma mark - getter
 - (NSArray *)provinceList {
     if (!_provinceList) {
-        _provinceList = [AppItemInfo mj_objectArrayWithKeyValuesArray:[UserPublic getInstance].dataMapDic[@"province"]];
+        _provinceList = [NSArray arrayWithArray:[UserPublic getInstance].dataMapDic[@"province"]];
     }
     return _provinceList;
 }

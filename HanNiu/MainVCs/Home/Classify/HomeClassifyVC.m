@@ -7,6 +7,7 @@
 //
 
 #import "HomeClassifyVC.h"
+#import "ClassifyCollectionVC.h"
 
 #import "PublicCollectionHeaderAdView.h"
 #import "QCSlideSwitchView.h"
@@ -31,8 +32,8 @@
     
     
     self.viewArray = [NSMutableArray new];
-    [self.viewArray addObject:@{@"title":@"院校大全", @"image" : @"icon_classify_tab_title_left", @"VC":[PublicSlideSubVC new]}];
-    [self.viewArray addObject:@{@"title":@"专业大全", @"image" : @"icon_classify_tab_title_right", @"VC":[PublicSlideSubVC new]}];
+    [self.viewArray addObject:@{@"title":@"院校大全", @"image" : @"icon_classify_tab_title_left", @"VC":[[ClassifyCollectionVC alloc] initWithCollectionRowCount:4 cellHeight:38.0]}];
+    [self.viewArray addObject:@{@"title":@"专业大全", @"image" : @"icon_classify_tab_title_right", @"VC":[ClassifyCollectionVC new]}];
     [self.view addSubview:self.slidePageView];
     [self.slidePageView buildUI];
 }

@@ -11,8 +11,6 @@
 #import "PublicCollectionHeaderTitleView.h"
 #import "PublicCollectionCell.h"
 
-
-static NSString *reuseId_header_title = @"reuseId_header_title";
 static NSString *reuseId_cell_school = @"reuseId_cell_school";
 
 @interface HomeRecommendVC ()
@@ -90,8 +88,6 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
         [weakself updateSubviews];
     }];
 }
-
-
 
 #pragma mark - getter
 - (NSMutableArray *)universityList {

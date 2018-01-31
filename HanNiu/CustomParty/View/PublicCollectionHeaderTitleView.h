@@ -11,5 +11,6 @@
 @interface PublicCollectionHeaderTitleView : UICollectionReusableView
 
 @property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UIImageView *rightImageView;
 
 @end

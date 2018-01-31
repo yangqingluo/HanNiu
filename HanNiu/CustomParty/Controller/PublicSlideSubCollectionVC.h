@@ -10,6 +10,7 @@
 
 #import "PublicCollectionHeaderAdView.h"
 
+static NSString *reuseId_header_title = @"reuseId_header_title";
 static NSString *reuseId_header_ad = @"reuseId_header_ad";
 static NSString *reuseId_cell_btn = @"reuseId_cell_btn";
 

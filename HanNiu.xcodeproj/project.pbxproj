@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		E402AE512021900A00CF1306 /* PublicImageSubTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE502021900A00CF1306 /* PublicImageSubTitleCell.m */; };
-		E402AE542021929C00CF1306 /* SchoolAndCompanyTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE532021929C00CF1306 /* SchoolAndCompanyTableVC.m */; };
-		E402AE572021AB1900CF1306 /* SchoolAndCompanyDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE562021AB1900CF1306 /* SchoolAndCompanyDetailVC.m */; };
 		E402AE5A2021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE592021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m */; };
 		E402AE5D2021B5FA00CF1306 /* PublicImageTagTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE5C2021B5FA00CF1306 /* PublicImageTagTitleCell.m */; };
-		E402AE602021B74200CF1306 /* JobListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE5F2021B74200CF1306 /* JobListVC.m */; };
+		E402AE7A2021BE3C00CF1306 /* HomeBetterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE632021BE3A00CF1306 /* HomeBetterVC.m */; };
+		E402AE7B2021BE3C00CF1306 /* MusicCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE652021BE3B00CF1306 /* MusicCommentVC.m */; };
+		E402AE7C2021BE3C00CF1306 /* MusicDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE662021BE3B00CF1306 /* MusicDetailVC.m */; };
+		E402AE7D2021BE3C00CF1306 /* HomeRecommendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE692021BE3B00CF1306 /* HomeRecommendVC.m */; };
+		E402AE7E2021BE3C00CF1306 /* HomeSchoolAndCompanyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE6C2021BE3B00CF1306 /* HomeSchoolAndCompanyVC.m */; };
+		E402AE7F2021BE3C00CF1306 /* SchoolAndCompanyDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE6E2021BE3B00CF1306 /* SchoolAndCompanyDetailVC.m */; };
+		E402AE802021BE3C00CF1306 /* SchoolAndCompanyTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE702021BE3B00CF1306 /* SchoolAndCompanyTableVC.m */; };
+		E402AE812021BE3C00CF1306 /* HomeJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE732021BE3B00CF1306 /* HomeJobVC.m */; };
+		E402AE822021BE3C00CF1306 /* JobListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE752021BE3B00CF1306 /* JobListVC.m */; };
+		E402AE832021BE3C00CF1306 /* HomeClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE792021BE3B00CF1306 /* HomeClassifyVC.m */; };
+		E402AE862021BE9000CF1306 /* ClassifyCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE852021BE9000CF1306 /* ClassifyCollectionVC.m */; };
 		E410D1A6200CB5EE00C6ACED /* MainTabNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */; };
 		E410D215200CB79100C6ACED /* back_college_list_item_class.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */; };
 		E410D216200CB79100C6ACED /* back_comment_list_input.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A9200CB79000C6ACED /* back_comment_list_input.png */; };
@@ -126,15 +134,9 @@
 		E4211D0E2020707100216EF7 /* UIImageView+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4211D0D2020707100216EF7 /* UIImageView+Rotate.m */; };
 		E437F4A020104E33001DA60E /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E437F49F20104E33001DA60E /* RegistViewController.m */; };
 		E4481EE22015E06400F69201 /* PublicBarTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E4481EE12015E06400F69201 /* PublicBarTextField.m */; };
-		E45BFAAB2019B212002A034A /* MusicCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E45BFAAA2019B212002A034A /* MusicCommentVC.m */; };
 		E469F12B2015EAA8000B3C04 /* HomeSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */; };
 		E469F12E2015EBEA000B3C04 /* AccountPurchaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F12D2015EBEA000B3C04 /* AccountPurchaseVC.m */; };
 		E469F1312015EBF9000B3C04 /* AccountCoinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1302015EBF9000B3C04 /* AccountCoinVC.m */; };
-		E469F1342016D2CA000B3C04 /* HomeRecommendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1332016D2CA000B3C04 /* HomeRecommendVC.m */; };
-		E469F1372016D2ED000B3C04 /* HomeClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1362016D2ED000B3C04 /* HomeClassifyVC.m */; };
-		E469F13A2016D335000B3C04 /* HomeBetterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1392016D335000B3C04 /* HomeBetterVC.m */; };
-		E469F13D2016D349000B3C04 /* HomeJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F13C2016D349000B3C04 /* HomeJobVC.m */; };
-		E469F1402016D366000B3C04 /* HomeSchoolAndCompanyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F13F2016D366000B3C04 /* HomeSchoolAndCompanyVC.m */; };
 		E469F1432016D4B5000B3C04 /* PublicSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1422016D4B5000B3C04 /* PublicSlideViewController.m */; };
 		E469F1462016D69C000B3C04 /* PublicSlideSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1452016D69C000B3C04 /* PublicSlideSubVC.m */; };
 		E469F1492016DA9D000B3C04 /* LongPressFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1472016DA9C000B3C04 /* LongPressFlowLayout.m */; };
@@ -157,7 +159,6 @@
 		E48A229220185D5A0017977A /* PublicSlideSubTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A229120185D5A0017977A /* PublicSlideSubTableVC.m */; };
 		E48A22952018623C0017977A /* QualityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22942018623C0017977A /* QualityCell.m */; };
 		E48A2298201865C50017977A /* PublicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A2297201865C50017977A /* PublicButton.m */; };
-		E48A229B20187B400017977A /* MusicDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A229A20187B400017977A /* MusicDetailVC.m */; };
 		E48A229E201888630017977A /* PublicPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A229D201888630017977A /* PublicPlayView.m */; };
 		E48A22A12018CAE70017977A /* PublicMusicPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22A02018CAE70017977A /* PublicMusicPlayerManager.m */; };
 		E48A22AA201972400017977A /* PublicPlayBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22A9201972400017977A /* PublicPlayBar.m */; };
@@ -263,6 +264,9 @@
 		E4DB3C502015B26500D5C465 /* AccountFavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C4F2015B26500D5C465 /* AccountFavoriteVC.m */; };
 		E4DB3C532015B31900D5C465 /* AccountSuggestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C522015B31900D5C465 /* AccountSuggestVC.m */; };
 		E4DB3C562015B81900D5C465 /* XHMessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C542015B81800D5C465 /* XHMessageTextView.m */; };
+		E4E0888A2021DE1E006D6B55 /* college_title.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E088892021DE1E006D6B55 /* college_title.txt */; };
+		E4E0888D2021DEFC006D6B55 /* college_major.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E0888B2021DEFC006D6B55 /* college_major.txt */; };
+		E4E0888E2021DEFC006D6B55 /* college_level.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E0888C2021DEFC006D6B55 /* college_level.txt */; };
 		E4EE1910200DC97B005BD00F /* PublicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE190F200DC97B005BD00F /* PublicTableViewController.m */; };
 		E4EE1913200DCD74005BD00F /* PublicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE1912200DCD74005BD00F /* PublicTableViewCell.m */; };
 		E4EE1916200DCE87005BD00F /* PublicShowTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE1915200DCE87005BD00F /* PublicShowTableVC.m */; };
@@ -281,16 +285,32 @@
 /* Begin PBXFileReference section */
 		E402AE4F2021900A00CF1306 /* PublicImageSubTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicImageSubTitleCell.h; sourceTree = "<group>"; };
 		E402AE502021900A00CF1306 /* PublicImageSubTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicImageSubTitleCell.m; sourceTree = "<group>"; };
-		E402AE522021929C00CF1306 /* SchoolAndCompanyTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolAndCompanyTableVC.h; sourceTree = "<group>"; };
-		E402AE532021929C00CF1306 /* SchoolAndCompanyTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolAndCompanyTableVC.m; sourceTree = "<group>"; };
-		E402AE552021AB1900CF1306 /* SchoolAndCompanyDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolAndCompanyDetailVC.h; sourceTree = "<group>"; };
-		E402AE562021AB1900CF1306 /* SchoolAndCompanyDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolAndCompanyDetailVC.m; sourceTree = "<group>"; };
 		E402AE582021AD1C00CF1306 /* SchoolAndCompanyHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolAndCompanyHeaderView.h; sourceTree = "<group>"; };
 		E402AE592021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolAndCompanyHeaderView.m; sourceTree = "<group>"; };
 		E402AE5B2021B5FA00CF1306 /* PublicImageTagTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicImageTagTitleCell.h; sourceTree = "<group>"; };
 		E402AE5C2021B5FA00CF1306 /* PublicImageTagTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicImageTagTitleCell.m; sourceTree = "<group>"; };
-		E402AE5E2021B74200CF1306 /* JobListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobListVC.h; sourceTree = "<group>"; };
-		E402AE5F2021B74200CF1306 /* JobListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobListVC.m; sourceTree = "<group>"; };
+		E402AE622021BE3A00CF1306 /* HomeBetterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBetterVC.h; sourceTree = "<group>"; };
+		E402AE632021BE3A00CF1306 /* HomeBetterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeBetterVC.m; sourceTree = "<group>"; };
+		E402AE642021BE3B00CF1306 /* MusicCommentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicCommentVC.h; sourceTree = "<group>"; };
+		E402AE652021BE3B00CF1306 /* MusicCommentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicCommentVC.m; sourceTree = "<group>"; };
+		E402AE662021BE3B00CF1306 /* MusicDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicDetailVC.m; sourceTree = "<group>"; };
+		E402AE682021BE3B00CF1306 /* HomeRecommendVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRecommendVC.h; sourceTree = "<group>"; };
+		E402AE692021BE3B00CF1306 /* HomeRecommendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendVC.m; sourceTree = "<group>"; };
+		E402AE6B2021BE3B00CF1306 /* HomeSchoolAndCompanyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSchoolAndCompanyVC.h; sourceTree = "<group>"; };
+		E402AE6C2021BE3B00CF1306 /* HomeSchoolAndCompanyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSchoolAndCompanyVC.m; sourceTree = "<group>"; };
+		E402AE6D2021BE3B00CF1306 /* SchoolAndCompanyDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolAndCompanyDetailVC.h; sourceTree = "<group>"; };
+		E402AE6E2021BE3B00CF1306 /* SchoolAndCompanyDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolAndCompanyDetailVC.m; sourceTree = "<group>"; };
+		E402AE6F2021BE3B00CF1306 /* SchoolAndCompanyTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolAndCompanyTableVC.h; sourceTree = "<group>"; };
+		E402AE702021BE3B00CF1306 /* SchoolAndCompanyTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolAndCompanyTableVC.m; sourceTree = "<group>"; };
+		E402AE722021BE3B00CF1306 /* HomeJobVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeJobVC.h; sourceTree = "<group>"; };
+		E402AE732021BE3B00CF1306 /* HomeJobVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeJobVC.m; sourceTree = "<group>"; };
+		E402AE742021BE3B00CF1306 /* JobListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobListVC.h; sourceTree = "<group>"; };
+		E402AE752021BE3B00CF1306 /* JobListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobListVC.m; sourceTree = "<group>"; };
+		E402AE762021BE3B00CF1306 /* MusicDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicDetailVC.h; sourceTree = "<group>"; };
+		E402AE782021BE3B00CF1306 /* HomeClassifyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeClassifyVC.h; sourceTree = "<group>"; };
+		E402AE792021BE3B00CF1306 /* HomeClassifyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeClassifyVC.m; sourceTree = "<group>"; };
+		E402AE842021BE9000CF1306 /* ClassifyCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifyCollectionVC.h; sourceTree = "<group>"; };
+		E402AE852021BE9000CF1306 /* ClassifyCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifyCollectionVC.m; sourceTree = "<group>"; };
 		E410D1A4200CB5EE00C6ACED /* MainTabNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabNavController.h; sourceTree = "<group>"; };
 		E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabNavController.m; sourceTree = "<group>"; };
 		E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_college_list_item_class.png; sourceTree = "<group>"; };
@@ -408,24 +428,12 @@
 		E437F49F20104E33001DA60E /* RegistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
 		E4481EE02015E06400F69201 /* PublicBarTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicBarTextField.h; sourceTree = "<group>"; };
 		E4481EE12015E06400F69201 /* PublicBarTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicBarTextField.m; sourceTree = "<group>"; };
-		E45BFAA92019B212002A034A /* MusicCommentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicCommentVC.h; sourceTree = "<group>"; };
-		E45BFAAA2019B212002A034A /* MusicCommentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicCommentVC.m; sourceTree = "<group>"; };
 		E469F1292015EAA8000B3C04 /* HomeSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSearchVC.h; sourceTree = "<group>"; };
 		E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSearchVC.m; sourceTree = "<group>"; };
 		E469F12C2015EBEA000B3C04 /* AccountPurchaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountPurchaseVC.h; sourceTree = "<group>"; };
 		E469F12D2015EBEA000B3C04 /* AccountPurchaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountPurchaseVC.m; sourceTree = "<group>"; };
 		E469F12F2015EBF9000B3C04 /* AccountCoinVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountCoinVC.h; sourceTree = "<group>"; };
 		E469F1302015EBF9000B3C04 /* AccountCoinVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountCoinVC.m; sourceTree = "<group>"; };
-		E469F1322016D2C9000B3C04 /* HomeRecommendVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeRecommendVC.h; sourceTree = "<group>"; };
-		E469F1332016D2CA000B3C04 /* HomeRecommendVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendVC.m; sourceTree = "<group>"; };
-		E469F1352016D2ED000B3C04 /* HomeClassifyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeClassifyVC.h; sourceTree = "<group>"; };
-		E469F1362016D2ED000B3C04 /* HomeClassifyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeClassifyVC.m; sourceTree = "<group>"; };
-		E469F1382016D335000B3C04 /* HomeBetterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeBetterVC.h; sourceTree = "<group>"; };
-		E469F1392016D335000B3C04 /* HomeBetterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeBetterVC.m; sourceTree = "<group>"; };
-		E469F13B2016D349000B3C04 /* HomeJobVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeJobVC.h; sourceTree = "<group>"; };
-		E469F13C2016D349000B3C04 /* HomeJobVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeJobVC.m; sourceTree = "<group>"; };
-		E469F13E2016D366000B3C04 /* HomeSchoolAndCompanyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSchoolAndCompanyVC.h; sourceTree = "<group>"; };
-		E469F13F2016D366000B3C04 /* HomeSchoolAndCompanyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSchoolAndCompanyVC.m; sourceTree = "<group>"; };
 		E469F1412016D4B5000B3C04 /* PublicSlideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicSlideViewController.h; sourceTree = "<group>"; };
 		E469F1422016D4B5000B3C04 /* PublicSlideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicSlideViewController.m; sourceTree = "<group>"; };
 		E469F1442016D69C000B3C04 /* PublicSlideSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicSlideSubVC.h; sourceTree = "<group>"; };
@@ -467,8 +475,6 @@
 		E48A22942018623C0017977A /* QualityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QualityCell.m; sourceTree = "<group>"; };
 		E48A2296201865C50017977A /* PublicButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicButton.h; sourceTree = "<group>"; };
 		E48A2297201865C50017977A /* PublicButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicButton.m; sourceTree = "<group>"; };
-		E48A229920187B400017977A /* MusicDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicDetailVC.h; sourceTree = "<group>"; };
-		E48A229A20187B400017977A /* MusicDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicDetailVC.m; sourceTree = "<group>"; };
 		E48A229C201888630017977A /* PublicPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicPlayView.h; sourceTree = "<group>"; };
 		E48A229D201888630017977A /* PublicPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicPlayView.m; sourceTree = "<group>"; };
 		E48A229F2018CAE60017977A /* PublicMusicPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicMusicPlayerManager.h; sourceTree = "<group>"; };
@@ -685,6 +691,9 @@
 		E4DB3C522015B31900D5C465 /* AccountSuggestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountSuggestVC.m; sourceTree = "<group>"; };
 		E4DB3C542015B81800D5C465 /* XHMessageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHMessageTextView.m; sourceTree = "<group>"; };
 		E4DB3C552015B81800D5C465 /* XHMessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHMessageTextView.h; sourceTree = "<group>"; };
+		E4E088892021DE1E006D6B55 /* college_title.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = college_title.txt; sourceTree = "<group>"; };
+		E4E0888B2021DEFC006D6B55 /* college_major.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = college_major.txt; sourceTree = "<group>"; };
+		E4E0888C2021DEFC006D6B55 /* college_level.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = college_level.txt; sourceTree = "<group>"; };
 		E4EE190E200DC97B005BD00F /* PublicTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicTableViewController.h; sourceTree = "<group>"; };
 		E4EE190F200DC97B005BD00F /* PublicTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicTableViewController.m; sourceTree = "<group>"; };
 		E4EE1911200DCD74005BD00F /* PublicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicTableViewCell.h; sourceTree = "<group>"; };
@@ -722,6 +731,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E402AE612021BE3A00CF1306 /* Better */ = {
+			isa = PBXGroup;
+			children = (
+				E402AE622021BE3A00CF1306 /* HomeBetterVC.h */,
+				E402AE632021BE3A00CF1306 /* HomeBetterVC.m */,
+			);
+			path = Better;
+			sourceTree = "<group>";
+		};
+		E402AE672021BE3B00CF1306 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				E402AE682021BE3B00CF1306 /* HomeRecommendVC.h */,
+				E402AE692021BE3B00CF1306 /* HomeRecommendVC.m */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		E402AE6A2021BE3B00CF1306 /* SchoolAndCompanyVC */ = {
+			isa = PBXGroup;
+			children = (
+				E402AE6B2021BE3B00CF1306 /* HomeSchoolAndCompanyVC.h */,
+				E402AE6C2021BE3B00CF1306 /* HomeSchoolAndCompanyVC.m */,
+				E402AE6D2021BE3B00CF1306 /* SchoolAndCompanyDetailVC.h */,
+				E402AE6E2021BE3B00CF1306 /* SchoolAndCompanyDetailVC.m */,
+				E402AE6F2021BE3B00CF1306 /* SchoolAndCompanyTableVC.h */,
+				E402AE702021BE3B00CF1306 /* SchoolAndCompanyTableVC.m */,
+			);
+			path = SchoolAndCompanyVC;
+			sourceTree = "<group>";
+		};
+		E402AE712021BE3B00CF1306 /* Job */ = {
+			isa = PBXGroup;
+			children = (
+				E402AE722021BE3B00CF1306 /* HomeJobVC.h */,
+				E402AE732021BE3B00CF1306 /* HomeJobVC.m */,
+				E402AE742021BE3B00CF1306 /* JobListVC.h */,
+				E402AE752021BE3B00CF1306 /* JobListVC.m */,
+			);
+			path = Job;
+			sourceTree = "<group>";
+		};
+		E402AE772021BE3B00CF1306 /* Classify */ = {
+			isa = PBXGroup;
+			children = (
+				E402AE782021BE3B00CF1306 /* HomeClassifyVC.h */,
+				E402AE792021BE3B00CF1306 /* HomeClassifyVC.m */,
+				E402AE842021BE9000CF1306 /* ClassifyCollectionVC.h */,
+				E402AE852021BE9000CF1306 /* ClassifyCollectionVC.m */,
+			);
+			path = Classify;
+			sourceTree = "<group>";
+		};
 		E410D1A7200CB79000C6ACED /* Pics */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,6 +906,9 @@
 			isa = PBXGroup;
 			children = (
 				E469F166201837D1000B3C04 /* province.txt */,
+				E4E088892021DE1E006D6B55 /* college_title.txt */,
+				E4E0888C2021DEFC006D6B55 /* college_level.txt */,
+				E4E0888B2021DEFC006D6B55 /* college_major.txt */,
 			);
 			path = Datas;
 			sourceTree = "<group>";
@@ -1180,26 +1245,15 @@
 				E4B3CCC8200D9F1E006807AE /* HomeViewController.m */,
 				E469F1292015EAA8000B3C04 /* HomeSearchVC.h */,
 				E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */,
-				E469F1322016D2C9000B3C04 /* HomeRecommendVC.h */,
-				E469F1332016D2CA000B3C04 /* HomeRecommendVC.m */,
-				E469F1352016D2ED000B3C04 /* HomeClassifyVC.h */,
-				E469F1362016D2ED000B3C04 /* HomeClassifyVC.m */,
-				E469F1382016D335000B3C04 /* HomeBetterVC.h */,
-				E469F1392016D335000B3C04 /* HomeBetterVC.m */,
-				E469F13B2016D349000B3C04 /* HomeJobVC.h */,
-				E469F13C2016D349000B3C04 /* HomeJobVC.m */,
-				E469F13E2016D366000B3C04 /* HomeSchoolAndCompanyVC.h */,
-				E469F13F2016D366000B3C04 /* HomeSchoolAndCompanyVC.m */,
-				E402AE522021929C00CF1306 /* SchoolAndCompanyTableVC.h */,
-				E402AE532021929C00CF1306 /* SchoolAndCompanyTableVC.m */,
-				E48A229920187B400017977A /* MusicDetailVC.h */,
-				E48A229A20187B400017977A /* MusicDetailVC.m */,
-				E45BFAA92019B212002A034A /* MusicCommentVC.h */,
-				E45BFAAA2019B212002A034A /* MusicCommentVC.m */,
-				E402AE552021AB1900CF1306 /* SchoolAndCompanyDetailVC.h */,
-				E402AE562021AB1900CF1306 /* SchoolAndCompanyDetailVC.m */,
-				E402AE5E2021B74200CF1306 /* JobListVC.h */,
-				E402AE5F2021B74200CF1306 /* JobListVC.m */,
+				E402AE762021BE3B00CF1306 /* MusicDetailVC.h */,
+				E402AE662021BE3B00CF1306 /* MusicDetailVC.m */,
+				E402AE642021BE3B00CF1306 /* MusicCommentVC.h */,
+				E402AE652021BE3B00CF1306 /* MusicCommentVC.m */,
+				E402AE672021BE3B00CF1306 /* Recommend */,
+				E402AE772021BE3B00CF1306 /* Classify */,
+				E402AE612021BE3A00CF1306 /* Better */,
+				E402AE712021BE3B00CF1306 /* Job */,
+				E402AE6A2021BE3B00CF1306 /* SchoolAndCompanyVC */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1552,6 +1606,7 @@
 				E47887E1200C48D6009C86A7 /* Main.storyboard in Resources */,
 				E410D256200CB79100C6ACED /* icon_playlist_playing_item.png in Resources */,
 				E410D231200CB79100C6ACED /* icon_bought_unit_selected.png in Resources */,
+				E4E0888D2021DEFC006D6B55 /* college_major.txt in Resources */,
 				E410D22D200CB79100C6ACED /* icon_arrow_down.png in Resources */,
 				E410D232200CB79100C6ACED /* icon_circle_selected.png in Resources */,
 				E410D23B200CB79100C6ACED /* icon_comment_gray@2x.png in Resources */,
@@ -1601,6 +1656,7 @@
 				E410D21C200CB79100C6ACED /* back_msg_frag_title_left_selected.png in Resources */,
 				E410D219200CB79100C6ACED /* back_login_fragment.png in Resources */,
 				E410D22E200CB79100C6ACED /* icon_arrow_up.png in Resources */,
+				E4E0888A2021DE1E006D6B55 /* college_title.txt in Resources */,
 				E410D23C200CB79100C6ACED /* icon_give_money.png in Resources */,
 				E410D253200CB79100C6ACED /* icon_play_gray@2x.png in Resources */,
 				E410D269200CB79100C6ACED /* placeholder_college_logo.png in Resources */,
@@ -1620,6 +1676,7 @@
 				E410D220200CB79100C6ACED /* back_sqaure_white.png in Resources */,
 				E410D259200CB79100C6ACED /* icon_right_arrow@2x.png in Resources */,
 				E410D27E200CB79100C6ACED /* toolbar_back_09.png in Resources */,
+				E4E0888E2021DEFC006D6B55 /* college_level.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1633,6 +1690,8 @@
 				E48A22952018623C0017977A /* QualityCell.m in Sources */,
 				E4B3CB27200D94E9006807AE /* UIImage+SubImage.m in Sources */,
 				E4BA2FF7200F38C900395F70 /* IQKeyboardReturnKeyHandler.m in Sources */,
+				E402AE812021BE3C00CF1306 /* HomeJobVC.m in Sources */,
+				E402AE7A2021BE3C00CF1306 /* HomeBetterVC.m in Sources */,
 				E4B3CC8E200D9616006807AE /* MJRefreshStateHeader.m in Sources */,
 				E469F15520170689000B3C04 /* PublicCollectionCell.m in Sources */,
 				E4B3CCAE200D9617006807AE /* AFImageDownloader.m in Sources */,
@@ -1656,6 +1715,7 @@
 				E4B3CC7E200D9616006807AE /* NSObject+MJKeyValue.m in Sources */,
 				E4B3CC8B200D9616006807AE /* MJRefreshBackStateFooter.m in Sources */,
 				E4B3CC81200D9616006807AE /* MJRefreshAutoFooter.m in Sources */,
+				E402AE802021BE3C00CF1306 /* SchoolAndCompanyTableVC.m in Sources */,
 				E4B3CC85200D9616006807AE /* MJRefreshHeader.m in Sources */,
 				E4211D0E2020707100216EF7 /* UIImageView+Rotate.m in Sources */,
 				E4BA3005200FA0E200395F70 /* AccountAboutVC.m in Sources */,
@@ -1663,6 +1723,7 @@
 				E4B3CC86200D9616006807AE /* MJRefreshAutoGifFooter.m in Sources */,
 				E47887DE200C48D6009C86A7 /* ViewController.m in Sources */,
 				E4B3CCAD200D9617006807AE /* AFAutoPurgingImageCache.m in Sources */,
+				E402AE7D2021BE3C00CF1306 /* HomeRecommendVC.m in Sources */,
 				E4B3CC9B200D9616006807AE /* SDWebImageDownloader.m in Sources */,
 				E4B3CCC5200D98A3006807AE /* AccountViewController.m in Sources */,
 				E4FA9DB0200CB2FC00EB8852 /* MainTabBarController.m in Sources */,
@@ -1670,7 +1731,6 @@
 				E469F1312015EBF9000B3C04 /* AccountCoinVC.m in Sources */,
 				E4EE1910200DC97B005BD00F /* PublicTableViewController.m in Sources */,
 				E4B3CC96200D9616006807AE /* UIViewController+HUD.m in Sources */,
-				E469F13A2016D335000B3C04 /* HomeBetterVC.m in Sources */,
 				E4B3CC97200D9616006807AE /* NSData+ImageContentType.m in Sources */,
 				E48A22B0201994660017977A /* PublicSlider.m in Sources */,
 				E4BA2FF6200F38C900395F70 /* IQKeyboardManager.m in Sources */,
@@ -1695,10 +1755,9 @@
 				E4B3CC9E200D9617006807AE /* SDWebImagePrefetcher.m in Sources */,
 				E4B3CCAA200D9617006807AE /* AFURLRequestSerialization.m in Sources */,
 				E469F15E2017707C000B3C04 /* PublicSlideSwitchView.m in Sources */,
+				E402AE862021BE9000CF1306 /* ClassifyCollectionVC.m in Sources */,
 				E4B3CCB1200D9617006807AE /* UIButton+AFNetworking.m in Sources */,
 				E4B3CC8D200D9616006807AE /* MJRefreshNormalHeader.m in Sources */,
-				E402AE572021AB1900CF1306 /* SchoolAndCompanyDetailVC.m in Sources */,
-				E469F13D2016D349000B3C04 /* HomeJobVC.m in Sources */,
 				E469F14C2016DAD7000B3C04 /* PublicCollectionViewController.m in Sources */,
 				E48A229220185D5A0017977A /* PublicSlideSubTableVC.m in Sources */,
 				E4B3CC84200D9616006807AE /* MJRefreshFooter.m in Sources */,
@@ -1707,11 +1766,9 @@
 				E4B3CC99200D9616006807AE /* SDWebImageCompat.m in Sources */,
 				E469F12B2015EAA8000B3C04 /* HomeSearchVC.m in Sources */,
 				E4F7E9DB20158158009E22E3 /* PublicAlertView.m in Sources */,
-				E48A229B20187B400017977A /* MusicDetailVC.m in Sources */,
-				E402AE602021B74200CF1306 /* JobListVC.m in Sources */,
-				E469F1342016D2CA000B3C04 /* HomeRecommendVC.m in Sources */,
 				E4B3CC87200D9616006807AE /* MJRefreshAutoNormalFooter.m in Sources */,
 				E4B3CBE0200D95B7006807AE /* UIResponder+Router.m in Sources */,
+				E402AE822021BE3C00CF1306 /* JobListVC.m in Sources */,
 				E4EE1924200EE67D005BD00F /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				E4B3CCA0200D9617006807AE /* UIImage+GIF.m in Sources */,
 				E4B3CCC1200D9740006807AE /* PublicViewController.m in Sources */,
@@ -1738,6 +1795,7 @@
 				E4B3CC94200D9616006807AE /* MBProgressHUD+Add.m in Sources */,
 				E4BA2FF1200F38C900395F70 /* IQUIScrollView+Additions.m in Sources */,
 				E4B3CC92200D9616006807AE /* UIScrollView+MJRefresh.m in Sources */,
+				E402AE7C2021BE3C00CF1306 /* MusicDetailVC.m in Sources */,
 				E4BA2FCA200F2D4000395F70 /* AccountSettingsVC.m in Sources */,
 				E4EE1919200DD458005BD00F /* UserPublic.m in Sources */,
 				E48FE18D2015BE18007F1427 /* AccountDetailVC.m in Sources */,
@@ -1746,26 +1804,25 @@
 				E4BA2FFB200F38C900395F70 /* IQTitleBarButtonItem.m in Sources */,
 				E4BA2FF5200F38C900395F70 /* IQUIWindow+Hierarchy.m in Sources */,
 				E4EE1921200DF5A0005BD00F /* PublicInputView.m in Sources */,
-				E469F1372016D2ED000B3C04 /* HomeClassifyVC.m in Sources */,
 				E4BA2FF2200F38C900395F70 /* IQUITextFieldView+Additions.m in Sources */,
 				E4B3CC7D200D9616006807AE /* NSObject+MJCoding.m in Sources */,
 				E4B3CCA4200D9617006807AE /* UIView+WebCacheOperation.m in Sources */,
+				E402AE832021BE3C00CF1306 /* HomeClassifyVC.m in Sources */,
 				E4B3CB25200D94E9006807AE /* UIImage+Color.m in Sources */,
 				E4B3CC9C200D9616006807AE /* SDWebImageDownloaderOperation.m in Sources */,
 				E4B3CC7A200D9616006807AE /* MJPropertyKey.m in Sources */,
 				E402AE5D2021B5FA00CF1306 /* PublicImageTagTitleCell.m in Sources */,
-				E45BFAAB2019B212002A034A /* MusicCommentVC.m in Sources */,
 				E4B3CC7F200D9616006807AE /* NSObject+MJProperty.m in Sources */,
+				E402AE7F2021BE3C00CF1306 /* SchoolAndCompanyDetailVC.m in Sources */,
 				E4B3CBE3200D95C3006807AE /* AppType.m in Sources */,
 				E469F1582017077D000B3C04 /* PublicCollectionHeaderTitleView.m in Sources */,
 				E4B3CCBE200D96DD006807AE /* UIButton+ImageAndText.m in Sources */,
 				E4B3CC83200D9616006807AE /* MJRefreshComponent.m in Sources */,
-				E469F1402016D366000B3C04 /* HomeSchoolAndCompanyVC.m in Sources */,
 				E402AE5A2021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m in Sources */,
 				E4BA2FF4200F38C900395F70 /* IQUIViewController+Additions.m in Sources */,
+				E402AE7E2021BE3C00CF1306 /* HomeSchoolAndCompanyVC.m in Sources */,
 				E47887D8200C48D6009C86A7 /* main.m in Sources */,
 				E402AE512021900A00CF1306 /* PublicImageSubTitleCell.m in Sources */,
-				E402AE542021929C00CF1306 /* SchoolAndCompanyTableVC.m in Sources */,
 				E4EE1913200DCD74005BD00F /* PublicTableViewCell.m in Sources */,
 				E48A228F201855750017977A /* PublicCollectionButtonCell.m in Sources */,
 				E469F15B20171A66000B3C04 /* PublicLabel.m in Sources */,
@@ -1781,6 +1838,7 @@
 				E469F14F2016DEEF000B3C04 /* AdScrollView.m in Sources */,
 				E4DB3C532015B31900D5C465 /* AccountSuggestVC.m in Sources */,
 				E4B3CB26200D94E9006807AE /* UIImage+Rotate.m in Sources */,
+				E402AE7B2021BE3C00CF1306 /* MusicCommentVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

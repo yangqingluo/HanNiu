@@ -19,12 +19,12 @@
         leftImageView.image = [UIImage imageNamed:@"icon_text_header"];
         [self addSubview:leftImageView];
         
-        UIImageView *rightImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.width - kEdgeMiddle - 9, 0, 9, 18)];
-        rightImageView.centerY = 0.5 * self.height;
-        rightImageView.image = [UIImage imageNamed:@"icon_right_arrow"];
-        [self addSubview:rightImageView];
+        _rightImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.width - kEdgeMiddle - 9, 0, 9, 18)];
+        _rightImageView.centerY = 0.5 * self.height;
+        _rightImageView.image = [UIImage imageNamed:@"icon_right_arrow"];
+        [self addSubview:_rightImageView];
         
-        _titleLabel = NewLabel(CGRectMake(leftImageView.right + kEdgeMiddle, 0,  rightImageView.left - leftImageView.right - 2 * kEdgeMiddle, self.height), nil, nil, NSTextAlignmentLeft);
+        _titleLabel = NewLabel(CGRectMake(leftImageView.right + kEdgeMiddle, 0,  _rightImageView.left - leftImageView.right - 2 * kEdgeMiddle, self.height), nil, nil, NSTextAlignmentLeft);
         [self addSubview:_titleLabel];
     }
     return self;
