@@ -10,4 +10,6 @@
 
 @interface PublicImageTagTitleCell : PublicImageSubTitleCell
 
+@property (strong, nonatomic) UILabel *tagLabel;
+
 @end

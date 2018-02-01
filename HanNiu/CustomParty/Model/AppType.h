@@ -117,3 +117,22 @@
 @property (strong, nonatomic) NSString *Status;
 
 @end
+
+
+@interface AppCollegeInfo : AppItemInfo
+
+@property (strong, nonatomic) NSString *Addr;//阿里地址库ID
+@property (strong, nonatomic) NSString *Tags;
+@property (strong, nonatomic) NSString *Pics;
+@property (assign, nonatomic) int TotalPlayTimes;//(college下属的institute的总和)
+@property (strong, nonatomic) NSString *CreateTime;
+@property (strong, nonatomic) NSString *UpdateTime;
+
+@property (strong, nonatomic) NSString *Introduce;//简介
+@property (strong, nonatomic) AppMusicInfo *Music;
+@property (strong, nonatomic) NSString *DetailHtml;//
+@property (strong, nonatomic) NSString *DetailFiles;//
+
+- (NSString *)showStringForTags;
+
+@end

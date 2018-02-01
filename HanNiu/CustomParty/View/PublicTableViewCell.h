@@ -13,7 +13,6 @@
 @property (strong, nonatomic) UIImageView *showImageView;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *subTitleLabel;
-@property (strong, nonatomic) UILabel *tagLabel;
 
 + (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 

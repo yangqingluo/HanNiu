@@ -168,6 +168,7 @@
 		E48B23C02022B8A800DD2DC4 /* PublicCollectionFooterLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = E48B23BF2022B8A800DD2DC4 /* PublicCollectionFooterLineView.m */; };
 		E48FE18D2015BE18007F1427 /* AccountDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FE18C2015BE18007F1427 /* AccountDetailVC.m */; };
 		E4AA28F62022EC8400521FCB /* CollegeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28F52022EC8400521FCB /* CollegeListVC.m */; };
+		E4AA28F92022F90300521FCB /* PublicImageSubTagTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28F82022F90300521FCB /* PublicImageSubTagTitleCell.m */; };
 		E4B3CB1D200D931D006807AE /* AppPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB1C200D931D006807AE /* AppPublic.m */; };
 		E4B3CB25200D94E9006807AE /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB20200D94E9006807AE /* UIImage+Color.m */; };
 		E4B3CB26200D94E9006807AE /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB22200D94E9006807AE /* UIImage+Rotate.m */; };
@@ -496,6 +497,8 @@
 		E48FE18C2015BE18007F1427 /* AccountDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailVC.m; sourceTree = "<group>"; };
 		E4AA28F42022EC8400521FCB /* CollegeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollegeListVC.h; sourceTree = "<group>"; };
 		E4AA28F52022EC8400521FCB /* CollegeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeListVC.m; sourceTree = "<group>"; };
+		E4AA28F72022F90300521FCB /* PublicImageSubTagTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicImageSubTagTitleCell.h; sourceTree = "<group>"; };
+		E4AA28F82022F90300521FCB /* PublicImageSubTagTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicImageSubTagTitleCell.m; sourceTree = "<group>"; };
 		E4B3CB1A200D92D9006807AE /* HanNiuPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HanNiuPrefix.pch; sourceTree = "<group>"; };
 		E4B3CB1B200D931D006807AE /* AppPublic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppPublic.h; sourceTree = "<group>"; };
 		E4B3CB1C200D931D006807AE /* AppPublic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppPublic.m; sourceTree = "<group>"; };
@@ -763,10 +766,10 @@
 			children = (
 				E402AE6B2021BE3B00CF1306 /* HomeSchoolAndCompanyVC.h */,
 				E402AE6C2021BE3B00CF1306 /* HomeSchoolAndCompanyVC.m */,
-				E402AE6D2021BE3B00CF1306 /* SchoolAndCompanyDetailVC.h */,
-				E402AE6E2021BE3B00CF1306 /* SchoolAndCompanyDetailVC.m */,
 				E402AE6F2021BE3B00CF1306 /* SchoolAndCompanyTableVC.h */,
 				E402AE702021BE3B00CF1306 /* SchoolAndCompanyTableVC.m */,
+				E402AE6D2021BE3B00CF1306 /* SchoolAndCompanyDetailVC.h */,
+				E402AE6E2021BE3B00CF1306 /* SchoolAndCompanyDetailVC.m */,
 			);
 			path = SchoolAndCompanyVC;
 			sourceTree = "<group>";
@@ -1478,6 +1481,8 @@
 				E402AE502021900A00CF1306 /* PublicImageSubTitleCell.m */,
 				E402AE5B2021B5FA00CF1306 /* PublicImageTagTitleCell.h */,
 				E402AE5C2021B5FA00CF1306 /* PublicImageTagTitleCell.m */,
+				E4AA28F72022F90300521FCB /* PublicImageSubTagTitleCell.h */,
+				E4AA28F82022F90300521FCB /* PublicImageSubTagTitleCell.m */,
 				E48A22AB201976790017977A /* MusicCell.h */,
 				E48A22AC201976790017977A /* MusicCell.m */,
 				E48A22932018623C0017977A /* QualityCell.h */,
@@ -1795,6 +1800,7 @@
 				E4B3CC82200D9616006807AE /* MJRefreshBackFooter.m in Sources */,
 				E4B3CBDF200D95B7006807AE /* NSData+HTTPRequest.m in Sources */,
 				E4BA2FFA200F38C900395F70 /* IQPreviousNextView.m in Sources */,
+				E4AA28F92022F90300521FCB /* PublicImageSubTagTitleCell.m in Sources */,
 				E4B3CC7B200D9616006807AE /* MJPropertyType.m in Sources */,
 				E4B3CCA6200D9617006807AE /* BlockAlertView.m in Sources */,
 				E4B3CC90200D9616006807AE /* MJRefreshConst.m in Sources */,

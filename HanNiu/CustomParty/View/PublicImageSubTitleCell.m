@@ -18,7 +18,7 @@
         self.showImageView.frame = CGRectMake(kEdgeMiddle, kEdge, radius, radius);
         [AppPublic roundCornerRadius:self.showImageView];
         
-        self.titleLabel.frame = CGRectMake(self.showImageView.right + kEdgeMiddle, self.showImageView.top, self.contentView.width - (self.showImageView.right + kEdgeMiddle), 0.5 * self.showImageView.height);
+        self.titleLabel.frame = CGRectMake(self.showImageView.right + kEdgeMiddle, self.showImageView.top, screen_width - (self.showImageView.right + kEdgeMiddle), 0.5 * self.showImageView.height);
         
         self.subTitleLabel = NewLabel(CGRectMake(self.titleLabel.left, self.titleLabel.bottom, self.titleLabel.width, 20), [UIColor grayColor], [AppPublic appFontOfSize:appLabelFontSizeLittle], NSTextAlignmentLeft);
         self.subTitleLabel.numberOfLines = 0;

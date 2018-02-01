@@ -81,3 +81,13 @@
 @implementation AppJobInfo
 
 @end
+
+
+@implementation AppCollegeInfo
+
+- (NSString *)showStringForTags {
+    NSArray *m_array = [self.Tags componentsSeparatedByString:@"|"];
+    return [m_array componentsJoinedByString:@"\t"];
+}
+
+@end
