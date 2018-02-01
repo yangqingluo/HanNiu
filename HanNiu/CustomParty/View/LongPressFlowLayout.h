@@ -12,9 +12,7 @@
 
 @property (strong, nonatomic, readonly) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
-
 @end
-
 
 @protocol LongPressCollectionViewDelegateFlowLayout <UICollectionViewDelegateFlowLayout>
 @optional
@@ -23,5 +21,15 @@
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout didBeginDraggingItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout willEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout didEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+@interface ECCollectionViewLayoutAttributes : UICollectionViewLayoutAttributes
+
+@property (strong, nonatomic) UIColor *color;
+
+@end
+
+@interface ECCollectionReusableView : UICollectionReusableView
 
 @end

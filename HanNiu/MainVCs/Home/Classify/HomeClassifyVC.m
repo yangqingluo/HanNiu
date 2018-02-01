@@ -7,7 +7,8 @@
 //
 
 #import "HomeClassifyVC.h"
-#import "ClassifyCollectionVC.h"
+#import "ClassifyCollegeCollectionVC.h"
+#import "ClassifyMajorCollectionVC.h"
 
 #import "PublicCollectionHeaderAdView.h"
 #import "QCSlideSwitchView.h"
@@ -29,13 +30,12 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.adHeadView];
-    
-    
-    self.viewArray = [NSMutableArray new];
-    [self.viewArray addObject:@{@"title":@"院校大全", @"image" : @"icon_classify_tab_title_left", @"VC":[[ClassifyCollectionVC alloc] initWithCollectionRowCount:4 cellHeight:38.0]}];
-    [self.viewArray addObject:@{@"title":@"专业大全", @"image" : @"icon_classify_tab_title_right", @"VC":[ClassifyCollectionVC new]}];
-    [self.view addSubview:self.slidePageView];
     [self.slidePageView buildUI];
+}
+
+- (void)addViewController:(NSString *)title image:(NSString *)imageName vc:(PublicViewController *)vc {
+    vc.parentVC = self.parentVC;
+    [self.viewArray addObject:@{@"title" : title, @"image" : imageName, @"VC":vc}];
 }
 
 - (void)becomeListed {
@@ -43,6 +43,7 @@
     if (self.isResetCondition || self.needRefresh || !self.bannerList.count || !lastRefreshTime || [lastRefreshTime timeIntervalSinceNow] < -appRefreshTime) {
         [self doGetBannerListFunction];
     }
+    [self slideSwitchView:self.slidePageView didselectTab:self.slidePageView.selectedIndex];
 }
 
 - (void)doGetBannerListFunction {
@@ -98,8 +99,17 @@
         _slidePageView.shadowImageView.backgroundColor = appSeparatorColor;
         _slidePageView.rootScrollView.scrollEnabled = YES;
     }
-    
     return _slidePageView;
+}
+
+- (NSMutableArray *)viewArray {
+    if (!_viewArray) {
+        _viewArray = [NSMutableArray new];
+        [self addViewController:@"院校大全" image:@"icon_classify_tab_title_left" vc:[[ClassifyCollegeCollectionVC alloc] initWithCollectionRowCount:4 cellHeight:38.0 sectionInset:UIEdgeInsetsMake(0, kEdgeMiddle, 0, kEdgeMiddle)]];
+        [self addViewController:@"专业大全" image:@"icon_classify_tab_title_right" vc:[[ClassifyMajorCollectionVC alloc] initWithCollectionRowCount:4 cellHeight:38.0]];
+        [self.view addSubview:self.slidePageView];
+    }
+    return _viewArray;
 }
 
 #pragma mark - QCSlider

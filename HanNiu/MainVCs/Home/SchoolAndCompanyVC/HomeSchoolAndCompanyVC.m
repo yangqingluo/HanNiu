@@ -42,16 +42,6 @@
     if (self.isResetCondition || self.needRefresh || !self.bannerList.count || !lastRefreshTime || [lastRefreshTime timeIntervalSinceNow] < -appRefreshTime) {
         [self doGetBannerListFunction];
     }
-    for (NSDictionary *m_dic in self.viewArray) {
-        PublicViewController *vc = m_dic[@"VC"];
-        if (vc) {
-            if (self.slidePageView.superview) {
-                if ([self.viewArray indexOfObject:m_dic] == self.slidePageView.selectedIndex) {
-                    [vc becomeListed];
-                }
-            }
-        }
-    }
     [self slideSwitchView:self.slidePageView didselectTab:self.slidePageView.selectedIndex];
 }
 

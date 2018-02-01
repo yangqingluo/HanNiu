@@ -12,7 +12,7 @@
 
 @interface PublicCollectionViewController ()
 
-@property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
+@property (strong, nonatomic) LongPressFlowLayout *flowLayout;
 
 @end
 
@@ -27,10 +27,25 @@
 //}
 
 - (instancetype)initWithCollectionRowCount:(NSUInteger)count cellHeight:(CGFloat)height{
+    return [self initWithCollectionRowCount:count cellHeight:height sectionInset:UIEdgeInsetsZero];
+}
+
+- (instancetype)initWithCollectionRowCount:(NSUInteger)count cellHeight:(CGFloat)height sectionInset:(UIEdgeInsets)sectionInset {
     self = [super init];
     if (self) {
-        double width = (screen_width ) / count;
+        double width = [[self class] cellWithWithListCount:count sectionInset:sectionInset];
         self.flowLayout.itemSize = CGSizeMake(width, height);
+        self.flowLayout.sectionInset = sectionInset;
+    }
+    return self;
+}
+
+- (instancetype)initWithCollectionSectionInset:(UIEdgeInsets)sectionInset {
+    self = [super init];
+    if (self) {
+        double width = [[self class] cellWithWithListCount:3 sectionInset:sectionInset];
+        self.flowLayout.itemSize = CGSizeMake(width, width + 40);
+        self.flowLayout.sectionInset = sectionInset;
     }
     return self;
 }
@@ -94,6 +109,10 @@
     [self.collectionView reloadData];
 }
 
++ (CGFloat)cellWithWithListCount:(NSUInteger)countH sectionInset:(UIEdgeInsets)sectionInset {
+    return (screen_width - sectionInset.left - sectionInset.right - kEdge * (countH - 1)) / countH;
+}
+
 #pragma mark - getter
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
@@ -108,18 +127,17 @@
     return _collectionView;
 }
 
-- (UICollectionViewFlowLayout *)flowLayout {
+- (LongPressFlowLayout *)flowLayout {
     if (!_flowLayout) {
-        NSUInteger countH = 3;
-        double width = (screen_width ) / countH;
-        _flowLayout = [UICollectionViewFlowLayout new];
+        double width = [[self class] cellWithWithListCount:3 sectionInset:UIEdgeInsetsZero];
+        _flowLayout = [LongPressFlowLayout new];
         _flowLayout.scrollDirection =  UICollectionViewScrollDirectionVertical;
         _flowLayout.headerReferenceSize = CGSizeMake(0, 0);
         _flowLayout.footerReferenceSize = CGSizeMake(0, 0);
         _flowLayout.itemSize = CGSizeMake(width, width + 40);
         _flowLayout.minimumInteritemSpacing = 0.0;
         _flowLayout.minimumLineSpacing = 0.0;
-//        _flowLayout.sectionInset = UIEdgeInsetsMake(kEdge, 0, 0, 0);
+//        _flowLayout.sectionInset = UIEdgeInsetsMake(0, kEdgeMiddle, 0, 0);
     }
     return _flowLayout;
 }

@@ -27,11 +27,10 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.viewArray = [NSMutableArray new];
-        [self addViewController:@"推荐" vc:[HomeRecommendVC new]];
+        [self addViewController:@"推荐" vc:[[HomeRecommendVC alloc] initWithCollectionSectionInset:UIEdgeInsetsMake(0, kEdgeMiddle, 0, kEdgeMiddle)]];
         [self addViewController:@"分类" vc:[HomeClassifyVC new]];
         [self addViewController:@"纷声" vc:[HomeBetterVC new]];
-        [self addViewController:@"就业" vc:[[HomeJobVC alloc] initWithCollectionRowCount:4 cellHeight:38.0]];
+        [self addViewController:@"就业" vc:[[HomeJobVC alloc] initWithCollectionRowCount:4 cellHeight:38.0 sectionInset:UIEdgeInsetsMake(0, kEdgeSmall, 0, kEdgeSmall)]];
         [self addViewController:@"校&企" vc:[[HomeSchoolAndCompanyVC alloc] initWithParentVC:self]];
     }
     return self;

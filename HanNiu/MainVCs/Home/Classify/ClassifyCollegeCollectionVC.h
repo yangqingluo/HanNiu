@@ -8,6 +8,6 @@
 
 #import "PublicSlideSubCollectionVC.h"
 
-@interface ClassifyCollectionVC : PublicSlideSubCollectionVC
+@interface ClassifyCollegeCollectionVC : PublicSlideSubCollectionVC
 
 @end

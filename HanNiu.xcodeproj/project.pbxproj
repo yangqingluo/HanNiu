@@ -20,7 +20,7 @@
 		E402AE812021BE3C00CF1306 /* HomeJobVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE732021BE3B00CF1306 /* HomeJobVC.m */; };
 		E402AE822021BE3C00CF1306 /* JobListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE752021BE3B00CF1306 /* JobListVC.m */; };
 		E402AE832021BE3C00CF1306 /* HomeClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE792021BE3B00CF1306 /* HomeClassifyVC.m */; };
-		E402AE862021BE9000CF1306 /* ClassifyCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE852021BE9000CF1306 /* ClassifyCollectionVC.m */; };
+		E402AE862021BE9000CF1306 /* ClassifyCollegeCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE852021BE9000CF1306 /* ClassifyCollegeCollectionVC.m */; };
 		E410D1A6200CB5EE00C6ACED /* MainTabNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */; };
 		E410D215200CB79100C6ACED /* back_college_list_item_class.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */; };
 		E410D216200CB79100C6ACED /* back_comment_list_input.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A9200CB79000C6ACED /* back_comment_list_input.png */; };
@@ -164,7 +164,10 @@
 		E48A22AA201972400017977A /* PublicPlayBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22A9201972400017977A /* PublicPlayBar.m */; };
 		E48A22AD201976790017977A /* MusicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22AC201976790017977A /* MusicCell.m */; };
 		E48A22B0201994660017977A /* PublicSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22AF201994660017977A /* PublicSlider.m */; };
+		E48B23BD2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48B23BC2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m */; };
+		E48B23C02022B8A800DD2DC4 /* PublicCollectionFooterLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = E48B23BF2022B8A800DD2DC4 /* PublicCollectionFooterLineView.m */; };
 		E48FE18D2015BE18007F1427 /* AccountDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FE18C2015BE18007F1427 /* AccountDetailVC.m */; };
+		E4AA28F62022EC8400521FCB /* CollegeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28F52022EC8400521FCB /* CollegeListVC.m */; };
 		E4B3CB1D200D931D006807AE /* AppPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB1C200D931D006807AE /* AppPublic.m */; };
 		E4B3CB25200D94E9006807AE /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB20200D94E9006807AE /* UIImage+Color.m */; };
 		E4B3CB26200D94E9006807AE /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB22200D94E9006807AE /* UIImage+Rotate.m */; };
@@ -309,8 +312,8 @@
 		E402AE762021BE3B00CF1306 /* MusicDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicDetailVC.h; sourceTree = "<group>"; };
 		E402AE782021BE3B00CF1306 /* HomeClassifyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeClassifyVC.h; sourceTree = "<group>"; };
 		E402AE792021BE3B00CF1306 /* HomeClassifyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeClassifyVC.m; sourceTree = "<group>"; };
-		E402AE842021BE9000CF1306 /* ClassifyCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifyCollectionVC.h; sourceTree = "<group>"; };
-		E402AE852021BE9000CF1306 /* ClassifyCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifyCollectionVC.m; sourceTree = "<group>"; };
+		E402AE842021BE9000CF1306 /* ClassifyCollegeCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifyCollegeCollectionVC.h; sourceTree = "<group>"; };
+		E402AE852021BE9000CF1306 /* ClassifyCollegeCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifyCollegeCollectionVC.m; sourceTree = "<group>"; };
 		E410D1A4200CB5EE00C6ACED /* MainTabNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabNavController.h; sourceTree = "<group>"; };
 		E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabNavController.m; sourceTree = "<group>"; };
 		E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_college_list_item_class.png; sourceTree = "<group>"; };
@@ -485,8 +488,14 @@
 		E48A22AC201976790017977A /* MusicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicCell.m; sourceTree = "<group>"; };
 		E48A22AE201994660017977A /* PublicSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicSlider.h; sourceTree = "<group>"; };
 		E48A22AF201994660017977A /* PublicSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicSlider.m; sourceTree = "<group>"; };
+		E48B23BB2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifyMajorCollectionVC.h; sourceTree = "<group>"; };
+		E48B23BC2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifyMajorCollectionVC.m; sourceTree = "<group>"; };
+		E48B23BE2022B8A800DD2DC4 /* PublicCollectionFooterLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicCollectionFooterLineView.h; sourceTree = "<group>"; };
+		E48B23BF2022B8A800DD2DC4 /* PublicCollectionFooterLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicCollectionFooterLineView.m; sourceTree = "<group>"; };
 		E48FE18B2015BE18007F1427 /* AccountDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailVC.h; sourceTree = "<group>"; };
 		E48FE18C2015BE18007F1427 /* AccountDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailVC.m; sourceTree = "<group>"; };
+		E4AA28F42022EC8400521FCB /* CollegeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollegeListVC.h; sourceTree = "<group>"; };
+		E4AA28F52022EC8400521FCB /* CollegeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeListVC.m; sourceTree = "<group>"; };
 		E4B3CB1A200D92D9006807AE /* HanNiuPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HanNiuPrefix.pch; sourceTree = "<group>"; };
 		E4B3CB1B200D931D006807AE /* AppPublic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppPublic.h; sourceTree = "<group>"; };
 		E4B3CB1C200D931D006807AE /* AppPublic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppPublic.m; sourceTree = "<group>"; };
@@ -778,8 +787,12 @@
 			children = (
 				E402AE782021BE3B00CF1306 /* HomeClassifyVC.h */,
 				E402AE792021BE3B00CF1306 /* HomeClassifyVC.m */,
-				E402AE842021BE9000CF1306 /* ClassifyCollectionVC.h */,
-				E402AE852021BE9000CF1306 /* ClassifyCollectionVC.m */,
+				E402AE842021BE9000CF1306 /* ClassifyCollegeCollectionVC.h */,
+				E402AE852021BE9000CF1306 /* ClassifyCollegeCollectionVC.m */,
+				E48B23BB2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.h */,
+				E48B23BC2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m */,
+				E4AA28F42022EC8400521FCB /* CollegeListVC.h */,
+				E4AA28F52022EC8400521FCB /* CollegeListVC.m */,
 			);
 			path = Classify;
 			sourceTree = "<group>";
@@ -1455,6 +1468,8 @@
 				E469F1512016E492000B3C04 /* PublicCollectionHeaderAdView.m */,
 				E469F1562017077D000B3C04 /* PublicCollectionHeaderTitleView.h */,
 				E469F1572017077D000B3C04 /* PublicCollectionHeaderTitleView.m */,
+				E48B23BE2022B8A800DD2DC4 /* PublicCollectionFooterLineView.h */,
+				E48B23BF2022B8A800DD2DC4 /* PublicCollectionFooterLineView.m */,
 				E4481EE02015E06400F69201 /* PublicBarTextField.h */,
 				E4481EE12015E06400F69201 /* PublicBarTextField.m */,
 				E4EE1911200DCD74005BD00F /* PublicTableViewCell.h */,
@@ -1715,6 +1730,7 @@
 				E4B3CC7E200D9616006807AE /* NSObject+MJKeyValue.m in Sources */,
 				E4B3CC8B200D9616006807AE /* MJRefreshBackStateFooter.m in Sources */,
 				E4B3CC81200D9616006807AE /* MJRefreshAutoFooter.m in Sources */,
+				E48B23BD2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m in Sources */,
 				E402AE802021BE3C00CF1306 /* SchoolAndCompanyTableVC.m in Sources */,
 				E4B3CC85200D9616006807AE /* MJRefreshHeader.m in Sources */,
 				E4211D0E2020707100216EF7 /* UIImageView+Rotate.m in Sources */,
@@ -1755,7 +1771,7 @@
 				E4B3CC9E200D9617006807AE /* SDWebImagePrefetcher.m in Sources */,
 				E4B3CCAA200D9617006807AE /* AFURLRequestSerialization.m in Sources */,
 				E469F15E2017707C000B3C04 /* PublicSlideSwitchView.m in Sources */,
-				E402AE862021BE9000CF1306 /* ClassifyCollectionVC.m in Sources */,
+				E402AE862021BE9000CF1306 /* ClassifyCollegeCollectionVC.m in Sources */,
 				E4B3CCB1200D9617006807AE /* UIButton+AFNetworking.m in Sources */,
 				E4B3CC8D200D9616006807AE /* MJRefreshNormalHeader.m in Sources */,
 				E469F14C2016DAD7000B3C04 /* PublicCollectionViewController.m in Sources */,
@@ -1787,6 +1803,7 @@
 				E4481EE22015E06400F69201 /* PublicBarTextField.m in Sources */,
 				E4B3CC8A200D9616006807AE /* MJRefreshBackNormalFooter.m in Sources */,
 				E4BA2FFC200F38C900395F70 /* IQToolbar.m in Sources */,
+				E4AA28F62022EC8400521FCB /* CollegeListVC.m in Sources */,
 				E4B3CCA5200D9617006807AE /* BlockActionSheet.m in Sources */,
 				E4DB3C502015B26500D5C465 /* AccountFavoriteVC.m in Sources */,
 				E4B3CC7C200D9616006807AE /* NSObject+MJClass.m in Sources */,
@@ -1830,6 +1847,7 @@
 				E48A22A12018CAE70017977A /* PublicMusicPlayerManager.m in Sources */,
 				E4B3CCA9200D9617006807AE /* AFSecurityPolicy.m in Sources */,
 				E4B3CCB5200D9617006807AE /* UIWebView+AFNetworking.m in Sources */,
+				E48B23C02022B8A800DD2DC4 /* PublicCollectionFooterLineView.m in Sources */,
 				E4B3CB1D200D931D006807AE /* AppPublic.m in Sources */,
 				E4B3CC98200D9616006807AE /* SDImageCache.m in Sources */,
 				E48A229E201888630017977A /* PublicPlayView.m in Sources */,

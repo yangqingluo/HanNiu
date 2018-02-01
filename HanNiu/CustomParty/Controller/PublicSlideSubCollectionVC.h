@@ -12,6 +12,7 @@
 
 static NSString *reuseId_header_title = @"reuseId_header_title";
 static NSString *reuseId_header_ad = @"reuseId_header_ad";
+static NSString *reuseId_footer_line = @"reuseId_footer_line";
 static NSString *reuseId_cell_btn = @"reuseId_cell_btn";
 
 @interface PublicSlideSubCollectionVC : PublicCollectionViewController

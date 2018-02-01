@@ -73,8 +73,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSUInteger count = self.provinceList.count;
-    return 4 * ceil(count / 4.0);
+    return self.provinceList.count;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -102,15 +101,11 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PublicCollectionButtonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId_cell_btn forIndexPath:indexPath];
-    
-    cell.button.hidden = YES;
-    if (indexPath.row < self.provinceList.count) {
-        AppItemInfo *item = self.provinceList[indexPath.row];
-        [cell.button setTitle:item.Name forState:UIControlStateNormal];
-        cell.button.hidden = NO;
-        cell.button.tag = indexPath.row;
-        [cell.button addTarget:self action:@selector(cellButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    }
+    AppItemInfo *item = self.provinceList[indexPath.row];
+    [cell.button setTitle:item.Name forState:UIControlStateNormal];
+    cell.button.hidden = NO;
+    cell.button.tag = indexPath.row;
+    [cell.button addTarget:self action:@selector(cellButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }

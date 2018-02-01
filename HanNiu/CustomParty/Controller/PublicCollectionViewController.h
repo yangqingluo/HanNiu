@@ -16,6 +16,8 @@
 
 //- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout;
 - (instancetype)initWithCollectionRowCount:(NSUInteger)count cellHeight:(CGFloat)height;
+- (instancetype)initWithCollectionRowCount:(NSUInteger)count cellHeight:(CGFloat)height sectionInset:(UIEdgeInsets)sectionInset;
+- (instancetype)initWithCollectionSectionInset:(UIEdgeInsets)sectionInset;
 
 - (void)updateScrollViewHeader;
 - (void)updateScrollViewFooter;

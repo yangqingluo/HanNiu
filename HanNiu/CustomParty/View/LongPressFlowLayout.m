@@ -8,6 +8,7 @@
 
 #import "LongPressFlowLayout.h"
 
+static NSString *kDecorationReuseIdentifier = @"section_background";
 static NSString * const kLXCollectionViewKeyPath = @"collectionView";
 
 @interface LongPressFlowLayout ()
@@ -89,13 +90,48 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
     [self tearDownCollectionView];
     [self removeObserver:self forKeyPath:kLXCollectionViewKeyPath];
 }
+
+//返回自定义的布局属性类
++ (Class)layoutAttributesClass {
+    return [ECCollectionViewLayoutAttributes class];
+}
+
+- (void)prepareLayout {
+    [super prepareLayout];
+    [self registerClass:[ECCollectionReusableView class] forDecorationViewOfKind:kDecorationReuseIdentifier];
+}
+
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
+    NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
+    NSMutableArray *allAttributes = [NSMutableArray arrayWithArray:attributes];
+    for (UICollectionViewLayoutAttributes *attribute in attributes) {
+        // Look for the first item in a row
+        if (attribute.representedElementKind == UICollectionElementCategoryCell
+            && attribute.frame.origin.x == self.sectionInset.left) {
+            
+            // Create decoration attributes
+            ECCollectionViewLayoutAttributes *decorationAttributes =
+            [ECCollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:kDecorationReuseIdentifier withIndexPath:attribute.indexPath];
+            
+            // Make the decoration view span the entire row (you can do item by item as well.  I just choose to do it this way)
+            decorationAttributes.frame = CGRectMake(0, attribute.frame.origin.y - (self.sectionInset.top), self.collectionViewContentSize.width, self.itemSize.height + (self.minimumLineSpacing + self.sectionInset.top + self.sectionInset.bottom));
+            
+            // Set the zIndex to be behind the item
+            decorationAttributes.zIndex = attribute.zIndex - 1;
+            
+            // Add the attribute to the list
+            [allAttributes addObject:decorationAttributes];
+        }
+    }
+    return allAttributes;
+}
+
 #pragma getter
 - (id<LongPressCollectionViewDelegateFlowLayout>)delegate {
     return (id<LongPressCollectionViewDelegateFlowLayout>)self.collectionView.delegate;
 }
 
 #pragma mark - UIGestureRecognizerDelegate methods
-
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     return YES;
 }
@@ -105,7 +141,6 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
 //}
 
 #pragma mark kvo
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:kLXCollectionViewKeyPath]) {
         if (self.collectionView != nil) {
@@ -114,6 +149,31 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
             [self tearDownCollectionView];
         }
     }
+}
+
+@end
+
+@implementation ECCollectionViewLayoutAttributes
++ (UICollectionViewLayoutAttributes *)layoutAttributesForDecorationViewOfKind:(NSString *)decorationViewKind withIndexPath:(NSIndexPath *)indexPath {
+    ECCollectionViewLayoutAttributes *layoutAttributes = [super layoutAttributesForDecorationViewOfKind:decorationViewKind withIndexPath:indexPath];
+    layoutAttributes.color = [UIColor whiteColor];
+    return layoutAttributes;
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    ECCollectionViewLayoutAttributes *newAttributes = [super copyWithZone:zone];
+    newAttributes.color = [self.color copyWithZone:zone];
+    return newAttributes;
+}
+
+@end
+
+@implementation ECCollectionReusableView
+- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+    [super applyLayoutAttributes:layoutAttributes];
+    //设置背景颜色
+    ECCollectionViewLayoutAttributes *ecLayoutAttributes = (ECCollectionViewLayoutAttributes *)layoutAttributes;
+    self.backgroundColor = ecLayoutAttributes.color;
 }
 
 @end

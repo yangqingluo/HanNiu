@@ -56,6 +56,13 @@
     return _slidePageView;
 }
 
+- (NSMutableArray *)viewArray {
+    if (!_viewArray) {
+        _viewArray = [NSMutableArray new];
+    }
+    return _viewArray;
+}
+
 #pragma mark - QCSlider
 - (CGFloat)widthOfTab:(NSUInteger)index{
     return self.view.bounds.size.width / self.viewArray.count;

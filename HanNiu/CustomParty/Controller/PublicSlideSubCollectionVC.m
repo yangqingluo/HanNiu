@@ -23,6 +23,13 @@
     
 }
 
+- (void)becomeListed {
+    NSDate *lastRefreshTime = [[NSUserDefaults standardUserDefaults] objectForKey:self.dateKey];
+    if (self.isResetCondition || self.needRefresh || !self.dataSource.count || !lastRefreshTime || [lastRefreshTime timeIntervalSinceNow] < -appRefreshTime) {
+        [self beginRefreshing];
+    }
+}
+
 #pragma mark - getter
 - (NSMutableArray *)bannerList {
     if (!_bannerList) {
