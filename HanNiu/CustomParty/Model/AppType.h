@@ -136,3 +136,11 @@
 - (NSString *)showStringForTags;
 
 @end
+
+@interface AppMajorInfo : AppItemInfo
+
+@property (strong, nonatomic) NSString *Type;
+@property (strong, nonatomic) NSString *Grade;
+@property (strong, nonatomic) NSString *FirstTag;
+
+@end

@@ -169,6 +169,7 @@
 		E48FE18D2015BE18007F1427 /* AccountDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FE18C2015BE18007F1427 /* AccountDetailVC.m */; };
 		E4AA28F62022EC8400521FCB /* CollegeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28F52022EC8400521FCB /* CollegeListVC.m */; };
 		E4AA28F92022F90300521FCB /* PublicImageSubTagTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28F82022F90300521FCB /* PublicImageSubTagTitleCell.m */; };
+		E4AA28FC202310D100521FCB /* MajorListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28FB202310D100521FCB /* MajorListVC.m */; };
 		E4B3CB1D200D931D006807AE /* AppPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB1C200D931D006807AE /* AppPublic.m */; };
 		E4B3CB25200D94E9006807AE /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB20200D94E9006807AE /* UIImage+Color.m */; };
 		E4B3CB26200D94E9006807AE /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CB22200D94E9006807AE /* UIImage+Rotate.m */; };
@@ -499,6 +500,8 @@
 		E4AA28F52022EC8400521FCB /* CollegeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeListVC.m; sourceTree = "<group>"; };
 		E4AA28F72022F90300521FCB /* PublicImageSubTagTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicImageSubTagTitleCell.h; sourceTree = "<group>"; };
 		E4AA28F82022F90300521FCB /* PublicImageSubTagTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicImageSubTagTitleCell.m; sourceTree = "<group>"; };
+		E4AA28FA202310D100521FCB /* MajorListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MajorListVC.h; sourceTree = "<group>"; };
+		E4AA28FB202310D100521FCB /* MajorListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MajorListVC.m; sourceTree = "<group>"; };
 		E4B3CB1A200D92D9006807AE /* HanNiuPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HanNiuPrefix.pch; sourceTree = "<group>"; };
 		E4B3CB1B200D931D006807AE /* AppPublic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppPublic.h; sourceTree = "<group>"; };
 		E4B3CB1C200D931D006807AE /* AppPublic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppPublic.m; sourceTree = "<group>"; };
@@ -796,6 +799,8 @@
 				E48B23BC2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m */,
 				E4AA28F42022EC8400521FCB /* CollegeListVC.h */,
 				E4AA28F52022EC8400521FCB /* CollegeListVC.m */,
+				E4AA28FA202310D100521FCB /* MajorListVC.h */,
+				E4AA28FB202310D100521FCB /* MajorListVC.m */,
 			);
 			path = Classify;
 			sourceTree = "<group>";
@@ -1731,6 +1736,7 @@
 				E4B3CC9A200D9616006807AE /* SDWebImageDecoder.m in Sources */,
 				E4B3CCA7200D9617006807AE /* AFHTTPSessionManager.m in Sources */,
 				E4B3CCAC200D9617006807AE /* AFURLSessionManager.m in Sources */,
+				E4AA28FC202310D100521FCB /* MajorListVC.m in Sources */,
 				E4B3CCA8200D9617006807AE /* AFNetworkReachabilityManager.m in Sources */,
 				E4B3CC7E200D9616006807AE /* NSObject+MJKeyValue.m in Sources */,
 				E4B3CC8B200D9616006807AE /* MJRefreshBackStateFooter.m in Sources */,

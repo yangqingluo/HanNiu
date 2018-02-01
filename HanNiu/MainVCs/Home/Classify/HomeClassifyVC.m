@@ -106,7 +106,7 @@
     if (!_viewArray) {
         _viewArray = [NSMutableArray new];
         [self addViewController:@"院校大全" image:@"icon_classify_tab_title_left" vc:[[ClassifyCollegeCollectionVC alloc] initWithCollectionRowCount:4 cellHeight:38.0 sectionInset:UIEdgeInsetsMake(0, kEdgeMiddle, 0, kEdgeMiddle)]];
-        [self addViewController:@"专业大全" image:@"icon_classify_tab_title_right" vc:[[ClassifyMajorCollectionVC alloc] initWithCollectionRowCount:4 cellHeight:38.0]];
+        [self addViewController:@"专业大全" image:@"icon_classify_tab_title_right" vc:[[ClassifyMajorCollectionVC alloc] initWithCollectionRowCount:4 cellHeight:38.0 sectionInset:UIEdgeInsetsMake(0, kEdgeMiddle, 0, kEdgeMiddle)]];
         [self.view addSubview:self.slidePageView];
     }
     return _viewArray;

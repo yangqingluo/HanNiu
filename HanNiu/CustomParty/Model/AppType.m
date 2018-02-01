@@ -91,3 +91,8 @@
 }
 
 @end
+
+
+@implementation AppMajorInfo
+
+@end
