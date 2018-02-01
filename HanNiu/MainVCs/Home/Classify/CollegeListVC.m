@@ -67,6 +67,10 @@
     cell.titleLabel.text = item.Name;
     cell.subTitleLabel.text = [NSString stringWithFormat:@"播放：%d次", item.TotalPlayTimes];
     cell.tagLabel.text = [NSString stringWithFormat:@"分类：%@", item.showStringForTags];
+    cell.subTagLabel.text = item.showStringForAddr;
+    [AppPublic adjustLabelWidth:cell.titleLabel];
+    [AppPublic adjustLabelWidth:cell.subTagLabel];
+    cell.subTagLabel.left = cell.titleLabel.right + kEdgeHuge;
     
     return cell;
 }

@@ -16,6 +16,10 @@
 @property (strong, nonatomic) AppSecureModel *userData;
 //数据字典数据
 @property (strong, nonatomic) NSMutableDictionary *dataMapDic;
+//省份字典数据
+@property (strong, nonatomic) NSMutableDictionary *provinceMapDic;
+//城市字典数据
+@property (strong, nonatomic) NSMutableDictionary *cityMapDic;
 
 //保存用户数据
 - (void)saveUserData:(AppSecureModel *)data;

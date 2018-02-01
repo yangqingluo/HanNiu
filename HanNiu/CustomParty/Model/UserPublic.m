@@ -7,6 +7,7 @@
 //
 
 #import "UserPublic.h"
+#import "AppXMLParse.h"
 
 @implementation UserPublic
 __strong static UserPublic *_singleManger = nil;
@@ -76,6 +77,37 @@ __strong static UserPublic *_singleManger = nil;
         }
     }
     return _dataMapDic;
+}
+
+- (NSMutableDictionary *)provinceMapDic {
+    if (!_provinceMapDic) {
+        _provinceMapDic = [NSMutableDictionary new];
+        NSArray *provinceArray = self.dataMapDic[@"province"];
+        for (AppItemInfo *item in provinceArray) {
+            [_provinceMapDic setObject:item.Name forKey:item.Id];
+        }
+    }
+    return _provinceMapDic;
+}
+
+- (NSMutableDictionary *)cityMapDic {
+    if (!_cityMapDic) {
+        _cityMapDic = [NSMutableDictionary new];
+        NSString *city_id_path = [[NSBundle mainBundle] pathForResource:@"city_id" ofType:@"txt"];
+        NSArray *cityIDArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:city_id_path] options:kNilOptions error:nil];
+        
+        NSString *city_name_path = [[NSBundle mainBundle] pathForResource:@"city_name" ofType:@"xml"];
+        NSString *courseString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:city_name_path] encoding:NSUTF8StringEncoding];
+        if ([[AppXMLParse getInstance] parseWithString:courseString]) {
+            NSArray *cityNameArray = [AppXMLParse getInstance].parseDic[@"city_name"];
+            if (cityIDArray.count == cityNameArray.count) {
+                for (NSUInteger i = 0; i < cityIDArray.count; i++) {
+                    [_cityMapDic setObject:cityNameArray[i] forKey:[NSString stringWithFormat:@"%@", cityIDArray[i]]];
+                }
+            }
+        }
+    }
+    return _cityMapDic;
 }
 
 @end

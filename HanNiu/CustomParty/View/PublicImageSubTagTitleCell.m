@@ -16,6 +16,8 @@
         self.titleLabel.height = 0.5 * self.showImageView.height;
         self.subTitleLabel.top = self.showImageView.centerY + kEdgeSmall;
         
+        self.subTagLabel = NewLabel(self.titleLabel.frame, self.subTitleLabel.textColor, self.subTitleLabel.font, self.subTitleLabel.textAlignment);
+        [self.contentView addSubview:self.subTagLabel];
 //        self.tagLabel = NewLabel(self.subTitleLabel.frame, self.subTitleLabel.textColor, self.subTitleLabel.font, self.subTitleLabel.textAlignment);
 //        self.tagLabel.top = self.subTitleLabel.bottom;
 //        [self.contentView addSubview:self.tagLabel];

@@ -134,6 +134,7 @@
 @property (strong, nonatomic) NSString *DetailFiles;//
 
 - (NSString *)showStringForTags;
+- (NSString *)showStringForAddr;
 
 @end
 

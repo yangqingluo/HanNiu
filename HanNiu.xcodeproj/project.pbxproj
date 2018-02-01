@@ -171,6 +171,9 @@
 		E48FE18D2015BE18007F1427 /* AccountDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FE18C2015BE18007F1427 /* AccountDetailVC.m */; };
 		E4A2F9C420233A5B007F6599 /* CollegeDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A2F9C320233A5B007F6599 /* CollegeDetailHeaderView.m */; };
 		E4A2F9C720233A8C007F6599 /* CollegeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A2F9C620233A8C007F6599 /* CollegeDetailVC.m */; };
+		E4A2F9CA202341CA007F6599 /* AppXMLParse.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A2F9C9202341CA007F6599 /* AppXMLParse.m */; };
+		E4A2F9CC20234489007F6599 /* city_name.xml in Resources */ = {isa = PBXBuildFile; fileRef = E4A2F9CB20234488007F6599 /* city_name.xml */; };
+		E4A2F9CE202348F1007F6599 /* city_id.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4A2F9CD202348F1007F6599 /* city_id.txt */; };
 		E4AA28F62022EC8400521FCB /* CollegeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28F52022EC8400521FCB /* CollegeListVC.m */; };
 		E4AA28F92022F90300521FCB /* PublicImageSubTagTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28F82022F90300521FCB /* PublicImageSubTagTitleCell.m */; };
 		E4AA28FC202310D100521FCB /* MajorListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28FB202310D100521FCB /* MajorListVC.m */; };
@@ -507,6 +510,10 @@
 		E4A2F9C320233A5B007F6599 /* CollegeDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeDetailHeaderView.m; sourceTree = "<group>"; };
 		E4A2F9C520233A8C007F6599 /* CollegeDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollegeDetailVC.h; sourceTree = "<group>"; };
 		E4A2F9C620233A8C007F6599 /* CollegeDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeDetailVC.m; sourceTree = "<group>"; };
+		E4A2F9C8202341CA007F6599 /* AppXMLParse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppXMLParse.h; sourceTree = "<group>"; };
+		E4A2F9C9202341CA007F6599 /* AppXMLParse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppXMLParse.m; sourceTree = "<group>"; };
+		E4A2F9CB20234488007F6599 /* city_name.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = city_name.xml; sourceTree = "<group>"; };
+		E4A2F9CD202348F1007F6599 /* city_id.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city_id.txt; sourceTree = "<group>"; };
 		E4AA28F42022EC8400521FCB /* CollegeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollegeListVC.h; sourceTree = "<group>"; };
 		E4AA28F52022EC8400521FCB /* CollegeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeListVC.m; sourceTree = "<group>"; };
 		E4AA28F72022F90300521FCB /* PublicImageSubTagTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicImageSubTagTitleCell.h; sourceTree = "<group>"; };
@@ -942,6 +949,8 @@
 		E469F165201837D1000B3C04 /* Datas */ = {
 			isa = PBXGroup;
 			children = (
+				E4A2F9CD202348F1007F6599 /* city_id.txt */,
+				E4A2F9CB20234488007F6599 /* city_name.xml */,
 				E469F166201837D1000B3C04 /* province.txt */,
 				E4E088892021DE1E006D6B55 /* college_title.txt */,
 				E4E0888C2021DEFC006D6B55 /* college_level.txt */,
@@ -1442,6 +1451,8 @@
 				E4B3CBD9200D9596006807AE /* AppNetwork.m */,
 				E4B3CBE1200D95C3006807AE /* AppType.h */,
 				E4B3CBE2200D95C3006807AE /* AppType.m */,
+				E4A2F9C8202341CA007F6599 /* AppXMLParse.h */,
+				E4A2F9C9202341CA007F6599 /* AppXMLParse.m */,
 				E48A229F2018CAE60017977A /* PublicMusicPlayerManager.h */,
 				E48A22A02018CAE70017977A /* PublicMusicPlayerManager.m */,
 				E4B3CBDD200D95B6006807AE /* NSData+HTTPRequest.h */,
@@ -1665,7 +1676,9 @@
 				E410D227200CB79100C6ACED /* ic_launcher.png in Resources */,
 				E410D261200CB79100C6ACED /* logo_trans_back@2x.png in Resources */,
 				E410D217200CB79100C6ACED /* back_dialog_confirm_btn@2x.png in Resources */,
+				E4A2F9CE202348F1007F6599 /* city_id.txt in Resources */,
 				E410D25B200CB79100C6ACED /* icon_send_comment.png in Resources */,
+				E4A2F9CC20234489007F6599 /* city_name.xml in Resources */,
 				E410D226200CB79100C6ACED /* ic_default_art.png in Resources */,
 				E410D26A200CB79100C6ACED /* placeholder_common_image.png in Resources */,
 				E410D230200CB79100C6ACED /* icon_back_to_mainview@2x.png in Resources */,
@@ -1858,6 +1871,7 @@
 				E4BA2FF2200F38C900395F70 /* IQUITextFieldView+Additions.m in Sources */,
 				E4B3CC7D200D9616006807AE /* NSObject+MJCoding.m in Sources */,
 				E4B3CCA4200D9617006807AE /* UIView+WebCacheOperation.m in Sources */,
+				E4A2F9CA202341CA007F6599 /* AppXMLParse.m in Sources */,
 				E402AE832021BE3C00CF1306 /* HomeClassifyVC.m in Sources */,
 				E4B3CB25200D94E9006807AE /* UIImage+Color.m in Sources */,
 				E4B3CC9C200D9616006807AE /* SDWebImageDownloaderOperation.m in Sources */,
