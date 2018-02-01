@@ -144,3 +144,12 @@
 @property (strong, nonatomic) NSString *FirstTag;
 
 @end
+
+@interface AppMajorDetailInfo : AppMajorInfo
+
+@property (strong, nonatomic) NSArray *subMajors;
+@property (strong, nonatomic) NSString *SecondTag;
+@property (strong, nonatomic) NSString *ThirdTag;
+@property (strong, nonatomic) NSString *ThirdTagImage;
+
+@end

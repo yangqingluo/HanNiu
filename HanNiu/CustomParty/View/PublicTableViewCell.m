@@ -13,7 +13,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        CGFloat i_radius = self.contentView.height - 2 * kEdgeSmall;
+        CGFloat i_radius = [[self class] tableView:nil heightForRowAtIndexPath:nil] - 2 * kEdgeSmall;
         _showImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kEdgeMiddle, kEdgeSmall, i_radius, i_radius)];
         _showImageView.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:_showImageView];
@@ -38,7 +38,7 @@
 }
 
 + (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kCellHeight;
+    return kCellHeightMiddle;
 }
 
 @end

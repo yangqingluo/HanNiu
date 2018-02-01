@@ -96,3 +96,8 @@
 @implementation AppMajorInfo
 
 @end
+
+@implementation AppMajorDetailInfo
+
+@end
+
