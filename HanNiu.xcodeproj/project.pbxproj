@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E402AE512021900A00CF1306 /* PublicImageSubTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE502021900A00CF1306 /* PublicImageSubTitleCell.m */; };
-		E402AE5A2021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE592021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m */; };
+		E402AE5A2021AD1C00CF1306 /* PublicDetailImageAndSubTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE592021AD1C00CF1306 /* PublicDetailImageAndSubTitleHeaderView.m */; };
 		E402AE5D2021B5FA00CF1306 /* PublicImageTagTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE5C2021B5FA00CF1306 /* PublicImageTagTitleCell.m */; };
 		E402AE7A2021BE3C00CF1306 /* HomeBetterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE632021BE3A00CF1306 /* HomeBetterVC.m */; };
 		E402AE7B2021BE3C00CF1306 /* MusicCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE652021BE3B00CF1306 /* MusicCommentVC.m */; };
@@ -169,6 +169,8 @@
 		E48B23BD2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48B23BC2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m */; };
 		E48B23C02022B8A800DD2DC4 /* PublicCollectionFooterLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = E48B23BF2022B8A800DD2DC4 /* PublicCollectionFooterLineView.m */; };
 		E48FE18D2015BE18007F1427 /* AccountDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FE18C2015BE18007F1427 /* AccountDetailVC.m */; };
+		E4A2F9C420233A5B007F6599 /* CollegeDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A2F9C320233A5B007F6599 /* CollegeDetailHeaderView.m */; };
+		E4A2F9C720233A8C007F6599 /* CollegeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A2F9C620233A8C007F6599 /* CollegeDetailVC.m */; };
 		E4AA28F62022EC8400521FCB /* CollegeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28F52022EC8400521FCB /* CollegeListVC.m */; };
 		E4AA28F92022F90300521FCB /* PublicImageSubTagTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28F82022F90300521FCB /* PublicImageSubTagTitleCell.m */; };
 		E4AA28FC202310D100521FCB /* MajorListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AA28FB202310D100521FCB /* MajorListVC.m */; };
@@ -292,8 +294,8 @@
 /* Begin PBXFileReference section */
 		E402AE4F2021900A00CF1306 /* PublicImageSubTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicImageSubTitleCell.h; sourceTree = "<group>"; };
 		E402AE502021900A00CF1306 /* PublicImageSubTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicImageSubTitleCell.m; sourceTree = "<group>"; };
-		E402AE582021AD1C00CF1306 /* SchoolAndCompanyHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolAndCompanyHeaderView.h; sourceTree = "<group>"; };
-		E402AE592021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolAndCompanyHeaderView.m; sourceTree = "<group>"; };
+		E402AE582021AD1C00CF1306 /* PublicDetailImageAndSubTitleHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicDetailImageAndSubTitleHeaderView.h; sourceTree = "<group>"; };
+		E402AE592021AD1C00CF1306 /* PublicDetailImageAndSubTitleHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicDetailImageAndSubTitleHeaderView.m; sourceTree = "<group>"; };
 		E402AE5B2021B5FA00CF1306 /* PublicImageTagTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicImageTagTitleCell.h; sourceTree = "<group>"; };
 		E402AE5C2021B5FA00CF1306 /* PublicImageTagTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicImageTagTitleCell.m; sourceTree = "<group>"; };
 		E402AE622021BE3A00CF1306 /* HomeBetterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBetterVC.h; sourceTree = "<group>"; };
@@ -501,6 +503,10 @@
 		E48B23BF2022B8A800DD2DC4 /* PublicCollectionFooterLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicCollectionFooterLineView.m; sourceTree = "<group>"; };
 		E48FE18B2015BE18007F1427 /* AccountDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailVC.h; sourceTree = "<group>"; };
 		E48FE18C2015BE18007F1427 /* AccountDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailVC.m; sourceTree = "<group>"; };
+		E4A2F9C220233A5B007F6599 /* CollegeDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollegeDetailHeaderView.h; sourceTree = "<group>"; };
+		E4A2F9C320233A5B007F6599 /* CollegeDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeDetailHeaderView.m; sourceTree = "<group>"; };
+		E4A2F9C520233A8C007F6599 /* CollegeDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollegeDetailVC.h; sourceTree = "<group>"; };
+		E4A2F9C620233A8C007F6599 /* CollegeDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeDetailVC.m; sourceTree = "<group>"; };
 		E4AA28F42022EC8400521FCB /* CollegeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollegeListVC.h; sourceTree = "<group>"; };
 		E4AA28F52022EC8400521FCB /* CollegeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeListVC.m; sourceTree = "<group>"; };
 		E4AA28F72022F90300521FCB /* PublicImageSubTagTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicImageSubTagTitleCell.h; sourceTree = "<group>"; };
@@ -804,6 +810,8 @@
 				E48B23BC2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m */,
 				E4AA28F42022EC8400521FCB /* CollegeListVC.h */,
 				E4AA28F52022EC8400521FCB /* CollegeListVC.m */,
+				E4A2F9C520233A8C007F6599 /* CollegeDetailVC.h */,
+				E4A2F9C620233A8C007F6599 /* CollegeDetailVC.m */,
 				E4AA28FA202310D100521FCB /* MajorListVC.h */,
 				E4AA28FB202310D100521FCB /* MajorListVC.m */,
 				E44E3B4D20232C3C0046B587 /* MajorDetailListVC.h */,
@@ -1506,8 +1514,10 @@
 				E4F7E9DA20158158009E22E3 /* PublicAlertView.m */,
 				E4F7E9E320158891009E22E3 /* PublicAlertShowGraphView.h */,
 				E4F7E9E420158891009E22E3 /* PublicAlertShowGraphView.m */,
-				E402AE582021AD1C00CF1306 /* SchoolAndCompanyHeaderView.h */,
-				E402AE592021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m */,
+				E402AE582021AD1C00CF1306 /* PublicDetailImageAndSubTitleHeaderView.h */,
+				E402AE592021AD1C00CF1306 /* PublicDetailImageAndSubTitleHeaderView.m */,
+				E4A2F9C220233A5B007F6599 /* CollegeDetailHeaderView.h */,
+				E4A2F9C320233A5B007F6599 /* CollegeDetailHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1772,6 +1782,7 @@
 				E4BA2FF6200F38C900395F70 /* IQKeyboardManager.m in Sources */,
 				E469F1492016DA9D000B3C04 /* LongPressFlowLayout.m in Sources */,
 				E4B3CCC9200D9F1E006807AE /* HomeViewController.m in Sources */,
+				E4A2F9C720233A8C007F6599 /* CollegeDetailVC.m in Sources */,
 				E4DB3C562015B81900D5C465 /* XHMessageTextView.m in Sources */,
 				E4EE191E200DE8AC005BD00F /* LoginViewController.m in Sources */,
 				E4B3CC95200D9616006807AE /* MBProgressHUD.m in Sources */,
@@ -1838,6 +1849,7 @@
 				E4BA2FCA200F2D4000395F70 /* AccountSettingsVC.m in Sources */,
 				E4EE1919200DD458005BD00F /* UserPublic.m in Sources */,
 				E48FE18D2015BE18007F1427 /* AccountDetailVC.m in Sources */,
+				E4A2F9C420233A5B007F6599 /* CollegeDetailHeaderView.m in Sources */,
 				E48A22AD201976790017977A /* MusicCell.m in Sources */,
 				E4B3CCBC200D96DD006807AE /* QCSlideSwitchView.m in Sources */,
 				E4BA2FFB200F38C900395F70 /* IQTitleBarButtonItem.m in Sources */,
@@ -1857,7 +1869,7 @@
 				E469F1582017077D000B3C04 /* PublicCollectionHeaderTitleView.m in Sources */,
 				E4B3CCBE200D96DD006807AE /* UIButton+ImageAndText.m in Sources */,
 				E4B3CC83200D9616006807AE /* MJRefreshComponent.m in Sources */,
-				E402AE5A2021AD1C00CF1306 /* SchoolAndCompanyHeaderView.m in Sources */,
+				E402AE5A2021AD1C00CF1306 /* PublicDetailImageAndSubTitleHeaderView.m in Sources */,
 				E4BA2FF4200F38C900395F70 /* IQUIViewController+Additions.m in Sources */,
 				E402AE7E2021BE3C00CF1306 /* HomeSchoolAndCompanyVC.m in Sources */,
 				E47887D8200C48D6009C86A7 /* main.m in Sources */,

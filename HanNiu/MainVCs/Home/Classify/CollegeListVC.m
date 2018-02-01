@@ -7,6 +7,7 @@
 //
 
 #import "CollegeListVC.h"
+#import "CollegeDetailVC.h"
 
 #import "PublicImageSubTagTitleCell.h"
 #import "UIImageView+WebCache.h"
@@ -73,9 +74,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-//    SchoolAndCompanyDetailVC *vc = [SchoolAndCompanyDetailVC new];
-//    vc.data = [self.dataSource[indexPath.row] copy];
-//    [self doPushViewController:vc animated:YES];
+    CollegeDetailVC *vc = [CollegeDetailVC new];
+    vc.data = [self.dataSource[indexPath.row] copy];
+    [self doPushViewController:vc animated:YES];
 }
 
 @end

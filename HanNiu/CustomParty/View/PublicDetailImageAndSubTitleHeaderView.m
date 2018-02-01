@@ -6,9 +6,9 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "SchoolAndCompanyHeaderView.h"
+#import "PublicDetailImageAndSubTitleHeaderView.h"
 
-@implementation SchoolAndCompanyHeaderView
+@implementation PublicDetailImageAndSubTitleHeaderView
 
 - (instancetype)init {
     self = [super initWithFrame:CGRectMake(0, 0, screen_width, 140)];
@@ -24,7 +24,7 @@
         _titleLabel.numberOfLines = 0;
         [self addSubview:_titleLabel];
         
-        _subTitleLabel = NewLabel(CGRectMake(_titleLabel.left, _showImageView.top + 0.4 * _showImageView.height, _titleLabel.width, 0.3 * _showImageView.height), [UIColor grayColor], [AppPublic appFontOfSize:appLabelFontSizeSmall], _titleLabel.textAlignment);
+        _subTitleLabel = NewLabel(CGRectMake(_titleLabel.left, _showImageView.top + 0.4 * _showImageView.height, _titleLabel.width, 0.3 * _showImageView.height), [UIColor grayColor], [AppPublic appFontOfSize:appLabelFontSizeLittle], _titleLabel.textAlignment);
         _subTitleLabel.numberOfLines = 0;
         [self addSubview:_subTitleLabel];
         

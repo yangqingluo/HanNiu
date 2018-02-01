@@ -8,13 +8,13 @@
 
 #import "SchoolAndCompanyDetailVC.h"
 
-#import "SchoolAndCompanyHeaderView.h"
+#import "PublicDetailImageAndSubTitleHeaderView.h"
 
 #import "UIImageView+WebCache.h"
 
 @interface SchoolAndCompanyDetailVC ()
 
-@property (strong, nonatomic) SchoolAndCompanyHeaderView *headerView;
+@property (strong, nonatomic) PublicDetailImageAndSubTitleHeaderView *headerView;
 @property (strong, nonatomic) UITextView *textView;
 
 @end
@@ -27,6 +27,7 @@
     
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.textView];
+    [self.headerView.showImageView sd_setImageWithURL:fileURLWithPID(self.data[@"Image"]) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     self.headerView.titleLabel.text = self.data[@"Name"];
     self.headerView.subTitleLabel.text = self.data[@"SubName"];
     self.headerView.tagLabel.text = self.data[@"Tag"];
@@ -34,11 +35,10 @@
 }
 
 #pragma mark - getter
-- (SchoolAndCompanyHeaderView *)headerView {
+- (PublicDetailImageAndSubTitleHeaderView *)headerView {
     if (!_headerView) {
-        _headerView = [SchoolAndCompanyHeaderView new];
+        _headerView = [PublicDetailImageAndSubTitleHeaderView new];
         _headerView.top = self.navigationBarView.bottom;
-        [_headerView.showImageView sd_setImageWithURL:fileURLWithPID(self.data[@"Image"]) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     }
     return _headerView;
 }

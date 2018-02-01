@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SchoolAndCompanyHeaderView : UIView
+@interface PublicDetailImageAndSubTitleHeaderView : UIView
 
 @property (strong, nonatomic) UIImageView *showImageView;
 @property (strong, nonatomic) UILabel *titleLabel;
