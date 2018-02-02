@@ -7,7 +7,11 @@
 //
 
 #import "PublicDetailImageAndSubTitleHeaderView.h"
+#import "PublicGridLabelView.h"
 
 @interface CollegeDetailHeaderView : PublicDetailImageAndSubTitleHeaderView
+
+@property (strong, nonatomic) PublicGridLabelView *gridLabelView;
+@property (copy, nonatomic) AppCollegeInfo *data;
 
 @end

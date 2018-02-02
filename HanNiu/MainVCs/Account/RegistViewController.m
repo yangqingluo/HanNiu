@@ -47,7 +47,7 @@
     self.passwordInputView.top = self.vcodeInputView.bottom + 30;
     [self.view addSubview:self.passwordInputView];
     
-    self.vcodeBtn = NewButton(CGRectMake(0, 0, 70, 28), @"获取验证码", [UIColor whiteColor], [AppPublic appFontOfSize:10]);
+    self.vcodeBtn = NewButton(CGRectMake(0, 0, 70, 28), @"获取验证码", [UIColor whiteColor], [AppPublic appFontOfSize:appLabelFontSizeTiny]);
     [self.vcodeBtn setBackgroundImage:[UIImage imageNamed:@"back_register_btn"] forState:UIControlStateNormal];
     [self.vcodeBtn setBackgroundImage:[UIImage imageNamed:@"back_register_btn"] forState:UIControlStateHighlighted];
     self.vcodeBtn.right = self.vcodeInputView.width;

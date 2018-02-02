@@ -36,10 +36,7 @@
     self.title = self.data.Name;
     
     [self.view addSubview:self.headerView];
-    [self.headerView.showImageView sd_setImageWithURL:fileURLWithPID(self.data.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
-    self.headerView.titleLabel.text = self.data.Name;
-//    self.headerView.subTitleLabel.text = self.data.SubName;
-//    self.headerView.tagLabel.text = self.data[@"Tag"];
+    self.headerView.data = self.data;
     
     self.slidePageView.frame = CGRectMake(0, self.headerView.bottom + kEdge, self.view.width, self.view.height - (self.headerView.bottom + kEdge));
 }

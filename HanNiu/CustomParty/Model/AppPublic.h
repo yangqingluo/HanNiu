@@ -62,6 +62,7 @@
 #define appButtonTitleFontSizeLittle    12.0
 #define appButtonTitleFontSizeSmall     14.0
 #define appButtonTitleFontSize          16.0
+#define appLabelFontSizeTiny            10.0
 #define appLabelFontSizeLittle          12.0
 #define appLabelFontSizeSmall           14.0
 #define appLabelFontSize                16.0

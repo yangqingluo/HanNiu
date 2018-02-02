@@ -60,7 +60,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.subTitleLabel.width = [AppPublic textSizeWithString:@"播放：9999999999次" font:cell.subTitleLabel.font constantHeight:cell.subTitleLabel.height].width;
         cell.tagLabel.frame = CGRectMake(0.5 * screen_width, cell.subTitleLabel.top, screen_width - 0.5 * screen_width, cell.subTitleLabel.height);
-        cell.tagLabel.font = [AppPublic appFontOfSize:10];
+        cell.tagLabel.font = [AppPublic appFontOfSize:appLabelFontSizeTiny];
     }
     AppCollegeInfo *item = self.dataSource[indexPath.row];
     [cell.showImageView sd_setImageWithURL:fileURLWithPID(item.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
