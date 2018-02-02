@@ -8,6 +8,7 @@
 
 #import "CollegeDetailVC.h"
 #import "PublicSlideSubVC.h"
+#import "CollegeDetailSlideSubTableVC.h"
 
 #import "CollegeDetailHeaderView.h"
 
@@ -25,8 +26,8 @@
     self = [super init];
     if (self) {
         [self addViewController:@"学校简介" vc:[PublicSlideSubVC new]];
-        [self addViewController:@"招生专业" vc:[PublicSlideSubVC new]];
-        [self addViewController:@"精品收听" vc:[PublicSlideSubVC new]];
+        [self addViewController:@"招生专业" vc:[[CollegeDetailSlideSubTableVC alloc] initWithStyle:UITableViewStyleGrouped parentVC:self andIndexTag:1]];
+        [self addViewController:@"精品收听" vc:[[CollegeDetailSlideSubTableVC alloc] initWithStyle:UITableViewStyleGrouped parentVC:self andIndexTag:2]];
     }
     return self;
 }
@@ -38,7 +39,7 @@
     [self.view addSubview:self.headerView];
     self.headerView.data = self.data;
     
-    self.slidePageView.frame = CGRectMake(0, self.headerView.bottom + kEdge, self.view.width, self.view.height - (self.headerView.bottom + kEdge));
+    self.slidePageView.frame = CGRectMake(0, self.headerView.bottom + kEdge, self.view.width, self.view.height - TAB_BAR_HEIGHT - (self.headerView.bottom + kEdge));
 }
 
 - (void)initializeNavigationBar {

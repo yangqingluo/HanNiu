@@ -158,6 +158,7 @@
 		E47887E1200C48D6009C86A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47887DF200C48D6009C86A7 /* Main.storyboard */; };
 		E47887E3200C48D6009C86A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47887E2200C48D6009C86A7 /* Assets.xcassets */; };
 		E47887E6200C48D6009C86A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47887E4200C48D6009C86A7 /* LaunchScreen.storyboard */; };
+		E4884E0D2023FFDC002771CC /* CollegeDetailSlideSubTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4884E0C2023FFDC002771CC /* CollegeDetailSlideSubTableVC.m */; };
 		E48A228F201855750017977A /* PublicCollectionButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A228E201855750017977A /* PublicCollectionButtonCell.m */; };
 		E48A229220185D5A0017977A /* PublicSlideSubTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A229120185D5A0017977A /* PublicSlideSubTableVC.m */; };
 		E48A22952018623C0017977A /* QualityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22942018623C0017977A /* QualityCell.m */; };
@@ -485,6 +486,8 @@
 		E47887E2200C48D6009C86A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E47887E5200C48D6009C86A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E47887E7200C48D6009C86A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4884E0B2023FFDB002771CC /* CollegeDetailSlideSubTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollegeDetailSlideSubTableVC.h; sourceTree = "<group>"; };
+		E4884E0C2023FFDC002771CC /* CollegeDetailSlideSubTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeDetailSlideSubTableVC.m; sourceTree = "<group>"; };
 		E48A228D201855750017977A /* PublicCollectionButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicCollectionButtonCell.h; sourceTree = "<group>"; };
 		E48A228E201855750017977A /* PublicCollectionButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicCollectionButtonCell.m; sourceTree = "<group>"; };
 		E48A229020185D5A0017977A /* PublicSlideSubTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicSlideSubTableVC.h; sourceTree = "<group>"; };
@@ -822,6 +825,8 @@
 				E4AA28F52022EC8400521FCB /* CollegeListVC.m */,
 				E4A2F9C520233A8C007F6599 /* CollegeDetailVC.h */,
 				E4A2F9C620233A8C007F6599 /* CollegeDetailVC.m */,
+				E4884E0B2023FFDB002771CC /* CollegeDetailSlideSubTableVC.h */,
+				E4884E0C2023FFDC002771CC /* CollegeDetailSlideSubTableVC.m */,
 				E4AA28FA202310D100521FCB /* MajorListVC.h */,
 				E4AA28FB202310D100521FCB /* MajorListVC.m */,
 				E44E3B4D20232C3C0046B587 /* MajorDetailListVC.h */,
@@ -1846,6 +1851,7 @@
 				E4B3CBDF200D95B7006807AE /* NSData+HTTPRequest.m in Sources */,
 				E4BA2FFA200F38C900395F70 /* IQPreviousNextView.m in Sources */,
 				E4AA28F92022F90300521FCB /* PublicImageSubTagTitleCell.m in Sources */,
+				E4884E0D2023FFDC002771CC /* CollegeDetailSlideSubTableVC.m in Sources */,
 				E4B3CC7B200D9616006807AE /* MJPropertyType.m in Sources */,
 				E4B3CCA6200D9617006807AE /* BlockAlertView.m in Sources */,
 				E4B3CC90200D9616006807AE /* MJRefreshConst.m in Sources */,

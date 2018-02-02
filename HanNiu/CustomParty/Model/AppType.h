@@ -82,17 +82,24 @@
 @end
 
 
-@interface AppQualityInfo : AppItemInfo
+@interface AppBasicMusicInfo : AppItemInfo
 
-@property (strong, nonatomic) NSString *Price;
-@property (strong, nonatomic) AppItemInfo *University;
-@property (strong, nonatomic) AppItemInfo *Institute;
 @property (strong, nonatomic) NSString *Introduce;
-@property (strong, nonatomic) NSString *TotalPlayTimes;
 @property (strong, nonatomic) NSString *CreateTime;
 @property (strong, nonatomic) NSString *UpdateTime;
 @property (strong, nonatomic) AppMusicInfo *Music;
 @property (strong, nonatomic) NSString *Status;
+@property (assign, nonatomic) int TotalPlayTimes;
+@property (strong, nonatomic) NSString *TotalComment;
+@property (strong, nonatomic) NSString *TotalDuration;
+
+@end
+
+@interface AppQualityInfo : AppBasicMusicInfo
+
+@property (strong, nonatomic) NSString *Price;
+@property (strong, nonatomic) AppItemInfo *University;
+@property (strong, nonatomic) AppItemInfo *Institute;
 
 @end
 
@@ -119,17 +126,11 @@
 @end
 
 
-@interface AppCollegeInfo : AppItemInfo
+@interface AppCollegeInfo : AppBasicMusicInfo
 
 @property (strong, nonatomic) NSString *Addr;//阿里地址库ID
 @property (strong, nonatomic) NSString *Tags;
 @property (strong, nonatomic) NSString *Pics;
-@property (assign, nonatomic) int TotalPlayTimes;//(college下属的institute的总和)
-@property (strong, nonatomic) NSString *CreateTime;
-@property (strong, nonatomic) NSString *UpdateTime;
-
-@property (strong, nonatomic) NSString *Introduce;//简介
-@property (strong, nonatomic) AppMusicInfo *Music;
 @property (strong, nonatomic) NSString *DetailHtml;//
 @property (strong, nonatomic) NSString *DetailFiles;//
 

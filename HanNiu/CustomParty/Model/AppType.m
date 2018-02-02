@@ -52,6 +52,10 @@
 @end
 
 
+@implementation AppBasicMusicInfo
+
+@end
+
 @implementation AppQualityInfo
 
 @end
