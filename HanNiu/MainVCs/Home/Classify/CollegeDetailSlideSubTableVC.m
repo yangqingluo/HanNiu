@@ -23,13 +23,20 @@
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
+    CollegeDetailVC *p_VC = (CollegeDetailVC *)self.parentVC;
     NSMutableDictionary *m_dic = [NSMutableDictionary new];
+    
+    NSString *urlFooter = @"";
     if (self.indextag == 1) {
-        [m_dic setObject:@"" forKey:@"universityId"];
+        urlFooter = @"University/School/List";
     }
+    else if (self.indextag == 2) {
+        urlFooter = @"Quality/List";
+    }
+    [m_dic setObject:p_VC.data.Id forKey:@"universityId"];
     
     QKWEAKSELF;
-    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"University/School/List" completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:urlFooter completion:^(id responseBody, NSError *error){
         [weakself endRefreshing];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
