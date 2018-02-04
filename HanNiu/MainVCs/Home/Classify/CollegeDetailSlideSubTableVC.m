@@ -8,6 +8,7 @@
 
 #import "CollegeDetailSlideSubTableVC.h"
 #import "CollegeDetailVC.h"
+#import "SchoolDetailVC.h"
 
 #import "QualityCell.h"
 
@@ -73,7 +74,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+    if (self.indextag  == 1) {
+        SchoolDetailVC *vc = [SchoolDetailVC new];
+        vc.data = self.dataSource[indexPath.row];
+        [self doPushViewController:vc animated:YES];
+    }
     
 }
 

@@ -152,6 +152,7 @@
 		E469F15E2017707C000B3C04 /* PublicSlideSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F15D2017707C000B3C04 /* PublicSlideSwitchView.m */; };
 		E469F16120182F65000B3C04 /* PublicSlideSubCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F16020182F65000B3C04 /* PublicSlideSubCollectionVC.m */; };
 		E469F167201837D1000B3C04 /* province.txt in Resources */ = {isa = PBXBuildFile; fileRef = E469F166201837D1000B3C04 /* province.txt */; };
+		E47632922026BAB400F922E6 /* SchoolDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E47632912026BAB400F922E6 /* SchoolDetailVC.m */; };
 		E47887D8200C48D6009C86A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887D7200C48D6009C86A7 /* main.m */; };
 		E47887DB200C48D6009C86A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887DA200C48D6009C86A7 /* AppDelegate.m */; };
 		E47887DE200C48D6009C86A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887DD200C48D6009C86A7 /* ViewController.m */; };
@@ -476,6 +477,8 @@
 		E469F15F20182F65000B3C04 /* PublicSlideSubCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicSlideSubCollectionVC.h; sourceTree = "<group>"; };
 		E469F16020182F65000B3C04 /* PublicSlideSubCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicSlideSubCollectionVC.m; sourceTree = "<group>"; };
 		E469F166201837D1000B3C04 /* province.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = province.txt; sourceTree = "<group>"; };
+		E47632902026BAB400F922E6 /* SchoolDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolDetailVC.h; sourceTree = "<group>"; };
+		E47632912026BAB400F922E6 /* SchoolDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolDetailVC.m; sourceTree = "<group>"; };
 		E47887D3200C48D6009C86A7 /* HanNiu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanNiu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47887D7200C48D6009C86A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E47887D9200C48D6009C86A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -827,6 +830,8 @@
 				E4A2F9C620233A8C007F6599 /* CollegeDetailVC.m */,
 				E4884E0B2023FFDB002771CC /* CollegeDetailSlideSubTableVC.h */,
 				E4884E0C2023FFDC002771CC /* CollegeDetailSlideSubTableVC.m */,
+				E47632902026BAB400F922E6 /* SchoolDetailVC.h */,
+				E47632912026BAB400F922E6 /* SchoolDetailVC.m */,
 				E4AA28FA202310D100521FCB /* MajorListVC.h */,
 				E4AA28FB202310D100521FCB /* MajorListVC.m */,
 				E44E3B4D20232C3C0046B587 /* MajorDetailListVC.h */,
@@ -1785,6 +1790,7 @@
 				E4B3CC81200D9616006807AE /* MJRefreshAutoFooter.m in Sources */,
 				E48B23BD2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m in Sources */,
 				E402AE802021BE3C00CF1306 /* SchoolAndCompanyTableVC.m in Sources */,
+				E47632922026BAB400F922E6 /* SchoolDetailVC.m in Sources */,
 				E4B3CC85200D9616006807AE /* MJRefreshHeader.m in Sources */,
 				E4211D0E2020707100216EF7 /* UIImageView+Rotate.m in Sources */,
 				E4BA3005200FA0E200395F70 /* AccountAboutVC.m in Sources */,
