@@ -20,7 +20,7 @@
         [AppPublic roundCornerRadius:_showImageView cornerRadius:appViewCornerRadius];
         [self addSubview:_showImageView];
         
-        _titleLabel = NewLabel(CGRectMake(_showImageView.right + kEdgeHuge, _showImageView.top, self.width - kEdgeMiddle - kEdgeHuge, 0.2 * _showImageView.height),appTextColor, [AppPublic appFontOfSize:appLabelFontSize], NSTextAlignmentLeft);
+        _titleLabel = NewLabel(CGRectMake(_showImageView.right + kEdgeHuge, _showImageView.top, self.width - kEdgeMiddle - kEdgeHuge, 0.2 * _showImageView.height), appTextColor, [AppPublic appFontOfSize:appLabelFontSize], NSTextAlignmentLeft);
         _titleLabel.numberOfLines = 0;
         [self addSubview:_titleLabel];
         

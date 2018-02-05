@@ -23,6 +23,11 @@
 		E402AE862021BE9000CF1306 /* ClassifyCollegeCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE852021BE9000CF1306 /* ClassifyCollegeCollectionVC.m */; };
 		E404EB352028428700312B4D /* RecommendCollegeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB342028428700312B4D /* RecommendCollegeListVC.m */; };
 		E404EB382028435E00312B4D /* BetterListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB372028435E00312B4D /* BetterListVC.m */; };
+		E404EB3B20284AF900312B4D /* JobDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB3A20284AF900312B4D /* JobDetailVC.m */; };
+		E404EB4020284FCD00312B4D /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = E404EB3D20284FCD00312B4D /* Emoji.plist */; };
+		E404EB4120284FCD00312B4D /* NSAttributedString+JTATEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB3F20284FCD00312B4D /* NSAttributedString+JTATEmoji.m */; };
+		E404EB432028509300312B4D /* Emoji.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E404EB422028509200312B4D /* Emoji.xcassets */; };
+		E404EB4620285C9400312B4D /* PublicImageAndSubTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB4520285C9400312B4D /* PublicImageAndSubTitleView.m */; };
 		E410D1A6200CB5EE00C6ACED /* MainTabNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */; };
 		E410D215200CB79100C6ACED /* back_college_list_item_class.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */; };
 		E410D216200CB79100C6ACED /* back_comment_list_input.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A9200CB79000C6ACED /* back_comment_list_input.png */; };
@@ -379,6 +384,14 @@
 		E404EB342028428700312B4D /* RecommendCollegeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendCollegeListVC.m; sourceTree = "<group>"; };
 		E404EB362028435E00312B4D /* BetterListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetterListVC.h; sourceTree = "<group>"; };
 		E404EB372028435E00312B4D /* BetterListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BetterListVC.m; sourceTree = "<group>"; };
+		E404EB3920284AF900312B4D /* JobDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobDetailVC.h; sourceTree = "<group>"; };
+		E404EB3A20284AF900312B4D /* JobDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobDetailVC.m; sourceTree = "<group>"; };
+		E404EB3D20284FCD00312B4D /* Emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Emoji.plist; sourceTree = "<group>"; };
+		E404EB3E20284FCD00312B4D /* NSAttributedString+JTATEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+JTATEmoji.h"; sourceTree = "<group>"; };
+		E404EB3F20284FCD00312B4D /* NSAttributedString+JTATEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+JTATEmoji.m"; sourceTree = "<group>"; };
+		E404EB422028509200312B4D /* Emoji.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Emoji.xcassets; sourceTree = "<group>"; };
+		E404EB4420285C9400312B4D /* PublicImageAndSubTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicImageAndSubTitleView.h; sourceTree = "<group>"; };
+		E404EB4520285C9400312B4D /* PublicImageAndSubTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicImageAndSubTitleView.m; sourceTree = "<group>"; };
 		E410D1A4200CB5EE00C6ACED /* MainTabNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabNavController.h; sourceTree = "<group>"; };
 		E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabNavController.m; sourceTree = "<group>"; };
 		E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_college_list_item_class.png; sourceTree = "<group>"; };
@@ -932,6 +945,8 @@
 				E402AE732021BE3B00CF1306 /* HomeJobVC.m */,
 				E402AE742021BE3B00CF1306 /* JobListVC.h */,
 				E402AE752021BE3B00CF1306 /* JobListVC.m */,
+				E404EB3920284AF900312B4D /* JobDetailVC.h */,
+				E404EB3A20284AF900312B4D /* JobDetailVC.m */,
 			);
 			path = Job;
 			sourceTree = "<group>";
@@ -959,6 +974,17 @@
 				E44E3B4E20232C3C0046B587 /* MajorDetailListVC.m */,
 			);
 			path = Classify;
+			sourceTree = "<group>";
+		};
+		E404EB3C20284FCD00312B4D /* Emoji */ = {
+			isa = PBXGroup;
+			children = (
+				E404EB3D20284FCD00312B4D /* Emoji.plist */,
+				E404EB422028509200312B4D /* Emoji.xcassets */,
+				E404EB3E20284FCD00312B4D /* NSAttributedString+JTATEmoji.h */,
+				E404EB3F20284FCD00312B4D /* NSAttributedString+JTATEmoji.m */,
+			);
+			path = Emoji;
 			sourceTree = "<group>";
 		};
 		E410D1A7200CB79000C6ACED /* Pics */ = {
@@ -1685,6 +1711,7 @@
 				E4B3CBDB200D95B6006807AE /* NSData+HTTPRequest.m */,
 				E4B3CBDE200D95B7006807AE /* UIResponder+Router.h */,
 				E4B3CBDC200D95B6006807AE /* UIResponder+Router.m */,
+				E404EB3C20284FCD00312B4D /* Emoji */,
 				E4B3CB1E200D94E9006807AE /* UIImage+Categories */,
 			);
 			path = Model;
@@ -1751,6 +1778,8 @@
 				E4F7E9DA20158158009E22E3 /* PublicAlertView.m */,
 				E4F7E9E320158891009E22E3 /* PublicAlertShowGraphView.h */,
 				E4F7E9E420158891009E22E3 /* PublicAlertShowGraphView.m */,
+				E404EB4420285C9400312B4D /* PublicImageAndSubTitleView.h */,
+				E404EB4520285C9400312B4D /* PublicImageAndSubTitleView.m */,
 				E402AE582021AD1C00CF1306 /* PublicDetailImageAndSubTitleHeaderView.h */,
 				E402AE592021AD1C00CF1306 /* PublicDetailImageAndSubTitleHeaderView.m */,
 				E4A2F9C220233A5B007F6599 /* CollegeDetailHeaderView.h */,
@@ -1888,7 +1917,9 @@
 				E4A725FD2028028400E34BEA /* VideoOverlay@2x.png in Resources */,
 				E410D281200CB79100C6ACED /* yalantis_phoenix_sun.png in Resources */,
 				E4A725E62028028400E34BEA /* ImageSelectedOn@3x.png in Resources */,
+				E404EB432028509300312B4D /* Emoji.xcassets in Resources */,
 				E410D26B200CB79100C6ACED /* placeholder_company_logo.png in Resources */,
+				E404EB4020284FCD00312B4D /* Emoji.plist in Resources */,
 				E47887E3200C48D6009C86A7 /* Assets.xcassets in Resources */,
 				E4A725FB2028028400E34BEA /* UIBarButtonItemGrid@3x.png in Resources */,
 				E410D272200CB79100C6ACED /* search@2x.png in Resources */,
@@ -2088,6 +2119,7 @@
 				E44E3B4F20232C3C0046B587 /* MajorDetailListVC.m in Sources */,
 				E469F15E2017707C000B3C04 /* PublicSlideSwitchView.m in Sources */,
 				E402AE862021BE9000CF1306 /* ClassifyCollegeCollectionVC.m in Sources */,
+				E404EB4120284FCD00312B4D /* NSAttributedString+JTATEmoji.m in Sources */,
 				E469F14C2016DAD7000B3C04 /* PublicCollectionViewController.m in Sources */,
 				E48A229220185D5A0017977A /* PublicSlideSubTableVC.m in Sources */,
 				E469F16120182F65000B3C04 /* PublicSlideSubCollectionVC.m in Sources */,
@@ -2100,9 +2132,11 @@
 				E4A726112028028400E34BEA /* UIImage+GIF.m in Sources */,
 				E4F7E9DB20158158009E22E3 /* PublicAlertView.m in Sources */,
 				E4B3CBE0200D95B7006807AE /* UIResponder+Router.m in Sources */,
+				E404EB3B20284AF900312B4D /* JobDetailVC.m in Sources */,
 				E402AE822021BE3C00CF1306 /* JobListVC.m in Sources */,
 				E4EE1924200EE67D005BD00F /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				E4B3CCC1200D9740006807AE /* PublicViewController.m in Sources */,
+				E404EB4620285C9400312B4D /* PublicImageAndSubTitleView.m in Sources */,
 				E4A726102028028400E34BEA /* UIButton+WebCache.m in Sources */,
 				E4BA3002200F51B700395F70 /* ForgetViewController.m in Sources */,
 				E4B3CBDF200D95B7006807AE /* NSData+HTTPRequest.m in Sources */,

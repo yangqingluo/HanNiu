@@ -113,15 +113,29 @@
 
 @end
 
-@interface AppJobInfo : AppItemInfo
+@interface AppCompanyInfo : AppItemInfo
 
 @property (strong, nonatomic) NSString *Area;
-@property (strong, nonatomic) AppItemInfo *Company;
 @property (strong, nonatomic) NSString *Edu;
 @property (strong, nonatomic) NSString *Exp;
 @property (strong, nonatomic) NSString *Introduce;
 @property (strong, nonatomic) NSString *Salary;
 @property (strong, nonatomic) NSString *Status;
+@property (strong, nonatomic) NSString *Tags;
+
+@end
+
+@interface AppJobInfo : AppItemInfo
+
+@property (strong, nonatomic) NSString *Area;
+@property (strong, nonatomic) AppCompanyInfo *Company;
+@property (strong, nonatomic) NSString *Edu;
+@property (strong, nonatomic) NSString *Exp;
+@property (strong, nonatomic) NSString *Introduce;
+@property (strong, nonatomic) NSString *Salary;
+@property (strong, nonatomic) NSString *Status;
+
+- (NSString *)showStringForAddr;
 
 @end
 

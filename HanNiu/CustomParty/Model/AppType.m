@@ -82,7 +82,29 @@
 
 @end
 
+@implementation AppCompanyInfo
+
+@end
+
 @implementation AppJobInfo
+
+- (NSString *)showStringForAddr {
+    NSString *m_string = @"";
+    if (self.Area.length == 6) {
+        NSString *key_province = [self.Area stringByReplacingCharactersInRange:NSMakeRange(2, 4) withString:@"0000"];
+        NSString *province = [UserPublic getInstance].provinceMapDic[key_province];
+        if (province.length) {
+            m_string = province;
+        }
+        
+        NSString *key_city = [self.Area stringByReplacingCharactersInRange:NSMakeRange(4, 2) withString:@""];
+        NSString *city = [UserPublic getInstance].cityMapDic[key_city];
+        if (city.length) {
+            m_string = [NSString stringWithFormat:@"%@%@", m_string, city];
+        }
+    }
+    return m_string;
+}
 
 @end
 
