@@ -21,6 +21,8 @@
 		E402AE822021BE3C00CF1306 /* JobListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE752021BE3B00CF1306 /* JobListVC.m */; };
 		E402AE832021BE3C00CF1306 /* HomeClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE792021BE3B00CF1306 /* HomeClassifyVC.m */; };
 		E402AE862021BE9000CF1306 /* ClassifyCollegeCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E402AE852021BE9000CF1306 /* ClassifyCollegeCollectionVC.m */; };
+		E404EB352028428700312B4D /* RecommendCollegeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB342028428700312B4D /* RecommendCollegeListVC.m */; };
+		E404EB382028435E00312B4D /* BetterListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB372028435E00312B4D /* BetterListVC.m */; };
 		E410D1A6200CB5EE00C6ACED /* MainTabNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */; };
 		E410D215200CB79100C6ACED /* back_college_list_item_class.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */; };
 		E410D216200CB79100C6ACED /* back_comment_list_input.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A9200CB79000C6ACED /* back_comment_list_input.png */; };
@@ -373,6 +375,10 @@
 		E402AE792021BE3B00CF1306 /* HomeClassifyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeClassifyVC.m; sourceTree = "<group>"; };
 		E402AE842021BE9000CF1306 /* ClassifyCollegeCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifyCollegeCollectionVC.h; sourceTree = "<group>"; };
 		E402AE852021BE9000CF1306 /* ClassifyCollegeCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifyCollegeCollectionVC.m; sourceTree = "<group>"; };
+		E404EB332028428700312B4D /* RecommendCollegeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendCollegeListVC.h; sourceTree = "<group>"; };
+		E404EB342028428700312B4D /* RecommendCollegeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendCollegeListVC.m; sourceTree = "<group>"; };
+		E404EB362028435E00312B4D /* BetterListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetterListVC.h; sourceTree = "<group>"; };
+		E404EB372028435E00312B4D /* BetterListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BetterListVC.m; sourceTree = "<group>"; };
 		E410D1A4200CB5EE00C6ACED /* MainTabNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabNavController.h; sourceTree = "<group>"; };
 		E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabNavController.m; sourceTree = "<group>"; };
 		E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_college_list_item_class.png; sourceTree = "<group>"; };
@@ -898,6 +904,10 @@
 			children = (
 				E402AE682021BE3B00CF1306 /* HomeRecommendVC.h */,
 				E402AE692021BE3B00CF1306 /* HomeRecommendVC.m */,
+				E404EB332028428700312B4D /* RecommendCollegeListVC.h */,
+				E404EB342028428700312B4D /* RecommendCollegeListVC.m */,
+				E404EB362028435E00312B4D /* BetterListVC.h */,
+				E404EB372028435E00312B4D /* BetterListVC.m */,
 			);
 			path = Recommend;
 			sourceTree = "<group>";
@@ -2015,6 +2025,7 @@
 				E4B3CBDA200D9596006807AE /* AppNetwork.m in Sources */,
 				E4A726322028028400E34BEA /* MJRefreshGifHeader.m in Sources */,
 				E48A22AA201972400017977A /* PublicPlayBar.m in Sources */,
+				E404EB382028435E00312B4D /* BetterListVC.m in Sources */,
 				E4A725C62028028400E34BEA /* AFURLSessionManager.m in Sources */,
 				E4A725CB2028028400E34BEA /* UIButton+AFNetworking.m in Sources */,
 				E4A725C52028028400E34BEA /* AFURLResponseSerialization.m in Sources */,
@@ -2047,6 +2058,7 @@
 				E4A725C92028028400E34BEA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				E4A725D92028028400E34BEA /* NSObject+MJClass.m in Sources */,
 				E4EE1910200DC97B005BD00F /* PublicTableViewController.m in Sources */,
+				E404EB352028428700312B4D /* RecommendCollegeListVC.m in Sources */,
 				E4A726332028028400E34BEA /* MJRefreshNormalHeader.m in Sources */,
 				E48A22B0201994660017977A /* PublicSlider.m in Sources */,
 				E469F1492016DA9D000B3C04 /* LongPressFlowLayout.m in Sources */,

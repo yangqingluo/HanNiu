@@ -7,6 +7,10 @@
 //
 
 #import "HomeRecommendVC.h"
+#import "CollegeDetailVC.h"
+#import "RecommendCollegeListVC.h"
+#import "BetterListVC.h"
+#import "MusicDetailVC.h"
 
 #import "PublicCollectionHeaderTitleView.h"
 #import "PublicCollectionCell.h"
@@ -134,6 +138,7 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
     }
     else {
         PublicCollectionHeaderTitleView *headView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reuseId_header_title forIndexPath:indexPath];
+        headView.tag = indexPath.section;
         switch (indexPath.section) {
             case 1: {
                 headView.titleLabel.text = @"推荐学校";
@@ -187,12 +192,37 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
             cell.titleLabel.text = item[@"Name"];
         }
     }
-    
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 1) {
+        CollegeDetailVC *vc = [CollegeDetailVC new];
+        vc.data = [AppCollegeInfo mj_objectWithKeyValues:self.universityList[indexPath.row]];
+        [self doPushViewController:vc animated:YES];
+    }
+    else if (indexPath.section == 2) {
+        MusicDetailVC *vc = [MusicDetailVC new];
+        vc.data = [AppQualityInfo mj_objectWithKeyValues:self.qualityList[indexPath.row]];
+        [self doPushViewController:vc animated:YES];
+    }
+}
+
+#pragma mark - UIResponder+Router
+- (void)routerEventWithName:(NSString *)eventName userInfo:(NSObject *)userInfo {
+    if ([eventName isEqualToString:Event_PublicCollectionHeaderTitleViewTapped]) {
+        NSDictionary *m_dic = (NSDictionary *)userInfo;
+        int tag = [m_dic[@"tag"] intValue];
+        if (tag == 1) {
+            RecommendCollegeListVC *vc = [RecommendCollegeListVC new];
+            [self doPushViewController:vc animated:YES];
+        }
+        else if (tag == 2) {
+            BetterListVC *vc = [BetterListVC new];
+            [self doPushViewController:vc animated:YES];
+        }
+    }
 }
 
 @end
