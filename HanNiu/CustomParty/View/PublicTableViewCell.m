@@ -22,7 +22,6 @@
         _titleLabel.numberOfLines = 0;
         [self.contentView addSubview:_titleLabel];
     }
-    
     return self;
 }
 

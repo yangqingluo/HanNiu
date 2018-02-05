@@ -112,6 +112,15 @@
     return m_string;
 }
 
+- (NSArray *)picsAddressListForPics {
+    NSArray *m_array = [self.Pics componentsSeparatedByString:@"|"];
+    NSMutableArray *addressList = [NSMutableArray arrayWithCapacity:m_array.count];
+    for (NSString *pID in m_array) {
+        [addressList addObject:fileURLStringWithPID(pID)];
+    }
+    return addressList;
+}
+
 @end
 
 

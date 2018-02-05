@@ -137,6 +137,7 @@
 
 - (NSString *)showStringForTags;
 - (NSString *)showStringForAddr;
+- (NSArray *)picsAddressListForPics;
 
 @end
 

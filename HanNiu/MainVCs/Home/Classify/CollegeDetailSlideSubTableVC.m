@@ -11,9 +11,11 @@
 #import "SchoolDetailVC.h"
 
 #import "QualityCell.h"
+#import "PublicThreeImageButtonCell.h"
 #import "CollegeIntroduceHeaderView.h"
 
 #import "UIImageView+WebCache.h"
+#import "PublicMessageReadManager.h"
 
 @interface CollegeDetailSlideSubTableVC ()
 
@@ -58,13 +60,14 @@
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
+            if (isReset) {
+                [weakself.dataSource removeAllObjects];
+            }
             if (self.indextag == 0) {
                 weakself.detailData = [AppCollegeInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+                [weakself.dataSource addObject:[AppCollegeInfo mj_objectWithKeyValues:responseBody[@"Data"]]];
             }
             else {
-                if (isReset) {
-                    [weakself.dataSource removeAllObjects];
-                }
                 [weakself.dataSource addObjectsFromArray:[AppQualityInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
             }
         }
@@ -120,11 +123,23 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.indextag == 0) {
+        return [PublicThreeImageButtonCell tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
     return [QualityCell tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"show_cell";
+    if (self.indextag == 0) {
+        PublicThreeImageButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!cell) {
+            cell = [[PublicThreeImageButtonCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        cell.data = self.detailData.picsAddressListForPics;
+        return cell;
+    }
     QualityCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[QualityCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
@@ -142,6 +157,15 @@
         [self doPushViewController:vc animated:YES];
     }
     
+}
+
+#pragma mark - UIResponder+Router
+- (void)routerEventWithName:(NSString *)eventName userInfo:(NSObject *)userInfo {
+    if ([eventName isEqualToString:Event_PublicThreeImageButtonCellButtonClicked]) {
+        NSDictionary *m_dic = (NSDictionary *)userInfo;
+        int tag = [m_dic[@"tag"] intValue];
+        [[PublicMessageReadManager defaultManager] showBrowserWithImages:self.detailData.picsAddressListForPics currentPhotoIndex:tag];
+    }
 }
 
 @end

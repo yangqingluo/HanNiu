@@ -29,7 +29,13 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
     [self.collectionView registerClass:[PublicCollectionCell class] forCellWithReuseIdentifier:reuseId_cell_school];
     
     [self updateScrollViewHeader];
-    [self pullBaseListData:YES];
+}
+
+- (void)becomeListed {
+    NSDate *lastRefreshTime = [[NSUserDefaults standardUserDefaults] objectForKey:self.dateKey];
+    if (self.isResetCondition || self.needRefresh || !self.universityList.count || !self.qualityList.count || !lastRefreshTime || [lastRefreshTime timeIntervalSinceNow] < -appRefreshTime) {
+        [self beginRefreshing];
+    }
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
