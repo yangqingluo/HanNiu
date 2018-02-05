@@ -8,6 +8,8 @@
 
 #import "PublicCollectionHeaderTitleView.h"
 
+#import "UIResponder+Router.h"
+
 @implementation PublicCollectionHeaderTitleView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -26,8 +28,19 @@
         
         _titleLabel = NewLabel(CGRectMake(leftImageView.right + kEdgeMiddle, 0,  _rightImageView.left - leftImageView.right - 2 * kEdgeMiddle, self.height), nil, nil, NSTextAlignmentLeft);
         [self addSubview:_titleLabel];
+        
+        _subTitleLabel = NewLabel(CGRectMake(_rightImageView.left - 80 - kEdge, _titleLabel.top,  80, _titleLabel.height), [UIColor grayColor], [AppPublic appFontOfSize:appLabelFontSizeSmall], NSTextAlignmentRight);
+        [self addSubview:_subTitleLabel];
+        
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureAction)];
+        [self addGestureRecognizer:gesture];
     }
     return self;
+}
+
+- (void)tapGestureAction {
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"tag" : @(self.tag)}];
+    [self routerEventWithName:Event_PublicCollectionHeaderTitleViewTapped userInfo:[NSDictionary dictionaryWithDictionary:m_dic]];
 }
 
 @end

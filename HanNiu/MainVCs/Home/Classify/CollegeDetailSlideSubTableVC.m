@@ -13,6 +13,7 @@
 #import "QualityCell.h"
 #import "PublicThreeImageButtonCell.h"
 #import "CollegeIntroduceHeaderView.h"
+#import "PublicCollectionHeaderTitleView.h"
 
 #import "UIImageView+WebCache.h"
 #import "PublicMessageReadManager.h"
@@ -28,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self updateTableViewHeader];
     if (self.indextag == 0) {
         self.tableView.tableHeaderView = self.headerView;
@@ -129,6 +131,24 @@
     return [QualityCell tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (self.indextag == 0) {
+        return kCellHeight;
+    }
+    return 0.01;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (self.indextag == 0) {
+        PublicCollectionHeaderTitleView *m_view = [[PublicCollectionHeaderTitleView alloc] initWithFrame:CGRectMake(0, 0, screen_width, kCellHeight)];
+        m_view.titleLabel.text = @"学校风采";
+        m_view.subTitleLabel.text = @"更多";
+        [m_view addSubview:NewSeparatorLine(CGRectMake(0, 0, m_view.width, appSeparaterLineSize))];
+        return m_view;
+    }
+    return nil;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"show_cell";
     if (self.indextag == 0) {
@@ -165,6 +185,9 @@
         NSDictionary *m_dic = (NSDictionary *)userInfo;
         int tag = [m_dic[@"tag"] intValue];
         [[PublicMessageReadManager defaultManager] showBrowserWithImages:self.detailData.picsAddressListForPics currentPhotoIndex:tag];
+    }
+    else if ([eventName isEqualToString:Event_PublicCollectionHeaderTitleViewTapped]) {
+        [[PublicMessageReadManager defaultManager] showBrowserWithImages:self.detailData.picsAddressListForPics];
     }
 }
 

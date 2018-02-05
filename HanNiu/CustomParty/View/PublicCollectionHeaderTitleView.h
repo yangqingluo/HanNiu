@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#define Event_PublicCollectionHeaderTitleViewTapped @"Event_PublicCollectionHeaderTitleViewTapped"
+
 @interface PublicCollectionHeaderTitleView : UICollectionReusableView
 
 @property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UILabel *subTitleLabel;
 @property (strong, nonatomic) UIImageView *rightImageView;
 
 @end
