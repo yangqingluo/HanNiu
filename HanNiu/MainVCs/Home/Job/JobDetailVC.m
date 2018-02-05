@@ -42,7 +42,19 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        _headerView = [[PublicCollectionHeaderTitleView alloc] initWithFrame:CGRectMake(0, 0, self.width, kCellHeight)];
+        _headerView.rightImageView.hidden = YES;
+        _headerView.titleLabel.text = @"职位描述";
+        [self addSubview:_headerView];
         
+        _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, self.headerView.bottom, self.width, self.height- self.headerView.bottom)];
+        _textView.editable = NO;
+        _textView.textColor = appTextColor;
+        _textView.font = [AppPublic appFontOfSize: appLabelFontSizeSmall];
+        _textView.backgroundColor = [UIColor whiteColor];
+        _textView.textContainerInset = UIEdgeInsetsMake(kEdge, kEdge, kEdge, 0);
+        _textView.scrollIndicatorInsets = UIEdgeInsetsMake(kEdge, 0, kEdge, 0);
+        [self addSubview:_textView];
     }
     return self;
 }
@@ -54,6 +66,7 @@
 
 @property (strong, nonatomic) JobHeaderView *headerView;
 @property (strong, nonatomic) PublicBorderImageAndSubTitleView *companyView;
+@property (strong, nonatomic) JobFooterView *footerView;
 
 @end
 
@@ -70,6 +83,11 @@
     
     [self.view addSubview:self.companyView];
     [self updateCompanyView];
+    
+    self.footerView = [[JobFooterView alloc] initWithFrame:CGRectMake(0, self.companyView.bottom + kEdge, screen_width, self.view.height - TAB_BAR_HEIGHT - (self.companyView.bottom + kEdge))];
+    [self.view addSubview:self.footerView];
+    self.footerView.textView.text = self.data.Introduce;
+    
     [self pullBaseListData:YES];
 }
 

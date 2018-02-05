@@ -28,6 +28,7 @@
 		E404EB4120284FCD00312B4D /* NSAttributedString+JTATEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB3F20284FCD00312B4D /* NSAttributedString+JTATEmoji.m */; };
 		E404EB432028509300312B4D /* Emoji.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E404EB422028509200312B4D /* Emoji.xcassets */; };
 		E404EB4620285C9400312B4D /* PublicImageAndSubTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB4520285C9400312B4D /* PublicImageAndSubTitleView.m */; };
+		E404EB49202898C700312B4D /* CompanyDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB48202898C700312B4D /* CompanyDetailVC.m */; };
 		E410D1A6200CB5EE00C6ACED /* MainTabNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */; };
 		E410D215200CB79100C6ACED /* back_college_list_item_class.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */; };
 		E410D216200CB79100C6ACED /* back_comment_list_input.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A9200CB79000C6ACED /* back_comment_list_input.png */; };
@@ -392,6 +393,8 @@
 		E404EB422028509200312B4D /* Emoji.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Emoji.xcassets; sourceTree = "<group>"; };
 		E404EB4420285C9400312B4D /* PublicImageAndSubTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicImageAndSubTitleView.h; sourceTree = "<group>"; };
 		E404EB4520285C9400312B4D /* PublicImageAndSubTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicImageAndSubTitleView.m; sourceTree = "<group>"; };
+		E404EB47202898C700312B4D /* CompanyDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanyDetailVC.h; sourceTree = "<group>"; };
+		E404EB48202898C700312B4D /* CompanyDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanyDetailVC.m; sourceTree = "<group>"; };
 		E410D1A4200CB5EE00C6ACED /* MainTabNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabNavController.h; sourceTree = "<group>"; };
 		E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabNavController.m; sourceTree = "<group>"; };
 		E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_college_list_item_class.png; sourceTree = "<group>"; };
@@ -947,6 +950,8 @@
 				E402AE752021BE3B00CF1306 /* JobListVC.m */,
 				E404EB3920284AF900312B4D /* JobDetailVC.h */,
 				E404EB3A20284AF900312B4D /* JobDetailVC.m */,
+				E404EB47202898C700312B4D /* CompanyDetailVC.h */,
+				E404EB48202898C700312B4D /* CompanyDetailVC.m */,
 			);
 			path = Job;
 			sourceTree = "<group>";
@@ -2087,6 +2092,7 @@
 				E4A726042028028400E34BEA /* MWTapDetectingImageView.m in Sources */,
 				E4A7260F2028028400E34BEA /* SDWebImagePrefetcher.m in Sources */,
 				E4A725C92028028400E34BEA /* AFNetworkActivityIndicatorManager.m in Sources */,
+				E404EB49202898C700312B4D /* CompanyDetailVC.m in Sources */,
 				E4A725D92028028400E34BEA /* NSObject+MJClass.m in Sources */,
 				E4EE1910200DC97B005BD00F /* PublicTableViewController.m in Sources */,
 				E404EB352028428700312B4D /* RecommendCollegeListVC.m in Sources */,

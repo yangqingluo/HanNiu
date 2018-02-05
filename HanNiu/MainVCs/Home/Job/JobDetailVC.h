@@ -8,7 +8,7 @@
 
 #import "PublicViewController.h"
 
-#import "CollegeIntroduceHeaderView.h"
+#import "PublicCollectionHeaderTitleView.h"
 
 @interface JobHeaderView : UIView
 
@@ -20,7 +20,7 @@
 
 @interface JobFooterView : UIView
 
-@property (strong, nonatomic) CollegeIntroduceHeaderView *headerView;
+@property (strong, nonatomic) PublicCollectionHeaderTitleView *headerView;
 @property (strong, nonatomic) UITextView *textView;
 
 @end
