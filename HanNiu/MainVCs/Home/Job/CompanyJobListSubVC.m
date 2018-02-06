@@ -1,32 +1,34 @@
 //
-//  JobListVC.m
+//  CompanyJobListVC.m
 //  HanNiu
 //
-//  Created by 7kers on 2018/1/31.
+//  Created by 7kers on 2018/2/6.
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "JobListVC.h"
+#import "CompanyJobListSubVC.h"
+#import "CompanyDetailVC.h"
 #import "JobDetailVC.h"
 
-#import "PublicImageTagTitleCell.h"
-#import "UIImageView+WebCache.h"
+#import "PublicImageSubTagTitleCell.h"
 
-@interface JobListVC ()
+#import "NSAttributedString+JTATEmoji.h"
+
+@interface CompanyJobListSubVC ()
 
 @end
 
-@implementation JobListVC
+@implementation CompanyJobListSubVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = self.province.Name;
     [self updateTableViewHeader];
-    [self beginRefreshing];
+    
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"area" : self.province.Id}];
+    CompanyDetailVC *p_VC = (CompanyDetailVC *)self.parentVC;
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"companyId" : p_VC.data.Id}];
     QKWEAKSELF;
     [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Job/Job/List" completion:^(id responseBody, NSError *error){
         [weakself endRefreshing];
@@ -49,23 +51,31 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [PublicImageTagTitleCell tableView:tableView heightForRowAtIndexPath:indexPath];
+    return [PublicImageSubTagTitleCell tableView:tableView heightForRowAtIndexPath:indexPath] + kEdge;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"show_cell";
-    PublicImageTagTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PublicImageSubTagTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[PublicImageTagTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[PublicImageSubTagTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.subTitleLabel.textColor = appTextColor;
+        
+        cell.showImageView.hidden = YES;
+        cell.titleLabel.left = cell.showImageView.left;
+        cell.subTitleLabel.left = cell.titleLabel.left;
+        cell.tagLabel.left = cell.titleLabel.left;
+        cell.tagLabel.top = cell.subTitleLabel.bottom;
+        cell.subTagLabel.frame = CGRectMake(kEdgeMiddle, cell.titleLabel.top, screen_width - 2 * kEdgeMiddle, cell.titleLabel.height);
+        cell.subTagLabel.textAlignment = NSTextAlignmentRight;
+        cell.subTagLabel.textColor = appMainColor;
     }
     
     AppJobInfo *item = self.dataSource[indexPath.row];
-    [cell.showImageView sd_setImageWithURL:fileURLWithPID(item.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     cell.titleLabel.text = item.Name;
-    cell.subTitleLabel.text = item.Salary;
+    cell.subTitleLabel.attributedText = [NSAttributedString emojiAttributedString:[NSString stringWithFormat:@"[place] %@　[place] %@　[place] %@及以上", item.Area, item.Exp, item.Edu] withFont:cell.subTitleLabel.font];
     cell.tagLabel.text = item.Company.Name;
+    cell.subTagLabel.text = item.Salary;
     
     return cell;
 }
@@ -75,7 +85,6 @@
     
     JobDetailVC *vc = [JobDetailVC new];
     vc.data = self.dataSource[indexPath.row];
-    vc.showCompany = YES;
     [self doPushViewController:vc animated:YES];
 }
 

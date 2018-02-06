@@ -25,6 +25,9 @@
 @property (strong, nonatomic) NSString *Name;
 @property (strong, nonatomic) NSString *Image;
 
+@property (strong, nonatomic) NSString *Pics;
+- (NSArray *)picsAddressListForPics;
+
 @end
 
 @interface AppUserInfo : AppType
@@ -144,14 +147,12 @@
 
 @property (strong, nonatomic) NSString *Addr;//阿里地址库ID
 @property (strong, nonatomic) NSString *Tags;
-@property (strong, nonatomic) NSString *Pics;
 @property (strong, nonatomic) NSString *Web;//不可出现非外链图片, 同DetailHtml?
 @property (strong, nonatomic) NSString *DetailHtml;//
 @property (strong, nonatomic) NSString *DetailFiles;//
 
 - (NSString *)showStringForTags;
 - (NSString *)showStringForAddr;
-- (NSArray *)picsAddressListForPics;
 
 @end
 

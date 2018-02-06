@@ -289,7 +289,7 @@ static const NSUInteger kTagOfRightSideButton = 999;
     if (!sender.selected) {
         sender.selected = YES;
         
-        [UIView animateWithDuration:0.1 animations:^{
+        [UIView animateWithDuration:0.01 animations:^{
             _shadowImageView.frame = CGRectMake(sender.frame.origin.x + 0.5 * (1 - shadowWidthScale) * sender.frame.size.width, _shadowImageView.frame.origin.y, shadowWidthScale * sender.frame.size.width, _shadowImageView.frame.size.height);
             
         } completion:^(BOOL finished) {

@@ -42,6 +42,7 @@ typedef NS_ENUM(NSUInteger, AdTitleShowStyle)
 - (void)start;
 
 - (void)updateAdvertisements:(NSArray *)list;
+- (void)updateImages:(NSArray *)list;
 
 + (CGSize)adSize;
 

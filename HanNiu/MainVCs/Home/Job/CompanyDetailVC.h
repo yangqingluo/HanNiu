@@ -10,4 +10,6 @@
 
 @interface CompanyDetailVC : PublicSlideViewController
 
+@property (copy, nonatomic) AppCompanyInfo *data;
+
 @end

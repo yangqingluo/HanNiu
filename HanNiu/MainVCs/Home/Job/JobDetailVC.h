@@ -28,5 +28,7 @@
 @interface JobDetailVC : PublicViewController
 
 @property (copy, nonatomic) AppJobInfo *data;
+@property (assign, nonatomic) BOOL showCompany;
+
 
 @end

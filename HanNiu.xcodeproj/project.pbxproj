@@ -160,6 +160,8 @@
 		E469F15E2017707C000B3C04 /* PublicSlideSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F15D2017707C000B3C04 /* PublicSlideSwitchView.m */; };
 		E469F16120182F65000B3C04 /* PublicSlideSubCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F16020182F65000B3C04 /* PublicSlideSubCollectionVC.m */; };
 		E469F167201837D1000B3C04 /* province.txt in Resources */ = {isa = PBXBuildFile; fileRef = E469F166201837D1000B3C04 /* province.txt */; };
+		E471FADA2029795D0088AD9C /* CompanyIntroduceSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E471FAD92029795D0088AD9C /* CompanyIntroduceSubVC.m */; };
+		E471FADD2029797B0088AD9C /* CompanyJobListSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E471FADC2029797B0088AD9C /* CompanyJobListSubVC.m */; };
 		E47632922026BAB400F922E6 /* SchoolDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E47632912026BAB400F922E6 /* SchoolDetailVC.m */; };
 		E47887D8200C48D6009C86A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887D7200C48D6009C86A7 /* main.m */; };
 		E47887DB200C48D6009C86A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E47887DA200C48D6009C86A7 /* AppDelegate.m */; };
@@ -546,6 +548,10 @@
 		E469F15F20182F65000B3C04 /* PublicSlideSubCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicSlideSubCollectionVC.h; sourceTree = "<group>"; };
 		E469F16020182F65000B3C04 /* PublicSlideSubCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicSlideSubCollectionVC.m; sourceTree = "<group>"; };
 		E469F166201837D1000B3C04 /* province.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = province.txt; sourceTree = "<group>"; };
+		E471FAD82029795D0088AD9C /* CompanyIntroduceSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanyIntroduceSubVC.h; sourceTree = "<group>"; };
+		E471FAD92029795D0088AD9C /* CompanyIntroduceSubVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanyIntroduceSubVC.m; sourceTree = "<group>"; };
+		E471FADB2029797A0088AD9C /* CompanyJobListSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanyJobListSubVC.h; sourceTree = "<group>"; };
+		E471FADC2029797B0088AD9C /* CompanyJobListSubVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanyJobListSubVC.m; sourceTree = "<group>"; };
 		E47632902026BAB400F922E6 /* SchoolDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolDetailVC.h; sourceTree = "<group>"; };
 		E47632912026BAB400F922E6 /* SchoolDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolDetailVC.m; sourceTree = "<group>"; };
 		E47887D3200C48D6009C86A7 /* HanNiu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanNiu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -952,6 +958,10 @@
 				E404EB3A20284AF900312B4D /* JobDetailVC.m */,
 				E404EB47202898C700312B4D /* CompanyDetailVC.h */,
 				E404EB48202898C700312B4D /* CompanyDetailVC.m */,
+				E471FAD82029795D0088AD9C /* CompanyIntroduceSubVC.h */,
+				E471FAD92029795D0088AD9C /* CompanyIntroduceSubVC.m */,
+				E471FADB2029797A0088AD9C /* CompanyJobListSubVC.h */,
+				E471FADC2029797B0088AD9C /* CompanyJobListSubVC.m */,
 			);
 			path = Job;
 			sourceTree = "<group>";
@@ -2052,6 +2062,7 @@
 				E4B3CB27200D94E9006807AE /* UIImage+SubImage.m in Sources */,
 				E4A726372028028400E34BEA /* UIScrollView+MJExtension.m in Sources */,
 				E402AE812021BE3C00CF1306 /* HomeJobVC.m in Sources */,
+				E471FADA2029795D0088AD9C /* CompanyIntroduceSubVC.m in Sources */,
 				E402AE7A2021BE3C00CF1306 /* HomeBetterVC.m in Sources */,
 				E469F15520170689000B3C04 /* PublicCollectionCell.m in Sources */,
 				E4A726252028028400E34BEA /* BlockActionSheet.m in Sources */,
@@ -2110,6 +2121,7 @@
 				E4EE191E200DE8AC005BD00F /* LoginViewController.m in Sources */,
 				E4A725C42028028400E34BEA /* AFURLRequestSerialization.m in Sources */,
 				E4A726342028028400E34BEA /* MJRefreshStateHeader.m in Sources */,
+				E471FADD2029797B0088AD9C /* CompanyJobListSubVC.m in Sources */,
 				E4A7263F202802A800E34BEA /* DACircularProgressView.m in Sources */,
 				E469F1522016E492000B3C04 /* PublicCollectionHeaderAdView.m in Sources */,
 				E4A726152028028400E34BEA /* UIView+WebCacheOperation.m in Sources */,

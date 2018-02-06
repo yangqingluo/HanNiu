@@ -87,6 +87,10 @@
     self.imageNameArray = m_array;
 }
 
+- (void)updateImages:(NSArray *)list {
+    self.imageNameArray = list;
+}
+
 #pragma mark - getter
 + (CGSize)adSize {
     return CGSizeMake(screen_width, screen_width * 1.0 / 2.5);

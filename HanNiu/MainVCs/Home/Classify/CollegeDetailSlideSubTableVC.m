@@ -29,9 +29,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self updateTableViewHeader];
     if (self.indextag == 0) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.tableView.tableHeaderView = self.headerView;
         [self updateHeaderView];
     }
