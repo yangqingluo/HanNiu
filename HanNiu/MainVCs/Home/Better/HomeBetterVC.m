@@ -17,8 +17,23 @@
 
 @implementation HomeBetterVC
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.needRefresh) {
+        [self.dataSource removeAllObjects];
+        [self updateSubviews];
+        [self beginRefreshing];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needRefreshNotification:) name:kNotifi_Login_StateRefresh object:nil];
+    
     self.tableView.tableHeaderView = self.adHeadView;
     [self updateTableViewHeader];
 }
@@ -90,9 +105,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    MusicDetailVC *vc = [MusicDetailVC new];
-    vc.data = self.dataSource[indexPath.row];
-    [self doPushViewController:vc animated:YES];
+    if ([UserPublic getInstance].userData) {
+        MusicDetailVC *vc = [MusicDetailVC new];
+        vc.data = self.dataSource[indexPath.row];
+        [self doPushViewController:vc animated:YES];
+    }
+    else {
+        [[AppPublic getInstance] goToLoginCompletion:nil];
+    }
 }
 
 @end
