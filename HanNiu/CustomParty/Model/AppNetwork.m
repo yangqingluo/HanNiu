@@ -35,9 +35,7 @@
             [manager.requestSerializer setValue:parm[key] forHTTPHeaderField:key];
         }
     }
-    if ([UserPublic getInstance].userData.Token) {
-        [manager.requestSerializer setValue:[NSString stringWithFormat:@" HAuth %@",[UserPublic getInstance].userData.Token] forHTTPHeaderField:@"Authorization"];
-    }
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@" HAuth %@", notNilString([UserPublic getInstance].userData.Token, @"null")] forHTTPHeaderField:@"Authorization"];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"application/json",@"text/json",@"text/javascript",@"text/html", nil];
     return manager;
 }
