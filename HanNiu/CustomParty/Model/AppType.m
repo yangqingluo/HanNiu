@@ -154,3 +154,7 @@
 
 @end
 
+@implementation AppMajorMusicInfo
+
+@end
+

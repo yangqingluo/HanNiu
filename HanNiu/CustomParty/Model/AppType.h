@@ -172,3 +172,12 @@
 @property (strong, nonatomic) NSString *ThirdTagImage;
 
 @end
+
+@interface AppMajorMusicInfo : AppBasicMusicInfo
+
+@property (strong, nonatomic) AppItemInfo *College;
+@property (strong, nonatomic) AppItemInfo *Institute;
+@property (strong, nonatomic) AppMajorDetailInfo *CommonMajor;
+@property (strong, nonatomic) NSString *Grade;
+
+@end
