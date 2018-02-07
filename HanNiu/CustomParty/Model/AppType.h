@@ -181,3 +181,23 @@
 @property (strong, nonatomic) NSString *Grade;
 
 @end
+
+
+@interface AppCommentInfo : AppItemInfo
+
+@property (strong, nonatomic) NSString *UserId;//评论人ID(上传)
+@property (strong, nonatomic) NSString *ToUserId;//被评论人ID
+@property (strong, nonatomic) AppItemInfo *User;//评论人信息
+@property (strong, nonatomic) AppItemInfo *ToUser;//被评论人信息
+@property (strong, nonatomic) NSString *MusicId;//所属Music的ID
+@property (strong, nonatomic) NSString *Content;//正文
+@property (strong, nonatomic) NSString *CreateTime;
+@property (strong, nonatomic) NSString *UpdateTime;
+@property (strong, nonatomic) NSString *LikeCount;//点赞数
+@property (strong, nonatomic) NSString *HasMakeGood;//自己是否点赞(未登录情况下始终为false)
+@property (strong, nonatomic) AppCommentInfo *ToComment;//不含子层级, 不含ToUser,LikeCount,HasMakeGood
+
+- (NSString *)showStringForContent;
+
+@end
+

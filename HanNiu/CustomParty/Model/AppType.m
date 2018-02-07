@@ -158,3 +158,20 @@
 
 @end
 
+@implementation AppCommentInfo
+
+- (NSString *)showStringForContent {
+    NSString *m_string = @"";
+    if (self.ToUser) {
+        m_string = [NSString stringWithFormat:@"@%@：", self.ToUser.Name];
+    }
+    if (self.Content) {
+        m_string = [NSString stringWithFormat:@"%@%@", m_string, self.Content];
+    }
+    
+    return m_string;
+}
+
+
+@end
+

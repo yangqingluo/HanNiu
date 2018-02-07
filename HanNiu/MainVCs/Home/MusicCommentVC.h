@@ -10,4 +10,6 @@
 
 @interface MusicCommentVC : PublicShowTableVC
 
+@property (copy, nonatomic) AppMusicInfo *data;
+
 @end
