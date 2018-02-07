@@ -13,6 +13,7 @@ typedef enum {
     PublicButtonPSMiddleTextRightImageLeft,
     PublicButtonPSMiddleTextUpImageDown,
     PublicButtonPSLeftTextRightImageLeft,
+    PublicButtonPSRightTextLeftImageRight,
 } PublicButtonPositionStyle;
 
 @interface PublicButton : UIButton

@@ -40,7 +40,9 @@ extern PublicMusicPlayerManager *musicPlayer;
     [self.view addSubview:self.playView];
     
     [self.view addSubview:self.textView];
-    self.textView.text = self.data.Introduce;
+    [self updateSubviews];
+//    [self pullBaseListData:YES];
+    
     [musicPlayer resetData:self.data];
 }
 
@@ -77,9 +79,33 @@ extern PublicMusicPlayerManager *musicPlayer;
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-//            [weakself updateSubviews];
+            weakself.data.Music = [AppMusicInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+            [weakself updateSubviews];
         }
     }];
+}
+
+- (void)doMusicCollectionFunction {
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Music.Id, @"like" : stringWithBoolValue(!self.data.Music.IsInCollect)}];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Music/Collection" completion:^(id responseBody, NSError *error){
+        [weakself doHideHudFunction];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            
+        }
+        [weakself updateSubviews];
+    }];
+}
+
+- (void)updateSubviews {
+    self.textView.text = notNilString(self.data.Introduce, @"暂无简介");
+}
+
+- (void)favorButtonAction {
+    [self doMusicCollectionFunction];
 }
 
 #pragma mark - getter
@@ -88,6 +114,7 @@ extern PublicMusicPlayerManager *musicPlayer;
         _playView = [PublicPlayView new];
         _playView.bottom = self.view.height;
         _playView.textField.delegate = self;
+        [_playView.favorBtn addTarget:self action:@selector(favorButtonAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playView;
 }

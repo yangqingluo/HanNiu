@@ -75,6 +75,12 @@
         self.showLabel.left = self.showImageView.right + self.edgeInTextImage;
         self.showLabel.centerY = self.showImageView.centerY;
     }
+    else if (self.positionStyle == PublicButtonPSRightTextLeftImageRight) {
+        self.showImageView.right = self.width;
+        self.showImageView.centerY = 0.5 * self.height;
+        self.showLabel.right = self.showImageView.left - self.edgeInTextImage;
+        self.showLabel.centerY = self.showImageView.centerY;
+    }
 }
 
 #pragma kvo

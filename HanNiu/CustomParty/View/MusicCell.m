@@ -15,7 +15,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         CGFloat m_height = 20.0;
-        self.subTitleLabel.frame = CGRectMake(screen_width - kEdgeMiddle - 120, self.showImageView.centerY + kEdgeSmall, 120, m_height);
+        self.subTitleLabel.frame = CGRectMake(screen_width - kEdgeMiddle - appTimeLabelWidth, self.showImageView.centerY + kEdgeSmall, appTimeLabelWidth, m_height);
         self.subTitleLabel.textAlignment = NSTextAlignmentRight;
         [self.contentView addSubview:self.subTitleLabel];
         

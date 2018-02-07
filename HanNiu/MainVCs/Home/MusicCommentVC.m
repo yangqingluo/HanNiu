@@ -10,8 +10,6 @@
 
 #import "PublicImageTagTitleCell.h"
 
-#import "UIImageView+WebCache.h"
-
 @interface MusicCommentVC ()
 
 @end
@@ -45,33 +43,50 @@
     }];
 }
 
+- (void)doCommentLikeFunction:(NSInteger)row {
+    if (row > self.dataSource.count - 1) {
+        return;
+    }
+    AppCommentInfo *item = self.dataSource[row];
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : item.Id, @"like" : stringWithBoolValue(!item.HasMakeGood)}];
+    //    [self doShowHudFunction];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:@"Music/Comment/Like" completion:^(id responseBody, NSError *error){
+        [weakself endRefreshing];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            
+        }
+        [weakself updateSubviews];
+    }];
+}
+
+- (void)likeButtonAction:(UIButton *)button {
+    [self doCommentLikeFunction:button.tag];
+}
+
 #pragma mark - UITableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataSource.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [PublicImageTagTitleCell tableView:tableView heightForRowAtIndexPath:indexPath];
+    AppCommentInfo *item = self.dataSource[indexPath.row];
+    return [MusicCommentCell tableView:tableView heightForRowAtIndexPath:indexPath andSubTitle:item.showStringForContent];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"show_cell";
-    PublicImageTagTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MusicCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[PublicImageTagTitleCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[MusicCommentCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.titleLabel.height = 0.5 * cell.showImageView.height;
-        cell.subTitleLabel.top = cell.showImageView.centerY + kEdgeSmall;
-        cell.tagLabel.frame = CGRectMake(screen_width - kEdgeMiddle - 120, cell.titleLabel.top, 120, cell.titleLabel.height);
-        cell.tagLabel.textAlignment = NSTextAlignmentRight;
+        [cell.likeBtn addTarget:self action:@selector(likeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
-    
-    AppCommentInfo *item = self.dataSource[indexPath.row];
-    [cell.showImageView sd_setImageWithURL:fileURLWithPID(item.User.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
-    cell.titleLabel.text = item.User.Name;
-    cell.subTitleLabel.text = item.showStringForContent;
-    cell.tagLabel.text = stringFromDate([NSDate dateWithTimeIntervalSince1970:0.001 * [item.UpdateTime integerValue]], @"yyyy.MM.dd");
-    
+    cell.data = self.dataSource[indexPath.row];
+    cell.likeBtn.tag = indexPath.row;
     return cell;
 }
 

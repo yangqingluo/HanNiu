@@ -15,6 +15,10 @@
     return [[self class] mj_objectWithKeyValues:[self mj_keyValues]];
 }
 
+NSString *stringWithBoolValue(BOOL yn) {
+    return yn ? @"true" : @"false";
+}
+
 @end
 
 @implementation AppTime

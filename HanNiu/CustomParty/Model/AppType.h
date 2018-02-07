@@ -10,6 +10,8 @@
 
 @interface AppType : NSObject
 
+NSString *stringWithBoolValue(BOOL yn);
+
 @end
 
 @interface AppTime : NSObject
@@ -194,7 +196,7 @@
 @property (strong, nonatomic) NSString *CreateTime;
 @property (strong, nonatomic) NSString *UpdateTime;
 @property (strong, nonatomic) NSString *LikeCount;//点赞数
-@property (strong, nonatomic) NSString *HasMakeGood;//自己是否点赞(未登录情况下始终为false)
+@property (assign, nonatomic) BOOL HasMakeGood;//自己是否点赞(未登录情况下始终为false)
 @property (strong, nonatomic) AppCommentInfo *ToComment;//不含子层级, 不含ToUser,LikeCount,HasMakeGood
 
 - (NSString *)showStringForContent;
