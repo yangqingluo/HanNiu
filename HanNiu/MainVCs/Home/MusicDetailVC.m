@@ -87,6 +87,7 @@ extern PublicMusicPlayerManager *musicPlayer;
 
 - (void)doMusicCollectionFunction {
     NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Music.Id, @"like" : stringWithBoolValue(!self.data.Music.IsInCollect)}];
+    [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:[NSString stringWithFormat:@"Music/Collection?id=%@&like=%@", m_dic[@"id"], m_dic[@"like"]] completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];

@@ -49,7 +49,7 @@
     }
     AppCommentInfo *item = self.dataSource[row];
     NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : item.Id, @"like" : stringWithBoolValue(!item.HasMakeGood)}];
-    //    [self doShowHudFunction];
+    [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Post:nil HeadParm:nil URLFooter:[NSString stringWithFormat:@"Music/Comment/Like?id=%@&like=%@", m_dic[@"id"], m_dic[@"like"]] completion:^(id responseBody, NSError *error){
         [weakself endRefreshing];

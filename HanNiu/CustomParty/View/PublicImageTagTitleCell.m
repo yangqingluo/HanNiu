@@ -50,7 +50,8 @@
         
         self.subTitleLabel.frame = CGRectMake(self.titleLabel.left, self.showImageView.centerY, self.tagLabel.left - self.titleLabel.left, self.subTitleLabel.height);
         
-        self.likeBtn = [[PublicButton alloc] initWithFrame:CGRectMake(self.tagLabel.left, self.subTitleLabel.top, self.tagLabel.width, self.subTitleLabel.height)];
+        self.likeBtn = [[PublicButton alloc] initWithFrame:CGRectMake(0, 0.4 * self.showImageView.height, 40, 40)];
+        self.likeBtn.right = self.tagLabel.right;
         self.likeBtn.positionStyle = PublicButtonPSRightTextLeftImageRight;
         [self adjustPublicButton:self.likeBtn];
         self.likeBtn.showImageView.image = [UIImage imageNamed:@"icon_good_no"];
@@ -66,6 +67,7 @@
     button.showLabel.frame = CGRectMake(0, 0, button.showImageView.left - button.edgeInTextImage, button.height);
     button.showLabel.textColor = self.subTitleLabel.textColor;
     button.showLabel.font = self.subTitleLabel.font;
+    button.showLabel.numberOfLines = 0;
     button.showLabel.textAlignment = NSTextAlignmentRight;
     [self.contentView addSubview:button];
 }
