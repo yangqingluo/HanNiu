@@ -200,6 +200,7 @@ NSString *stringWithBoolValue(BOOL yn);
 @property (strong, nonatomic) AppCommentInfo *ToComment;//不含子层级, 不含ToUser,LikeCount,HasMakeGood
 
 - (NSString *)showStringForContent;
+- (NSString *)showStringPrefixForRemind;
 
 @end
 

@@ -137,8 +137,7 @@
 }
 
 #pragma mark - UITextViewDelegate
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
-{
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     if ([self.delegate respondsToSelector:@selector(inputTextViewWillBeginEditing:)]) {
         [self.delegate inputTextViewWillBeginEditing:self.inputTextView];
     }
@@ -149,36 +148,36 @@
     return YES;
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
+- (void)textViewDidBeginEditing:(UITextView *)textView {
     [textView becomeFirstResponder];
-    
     if ([self.delegate respondsToSelector:@selector(inputTextViewDidBeginEditing:)]) {
         [self.delegate inputTextViewDidBeginEditing:self.inputTextView];
     }
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
+- (void)textViewDidEndEditing:(UITextView *)textView {
     [textView resignFirstResponder];
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([self.delegate respondsToSelector:@selector(inputTextView:shouldChangeTextInRange:replacementText:)]) {
+        BOOL yn = [self.delegate inputTextView:self.inputTextView shouldChangeTextInRange:range replacementText:text];
+        if (!yn) {
+            return yn;
+        }
+    }
     if ([text isEqualToString:@"\n"]) {
         if ([self.delegate respondsToSelector:@selector(didSendText:)]) {
             [self.delegate didSendText:textView.text];
             self.inputTextView.text = @"";
             [self willShowInputTextViewToHeight:[self getTextViewContentH:self.inputTextView]];;
         }
-        
         return NO;
     }
     return YES;
 }
 
-- (void)textViewDidChange:(UITextView *)textView
-{
+- (void)textViewDidChange:(UITextView *)textView {
     if ([self.delegate respondsToSelector:@selector(inputTextViewDidChange:)]) {
         [self.delegate inputTextViewDidChange:self.inputTextView];
     }

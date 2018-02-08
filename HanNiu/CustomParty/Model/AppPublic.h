@@ -78,7 +78,7 @@
 #define kNameLengthMax                  0x20
 #define kNumberLengthMax                0x09
 #define kPriceLengthMax                 0x06
-#define kInputLengthMax                 0x30
+#define kInputLengthMax                 0x60
 #define kIDLengthMax                    0x12//18位身份证号码
 
 #define appNumberWithoutPoint           @"0123456789"

@@ -146,21 +146,25 @@ typedef enum{
  *
  *  @param inputTextView 输入框对象
  */
-- (void)inputTextViewDidBeginEditing:(PublicMessageTextView *)messageInputTextView;
+- (void)inputTextViewDidBeginEditing:(PublicMessageTextView *)inputTextView;
 
 /**
  *  文字输入框将要开始编辑
  *
  *  @param inputTextView 输入框对象
  */
-- (void)inputTextViewWillBeginEditing:(PublicMessageTextView *)messageInputTextView;
+- (void)inputTextViewWillBeginEditing:(PublicMessageTextView *)inputTextView;
+
+
+- (BOOL)inputTextView:(PublicMessageTextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
+
 
 /**
  *  文字输入框内容发生变化
  *
  *  @param inputTextView 输入框对象
  */
-- (void)inputTextViewDidChange:(PublicMessageTextView *)messageInputTextView;
+- (void)inputTextViewDidChange:(PublicMessageTextView *)inputTextView;
 
 /**
  *  发送文字消息，可能包含系统自带表情

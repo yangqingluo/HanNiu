@@ -176,6 +176,9 @@ NSString *stringWithBoolValue(BOOL yn) {
     return m_string;
 }
 
+- (NSString *)showStringPrefixForRemind {
+    return [NSString stringWithFormat:@"@%@：", self.User.Name];
+}
 
 @end
 

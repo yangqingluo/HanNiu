@@ -16,6 +16,7 @@
 @interface MusicCommentVC ()<PublicMessageToolBarDelegate>
 
 @property (strong, nonatomic) PublicMessageToolBar *messageBar;
+@property (strong, nonatomic) AppCommentInfo *remindOne;
 
 @end
 
@@ -78,7 +79,23 @@
     if (!content.length) {
         return;
     }
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"MusicId" : self.data.Id, @"UserId" : [UserPublic getInstance].userData.Extra.userinfo.ID, @"Content" : content}];
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"MusicId" : self.data.Id, @"UserId" : [UserPublic getInstance].userData.Extra.userinfo.ID}];
+    if (self.remindOne) {
+        [m_dic setObject:self.remindOne.Id forKey:@"CommentId"];
+        [m_dic setObject:self.remindOne.User.Id forKey:@"ToUserId"];
+        
+        NSString *prefix = self.remindOne.showStringPrefixForRemind;
+        if ([content hasPrefix:prefix]) {
+            [m_dic setObject:[content substringFromIndex:prefix.length] forKey:@"Content"];
+        }
+        else {
+            [m_dic setObject:content forKey:@"Content"];
+        }
+        
+    }
+    else {
+        [m_dic setObject:content forKey:@"Content"];
+    }
     [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:@"Music/Comment" completion:^(id responseBody, NSError *error){
@@ -91,6 +108,10 @@
             AppCommentInfo *item = [AppCommentInfo mj_objectWithKeyValues:responseBody[@"Data"]];
             item.User.Name = [[UserPublic getInstance].userData.Extra.userinfo.NickName copy];
             item.User.Image = [[UserPublic getInstance].userData.Extra.userinfo.Image copy];
+            if (weakself.remindOne) {
+                item.ToUser = [weakself.remindOne.User copy];
+                weakself.remindOne = nil;
+            }
             [weakself.dataSource addObject:item];
             [weakself updateSubviews];
 //            [weakself scrollViewToBottom:NO];
@@ -139,6 +160,22 @@
     }
 }
 
+- (void)removeInputCurrentRemindUserName {
+    if (!self.remindOne) {
+        return;
+    }
+    NSString *prefix = self.remindOne.showStringPrefixForRemind;
+    if ([self.messageBar.inputTextView.text hasPrefix:prefix]) {
+        self.messageBar.inputTextView.text = [self.messageBar.inputTextView.text substringFromIndex:prefix.length];
+    }
+    self.remindOne = nil;
+}
+
+- (void)addInputCurrentRemindUserName {
+    NSString *prefix = self.remindOne.showStringPrefixForRemind;
+    self.messageBar.inputTextView.text = [NSString stringWithFormat:@"%@%@", prefix, self.messageBar.inputTextView.text];
+}
+
 #pragma mark - getter
 - (PublicMessageToolBar *)messageBar {
     if (!_messageBar) {
@@ -168,7 +205,7 @@
     MusicCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[MusicCommentCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell.likeBtn addTarget:self action:@selector(likeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     cell.data = self.dataSource[indexPath.row];
@@ -177,9 +214,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    
+    AppCommentInfo *item = self.dataSource[indexPath.row];
+    if (![item.Id isEqualToString:self.remindOne.Id]) {
+        [self removeInputCurrentRemindUserName];
+        self.remindOne = item;
+        [self addInputCurrentRemindUserName];
+    }
 }
 
 #pragma mark - PublicMessageToolBarDelegate
@@ -202,10 +244,28 @@
     }
 }
 
+- (BOOL)inputTextView:(PublicMessageTextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if (self.remindOne) {
+        NSString *prefix = [NSString stringWithFormat:@"@%@：", self.remindOne.User.Name];
+        if ([text isEqualToString:@""]) {
+            if (range.location + range.length <= prefix.length) {
+                [self removeInputCurrentRemindUserName];
+                return NO;
+            }
+        }
+        else {
+            if (range.location + range.length < prefix.length) {
+                return NO;
+            }
+        }
+    }
+    return YES;
+}
+
 - (void)inputTextViewDidChange:(PublicMessageTextView *)messageInputTextView {
-//    if (messageInputTextView.text.length > 100){
-//        messageInputTextView.text = [messageInputTextView.text substringToIndex:100];
-//    }
+    if (messageInputTextView.text.length > kInputLengthMax){
+        messageInputTextView.text = [messageInputTextView.text substringToIndex:kInputLengthMax];
+    }
 }
 
 @end
