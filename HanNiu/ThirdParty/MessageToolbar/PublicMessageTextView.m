@@ -36,7 +36,7 @@
 {
     UIEdgeInsets insets = s;
     
-    if(s.bottom>8) insets.bottom = 0;
+    if(s.bottom > 8) insets.bottom = 0;
     insets.top = 0;
     
     [super setContentInset:insets];
@@ -181,8 +181,8 @@
     [super drawRect:rect];
     
     if([self.text length] == 0 && self.placeHolder) {
-        CGRect placeHolderRect = CGRectMake(10.0f,
-                                            7.0f,
+        CGRect placeHolderRect = CGRectMake(5.0f,
+                                            8.0f,
                                             rect.size.width,
                                             rect.size.height);
         

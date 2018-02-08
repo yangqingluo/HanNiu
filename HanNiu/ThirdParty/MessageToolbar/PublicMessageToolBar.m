@@ -44,8 +44,7 @@
 
 @implementation PublicMessageToolBar
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     if (frame.size.height < (kVerticalPadding * 2 + kInputTextViewMinHeight)) {
         frame.size.height = kVerticalPadding * 2 + kInputTextViewMinHeight;
     }
@@ -57,23 +56,21 @@
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame type:(ToolButtonType)type{
-    self = [[PublicMessageToolBar alloc]initWithFrame:frame];
+- (instancetype)initWithFrame:(CGRect)frame type:(ToolButtonType)type {
+    self = [[PublicMessageToolBar alloc] initWithFrame:frame];
     self.toolButtonType = type;
     
     return self;
 }
 
-- (void)setFrame:(CGRect)frame
-{
+- (void)setFrame:(CGRect)frame {
     if (frame.size.height < (kVerticalPadding * 2 + kInputTextViewMinHeight)) {
         frame.size.height = kVerticalPadding * 2 + kInputTextViewMinHeight;
     }
     [super setFrame:frame];
 }
 
-- (void)willMoveToSuperview:(UIView *)newSuperview
-{
+- (void)willMoveToSuperview:(UIView *)newSuperview {
     // 当别的地方需要add的时候，就会调用这里
     if (newSuperview) {
         [self setupSubviews];
@@ -82,13 +79,11 @@
     [super willMoveToSuperview:newSuperview];
 }
 
-- (void)didMoveToSuperview
-{
+- (void)didMoveToSuperview {
     [super didMoveToSuperview];
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
     
     _delegate = nil;
@@ -97,15 +92,12 @@
 }
 
 #pragma mark - getter
-
-- (UIImageView *)backgroundImageView
-{
+- (UIImageView *)backgroundImageView {
     if (_backgroundImageView == nil) {
         _backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _backgroundImageView.backgroundColor = [UIColor clearColor];
+        _backgroundImageView.backgroundColor = [UIColor whiteColor];
         _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }
-    
     return _backgroundImageView;
 }
 
@@ -127,21 +119,17 @@
 }
 
 #pragma mark - setter
-
-- (void)setBackgroundImage:(UIImage *)backgroundImage
-{
+- (void)setBackgroundImage:(UIImage *)backgroundImage {
     _backgroundImage = backgroundImage;
     self.backgroundImageView.image = backgroundImage;
 }
 
-- (void)setToolbarBackgroundImage:(UIImage *)toolbarBackgroundImage
-{
+- (void)setToolbarBackgroundImage:(UIImage *)toolbarBackgroundImage {
     _toolbarBackgroundImage = toolbarBackgroundImage;
     self.toolbarBackgroundImageView.image = toolbarBackgroundImage;
 }
 
-- (void)setMaxTextInputViewHeight:(CGFloat)maxTextInputViewHeight
-{
+- (void)setMaxTextInputViewHeight:(CGFloat)maxTextInputViewHeight {
     if (maxTextInputViewHeight > kInputTextViewMaxHeight) {
         maxTextInputViewHeight = kInputTextViewMaxHeight;
     }
@@ -149,7 +137,6 @@
 }
 
 #pragma mark - UITextViewDelegate
-
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     if ([self.delegate respondsToSelector:@selector(inputTextViewWillBeginEditing:)]) {
@@ -275,7 +262,6 @@
     self.toolbarView.frame = CGRectMake(0, 0, self.frame.size.width, kVerticalPadding * 2 + kInputTextViewMinHeight);
     self.toolbarBackgroundImageView.frame = self.toolbarView.bounds;
     [self.toolbarView addSubview:self.toolbarBackgroundImageView];
-    [self.toolbarView addSubview:NewSeparatorLine(CGRectMake(0, 0, self.toolbarView.width, appSeparaterLineSize))];
     [self addSubview:self.toolbarView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
@@ -283,38 +269,39 @@
 
 - (void)setupSubviews {
     CGFloat allButtonWidth = 0.0;
-    CGFloat textViewLeftMargin = 6.0;
+    CGFloat textViewLeftMargin = 12.0;
     
-    //转变输入样式
-    self.styleChangeButton = [[UIButton alloc] initWithFrame:CGRectMake(kHorizontalPadding, kVerticalPadding, kInputTextViewMinHeight, kInputTextViewMinHeight)];
-    self.styleChangeButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    [self.styleChangeButton setImage:[UIImage imageNamed:@"chatBar_record"] forState:UIControlStateNormal];
-    [self.styleChangeButton setImage:[UIImage imageNamed:@"chatBar_keyboard"] forState:UIControlStateSelected];
-    [self.styleChangeButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.styleChangeButton.tag = 0;
-    allButtonWidth += CGRectGetMaxX(self.styleChangeButton.frame);
-    textViewLeftMargin += CGRectGetMaxX(self.styleChangeButton.frame);
-    
-    //更多
-    self.moreButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.bounds) - kHorizontalPadding - kInputTextViewMinHeight, kVerticalPadding, kInputTextViewMinHeight, kInputTextViewMinHeight)];
-    self.moreButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
-    [self.moreButton setImage:[UIImage imageNamed:@"chatBar_more"] forState:UIControlStateNormal];
-    [self.moreButton setImage:[UIImage imageNamed:@"chatBar_moreSelected"] forState:UIControlStateHighlighted];
-    [self.moreButton setImage:[UIImage imageNamed:@"chatBar_keyboard"] forState:UIControlStateSelected];
-    [self.moreButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.moreButton.tag = 2;
-    allButtonWidth += CGRectGetWidth(self.moreButton.frame) + kHorizontalPadding * 2.5;
-    
-    //表情
-    self.faceButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.moreButton.frame) - kInputTextViewMinHeight - kHorizontalPadding, kVerticalPadding, kInputTextViewMinHeight, kInputTextViewMinHeight)];
-    self.faceButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
-    [self.faceButton setImage:[UIImage imageNamed:@"chatBar_face"] forState:UIControlStateNormal];
-    [self.faceButton setImage:[UIImage imageNamed:@"chatBar_faceSelected"] forState:UIControlStateHighlighted];
-    [self.faceButton setImage:[UIImage imageNamed:@"chatBar_keyboard"] forState:UIControlStateSelected];
-    [self.faceButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.faceButton.tag = 1;
-    allButtonWidth += CGRectGetWidth(self.faceButton.frame) + kHorizontalPadding * 1.5;
-    
+    if (self.toolButtonType != ToolButtonTypeSendOnly) {
+        //转变输入样式
+        self.styleChangeButton = [[UIButton alloc] initWithFrame:CGRectMake(kHorizontalPadding, kVerticalPadding, kInputTextViewMinHeight, kInputTextViewMinHeight)];
+        self.styleChangeButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        [self.styleChangeButton setImage:[UIImage imageNamed:@"chatBar_record"] forState:UIControlStateNormal];
+        [self.styleChangeButton setImage:[UIImage imageNamed:@"chatBar_keyboard"] forState:UIControlStateSelected];
+        [self.styleChangeButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+        self.styleChangeButton.tag = 0;
+        allButtonWidth += CGRectGetMaxX(self.styleChangeButton.frame);
+        textViewLeftMargin += CGRectGetMaxX(self.styleChangeButton.frame);
+        
+        //更多
+        self.moreButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.bounds) - kHorizontalPadding - kInputTextViewMinHeight, kVerticalPadding, kInputTextViewMinHeight, kInputTextViewMinHeight)];
+        self.moreButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
+        [self.moreButton setImage:[UIImage imageNamed:@"chatBar_more"] forState:UIControlStateNormal];
+        [self.moreButton setImage:[UIImage imageNamed:@"chatBar_moreSelected"] forState:UIControlStateHighlighted];
+        [self.moreButton setImage:[UIImage imageNamed:@"chatBar_keyboard"] forState:UIControlStateSelected];
+        [self.moreButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+        self.moreButton.tag = 2;
+        allButtonWidth += CGRectGetWidth(self.moreButton.frame) + kHorizontalPadding * 2.5;
+        
+        //表情
+        self.faceButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.moreButton.frame) - kInputTextViewMinHeight - kHorizontalPadding, kVerticalPadding, kInputTextViewMinHeight, kInputTextViewMinHeight)];
+        self.faceButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
+        [self.faceButton setImage:[UIImage imageNamed:@"chatBar_face"] forState:UIControlStateNormal];
+        [self.faceButton setImage:[UIImage imageNamed:@"chatBar_faceSelected"] forState:UIControlStateHighlighted];
+        [self.faceButton setImage:[UIImage imageNamed:@"chatBar_keyboard"] forState:UIControlStateSelected];
+        [self.faceButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+        self.faceButton.tag = 1;
+        allButtonWidth += CGRectGetWidth(self.faceButton.frame) + kHorizontalPadding * 1.5;
+    }
     
     // 输入框的高度和宽度
     CGFloat width = CGRectGetWidth(self.bounds) - (allButtonWidth ? allButtonWidth : (textViewLeftMargin * 2));
@@ -325,11 +312,12 @@
     _inputTextView.scrollEnabled = YES;
     _inputTextView.returnKeyType = UIReturnKeySend;
     _inputTextView.enablesReturnKeyAutomatically = YES; // UITextView内部判断send按钮是否可以用
+    _inputTextView.placeHolder = NSLocalizedString(@"message.toolBar.inputPlaceHolder", @"input a new message");
     _inputTextView.delegate = self;
     _inputTextView.backgroundColor = [UIColor clearColor];
-    _inputTextView.layer.borderColor = [UIColor colorWithWhite:0.8f alpha:1.0f].CGColor;
-    _inputTextView.layer.borderWidth = 0.65f;
-    _inputTextView.layer.cornerRadius = 6.0f;
+//    _inputTextView.layer.borderColor = [UIColor colorWithWhite:0.8f alpha:1.0f].CGColor;
+//    _inputTextView.layer.borderWidth = 0.65f;
+//    _inputTextView.layer.cornerRadius = 6.0f;
     _previousTextViewContentHeight = [self getTextViewContentH:_inputTextView];
     
     //录制

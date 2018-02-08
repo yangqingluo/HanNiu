@@ -317,7 +317,7 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
 
 //切圆角
 + (void)roundCornerRadius:(UIView *)view {
-    [AppPublic roundCornerRadius:view cornerRadius:0.5 * MAX(view.width, view.height)];
+    [AppPublic roundCornerRadius:view cornerRadius:0.5 * MIN(view.width, view.height)];
 }
 
 + (void)roundCornerRadius:(UIView *)view cornerRadius:(CGFloat)radius {

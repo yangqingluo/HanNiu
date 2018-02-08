@@ -19,7 +19,7 @@
 #import "DXRecordView.h"
 
 #define kInputTextViewMinHeight 36
-#define kInputTextViewMaxHeight 200
+#define kInputTextViewMaxHeight 36
 #define kHorizontalPadding 8
 #define kVerticalPadding 5
 
@@ -29,6 +29,7 @@
 typedef enum{
     ToolButtonTypeAll = 0,
     ToolButtonTypeFaceOnly,
+    ToolButtonTypeSendOnly,
 }ToolButtonType;
 
 
