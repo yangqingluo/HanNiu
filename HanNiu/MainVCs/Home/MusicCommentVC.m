@@ -49,6 +49,7 @@
     [sendBtn setImage:[UIImage imageNamed:@"icon_send_comment"] forState:UIControlStateNormal];
     sendBtn.right = self.messageBar.inputTextView.right;
     sendBtn.centerY = self.messageBar.inputTextView.centerY;
+    [sendBtn addTarget:self action:@selector(sendButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.messageBar addSubview:sendBtn];
     
     [self.messageBar addSubview:NewSeparatorLine(CGRectMake(0, 0, self.messageBar.width, appSeparaterLineSize))];
@@ -68,8 +69,32 @@
                 [weakself.dataSource removeAllObjects];
             }
             [weakself.dataSource addObjectsFromArray:[AppCommentInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself updateSubviews];
         }
-        [weakself updateSubviews];
+    }];
+}
+
+- (void)doCommentPublishFunction:(NSString *)content {
+    if (!content.length) {
+        return;
+    }
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"MusicId" : self.data.Id, @"UserId" : [UserPublic getInstance].userData.Extra.userinfo.ID, @"Content" : content}];
+    [self doShowHudFunction];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:@"Music/Comment" completion:^(id responseBody, NSError *error){
+        [weakself endRefreshing];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            weakself.messageBar.inputTextView.text = @"";
+            AppCommentInfo *item = [AppCommentInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+            item.User.Name = [[UserPublic getInstance].userData.Extra.userinfo.NickName copy];
+            item.User.Image = [[UserPublic getInstance].userData.Extra.userinfo.Image copy];
+            [weakself.dataSource addObject:item];
+            [weakself updateSubviews];
+//            [weakself scrollViewToBottom:NO];
+        }
     }];
 }
 
@@ -97,13 +122,6 @@
             [weakself.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:row inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         }
     }];
-}
-
-- (void)doCommentPublishFunction:(NSString *)content {
-    if (!content.length) {
-        return;
-    }
-    
 }
 
 - (void)sendButtonAction:(UIButton *)button {
@@ -175,7 +193,8 @@
         rect.origin.y = self.navigationBarView.bottom;
         rect.size.height = self.view.frame.size.height - self.navigationBarView.bottom - toHeight;
         self.tableView.frame = rect;
-    }];}
+    }];
+}
 
 - (void)didSendText:(NSString *)text {
     if (text && text.length > 0) {
