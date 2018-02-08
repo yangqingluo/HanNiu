@@ -66,8 +66,8 @@ extern PublicMusicPlayerManager *musicPlayer;
     _favorBtn = NewButton(_listBtn.frame, @"收藏", _listBtn.titleLabel.textColor, _listBtn.titleLabel.font);
     _favorBtn.centerY = _listBtn.centerY;
     _favorBtn.right = self.baseView.width - kEdgeBig;
-    [_favorBtn setImage:[UIImage imageNamed:@"icon_not_collect"] forState:UIControlStateNormal];
     [self.baseView addSubview:_favorBtn];
+    [self updateFavorButtonInCollection:NO];
     [_favorBtn verticalImageAndTitle:m_edge];
     
     _startLabel = NewLabel(CGRectMake(kEdgeSmall, 0.5 * self.progressSlider.height, 40, 10), [UIColor grayColor], [AppPublic appFontOfSize:8.0], NSTextAlignmentLeft);
@@ -137,6 +137,10 @@ extern PublicMusicPlayerManager *musicPlayer;
     if (musicPlayer.state == PlayerManagerStatePause) {
         [musicPlayer play];
     }
+}
+
+- (void)updateFavorButtonInCollection:(BOOL)isInCollect {
+    [_favorBtn setImage:[UIImage imageNamed:isInCollect ? @"icon_collected@2x" : @"icon_not_collect"] forState:UIControlStateNormal];
 }
 
 #pragma mark - 更新播放时间

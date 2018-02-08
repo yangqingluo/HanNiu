@@ -51,15 +51,21 @@
     NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : item.Id, @"like" : stringWithBoolValue(!item.HasMakeGood)}];
     //    [self doShowHudFunction];
     QKWEAKSELF;
-    [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:@"Music/Comment/Like" completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Post:nil HeadParm:nil URLFooter:[NSString stringWithFormat:@"Music/Comment/Like?id=%@&like=%@", m_dic[@"id"], m_dic[@"like"]] completion:^(id responseBody, NSError *error){
         [weakself endRefreshing];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            
+            item.HasMakeGood = !item.HasMakeGood;
+            if (item.HasMakeGood) {
+                item.LikeCount++;
+            }
+            else {
+                item.LikeCount--;
+            }
+            [weakself.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:row inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         }
-        [weakself updateSubviews];
     }];
 }
 

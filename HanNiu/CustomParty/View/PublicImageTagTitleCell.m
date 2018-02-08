@@ -82,7 +82,7 @@
     [self.showImageView sd_setImageWithURL:fileURLWithPID(_data.User.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     self.titleLabel.text = _data.User.Name;
     self.tagLabel.text = stringFromDate([NSDate dateWithTimeIntervalSince1970:0.001 * [_data.UpdateTime integerValue]], @"yyyy.MM.dd");
-    self.likeBtn.showLabel.text = _data.LikeCount;
+    self.likeBtn.showLabel.text = [NSString stringWithFormat:@"%d", _data.LikeCount];
     self.likeBtn.selected = _data.HasMakeGood;
     self.subTitleLabel.text = _data.showStringForContent;
     [AppPublic adjustLabelHeight:self.subTitleLabel];

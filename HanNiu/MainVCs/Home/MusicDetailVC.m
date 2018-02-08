@@ -88,13 +88,13 @@ extern PublicMusicPlayerManager *musicPlayer;
 - (void)doMusicCollectionFunction {
     NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Music.Id, @"like" : stringWithBoolValue(!self.data.Music.IsInCollect)}];
     QKWEAKSELF;
-    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Music/Collection" completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:[NSString stringWithFormat:@"Music/Collection?id=%@&like=%@", m_dic[@"id"], m_dic[@"like"]] completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            
+            self.data.Music.IsInCollect = !self.data.Music.IsInCollect;
         }
         [weakself updateSubviews];
     }];
@@ -102,6 +102,7 @@ extern PublicMusicPlayerManager *musicPlayer;
 
 - (void)updateSubviews {
     self.textView.text = notNilString(self.data.Introduce, @"暂无简介");
+    [self.playView updateFavorButtonInCollection:self.data.Music.IsInCollect];
 }
 
 - (void)favorButtonAction {

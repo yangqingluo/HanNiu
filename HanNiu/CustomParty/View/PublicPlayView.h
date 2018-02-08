@@ -27,4 +27,6 @@
 
 @property (strong, nonatomic) id playerTimeObserver;
 
+- (void)updateFavorButtonInCollection:(BOOL)isInCollect;
+
 @end

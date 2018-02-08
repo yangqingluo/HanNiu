@@ -195,7 +195,7 @@ NSString *stringWithBoolValue(BOOL yn);
 @property (strong, nonatomic) NSString *Content;//正文
 @property (strong, nonatomic) NSString *CreateTime;
 @property (strong, nonatomic) NSString *UpdateTime;
-@property (strong, nonatomic) NSString *LikeCount;//点赞数
+@property (assign, nonatomic) int LikeCount;//点赞数
 @property (assign, nonatomic) BOOL HasMakeGood;//自己是否点赞(未登录情况下始终为false)
 @property (strong, nonatomic) AppCommentInfo *ToComment;//不含子层级, 不含ToUser,LikeCount,HasMakeGood
 
