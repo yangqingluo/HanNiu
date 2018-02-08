@@ -9,8 +9,11 @@
 #import "MusicCommentVC.h"
 
 #import "PublicImageTagTitleCell.h"
+#import "PublicMessageToolBar.h"
 
 @interface MusicCommentVC ()
+
+@property (strong, nonatomic) PublicMessageToolBar *messageBar;
 
 @end
 
@@ -19,8 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"所有评论";
-    
+    [self.view addSubview:self.messageBar];
     [self updateTableViewHeader];
+    
     [self beginRefreshing];
 }
 
@@ -71,6 +75,17 @@
 
 - (void)likeButtonAction:(UIButton *)button {
     [self doCommentLikeFunction:button.tag];
+}
+
+#pragma mark - getter
+- (PublicMessageToolBar *)messageBar {
+    if (!_messageBar) {
+        _messageBar = [[PublicMessageToolBar alloc] initWithFrame:CGRectMake(0, self.view.height - [PublicMessageToolBar defaultHeight], screen_width, [PublicMessageToolBar defaultHeight]) type:ToolButtonTypeFaceOnly];
+        _messageBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+//        _messageBar.delegate = self;
+        _messageBar.inputTextView.placeHolder = @"期待您的神评论";
+    }
+    return _messageBar;
 }
 
 #pragma mark - UITableView
