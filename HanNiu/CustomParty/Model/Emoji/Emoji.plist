@@ -3,6 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>[place]</key>
+	<string>e00</string>
+	<key>[play]</key>
 	<string>e01</string>
+	<key>[message]</key>
+	<string>e02</string>
+	<key>[duration]</key>
+	<string>e03</string>
 </dict>
 </plist>

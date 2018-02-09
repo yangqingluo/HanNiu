@@ -74,7 +74,7 @@ NSString *stringWithBoolValue(BOOL yn) {
 @end
 
 
-@implementation AppMusicBuyInfo
+@implementation AppMusicDetailInfo
 
 - (instancetype)init{
     self = [super init];

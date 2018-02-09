@@ -23,6 +23,7 @@
     self = [super init];
     if (self) {
         self.hidesBottomBarWhenPushed = YES;
+        [[UserPublic getInstance].msgFromMusicMapDic removeAllObjects];
     }
     return self;
 }

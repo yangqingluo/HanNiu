@@ -137,7 +137,7 @@ extern PublicMusicPlayerManager *musicPlayer;
 #pragma mark - TextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     MusicCommentVC *vc = [MusicCommentVC new];
-    vc.data = self.data.Music;
+    vc.musicId = self.data.Music.Id;
     [self doPushViewController:vc animated:YES];
     return NO;
 }

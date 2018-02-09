@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSMutableDictionary *provinceMapDic;
 //城市字典数据
 @property (strong, nonatomic) NSMutableDictionary *cityMapDic;
+//消息-发出的-音乐数据
+@property (strong, nonatomic) NSMutableDictionary *msgFromMusicMapDic;
 
 //保存用户数据
 - (void)saveUserData:(AppSecureModel *)data;

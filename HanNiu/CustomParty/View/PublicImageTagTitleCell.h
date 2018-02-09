@@ -8,6 +8,7 @@
 
 #import "PublicImageSubTitleCell.h"
 #import "PublicButton.h"
+#import "CommentCellFooterView.h"
 
 @interface PublicImageTagTitleCell : PublicImageSubTitleCell
 
@@ -22,5 +23,26 @@
 @property (strong, nonatomic) AppCommentInfo *data;
 
 + (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath andSubTitle:(NSString *)subTitle;
+
+@end
+
+
+@interface MusicCommentToMeCell : PublicImageTagTitleCell
+
+@property (strong, nonatomic) CommentToMeCellFooterView *footerView;
+
+@property (strong, nonatomic) AppCommentInfo *data;
+
++ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath andComment:(AppCommentInfo *)data;
+
+@end
+
+@interface MusicCommentFromMeCell : PublicImageTagTitleCell
+
+@property (strong, nonatomic) CommentFromMeCellFooterView *footerView;
+
+@property (strong, nonatomic) AppCommentInfo *data;
+
++ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath andComment:(AppCommentInfo *)data;
 
 @end

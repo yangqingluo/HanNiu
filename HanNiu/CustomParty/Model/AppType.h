@@ -109,7 +109,7 @@ NSString *stringWithBoolValue(BOOL yn);
 @end
 
 
-@interface AppMusicBuyInfo : AppMusicInfo
+@interface AppMusicDetailInfo : AppMusicInfo
 
 @property (strong, nonatomic) NSArray *Qualities;
 @property (strong, nonatomic) NSArray *Schools;

@@ -57,7 +57,7 @@
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"musicId" : self.data.Id}];
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"musicId" : self.musicId}];
     //    [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Music/Comment/List" completion:^(id responseBody, NSError *error){
@@ -79,7 +79,7 @@
     if (!content.length) {
         return;
     }
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"MusicId" : self.data.Id, @"UserId" : [UserPublic getInstance].userData.Extra.userinfo.ID}];
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"MusicId" : self.musicId, @"UserId" : [UserPublic getInstance].userData.Extra.userinfo.ID}];
     if (self.remindOne) {
         [m_dic setObject:self.remindOne.Id forKey:@"CommentId"];
         [m_dic setObject:self.remindOne.User.Id forKey:@"ToUserId"];

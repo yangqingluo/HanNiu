@@ -70,6 +70,7 @@
 #define appSeparaterLineSize            0.5//分割线尺寸
 #define appPageSize                     10//获取分页数据时分页size
 #define appTimeLabelWidth               70//获取分页数据时分页size
+#define appImageScale                   0.75//图片高宽比，3 : 4
 
 #define kPhoneNumberLength              0x0b
 #define kVCodeNumberLength              0x06

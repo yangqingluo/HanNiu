@@ -10,6 +10,6 @@
 
 @interface MusicCommentVC : PublicShowTableVC
 
-@property (copy, nonatomic) AppMusicInfo *data;
+@property (strong, nonatomic) NSString *musicId;
 
 @end

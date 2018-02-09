@@ -27,6 +27,28 @@
     
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.textView];
+    [self updateSubviews];
+    
+    [self pullBaseListData:YES];
+}
+
+- (void)pullBaseListData:(BOOL)isReset {
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data[@"Id"]}];
+    [self doShowHudFunction];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Config/Adv/Detail" completion:^(id responseBody, NSError *error){
+        [weakself doHideHudFunction];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            weakself.data = responseBody[@"Data"];
+        }
+        [weakself updateSubviews];
+    }];
+}
+
+- (void)updateSubviews {
     [self.headerView.showImageView sd_setImageWithURL:fileURLWithPID(self.data[@"Image"]) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     self.headerView.titleLabel.text = self.data[@"Name"];
     self.headerView.subTitleLabel.text = self.data[@"SubName"];

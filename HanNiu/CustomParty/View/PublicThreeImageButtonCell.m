@@ -11,7 +11,6 @@
 #import "UIButton+WebCache.h"
 #import "UIResponder+Router.h"
 
-static CGFloat scale = 3.0 / 4.0;
 static NSInteger count = 3;
 static NSInteger tag_base_button = 1000;
 
@@ -23,7 +22,7 @@ static NSInteger tag_base_button = 1000;
         CGFloat m_edge = kEdgeSmall;
         CGFloat m_width = (screen_width - 2 * kEdgeMiddle - (count - 1) * m_edge) / count;
         for (NSInteger i = 0; i < count; i++) {
-            UIButton *btn = NewButton(CGRectMake(kEdgeMiddle + i * (m_width + m_edge), 0, m_width, m_width * scale), nil, nil, nil);
+            UIButton *btn = NewButton(CGRectMake(kEdgeMiddle + i * (m_width + m_edge), 0, m_width, m_width * appImageScale), nil, nil, nil);
             btn.tag = tag_base_button + i;
             [btn addTarget:self action:@selector(imageButtonAction:) forControlEvents:UIControlEventTouchUpInside];
             [self.contentView addSubview:btn];
@@ -52,7 +51,7 @@ static NSInteger tag_base_button = 1000;
 }
 
 + (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return (screen_width - 2 * kEdgeMiddle - (count - 1) * kEdgeSmall) / count * scale;
+    return (screen_width - 2 * kEdgeMiddle - (count - 1) * kEdgeSmall) / count * appImageScale;
 }
 
 #pragma mark - setter

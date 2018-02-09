@@ -7,6 +7,7 @@
 //
 
 #import "HomeMessageSubTableVC.h"
+#import "MusicCommentVC.h"
 
 #import "PublicImageTagTitleCell.h"
 
@@ -53,26 +54,42 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppCommentInfo *item = self.dataSource[indexPath.row];
-    return [MusicCommentCell tableView:tableView heightForRowAtIndexPath:indexPath andSubTitle:item.showStringForContent];
+    if (self.indextag == 0) {
+        return [MusicCommentToMeCell tableView:tableView heightForRowAtIndexPath:indexPath andComment:self.dataSource[indexPath.row]];
+    }
+    else {
+        return [MusicCommentFromMeCell tableView:tableView heightForRowAtIndexPath:indexPath andComment:self.dataSource[indexPath.row]];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"show_cell";
-    MusicCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[MusicCommentCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-        //        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (self.indextag == 0) {
+        MusicCommentToMeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!cell) {
+            cell = [[MusicCommentToMeCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        cell.data = self.dataSource[indexPath.row];
+        return cell;
     }
-    cell.data = self.dataSource[indexPath.row];
-    cell.likeBtn.tag = indexPath.row;
-    return cell;
+    else {
+        MusicCommentFromMeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!cell) {
+            cell = [[MusicCommentFromMeCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        cell.data = self.dataSource[indexPath.row];
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    
+    AppCommentInfo *item = self.dataSource[indexPath.row];
+    MusicCommentVC *vc = [MusicCommentVC new];
+    vc.musicId = item.MusicId;
+    [self doPushViewController:vc animated:YES];
 }
 
 

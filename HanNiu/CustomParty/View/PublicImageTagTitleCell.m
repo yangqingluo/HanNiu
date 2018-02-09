@@ -10,6 +10,8 @@
 
 #import "UIImageView+WebCache.h"
 
+#import "NSAttributedString+JTATEmoji.h"
+
 @implementation PublicImageTagTitleCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -41,7 +43,7 @@
 
 @implementation MusicCommentCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.titleLabel.height = 0.5 * self.showImageView.height;
@@ -93,4 +95,94 @@
 @end
 
 
+@implementation MusicCommentToMeCell
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.titleLabel.height = 0.5 * self.showImageView.height;
+        self.tagLabel.frame = CGRectMake(self.titleLabel.left, self.showImageView.centerY, appTimeLabelWidth, self.subTitleLabel.height);
+        
+        self.subTitleLabel.frame = CGRectMake(kEdgeMiddle, self.showImageView.bottom + kEdge, screen_width - 2 * kEdgeMiddle, 30);
+        self.footerView = [CommentToMeCellFooterView new];
+        self.footerView.top = self.subTitleLabel.bottom + kEdge;
+        [self.contentView addSubview:self.footerView];
+    }
+    return self;
+}
+
+NSAttributedString *attributedStringWithToMeData(AppCommentInfo *data, UIFont *font) {
+    NSDictionary *dic1 = @{NSForegroundColorAttributeName : [UIColor grayColor], NSFontAttributeName : font};
+    NSDictionary *dic2 = @{NSForegroundColorAttributeName : appMainColor, NSFontAttributeName : font};
+    NSMutableAttributedString *m_string = [NSMutableAttributedString new];
+    [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:@"回复了" attributes:dic1]];
+    [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"@%@：", data.ToUser.Name] attributes:dic2]];
+    [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:data.Content attributes:dic1]];
+    return m_string;
+}
+
++ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath andComment:(AppCommentInfo *)data {
+    UIFont *font = [AppPublic appFontOfSize:appLabelFontSizeLittle];
+    NSStringDrawingOptions drawOptions = NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+    NSAttributedString *m_string = attributedStringWithToMeData(data, font);
+    CGFloat textHeight = ceil([m_string boundingRectWithSize:CGSizeMake(screen_width - 2 * kEdgeMiddle, MAXFLOAT) options:drawOptions context:nil].size.height);
+    
+    CGFloat m_height = [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    return m_height + textHeight + [CommentCellFooterView footerHeight] + 2 * kEdge;
+}
+
+- (void)setData:(AppCommentInfo *)data {
+    _data = data;
+    
+    [self.showImageView sd_setImageWithURL:fileURLWithPID(_data.User.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
+    self.titleLabel.text = _data.User.Name;
+    self.tagLabel.text = stringFromDate([NSDate dateWithTimeIntervalSince1970:0.001 * [_data.UpdateTime integerValue]], @"yyyy.MM.dd");
+    self.subTitleLabel.attributedText = attributedStringWithToMeData(_data, self.subTitleLabel.font);
+    [AppPublic adjustLabelHeight:self.subTitleLabel];
+    
+    self.footerView.top = self.subTitleLabel.bottom + kEdge;
+    self.footerView.titleLabel.text = _data.ToUser.Name;
+    self.footerView.subTitleLabel.text = _data.ToComment.showStringForContent;
+    self.footerView.tagLabel.text = stringFromDate([NSDate dateWithTimeIntervalSince1970:0.001 * [_data.ToComment.CreateTime integerValue]], @"yyyy.MM.dd HH:mm");
+}
+
+@end
+
+@implementation MusicCommentFromMeCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.titleLabel.height = 0.5 * self.showImageView.height;
+        self.tagLabel.frame = CGRectMake(self.titleLabel.left, self.showImageView.centerY, appTimeLabelWidth, self.subTitleLabel.height);
+        
+        self.subTitleLabel.frame = CGRectMake(kEdgeMiddle, self.showImageView.bottom + kEdge, screen_width - 2 * kEdgeMiddle, 30);
+        self.footerView = [CommentFromMeCellFooterView new];
+        self.footerView.top = self.subTitleLabel.bottom + kEdge;
+        [self.contentView addSubview:self.footerView];
+    }
+    return self;
+}
+
++ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath andComment:(AppCommentInfo *)data {
+    UIFont *font = [AppPublic appFontOfSize:appLabelFontSizeLittle];
+    CGFloat textHeight = ceil([AppPublic textSizeWithString:data.Content font:font constantWidth:screen_width - 2 * kEdgeMiddle].height);
+    
+    CGFloat m_height = [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    return m_height + textHeight + [CommentCellFooterView footerHeight] + 2 * kEdge;
+}
+
+- (void)setData:(AppCommentInfo *)data {
+    _data = data;
+    
+    [self.showImageView sd_setImageWithURL:fileURLWithPID(_data.User.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
+    self.titleLabel.text = _data.User.Name;
+    self.tagLabel.text = stringFromDate([NSDate dateWithTimeIntervalSince1970:0.001 * [_data.UpdateTime integerValue]], @"yyyy.MM.dd");
+    self.subTitleLabel.text = _data.Content;
+    [AppPublic adjustLabelHeight:self.subTitleLabel];
+    
+    self.footerView.top = self.subTitleLabel.bottom + kEdge;
+    self.footerView.musicId = _data.MusicId;
+    
+}
+@end

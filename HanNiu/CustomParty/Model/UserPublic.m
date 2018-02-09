@@ -110,4 +110,11 @@ __strong static UserPublic *_singleManger = nil;
     return _cityMapDic;
 }
 
+- (NSMutableDictionary *)msgFromMusicMapDic {
+    if (!_msgFromMusicMapDic) {
+        _msgFromMusicMapDic = [NSMutableDictionary new];
+    }
+    return _msgFromMusicMapDic;
+}
+
 @end

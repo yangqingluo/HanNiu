@@ -269,7 +269,7 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
 
 //文本尺寸
 + (CGSize)textSizeWithString:(NSString *)text font:(UIFont *)font constantWidth:(CGFloat)width {
-    NSMutableParagraphStyle *paragraphStyle= [[NSMutableParagraphStyle alloc] init];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     paragraphStyle.alignment = 0;
     
@@ -280,7 +280,7 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
 }
 
 + (CGSize)textSizeWithString:(NSString *)text font:(UIFont *)font constantHeight:(CGFloat)height {
-    NSMutableParagraphStyle *paragraphStyle= [[NSMutableParagraphStyle alloc] init];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     paragraphStyle.alignment = 0;
     
