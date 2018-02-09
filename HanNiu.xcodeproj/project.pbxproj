@@ -146,6 +146,7 @@
 		E44E3B4C2023254A0046B587 /* icon_arrow_space@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E44E3B4B202325490046B587 /* icon_arrow_space@2x.png */; };
 		E44E3B4F20232C3C0046B587 /* MajorDetailListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E44E3B4E20232C3C0046B587 /* MajorDetailListVC.m */; };
 		E4500382202D84A10043E934 /* CommentCellFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4500381202D84A10043E934 /* CommentCellFooterView.m */; };
+		E4500386202DA32E0043E934 /* PublicPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4500384202DA32D0043E934 /* PublicPopView.m */; };
 		E469F12B2015EAA8000B3C04 /* HomeSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */; };
 		E469F12E2015EBEA000B3C04 /* AccountPurchaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F12D2015EBEA000B3C04 /* AccountPurchaseVC.m */; };
 		E469F1312015EBF9000B3C04 /* AccountCoinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E469F1302015EBF9000B3C04 /* AccountCoinVC.m */; };
@@ -531,6 +532,8 @@
 		E44E3B4E20232C3C0046B587 /* MajorDetailListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MajorDetailListVC.m; sourceTree = "<group>"; };
 		E4500380202D84A10043E934 /* CommentCellFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCellFooterView.h; sourceTree = "<group>"; };
 		E4500381202D84A10043E934 /* CommentCellFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCellFooterView.m; sourceTree = "<group>"; };
+		E4500383202DA32D0043E934 /* PublicPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicPopView.h; sourceTree = "<group>"; };
+		E4500384202DA32D0043E934 /* PublicPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicPopView.m; sourceTree = "<group>"; };
 		E469F1292015EAA8000B3C04 /* HomeSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSearchVC.h; sourceTree = "<group>"; };
 		E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSearchVC.m; sourceTree = "<group>"; };
 		E469F12C2015EBEA000B3C04 /* AccountPurchaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountPurchaseVC.h; sourceTree = "<group>"; };
@@ -1831,6 +1834,8 @@
 				E48A229D201888630017977A /* PublicPlayView.m */,
 				E48A22A8201972400017977A /* PublicPlayBar.h */,
 				E48A22A9201972400017977A /* PublicPlayBar.m */,
+				E4500383202DA32D0043E934 /* PublicPopView.h */,
+				E4500384202DA32D0043E934 /* PublicPopView.m */,
 				E4B3CCBB200D96DD006807AE /* UIButton+ImageAndText.h */,
 				E4B3CCBA200D96DD006807AE /* UIButton+ImageAndText.m */,
 				E4B3CCB8200D96DC006807AE /* UIView+KGViewExtend.h */,
@@ -2235,6 +2240,7 @@
 				E469F16120182F65000B3C04 /* PublicSlideSubCollectionVC.m in Sources */,
 				E4A726062028028400E34BEA /* MWZoomingScrollView.m in Sources */,
 				E47E973D202D429A00AE646E /* HomeMessageSubTableVC.m in Sources */,
+				E4500386202DA32E0043E934 /* PublicPopView.m in Sources */,
 				E4A7260D2028028400E34BEA /* SDWebImageDownloaderOperation.m in Sources */,
 				E469F12E2015EBEA000B3C04 /* AccountPurchaseVC.m in Sources */,
 				E4A7261F2028028400E34BEA /* IQBarButtonItem.m in Sources */,

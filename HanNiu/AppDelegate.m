@@ -27,6 +27,13 @@
     // 设置接受远程控制
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
+    if (@available(iOS 11.0, *)) {
+        UITableView.appearance.estimatedRowHeight = 0;
+        UITableView.appearance.estimatedSectionHeaderHeight = 0;
+        UITableView.appearance.estimatedSectionFooterHeight = 0;
+        UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    
     return YES;
 }
 
