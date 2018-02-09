@@ -169,6 +169,8 @@
 		E47887E1200C48D6009C86A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47887DF200C48D6009C86A7 /* Main.storyboard */; };
 		E47887E3200C48D6009C86A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47887E2200C48D6009C86A7 /* Assets.xcassets */; };
 		E47887E6200C48D6009C86A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47887E4200C48D6009C86A7 /* LaunchScreen.storyboard */; };
+		E47E973A202D3BFD00AE646E /* HomeMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E47E9739202D3BFD00AE646E /* HomeMessageVC.m */; };
+		E47E973D202D429A00AE646E /* HomeMessageSubTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E47E973C202D429A00AE646E /* HomeMessageSubTableVC.m */; };
 		E4884E0D2023FFDC002771CC /* CollegeDetailSlideSubTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4884E0C2023FFDC002771CC /* CollegeDetailSlideSubTableVC.m */; };
 		E48A228F201855750017977A /* PublicCollectionButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A228E201855750017977A /* PublicCollectionButtonCell.m */; };
 		E48A229220185D5A0017977A /* PublicSlideSubTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A229120185D5A0017977A /* PublicSlideSubTableVC.m */; };
@@ -571,6 +573,10 @@
 		E47887E2200C48D6009C86A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E47887E5200C48D6009C86A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E47887E7200C48D6009C86A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E47E9738202D3BFD00AE646E /* HomeMessageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMessageVC.h; sourceTree = "<group>"; };
+		E47E9739202D3BFD00AE646E /* HomeMessageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMessageVC.m; sourceTree = "<group>"; };
+		E47E973B202D429A00AE646E /* HomeMessageSubTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeMessageSubTableVC.h; sourceTree = "<group>"; };
+		E47E973C202D429A00AE646E /* HomeMessageSubTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeMessageSubTableVC.m; sourceTree = "<group>"; };
 		E4884E0B2023FFDB002771CC /* CollegeDetailSlideSubTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollegeDetailSlideSubTableVC.h; sourceTree = "<group>"; };
 		E4884E0C2023FFDC002771CC /* CollegeDetailSlideSubTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeDetailSlideSubTableVC.m; sourceTree = "<group>"; };
 		E48A228D201855750017977A /* PublicCollectionButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicCollectionButtonCell.h; sourceTree = "<group>"; };
@@ -1706,6 +1712,10 @@
 				E4B3CCC8200D9F1E006807AE /* HomeViewController.m */,
 				E469F1292015EAA8000B3C04 /* HomeSearchVC.h */,
 				E469F12A2015EAA8000B3C04 /* HomeSearchVC.m */,
+				E47E9738202D3BFD00AE646E /* HomeMessageVC.h */,
+				E47E9739202D3BFD00AE646E /* HomeMessageVC.m */,
+				E47E973B202D429A00AE646E /* HomeMessageSubTableVC.h */,
+				E47E973C202D429A00AE646E /* HomeMessageSubTableVC.m */,
 				E402AE762021BE3B00CF1306 /* MusicDetailVC.h */,
 				E402AE662021BE3B00CF1306 /* MusicDetailVC.m */,
 				E402AE642021BE3B00CF1306 /* MusicCommentVC.h */,
@@ -2219,6 +2229,7 @@
 				E48A229220185D5A0017977A /* PublicSlideSubTableVC.m in Sources */,
 				E469F16120182F65000B3C04 /* PublicSlideSubCollectionVC.m in Sources */,
 				E4A726062028028400E34BEA /* MWZoomingScrollView.m in Sources */,
+				E47E973D202D429A00AE646E /* HomeMessageSubTableVC.m in Sources */,
 				E4A7260D2028028400E34BEA /* SDWebImageDownloaderOperation.m in Sources */,
 				E469F12E2015EBEA000B3C04 /* AccountPurchaseVC.m in Sources */,
 				E4A7261F2028028400E34BEA /* IQBarButtonItem.m in Sources */,
@@ -2309,6 +2320,7 @@
 				E4A7261B2028028400E34BEA /* IQUIWindow+Hierarchy.m in Sources */,
 				E48A229E201888630017977A /* PublicPlayView.m in Sources */,
 				E4A726262028028400E34BEA /* BlockAlertView.m in Sources */,
+				E47E973A202D3BFD00AE646E /* HomeMessageVC.m in Sources */,
 				E437F4A020104E33001DA60E /* RegistViewController.m in Sources */,
 				E469F14F2016DEEF000B3C04 /* AdScrollView.m in Sources */,
 				E4A7260C2028028400E34BEA /* SDWebImageDownloader.m in Sources */,

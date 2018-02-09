@@ -197,7 +197,7 @@ NSString *httpRespString(NSError *error, NSObject *object){
 - (BOOL)occuredRemoteLogin:(id)object {
     if ([object isKindOfClass:[NSDictionary class]]) {
         switch ([object[@"State"] integerValue]) {
-            case -20100002:{
+            case HTTP_REMOTE_LOGIN:{
                 [[AFHTTPSessionManager manager] invalidateSessionCancelingTasks:NO];
                 if (!_loginErrorAlert) {
                     [[AppPublic getInstance] logout];

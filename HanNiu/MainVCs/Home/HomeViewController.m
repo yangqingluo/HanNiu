@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "AccountViewController.h"
 #import "HomeSearchVC.h"
+#import "HomeMessageVC.h"
 #import "HomeRecommendVC.h"
 #import "HomeClassifyVC.h"
 #import "HomeBetterVC.h"
@@ -76,7 +77,13 @@
 }
 
 - (void)messageButtonAction {
-    
+    if ([UserPublic getInstance].userData) {
+        HomeMessageVC *vc = [HomeMessageVC new];
+        [self doPushViewController:vc animated:YES];
+    }
+    else {
+        [[AppPublic getInstance] goToLoginCompletion:nil];
+    }
 }
 
 #pragma mark - TextFieldDelegate

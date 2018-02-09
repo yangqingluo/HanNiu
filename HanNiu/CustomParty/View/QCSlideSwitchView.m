@@ -111,12 +111,11 @@ static const NSUInteger kTagOfRightSideButton = 999;
         //更新主视图各个子视图的宽度
         for (int i = 0; i < [_viewArray count]; i++) {
             UIViewController *listVC = _viewArray[i];
-            listVC.view.frame = CGRectMake(0+_rootScrollView.bounds.size.width*i, 0,
-                                           _rootScrollView.bounds.size.width, _rootScrollView.bounds.size.height);
+            listVC.view.frame = CGRectMake(0 + _rootScrollView.bounds.size.width * i, 0, _rootScrollView.bounds.size.width, _rootScrollView.bounds.size.height);
         }
         
         //滚动到选中的视图
-        [_rootScrollView setContentOffset:CGPointMake((_userSelectedChannelID - 100)*self.bounds.size.width, 0) animated:NO];
+        [_rootScrollView setContentOffset:CGPointMake((_userSelectedChannelID - 100) * self.bounds.size.width, 0) animated:NO];
         
         //调整顶部滚动视图选中按钮位置
         UIButton *button = (UIButton *)[_topScrollView viewWithTag:_userSelectedChannelID];
@@ -130,8 +129,7 @@ static const NSUInteger kTagOfRightSideButton = 999;
  */
 - (void)buildUI {
     NSUInteger number = [self.delegate numberOfTab:self];
-    
-    for (int i=0; i<number; i++) {
+    for (int i = 0; i < number; i++) {
         UIViewController *vc = [self.delegate slideSwitchView:self viewOfTab:i];
         [_viewArray addObject:vc];
         [_rootScrollView addSubview:vc.view];
