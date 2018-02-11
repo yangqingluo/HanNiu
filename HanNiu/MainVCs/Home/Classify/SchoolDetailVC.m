@@ -10,8 +10,11 @@
 #import "SchoolDetailSlideSubTableVC.h"
 #import "SchoolDetailSlideMajorVC.h"
 
+#import "UIImageView+WebCache.h"
+
 @interface SchoolDetailVC ()
 
+@property (strong, nonatomic) UIImageView *headerImageView;
 @property (strong, nonatomic) NSArray *majorGradeTitleArray;
 
 @end
@@ -29,9 +32,13 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     self.title = self.data.Name;
+    self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.navigationBarView.bottom, screen_width, screen_width * appImageScale)];
+    [self.view addSubview:self.headerImageView];
+    self.slidePageView.frame = CGRectMake(0, self.headerImageView.bottom, screen_width, screen_height - self.headerImageView.bottom);
+    [super viewDidLoad];
     
+    [self.headerImageView sd_setImageWithURL:fileURLWithPID(self.data.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     [self pullBaseListData:YES];
 }
 
@@ -61,24 +68,7 @@
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
-    [self doGetSchoolDetailFunction];
-    [self doGetMusicCommentFunction];
     [self doGetMajorListFunction];
-}
-
-- (void)doGetSchoolDetailFunction {
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Id}];
-    [self doShowHudFunction];
-    QKWEAKSELF;
-    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"University/School/Detail" completion:^(id responseBody, NSError *error){
-        [weakself doHideHudFunction];
-        if (error) {
-            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
-        }
-        else {
-            
-        }
-    }];
 }
 
 - (void)doGetMajorListFunction {
@@ -92,21 +82,6 @@
         }
         else {
             [weakself updateMajorViews:[AppMajorMusicInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
-        }
-    }];
-}
-
-- (void)doGetMusicCommentFunction {
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"MusicId" : self.data.Music.Id}];
-    [self doShowHudFunction];
-    QKWEAKSELF;
-    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Music/Comment/List" completion:^(id responseBody, NSError *error){
-        [weakself doHideHudFunction];
-        if (error) {
-            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
-        }
-        else {
-            
         }
     }];
 }

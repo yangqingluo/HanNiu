@@ -10,8 +10,15 @@
 
 @interface CollegeIntroduceHeaderView : PublicDetailImageAndSubTitleHeaderView
 
+@property (strong, nonatomic) UIView *imageBackgroundView;
 @property (strong, nonatomic) UIButton *foldBtn;
+@property (assign, nonatomic) CGFloat introduceLabelTop;
 
 - (void)adjustTagLabelHeight:(NSInteger)numberOfLines;
+
+@end
+
+
+@interface SchoolIntroduceHeaderView : CollegeIntroduceHeaderView
 
 @end

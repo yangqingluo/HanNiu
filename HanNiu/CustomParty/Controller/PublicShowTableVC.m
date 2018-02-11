@@ -30,7 +30,7 @@
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
-    
+    [self endRefreshing];
 }
 
 - (void)updateTableViewHeader {
