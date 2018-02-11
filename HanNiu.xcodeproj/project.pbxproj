@@ -350,6 +350,8 @@
 		E4E0888A2021DE1E006D6B55 /* college_title.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E088892021DE1E006D6B55 /* college_title.txt */; };
 		E4E0888D2021DEFC006D6B55 /* college_major.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E0888B2021DEFC006D6B55 /* college_major.txt */; };
 		E4E0888E2021DEFC006D6B55 /* college_level.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4E0888C2021DEFC006D6B55 /* college_level.txt */; };
+		E4E47116202FEC32005C8B43 /* SchoolDetailSlideSubTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E47115202FEC32005C8B43 /* SchoolDetailSlideSubTableVC.m */; };
+		E4E47119202FEE9E005C8B43 /* SchoolDetailSlideMajorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E47118202FEE9E005C8B43 /* SchoolDetailSlideMajorVC.m */; };
 		E4EE1910200DC97B005BD00F /* PublicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE190F200DC97B005BD00F /* PublicTableViewController.m */; };
 		E4EE1913200DCD74005BD00F /* PublicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE1912200DCD74005BD00F /* PublicTableViewCell.m */; };
 		E4EE1916200DCE87005BD00F /* PublicShowTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE1915200DCE87005BD00F /* PublicShowTableVC.m */; };
@@ -908,6 +910,10 @@
 		E4E088892021DE1E006D6B55 /* college_title.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = college_title.txt; sourceTree = "<group>"; };
 		E4E0888B2021DEFC006D6B55 /* college_major.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = college_major.txt; sourceTree = "<group>"; };
 		E4E0888C2021DEFC006D6B55 /* college_level.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = college_level.txt; sourceTree = "<group>"; };
+		E4E47114202FEC32005C8B43 /* SchoolDetailSlideSubTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolDetailSlideSubTableVC.h; sourceTree = "<group>"; };
+		E4E47115202FEC32005C8B43 /* SchoolDetailSlideSubTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolDetailSlideSubTableVC.m; sourceTree = "<group>"; };
+		E4E47117202FEE9E005C8B43 /* SchoolDetailSlideMajorVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolDetailSlideMajorVC.h; sourceTree = "<group>"; };
+		E4E47118202FEE9E005C8B43 /* SchoolDetailSlideMajorVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolDetailSlideMajorVC.m; sourceTree = "<group>"; };
 		E4EE190E200DC97B005BD00F /* PublicTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicTableViewController.h; sourceTree = "<group>"; };
 		E4EE190F200DC97B005BD00F /* PublicTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicTableViewController.m; sourceTree = "<group>"; };
 		E4EE1911200DCD74005BD00F /* PublicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicTableViewCell.h; sourceTree = "<group>"; };
@@ -1016,6 +1022,10 @@
 				E4884E0C2023FFDC002771CC /* CollegeDetailSlideSubTableVC.m */,
 				E47632902026BAB400F922E6 /* SchoolDetailVC.h */,
 				E47632912026BAB400F922E6 /* SchoolDetailVC.m */,
+				E4E47114202FEC32005C8B43 /* SchoolDetailSlideSubTableVC.h */,
+				E4E47115202FEC32005C8B43 /* SchoolDetailSlideSubTableVC.m */,
+				E4E47117202FEE9E005C8B43 /* SchoolDetailSlideMajorVC.h */,
+				E4E47118202FEE9E005C8B43 /* SchoolDetailSlideMajorVC.m */,
 				E4AA28FA202310D100521FCB /* MajorListVC.h */,
 				E4AA28FB202310D100521FCB /* MajorListVC.m */,
 				E44E3B4D20232C3C0046B587 /* MajorDetailListVC.h */,
@@ -2183,6 +2193,7 @@
 				E4A7261A2028028400E34BEA /* IQUIViewController+Additions.m in Sources */,
 				E47632922026BAB400F922E6 /* SchoolDetailVC.m in Sources */,
 				E4211D0E2020707100216EF7 /* UIImageView+Rotate.m in Sources */,
+				E4E47119202FEE9E005C8B43 /* SchoolDetailSlideMajorVC.m in Sources */,
 				E4A7262C2028028400E34BEA /* MJRefreshAutoGifFooter.m in Sources */,
 				E4BA3005200FA0E200395F70 /* AccountAboutVC.m in Sources */,
 				E469F1432016D4B5000B3C04 /* PublicSlideViewController.m in Sources */,
@@ -2333,6 +2344,7 @@
 				E48A229E201888630017977A /* PublicPlayView.m in Sources */,
 				E4A726262028028400E34BEA /* BlockAlertView.m in Sources */,
 				E47E973A202D3BFD00AE646E /* HomeMessageVC.m in Sources */,
+				E4E47116202FEC32005C8B43 /* SchoolDetailSlideSubTableVC.m in Sources */,
 				E437F4A020104E33001DA60E /* RegistViewController.m in Sources */,
 				E469F14F2016DEEF000B3C04 /* AdScrollView.m in Sources */,
 				E4A7260C2028028400E34BEA /* SDWebImageDownloader.m in Sources */,

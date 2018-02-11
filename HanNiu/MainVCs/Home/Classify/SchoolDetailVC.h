@@ -12,4 +12,8 @@
 
 @property (copy, nonatomic) AppQualityInfo *data;
 
+@property (strong, nonatomic) NSMutableArray *majorListGrade0;
+@property (strong, nonatomic) NSMutableArray *majorListGrade1;
+@property (strong, nonatomic) NSMutableArray *majorListGrade2;
+
 @end

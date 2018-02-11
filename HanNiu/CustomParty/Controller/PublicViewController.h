@@ -45,6 +45,7 @@
 - (void)initializeNavigationBar;
 - (void)initializeData;
 - (void)homeButtonAction;
+- (void)shareButtonAction;
 - (void)cancelButtonAction;
 - (void)goBackWithDone:(BOOL)done;
 - (void)doDoneAction;

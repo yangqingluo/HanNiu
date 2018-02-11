@@ -160,17 +160,17 @@ NSString *stringWithBoolValue(BOOL yn);
 
 @interface AppMajorInfo : AppItemInfo
 
-@property (strong, nonatomic) NSString *Type;
-@property (strong, nonatomic) NSString *Grade;
-@property (strong, nonatomic) NSString *FirstTag;
+@property (strong, nonatomic) NSString *Type;//第几级
+@property (strong, nonatomic) NSString *Grade;//第0级类型->专科:0, 本科:1, 硕士:2
+@property (strong, nonatomic) NSString *FirstTag;//第1级类型
 
 @end
 
 @interface AppMajorDetailInfo : AppMajorInfo
 
 @property (strong, nonatomic) NSArray *subMajors;
-@property (strong, nonatomic) NSString *SecondTag;
-@property (strong, nonatomic) NSString *ThirdTag;
+@property (strong, nonatomic) NSString *SecondTag;//第2级类型名称
+@property (strong, nonatomic) NSString *ThirdTag;//第3级类型名称
 @property (strong, nonatomic) NSString *ThirdTagImage;
 
 @end

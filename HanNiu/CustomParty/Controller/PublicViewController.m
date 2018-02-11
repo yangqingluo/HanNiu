@@ -219,7 +219,11 @@
 }
 
 - (void)homeButtonAction {
-    [self doPopViewControllerAnimated:YES];
+    [self doPopToRootViewControllerAnimated:YES];
+}
+
+- (void)shareButtonAction {
+    
 }
 
 - (void)cancelButtonAction {
