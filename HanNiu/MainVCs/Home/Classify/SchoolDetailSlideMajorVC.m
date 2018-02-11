@@ -7,6 +7,7 @@
 //
 
 #import "SchoolDetailSlideMajorVC.h"
+#import "MusicDetailVC.h"
 
 #import "QualityCell.h"
 
@@ -37,13 +38,16 @@
         cell = [[QualityCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.data = [self.dataSource[indexPath.row] copy];
+    cell.data = self.dataSource[indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    MusicDetailVC *vc = [MusicDetailVC new];
+    vc.data = self.dataSource[indexPath.row];
+    [self doPushViewController:vc animated:YES];
 }
 
 @end

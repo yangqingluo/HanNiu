@@ -71,6 +71,48 @@ NSString *stringWithBoolValue(BOOL yn) {
 
 @implementation AppQualityInfo
 
+- (NSString *)showMediaItemPropertyAlbumTitle {
+    NSString *m_string = @"";
+    if (self.University) {
+        m_string = self.University.Name;
+    }
+    else if (self.College) {
+        m_string = self.College.Name;
+    }
+    return m_string;
+}
+
+- (NSString *)showMediaItemPropertyArtist {
+    NSString *m_string = @"";
+    if (self.Institute) {
+        m_string = self.Institute.Name;
+    }
+    return m_string;
+}
+
+- (NSString *)showMediaDetailTitle {
+    NSMutableString *m_string = [NSMutableString new];
+    if (self.showMediaItemPropertyAlbumTitle.length) {
+        if (m_string.length) {
+            [m_string appendString:@"-"];
+        }
+        [m_string appendString:self.showMediaItemPropertyAlbumTitle];
+    }
+    if (self.showMediaItemPropertyArtist.length) {
+        if (m_string.length) {
+            [m_string appendString:@"-"];
+        }
+        [m_string appendString:self.showMediaItemPropertyArtist];
+    }
+    if (self.Music) {
+        if (m_string.length) {
+            [m_string appendString:@"-"];
+        }
+        [m_string appendString:self.Music.Name];
+    }
+    return m_string;
+}
+
 @end
 
 

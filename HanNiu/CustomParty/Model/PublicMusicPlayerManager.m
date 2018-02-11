@@ -136,9 +136,9 @@ static PublicMusicPlayerManager *_sharedManager = nil;
     //设置歌曲题目
     [songDict setObject:self.currentQulity.Name forKey:MPMediaItemPropertyTitle];
     //设置歌手名
-    [songDict setObject:self.currentQulity.Institute.Name forKey:MPMediaItemPropertyArtist];
+    [songDict setObject:self.currentQulity.showMediaItemPropertyArtist forKey:MPMediaItemPropertyArtist];
     //设置专辑名
-    [songDict setObject:self.currentQulity.University.Name forKey:MPMediaItemPropertyAlbumTitle];
+    [songDict setObject:self.currentQulity.showMediaItemPropertyAlbumTitle forKey:MPMediaItemPropertyAlbumTitle];
     //设置歌曲时长
     [songDict setObject:[NSNumber numberWithDouble:totalTime]  forKey:MPMediaItemPropertyPlaybackDuration];
     //设置已经播放时长

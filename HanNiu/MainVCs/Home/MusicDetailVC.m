@@ -36,13 +36,12 @@ extern PublicMusicPlayerManager *musicPlayer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = [NSString stringWithFormat:@"%@-%@-%@", self.data.University.Name, self.data.Institute.Name, self.data.Music.Name];
+    self.title = self.data.showMediaDetailTitle;
     [self.view addSubview:self.playView];
     
     [self.view addSubview:self.textView];
     [self updateSubviews];
 //    [self pullBaseListData:YES];
-    
     [musicPlayer resetData:self.data];
 }
 

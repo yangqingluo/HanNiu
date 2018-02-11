@@ -105,6 +105,12 @@ NSString *stringWithBoolValue(BOOL yn);
 @property (strong, nonatomic) NSString *Price;
 @property (strong, nonatomic) AppItemInfo *University;
 @property (strong, nonatomic) AppItemInfo *Institute;
+@property (strong, nonatomic) AppItemInfo *College;
+
+- (NSString *)showMediaItemPropertyAlbumTitle;
+- (NSString *)showMediaItemPropertyArtist;
+- (NSString *)showMediaDetailTitle;
+
 
 @end
 
@@ -175,10 +181,8 @@ NSString *stringWithBoolValue(BOOL yn);
 
 @end
 
-@interface AppMajorMusicInfo : AppBasicMusicInfo
+@interface AppMajorMusicInfo : AppQualityInfo
 
-@property (strong, nonatomic) AppItemInfo *College;
-@property (strong, nonatomic) AppItemInfo *Institute;
 @property (strong, nonatomic) AppMajorDetailInfo *CommonMajor;
 @property (strong, nonatomic) NSString *Grade;
 

@@ -9,6 +9,7 @@
 #import "HomeSearchVC.h"
 #import "CollegeDetailVC.h"
 #import "SchoolDetailVC.h"
+#import "MusicDetailVC.h"
 
 #import "PublicPopView.h"
 #import "PublicImageSubTagTitleCell.h"
@@ -201,7 +202,9 @@
         [self doPushViewController:vc animated:YES];
     }
     else if (selectedIndex == 2) {
-        
+        MusicDetailVC *vc = [MusicDetailVC new];
+        vc.data = self.dataSource[indexPath.row];
+        [self doPushViewController:vc animated:YES];
     }
 }
 
