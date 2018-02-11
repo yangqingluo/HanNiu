@@ -193,6 +193,16 @@
     }
 }
 
+- (NSArray<__kindof UIViewController *> *)doPopToRootViewControllerAnimated:(BOOL)animated {
+    if (self.parentVC) {
+        return [self.parentVC.navigationController popToRootViewControllerAnimated:animated];
+    }
+    else{
+        return [self.navigationController popToRootViewControllerAnimated:animated];
+    }
+}
+
+
 - (void)initializeNavigationBar {
     [self createNavWithTitle:self.title createMenuItem:^UIView *(int nIndex) {
         if (nIndex == 0) {
@@ -208,9 +218,14 @@
     
 }
 
+- (void)homeButtonAction {
+    [self doPopViewControllerAnimated:YES];
+}
+
 - (void)cancelButtonAction {
     [self goBackWithDone:NO];
 }
+
 - (void)goBackWithDone:(BOOL)done {
     if (done) {
         [self doDoneAction];

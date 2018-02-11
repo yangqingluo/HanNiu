@@ -42,16 +42,23 @@
             UIButton *btn = NewRightButton([UIImage imageNamed:@"icon_back_to_mainview"], nil);
             btn.frame = CGRectMake(screen_width - 44, 0, 44, DEFAULT_BAR_HEIGHT);
             btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+            [btn addTarget:self action:@selector(homeButtonAction) forControlEvents:UIControlEventTouchUpInside];
             return btn;
         }
         else if (nIndex == 2) {
             UIButton *btn = NewRightButton([UIImage imageNamed:@"icon_share"], nil);
             btn.frame = CGRectMake(screen_width - 2 * 44, 0, 44, DEFAULT_BAR_HEIGHT);
             btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -10);
+            [btn addTarget:self action:@selector(shareButtonAction) forControlEvents:UIControlEventTouchUpInside];
             return btn;
         }
         return nil;
     }];
+}
+
+- (void)shareButtonAction {
+    [self addViewController:@"专科专业" vc:[PublicSlideSubVC new]];
+    [self.slidePageView buildUI];
 }
 
 @end

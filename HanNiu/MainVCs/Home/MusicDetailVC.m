@@ -57,6 +57,7 @@ extern PublicMusicPlayerManager *musicPlayer;
             UIButton *btn = NewRightButton([UIImage imageNamed:@"icon_back_to_mainview"], nil);
             btn.frame = CGRectMake(screen_width - 44, 0, 44, DEFAULT_BAR_HEIGHT);
             btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+            [btn addTarget:self action:@selector(homeButtonAction) forControlEvents:UIControlEventTouchUpInside];
             return btn;
         }
         else if (nIndex == 2) {

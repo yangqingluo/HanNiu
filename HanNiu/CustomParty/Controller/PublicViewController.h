@@ -40,9 +40,11 @@
 - (UIViewController *)doPopViewControllerAnimated:(BOOL)animated;
 - (NSArray<__kindof UIViewController *> *)doPopToViewController:(UIViewController *)viewController animated:(BOOL)animated;
 - (NSArray<__kindof UIViewController *> *)doPopToLastViewControllerSkip:(NSUInteger)skip animated:(BOOL)animated;
+- (NSArray<__kindof UIViewController *> *)doPopToRootViewControllerAnimated:(BOOL)animated;
 
 - (void)initializeNavigationBar;
 - (void)initializeData;
+- (void)homeButtonAction;
 - (void)cancelButtonAction;
 - (void)goBackWithDone:(BOOL)done;
 - (void)doDoneAction;
