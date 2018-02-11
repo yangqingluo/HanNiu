@@ -61,7 +61,7 @@ static PublicPlayBar *_singleShare = nil;
     [self addSubview:_playBtn];
     [_playBtn addTarget:self action:@selector(playButtonAction) forControlEvents:UIControlEventTouchUpInside];
     
-    _songName = NewLabel(CGRectMake(_playImageView.right + kEdge, _playImageView.top, _playBtn.left - _playImageView.right - 2 * kEdge, 0.5 * radius), appTextColor, [AppPublic appFontOfSize:appLabelFontSizeSmall], NSTextAlignmentLeft);
+    _songName = NewLabel(CGRectMake(_playImageView.right + kEdge, _playImageView.top, _playBtn.left - _playImageView.right - 2 * kEdge, 0.5 * radius), appTextColor, [AppPublic appFontOfSize:appLabelFontSizeLittle], NSTextAlignmentLeft);
     [self addSubview:_songName];
     
     _singerName = NewLabel(_songName.frame, [UIColor grayColor], _songName.font, _songName.textAlignment);
@@ -96,6 +96,8 @@ static PublicPlayBar *_singleShare = nil;
 - (void)updateSubviewsWithData:(AppQualityInfo *)data {
     [self.playImageView recoverRotating];
     [self.playImageView sd_setImageWithURL:fileURLWithPID(data.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
+    self.songName.text = notNilString(data.Music.Name, @"未知");
+    self.singerName.text = notNilString(data.showMediaItemPropertyAuthor, @"");
 }
 
 #pragma mark - NSNotification

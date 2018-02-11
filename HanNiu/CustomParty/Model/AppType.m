@@ -90,7 +90,7 @@ NSString *stringWithBoolValue(BOOL yn) {
     return m_string;
 }
 
-- (NSString *)showMediaDetailTitle {
+- (NSString *)showMediaItemPropertyAuthor {
     NSMutableString *m_string = [NSMutableString new];
     if (self.showMediaItemPropertyAlbumTitle.length) {
         if (m_string.length) {
@@ -104,6 +104,11 @@ NSString *stringWithBoolValue(BOOL yn) {
         }
         [m_string appendString:self.showMediaItemPropertyArtist];
     }
+    return m_string;
+}
+
+- (NSString *)showMediaDetailTitle {
+    NSMutableString *m_string = [[NSMutableString alloc] initWithString:self.showMediaItemPropertyAuthor];
     if (self.Music) {
         if (m_string.length) {
             [m_string appendString:@"-"];

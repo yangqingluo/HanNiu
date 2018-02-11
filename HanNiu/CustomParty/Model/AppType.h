@@ -109,6 +109,7 @@ NSString *stringWithBoolValue(BOOL yn);
 
 - (NSString *)showMediaItemPropertyAlbumTitle;
 - (NSString *)showMediaItemPropertyArtist;
+- (NSString *)showMediaItemPropertyAuthor;
 - (NSString *)showMediaDetailTitle;
 
 
