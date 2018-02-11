@@ -42,9 +42,7 @@ extern PublicMusicPlayerManager *musicPlayer;
     
     [self.view addSubview:self.textView];
     [self updateSubviews];
-//    [self pullBaseListData:YES];
-    [musicPlayer resetData:self.data];
-    
+    [self pullBaseListData:YES];
     if (!self.data.Music.Url) {
         PublicAlertShowMusicBuyView *alert = [PublicAlertShowMusicBuyView new];
         alert.nameView.titleLabel.text = self.data.Music.Name;
@@ -62,6 +60,9 @@ extern PublicMusicPlayerManager *musicPlayer;
             }
         };
         [alert show];
+    }
+    else {
+        [musicPlayer resetData:self.data];
     }
 }
 
@@ -131,6 +132,7 @@ extern PublicMusicPlayerManager *musicPlayer;
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
+            weakself.data = [AppQualityInfo mj_objectWithKeyValues:responseBody[@"Data"]];
             [weakself doShowHintFunction:@"购买成功"];
         }
         [weakself updateSubviews];
