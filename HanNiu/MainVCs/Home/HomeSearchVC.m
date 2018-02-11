@@ -8,6 +8,7 @@
 
 #import "HomeSearchVC.h"
 #import "CollegeDetailVC.h"
+#import "SchoolDetailVC.h"
 
 #import "PublicPopView.h"
 #import "PublicImageSubTagTitleCell.h"
@@ -40,7 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.textField becomeFirstResponder];
+    
 }
 
 - (void)initializeNavigationBar {
@@ -91,6 +93,12 @@
         case 1:{
             urlFooter = @"University/School/List";
             m_class = AppQualityInfo.class;
+        }
+            break;
+            
+        case 2:{
+            urlFooter = @"University/Major/List";
+            m_class = AppMajorMusicInfo.class;
         }
             break;
             
@@ -149,7 +157,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"show_cell";
-    if (selectedIndex == 1) {
+    if (selectedIndex == 1 || selectedIndex == 2) {
         QualityCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (!cell) {
             cell = [[QualityCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
@@ -183,14 +191,18 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if (selectedIndex == 0) {
-        CollegeDetailVC *vc = [CollegeDetailVC new];
+//        CollegeDetailVC *vc = [CollegeDetailVC new];
+//        vc.data = [self.dataSource[indexPath.row] copy];
+//        [self doPushViewController:vc animated:YES];
+    }
+    else if (selectedIndex == 1) {
+        SchoolDetailVC *vc = [SchoolDetailVC new];
         vc.data = [self.dataSource[indexPath.row] copy];
         [self doPushViewController:vc animated:YES];
     }
-    else if (selectedIndex == 1) {
+    else if (selectedIndex == 2) {
         
     }
-    
 }
 
 #pragma mark - TextFieldDelegate

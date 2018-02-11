@@ -18,6 +18,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.hidesBottomBarWhenPushed = YES;
         [self addViewController:@"简介" vc:[PublicSlideSubVC new]];
         [self addViewController:@"本科专业" vc:[PublicSlideSubVC new]];
         [self addViewController:@"精品收听" vc:[PublicSlideSubVC new]];
