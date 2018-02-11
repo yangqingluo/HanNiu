@@ -18,3 +18,11 @@ typedef enum {
 @property (nonatomic) VerticalAlignment verticalAlignment;
 
 @end
+
+
+@interface PublicSubTitleView : UIView
+
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UILabel *subTitleLabel;
+
+@end

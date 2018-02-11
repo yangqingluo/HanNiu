@@ -362,7 +362,6 @@
 		E4EE1924200EE67D005BD00F /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E4EE1922200EE67C005BD00F /* UILabel+YBAttributeTextTapAction.m */; };
 		E4F7E9DB20158158009E22E3 /* PublicAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F7E9DA20158158009E22E3 /* PublicAlertView.m */; };
 		E4F7E9E2201586E1009E22E3 /* icon_close_dialog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4F7E9E0201586E0009E22E3 /* icon_close_dialog@2x.png */; };
-		E4F7E9E520158891009E22E3 /* PublicAlertShowGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F7E9E420158891009E22E3 /* PublicAlertShowGraphView.m */; };
 		E4FA9DAC200CB1B700EB8852 /* PublicNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FA9DAB200CB1B700EB8852 /* PublicNavigationController.m */; };
 		E4FA9DB0200CB2FC00EB8852 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FA9DAF200CB2FC00EB8852 /* MainTabBarController.m */; };
 /* End PBXBuildFile section */
@@ -932,8 +931,6 @@
 		E4F7E9D920158158009E22E3 /* PublicAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicAlertView.h; sourceTree = "<group>"; };
 		E4F7E9DA20158158009E22E3 /* PublicAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicAlertView.m; sourceTree = "<group>"; };
 		E4F7E9E0201586E0009E22E3 /* icon_close_dialog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close_dialog@2x.png"; sourceTree = "<group>"; };
-		E4F7E9E320158891009E22E3 /* PublicAlertShowGraphView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicAlertShowGraphView.h; sourceTree = "<group>"; };
-		E4F7E9E420158891009E22E3 /* PublicAlertShowGraphView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicAlertShowGraphView.m; sourceTree = "<group>"; };
 		E4FA9DAA200CB1B700EB8852 /* PublicNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicNavigationController.h; sourceTree = "<group>"; };
 		E4FA9DAB200CB1B700EB8852 /* PublicNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicNavigationController.m; sourceTree = "<group>"; };
 		E4FA9DAE200CB2FC00EB8852 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
@@ -1896,8 +1893,6 @@
 				E4EE1920200DF5A0005BD00F /* PublicInputView.m */,
 				E4F7E9D920158158009E22E3 /* PublicAlertView.h */,
 				E4F7E9DA20158158009E22E3 /* PublicAlertView.m */,
-				E4F7E9E320158891009E22E3 /* PublicAlertShowGraphView.h */,
-				E4F7E9E420158891009E22E3 /* PublicAlertShowGraphView.m */,
 				E404EB4420285C9400312B4D /* PublicImageAndSubTitleView.h */,
 				E404EB4520285C9400312B4D /* PublicImageAndSubTitleView.m */,
 				E402AE582021AD1C00CF1306 /* PublicDetailImageAndSubTitleHeaderView.h */,
@@ -2240,7 +2235,6 @@
 				E4B3CCBD200D96DD006807AE /* UIView+KGViewExtend.m in Sources */,
 				E4A725D22028028400E34BEA /* UIViewController+HUD.m in Sources */,
 				E4A7262F2028028400E34BEA /* MJRefreshBackGifFooter.m in Sources */,
-				E4F7E9E520158891009E22E3 /* PublicAlertShowGraphView.m in Sources */,
 				E4A7262E2028028400E34BEA /* MJRefreshAutoStateFooter.m in Sources */,
 				E44E3B4F20232C3C0046B587 /* MajorDetailListVC.m in Sources */,
 				E469F15E2017707C000B3C04 /* PublicSlideSwitchView.m in Sources */,

@@ -9,7 +9,7 @@
 #import "ForgetViewController.h"
 
 #import "PublicInputView.h"
-#import "PublicAlertShowGraphView.h"
+#import "PublicAlertView.h"
 #import "UIImageView+WebCache.h"
 #import "SDImageCache.h"
 

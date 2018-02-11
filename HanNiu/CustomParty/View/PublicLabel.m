@@ -35,6 +35,25 @@
 -(void)drawTextInRect:(CGRect)requestedRect {
     CGRect actualRect = [self textRectForBounds:requestedRect limitedToNumberOfLines:self.numberOfLines];
     [super drawTextInRect:actualRect];
-} 
+}
 
 @end
+
+
+@implementation PublicSubTitleView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.titleLabel = NewLabel(self.bounds, nil, [AppPublic appFontOfSize:appLabelFontSizeSmall], NSTextAlignmentLeft);
+        [self addSubview:self.titleLabel];
+        
+        self.subTitleLabel = NewLabel(self.bounds, nil, [AppPublic appFontOfSize:appLabelFontSizeSmall], NSTextAlignmentRight);
+        [self addSubview:self.subTitleLabel];
+    }
+    return self;
+}
+
+@end
+
+

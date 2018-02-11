@@ -185,7 +185,7 @@ NSString *httpRespString(NSError *error, NSObject *object){
     if (password) {
         [m_dic setObject:password forKey:@"CurPwd"];
     }
-    [self Post:m_dic HeadParm:nil URLFooter:@"Token?v=2&misc=userinfo&misc=GroupInfoList&misc=GroupMember" completion:^(id responseBody, NSError *error){
+    [self Post:m_dic HeadParm:nil URLFooter:@"Token?v=2&misc=userinfo&misc=Exp" completion:^(id responseBody, NSError *error){
         if (!error) {
             [[AppPublic getInstance] loginDoneWithUserData:responseBody[@"Data"] username:username password:password];
         }

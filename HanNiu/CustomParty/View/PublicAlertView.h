@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PublicInputView.h"
+#import "PublicLabel.h"
 
 @interface PublicAlertView : UIView
 
@@ -19,3 +21,32 @@ typedef void(^ActionAlertBlock)(PublicAlertView *view, NSInteger index);
 - (void)dismiss;
 
 @end
+
+@interface PublicAlertShowView : PublicAlertView
+
+@property (strong, nonatomic) UIView *baseView;
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UIButton *sureButton;
+@property (strong, nonatomic) UIButton *cancelButton;
+
+- (void)cancelButtonAction;
+- (void)sureButtonAction;
+
+@end
+
+@interface PublicAlertShowGraphView : PublicAlertShowView
+
+@property (strong, nonatomic) UIImageView *graphView;
+@property (strong, nonatomic) PublicInputView *inputView;
+
+@end
+
+
+@interface PublicAlertShowMusicBuyView : PublicAlertShowView
+
+@property (strong, nonatomic) PublicSubTitleView *nameView;
+@property (strong, nonatomic) PublicSubTitleView *priceView;
+@property (strong, nonatomic) PublicSubTitleView *balanceView;
+
+@end
+

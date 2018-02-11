@@ -34,7 +34,7 @@ NSString *stringWithBoolValue(BOOL yn);
 
 @interface AppUserInfo : AppType
 
-@property (strong, nonatomic) NSString *Coin;
+@property (assign, nonatomic) int Coin;
 @property (strong, nonatomic) NSString *ID;
 @property (strong, nonatomic) NSString *Name;
 @property (strong, nonatomic) NSString *NickName;
@@ -102,7 +102,7 @@ NSString *stringWithBoolValue(BOOL yn);
 
 @interface AppQualityInfo : AppBasicMusicInfo
 
-@property (strong, nonatomic) NSString *Price;
+@property (assign, nonatomic) int Price;
 @property (strong, nonatomic) AppItemInfo *University;
 @property (strong, nonatomic) AppItemInfo *Institute;
 @property (strong, nonatomic) AppItemInfo *College;

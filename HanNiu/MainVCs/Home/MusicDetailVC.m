@@ -12,6 +12,7 @@
 #import "MusicCommentVC.h"
 
 #import "PublicPlayView.h"
+#import "PublicAlertView.h"
 
 #import "PublicMusicPlayerManager.h"
 #import "SDImageCache.h"
@@ -43,6 +44,25 @@ extern PublicMusicPlayerManager *musicPlayer;
     [self updateSubviews];
 //    [self pullBaseListData:YES];
     [musicPlayer resetData:self.data];
+    
+    if (!self.data.Music.Url) {
+        PublicAlertShowMusicBuyView *alert = [PublicAlertShowMusicBuyView new];
+        alert.nameView.titleLabel.text = self.data.Music.Name;
+        alert.nameView.subTitleLabel.text = [NSString stringWithFormat:@"%d M币", self.data.Price];
+        alert.priceView.titleLabel.text = @"实支付";
+        alert.priceView.subTitleLabel.text = [NSString stringWithFormat:@"%d M币", self.data.Music.Price];
+        alert.balanceView.titleLabel.text = @"余额";
+        alert.balanceView.subTitleLabel.text = [NSString stringWithFormat:@"%d M币", [UserPublic getInstance].userData.Extra.userinfo.Coin];
+        alert.block = ^(PublicAlertView *view, NSInteger index) {
+            if (index == 1) {
+                [self doMusicBuyFunction];
+            }
+            else if (index == 0) {
+                [self doPopViewControllerAnimated:YES];
+            }
+        };
+        [alert show];
+    }
 }
 
 - (void)initializeNavigationBar {
@@ -89,13 +109,29 @@ extern PublicMusicPlayerManager *musicPlayer;
     NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Music.Id, @"like" : stringWithBoolValue(!self.data.Music.IsInCollect)}];
     [self doShowHudFunction];
     QKWEAKSELF;
-    [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:[NSString stringWithFormat:@"Music/Collection?id=%@&like=%@", m_dic[@"id"], m_dic[@"like"]] completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:[NSString stringWithFormat:@"Music/Collection?%@", AFQueryStringFromParameters(m_dic)] completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
             self.data.Music.IsInCollect = !self.data.Music.IsInCollect;
+        }
+        [weakself updateSubviews];
+    }];
+}
+
+- (void)doMusicBuyFunction {
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Music.Id}];
+    [self doShowHudFunction];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:[NSString stringWithFormat:@"Music/Buy?%@", AFQueryStringFromParameters(m_dic)] completion:^(id responseBody, NSError *error){
+        [weakself doHideHudFunction];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            [weakself doShowHintFunction:@"购买成功"];
         }
         [weakself updateSubviews];
     }];
