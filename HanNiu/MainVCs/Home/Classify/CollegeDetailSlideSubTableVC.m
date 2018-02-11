@@ -100,7 +100,7 @@
     else {
         [self.headerView adjustTagLabelHeight:3];
     }
-    self.tableView.tableHeaderView = self.headerView;
+    [self.tableView reloadData];
 }
 
 #pragma mark - getter
