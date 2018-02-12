@@ -10,7 +10,7 @@
 
 @interface CollegeIntroduceHeaderView : PublicDetailImageAndSubTitleHeaderView
 
-@property (strong, nonatomic) UIView *imageBackgroundView;
+@property (strong, nonatomic) UIButton *imageBackgroundView;
 @property (strong, nonatomic) UIButton *foldBtn;
 @property (assign, nonatomic) CGFloat introduceLabelTop;
 

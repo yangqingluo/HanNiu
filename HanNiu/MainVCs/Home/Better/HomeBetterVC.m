@@ -104,15 +104,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    if ([UserPublic getInstance].userData) {
-        MusicDetailVC *vc = [MusicDetailVC new];
-        vc.data = self.dataSource[indexPath.row];
-        [self doPushViewController:vc animated:YES];
-    }
-    else {
-        [[AppPublic getInstance] goToLoginCompletion:nil];
-    }
+    MusicDetailVC *vc = [MusicDetailVC new];
+    vc.data = self.dataSource[indexPath.row];
+    [self doPushViewController:vc animated:YES];
 }
 
 @end

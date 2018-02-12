@@ -116,6 +116,12 @@
     [self doPushViewController:vc animated:YES];
 }
 
+- (void)cellHeaderViewAction {
+    MusicDetailVC *vc = [MusicDetailVC new];
+    vc.data = self.p_vc.data;
+    [self doPushViewController:vc animated:YES];
+}
+
 #pragma mark - getter
 - (SchoolDetailVC *)p_vc {
    return (SchoolDetailVC *)self.parentVC;
@@ -206,7 +212,7 @@
 #pragma mark - UIResponder+Router
 - (void)routerEventWithName:(NSString *)eventName userInfo:(NSObject *)userInfo {
     if ([eventName isEqualToString:Event_PublicCollectionHeaderTitleViewTapped]) {
-        [self goToCommentVCAction];
+        [self cellHeaderViewAction];
     }
 }
 

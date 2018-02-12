@@ -20,7 +20,7 @@
         self.height = height_CollegeIntroduceHeaderView;
         
         CGFloat i_radius = _introduceLabelTop - 2 * kEdgeBig;
-        UIView *imageBackView = [[UIView alloc] initWithFrame:CGRectMake(kEdgeMiddle, kEdgeBig, i_radius, i_radius)];
+        UIButton *imageBackView = [[UIButton alloc] initWithFrame:CGRectMake(kEdgeMiddle, kEdgeBig, i_radius, i_radius)];
         [AppPublic roundCornerRadius:imageBackView];
         imageBackView.layer.borderColor = appSeparatorColor.CGColor;
         imageBackView.layer.borderWidth = appSeparaterLineSize;

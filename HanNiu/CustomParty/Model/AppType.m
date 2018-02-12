@@ -87,6 +87,9 @@ NSString *stringWithBoolValue(BOOL yn) {
     if (self.Institute) {
         m_string = self.Institute.Name;
     }
+    else if (self.Name) {
+        m_string = self.Name;
+    }
     return m_string;
 }
 

@@ -103,11 +103,20 @@
     [self.tableView reloadData];
 }
 
+- (void)headerImageButtonAction {
+    NSDictionary *m_dic = self.detailData.mj_keyValues;
+    
+    MusicDetailVC *vc = [MusicDetailVC new];
+    vc.data = [AppQualityInfo mj_objectWithKeyValues:m_dic];
+    [self doPushViewController:vc animated:YES];
+}
+
 #pragma mark - getter
 - (CollegeIntroduceHeaderView *)headerView {
     if (!_headerView) {
         _headerView = [CollegeIntroduceHeaderView new];
         [_headerView.foldBtn addTarget:self action:@selector(foldButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_headerView.imageBackgroundView addTarget:self action:@selector(headerImageButtonAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _headerView;
 }
