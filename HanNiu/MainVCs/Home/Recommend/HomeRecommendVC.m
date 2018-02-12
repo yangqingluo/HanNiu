@@ -203,9 +203,7 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
         [self doPushViewController:vc animated:YES];
     }
     else if (indexPath.section == 2) {
-        MusicDetailVC *vc = [MusicDetailVC new];
-        vc.data = [AppQualityInfo mj_objectWithKeyValues:self.qualityList[indexPath.row]];
-        [self doPushViewController:vc animated:YES];
+        [[AppPublic getInstance] goToMusicVC:[AppQualityInfo mj_objectWithKeyValues:self.qualityList[indexPath.row]] list:nil type:PublicMusicDetailFromBetter];
     }
 }
 

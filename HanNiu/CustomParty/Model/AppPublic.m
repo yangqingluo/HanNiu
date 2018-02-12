@@ -10,6 +10,7 @@
 #import <CommonCrypto/CommonDigest.h>
 
 #import "LoginViewController.h"
+#import "MusicDetailVC.h"
 
 @interface AppPublic()
 
@@ -353,6 +354,17 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
     [self.topViewController.navigationController pushViewController:vc animated:YES];
     if (completion) {
         completion();
+    }
+}
+
+- (void)goToMusicVC:(AppQualityInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type {
+    if ([UserPublic getInstance].userData) {
+        MusicDetailVC *vc = [MusicDetailVC new];
+        vc.data = data;
+        [self.topViewController.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        [self goToLoginCompletion:nil];
     }
 }
 

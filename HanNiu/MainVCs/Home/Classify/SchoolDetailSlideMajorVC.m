@@ -45,9 +45,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    MusicDetailVC *vc = [MusicDetailVC new];
-    vc.data = self.dataSource[indexPath.row];
-    [self doPushViewController:vc animated:YES];
+    [[AppPublic getInstance] goToMusicVC:self.dataSource[indexPath.row] list:nil type:PublicMusicDetailFromMajor];
 }
 
 @end

@@ -106,9 +106,7 @@
 - (void)headerImageButtonAction {
     NSDictionary *m_dic = self.detailData.mj_keyValues;
     
-    MusicDetailVC *vc = [MusicDetailVC new];
-    vc.data = [AppQualityInfo mj_objectWithKeyValues:m_dic];
-    [self doPushViewController:vc animated:YES];
+    [[AppPublic getInstance] goToMusicVC:[AppQualityInfo mj_objectWithKeyValues:m_dic] list:nil type:PublicMusicDetailFromCollege];
 }
 
 #pragma mark - getter
@@ -187,9 +185,7 @@
         [self doPushViewController:vc animated:YES];
     }
     else if (self.indextag == 2) {
-        MusicDetailVC *vc = [MusicDetailVC new];
-        vc.data = self.dataSource[indexPath.row];
-        [self doPushViewController:vc animated:YES];
+        [[AppPublic getInstance] goToMusicVC:self.dataSource[indexPath.row] list:nil type:PublicMusicDetailDefault];
     }
 }
 

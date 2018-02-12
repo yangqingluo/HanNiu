@@ -183,4 +183,15 @@ NSString *stringWithTimeInterval(NSTimeInterval interval);
 - (void)goToMainVC;
 - (void)goToLoginCompletion:(void (^)(void))completion;
 
+
+typedef enum {
+    PublicMusicDetailDefault = 0, // default
+    PublicMusicDetailFromCollege,
+    PublicMusicDetailFromSchool,
+    PublicMusicDetailFromMajor,
+    PublicMusicDetailFromBetter,
+} PublicMusicDetailType;
+- (void)goToMusicVC:(AppQualityInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type;
+
+
 @end

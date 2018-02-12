@@ -117,9 +117,7 @@
 }
 
 - (void)cellHeaderViewAction {
-    MusicDetailVC *vc = [MusicDetailVC new];
-    vc.data = self.p_vc.data;
-    [self doPushViewController:vc animated:YES];
+    [[AppPublic getInstance] goToMusicVC:self.p_vc.data list:nil type:PublicMusicDetailFromSchool];
 }
 
 #pragma mark - getter
@@ -206,9 +204,7 @@
         [self goToCommentVCAction];
     }
     else if (self.indextag == 1) {
-        MusicDetailVC *vc = [MusicDetailVC new];
-        vc.data = self.dataSource[indexPath.row];
-        [self doPushViewController:vc animated:YES];
+        [[AppPublic getInstance] goToMusicVC:self.dataSource[indexPath.row] list:nil type:PublicMusicDetailDefault];
     }
 }
 

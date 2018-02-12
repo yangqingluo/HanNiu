@@ -202,9 +202,7 @@
         [self doPushViewController:vc animated:YES];
     }
     else if (selectedIndex == 2) {
-        MusicDetailVC *vc = [MusicDetailVC new];
-        vc.data = self.dataSource[indexPath.row];
-        [self doPushViewController:vc animated:YES];
+        [[AppPublic getInstance] goToMusicVC:self.dataSource[indexPath.row] list:nil type:PublicMusicDetailFromBetter];
     }
 }
 
