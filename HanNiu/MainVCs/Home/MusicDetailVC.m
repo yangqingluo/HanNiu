@@ -20,6 +20,7 @@
 extern PublicMusicPlayerManager *musicPlayer;
 @interface MusicDetailVC ()<UITextFieldDelegate>
 
+@property (strong, nonatomic) AppQualityInfo *data;
 @property (strong, nonatomic) PublicPlayView *playView;
 @property (strong, nonatomic) UITextView *textView;
 
@@ -37,6 +38,8 @@ extern PublicMusicPlayerManager *musicPlayer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.data = [UserPublic getInstance].playingData;
+    
     self.title = self.data.showMediaDetailTitle;
     [self.view addSubview:self.playView];
     

@@ -74,6 +74,11 @@ NSString *stringWithBoolValue(BOOL yn);
 
 @interface AppMusicInfo : AppItemInfo
 
+#define musicKeyQualities        @"Qualities"
+#define musicKeySchools          @"Schools"
+#define musicKeyUniversitys      @"Universitys"
+#define musicKeyMajors           @"Majors"
+
 @property (strong, nonatomic) NSString *Url;//地址(未购买时为null)
 @property (assign, nonatomic) int TrackNumber;//***未知, -1***
 @property (assign, nonatomic) int TotolTrackCount;//***未知, -1***
@@ -83,6 +88,13 @@ NSString *stringWithBoolValue(BOOL yn);
 @property (assign, nonatomic) int Comment;//评论数
 @property (assign, nonatomic) int PlayTimes;//播放次数(总购买次数)
 @property (assign, nonatomic) int Price;//价格,单位为内购金币
+@property (strong, nonatomic) NSArray *Qualities;
+@property (strong, nonatomic) NSArray *Schools;
+@property (strong, nonatomic) NSArray *Universitys;
+@property (strong, nonatomic) NSArray *Majors;
+
+- (NSString *)showItemKey;
+- (AppItemInfo *)showItem;
 
 @end
 
@@ -104,8 +116,8 @@ NSString *stringWithBoolValue(BOOL yn);
 
 @property (assign, nonatomic) int Price;
 @property (strong, nonatomic) AppItemInfo *University;
-@property (strong, nonatomic) AppItemInfo *Institute;
 @property (strong, nonatomic) AppItemInfo *College;
+@property (strong, nonatomic) AppItemInfo *Institute;//学院
 
 - (NSString *)showMediaItemPropertyAlbumTitle;
 - (NSString *)showMediaItemPropertyArtist;
@@ -115,15 +127,6 @@ NSString *stringWithBoolValue(BOOL yn);
 
 @end
 
-
-@interface AppMusicDetailInfo : AppMusicInfo
-
-@property (strong, nonatomic) NSArray *Qualities;
-@property (strong, nonatomic) NSArray *Schools;
-@property (strong, nonatomic) NSArray *Universitys;
-@property (strong, nonatomic) NSArray *Majors;
-
-@end
 
 @interface AppCompanyInfo : AppItemInfo
 

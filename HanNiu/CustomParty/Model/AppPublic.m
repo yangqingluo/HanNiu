@@ -359,8 +359,10 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
 
 - (void)goToMusicVC:(AppQualityInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type {
     if ([UserPublic getInstance].userData) {
+        [[UserPublic getInstance] savePlayingData:data];
+        [[UserPublic getInstance] savePlayList:list];
+        
         MusicDetailVC *vc = [MusicDetailVC new];
-        vc.data = data;
         [self.topViewController.navigationController pushViewController:vc animated:YES];
     }
     else {

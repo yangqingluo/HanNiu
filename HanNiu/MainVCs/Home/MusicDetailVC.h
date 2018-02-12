@@ -10,6 +10,4 @@
 
 @interface MusicDetailVC : PublicViewController
 
-@property (strong, nonatomic) AppQualityInfo *data;
-
 @end

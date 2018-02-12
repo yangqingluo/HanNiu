@@ -34,9 +34,26 @@
         }
         else {
             [weakself.dataSource removeAllObjects];
-            [weakself.dataSource addObjectsFromArray:[AppMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself.dataSource addObjectsFromArray:[AppMusicInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
         }
         [weakself updateSubviews];
+    }];
+}
+
+- (void)doGetCollegeDetailFunction:(AppItemInfo *)item {
+    NSMutableDictionary *m_dic = [NSMutableDictionary new];
+    [m_dic setObject:item.Id forKey:@"id"];
+    
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"University/Detail" completion:^(id responseBody, NSError *error){
+        [weakself endRefreshing];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            AppCollegeInfo *college = [AppCollegeInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+            [weakself updateSubviews];
+        }
     }];
 }
 
@@ -63,6 +80,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    AppMusicInfo *music = self.dataSource[indexPath.row];
+    NSString *key = music.showItemKey;
+    if ([key isEqualToString:musicKeyUniversitys]) {
+        [self doGetCollegeDetailFunction:music.Universitys[0]];
+    }
+    
+//    [AppPublic getInstance] goToMusicVC:<#(AppQualityInfo *)#> list:<#(NSArray *)#> type:<#(PublicMusicDetailType)#>;
 }
 
 @end

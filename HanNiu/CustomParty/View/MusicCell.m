@@ -61,9 +61,10 @@
 #pragma mark - setter
 - (void)setMusic:(AppMusicInfo *)music {
     _music = music;
+    AppItemInfo *item = music.showItem;
     
-    [self.showImageView sd_setImageWithURL:fileURLWithPID(music.Image)];
-    self.titleLabel.text = music.Name;
+    [self.showImageView sd_setImageWithURL:fileURLWithPID(item.Image)];
+    self.titleLabel.text = item.Name;
     self.playBtn.showLabel.text = [NSString stringWithFormat:@"%d", music.PlayTimes];
     self.messageBtn.showLabel.text = [NSString stringWithFormat:@"%d", music.Comment];
     self.timeBtn.showLabel.text = stringWithTimeInterval(music.Duration);

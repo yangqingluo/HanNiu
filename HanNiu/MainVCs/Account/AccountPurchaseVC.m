@@ -35,9 +35,9 @@
         }
         else {
             [weakself.dataSource removeAllObjects];
-            [weakself.dataSource addObjectsFromArray:[AppMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself.dataSource addObjectsFromArray:[AppMusicInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+             [weakself updateSubviews];
         }
-        [weakself updateSubviews];
     }];
 }
 

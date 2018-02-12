@@ -82,21 +82,9 @@
     self.subTitleLabel.attributedText = [NSAttributedString emojiAttributedString:[NSString stringWithFormat:@"[play] %@   \t\t[message] %@\t\t[duration] %@", @"0", @"0", @"00:00"] withFont:self.subTitleLabel.font];
 }
 
-- (void)updateSubViews:(AppMusicDetailInfo *)music {
+- (void)updateSubViews:(AppMusicInfo *)music {
     self.subTitleLabel.attributedText = [NSAttributedString emojiAttributedString:[NSString stringWithFormat:@"[play] %d   \t\t[message] %d\t\t[duration] %@", music.PlayTimes, music.Comment, stringWithTimeInterval(music.Duration)] withFont:self.subTitleLabel.font];
-    AppItemInfo *item = nil;
-    if (music.Qualities.count) {
-        item = music.Qualities[0];
-    }
-    else if (music.Universitys.count) {
-        item = music.Universitys[0];
-    }
-    else if (music.Schools.count) {
-        item = music.Schools[0];
-    }
-    else if (music.Majors.count) {
-        item = music.Majors[0];
-    }
+    AppItemInfo *item = music.showItem;
     
     if (item) {
         self.titleLabel.text = item.Name;
@@ -108,7 +96,7 @@
     _musicId = musicId;
     
     [self clear];
-    AppMusicDetailInfo *music = [UserPublic getInstance].msgFromMusicMapDic[musicId];
+    AppMusicInfo *music = [UserPublic getInstance].msgFromMusicMapDic[musicId];
     if (music) {
         [self updateSubViews:music];
     }
@@ -117,7 +105,7 @@
         QKWEAKSELF;
         [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Music/Detail" completion:^(id responseBody, NSError *error){
             if (!error) {
-                AppMusicDetailInfo *m_music = [AppMusicDetailInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+                AppMusicInfo *m_music = [AppMusicInfo mj_objectWithKeyValues:responseBody[@"Data"]];
                 [[UserPublic getInstance].msgFromMusicMapDic setObject:m_music forKey:musicId];
                 [weakself updateSubViews:m_music];
             }

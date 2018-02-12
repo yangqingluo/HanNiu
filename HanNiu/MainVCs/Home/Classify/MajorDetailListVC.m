@@ -37,8 +37,8 @@
                 [weakself.dataSource removeAllObjects];
             }
             [weakself.dataSource addObjectsFromArray:[AppMajorMusicInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself updateSubviews];
         }
-        [weakself updateSubviews];
     }];
 }
 

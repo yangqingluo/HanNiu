@@ -134,7 +134,7 @@ static PublicMusicPlayerManager *_sharedManager = nil;
 - (void)showLockScreenTotaltime:(float)totalTime andCurrentTime:(float)currentTime andLyricsPoster:(BOOL)isShow {
     NSMutableDictionary * songDict = [[NSMutableDictionary alloc] init];
     //设置歌曲题目
-    [songDict setObject:self.currentQulity.Name forKey:MPMediaItemPropertyTitle];
+    [songDict setObject:self.currentQulity.Music.Name forKey:MPMediaItemPropertyTitle];
     //设置歌手名
     [songDict setObject:self.currentQulity.showMediaItemPropertyArtist forKey:MPMediaItemPropertyArtist];
     //设置专辑名

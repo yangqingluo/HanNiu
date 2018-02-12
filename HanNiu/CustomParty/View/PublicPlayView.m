@@ -140,7 +140,7 @@ extern PublicMusicPlayerManager *musicPlayer;
 }
 
 - (void)updateFavorButtonInCollection:(BOOL)isInCollect {
-    [_favorBtn setImage:[UIImage imageNamed:isInCollect ? @"icon_collected@2x" : @"icon_not_collect"] forState:UIControlStateNormal];
+    [_favorBtn setImage:[UIImage imageNamed:isInCollect ? @"icon_collected" : @"icon_not_collect"] forState:UIControlStateNormal];
 }
 
 #pragma mark - 更新播放时间

@@ -62,6 +62,46 @@ NSString *stringWithBoolValue(BOOL yn) {
 
 @implementation AppMusicInfo
 
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        [[self class] mj_setupObjectClassInArray:^NSDictionary *{
+            return @{
+                     @"Qualities" : [AppItemInfo class],
+                     @"Schools" : [AppItemInfo class],
+                     @"Universitys" : [AppItemInfo class],
+                     @"Majors" : [AppItemInfo class],
+                     };
+        }];
+    }
+    return self;
+}
+
+- (NSString *)showItemKey {
+    if (self.Qualities.count) {
+        return musicKeyQualities;
+    }
+    if (self.Universitys.count) {
+        return musicKeyUniversitys;
+    }
+    if (self.Schools.count) {
+        return musicKeySchools;
+    }
+    if (self.Majors.count) {
+        return musicKeyMajors;
+    }
+    return nil;
+}
+
+- (AppItemInfo *)showItem {
+    NSString *key = self.showItemKey;
+    if (key) {
+        return [self valueForKey:key][0];
+    }
+    return self;
+}
+
+
 @end
 
 
@@ -123,27 +163,6 @@ NSString *stringWithBoolValue(BOOL yn) {
 
 @end
 
-
-@implementation AppMusicDetailInfo
-
-- (instancetype)init{
-    self = [super init];
-    if (self) {
-        [[self class] mj_setupObjectClassInArray:^NSDictionary *{
-            return @{
-                     @"Qualities" : [AppItemInfo class],
-                     @"Schools" : [AppItemInfo class],
-                     @"Universitys" : [AppItemInfo class],
-                     @"Majors" : [AppItemInfo class],
-                     };
-        }];
-    }
-    
-    
-    return self;
-}
-
-@end
 
 @implementation AppCompanyInfo
 

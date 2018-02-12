@@ -49,6 +49,16 @@ __strong static UserPublic *_singleManger = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotifi_Login_StateRefresh object:nil];
 }
 
+//保存用户播放列表
+- (void)savePlayList:(NSArray *)array {
+    [self.userPlayList removeAllObjects];
+    [self.userPlayList addObjectsFromArray:array];
+}
+//保存用户当前播放数据
+- (void)savePlayingData:(AppQualityInfo *)data {
+    self.playingData = data;
+}
+
 #pragma mark - getter
 - (AppSecureModel *)userData{
     if (!_userData) {
@@ -60,6 +70,21 @@ __strong static UserPublic *_singleManger = nil;
     }
     return _userData;
 }
+
+- (NSMutableArray *)userPlayList {
+    if (!_userPlayList) {
+        _userPlayList = [NSMutableArray new];
+    }
+    return _userPlayList;
+}
+
+- (AppQualityInfo *)playingData {
+    if (!_playingData) {
+        
+    }
+    return _playingData;
+}
+
 
 - (NSMutableDictionary *)dataMapDic {
     if (!_dataMapDic) {
