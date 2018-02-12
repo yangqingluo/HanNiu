@@ -124,7 +124,10 @@
 
 #pragma mark - getter
 - (SchoolDetailVC *)p_vc {
-   return (SchoolDetailVC *)self.parentVC;
+    if (!_p_vc) {
+        _p_vc = (SchoolDetailVC *)self.parentVC;
+    }
+    return _p_vc;
 }
 
 - (SchoolIntroduceHeaderView *)headerView {
