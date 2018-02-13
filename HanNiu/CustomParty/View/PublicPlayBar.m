@@ -11,7 +11,7 @@
 #import "UIImageView+Rotate.h"
 #import "PublicAlertView.h"
 
-PublicMusicPlayerManager *musicPlayer;
+PublicPlayerManager *musicPlayer;
 @implementation PublicPlayBar
 
 static PublicPlayBar *_singleShare = nil;
@@ -27,7 +27,7 @@ static PublicPlayBar *_singleShare = nil;
 - (instancetype)init {
     self = [super initWithFrame:CGRectMake(0, 0, screen_width, TAB_BAR_HEIGHT)];
     if (self) {
-        musicPlayer = [PublicMusicPlayerManager getInstance];
+        musicPlayer = [PublicPlayerManager getInstance];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerStateRefreshNotification:) name:kNotifi_Play_StateRefresh object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDataRefreshNotification:) name:kNotifi_Play_DataRefresh object:nil];
         self.backgroundColor = [UIColor whiteColor];
@@ -108,7 +108,7 @@ static PublicPlayBar *_singleShare = nil;
 }
 
 - (void)playerDataRefreshNotification:(NSNotification *)notification {
-    [self updateSubviewsWithData:musicPlayer.currentQulity];
+    [self updateSubviewsWithData:musicPlayer.currentPlay];
 }
 
 @end

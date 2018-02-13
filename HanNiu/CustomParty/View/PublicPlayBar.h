@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PublicMusicPlayerManager.h"
+#import "PublicPlayerManager.h"
 
 @interface PublicPlayBar : UIView
 

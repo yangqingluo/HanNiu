@@ -14,10 +14,10 @@
 #import "PublicPlayView.h"
 #import "PublicAlertView.h"
 
-#import "PublicMusicPlayerManager.h"
+#import "PublicPlayerManager.h"
 #import "SDImageCache.h"
 
-extern PublicMusicPlayerManager *musicPlayer;
+extern PublicPlayerManager *musicPlayer;
 @interface MusicDetailVC ()<UITextFieldDelegate>
 
 @property (strong, nonatomic) AppBasicMusicDetailInfo *data;
@@ -38,7 +38,7 @@ extern PublicMusicPlayerManager *musicPlayer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.data = [UserPublic getInstance].playingData;
+    self.data = [PublicPlayerManager getInstance].currentPlay;
     
     self.title = self.data.showMediaDetailTitle;
     [self.view addSubview:self.playView];
@@ -63,9 +63,6 @@ extern PublicMusicPlayerManager *musicPlayer;
             }
         };
         [alert show];
-    }
-    else {
-        [musicPlayer resetData:self.data];
     }
 }
 

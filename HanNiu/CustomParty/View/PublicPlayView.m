@@ -9,7 +9,7 @@
 #import "PublicPlayView.h"
 #import "UIButton+ImageAndText.h"
 
-extern PublicMusicPlayerManager *musicPlayer;
+extern PublicPlayerManager *musicPlayer;
 @implementation PublicPlayView
 
 - (void)dealloc {
@@ -24,8 +24,8 @@ extern PublicMusicPlayerManager *musicPlayer;
         self.backgroundColor = [UIColor clearColor];
         
         [self setupSubviews];
-        [self updateSubviewsWithState:[PublicMusicPlayerManager getInstance].state];
-        [self updateSubviewsWithTime:[PublicMusicPlayerManager getInstance].currentTime];
+        [self updateSubviewsWithState:[PublicPlayerManager getInstance].state];
+        [self updateSubviewsWithTime:[PublicPlayerManager getInstance].currentTime];
     }
     return self;
 }

@@ -30,20 +30,23 @@ typedef enum : NSUInteger {
     ShufflePlayMode,
 } ShuffleAndRepeatState;
 
-@interface PublicMusicPlayerManager : NSObject
+@interface PublicPlayerManager : NSObject
 
-+ (PublicMusicPlayerManager *)getInstance;
++ (PublicPlayerManager *)getInstance;
 
 @property (strong, nonatomic) AppTime *currentTime;
 @property (assign, nonatomic) BOOL isAutoPlay;
 @property (assign, nonatomic, readonly) PlayerManagerState state;
-@property (strong, nonatomic, readonly) AppBasicMusicDetailInfo *currentQulity;
-//@property (assign, nonatomic) ShuffleAndRepeatState shuffleAndRepeatState;
-//@property (assign, nonatomic) NSInteger playingIndex;
+//播放列表
+@property (strong, nonatomic) NSMutableArray *userPlayList;
+//当前播放数据
+@property (strong, nonatomic, readonly) AppBasicMusicDetailInfo *currentPlay;
+
 
 - (void)play;
 - (void)pause;
 - (void)seekToTime:(CMTime)time;
-- (void)resetData:(AppBasicMusicDetailInfo *)quality;
+- (void)saveCurrentData:(AppBasicMusicDetailInfo *)data;
+- (void)savePlayList:(NSArray *)array;
 
 @end

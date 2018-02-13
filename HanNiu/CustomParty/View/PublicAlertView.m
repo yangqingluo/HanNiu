@@ -7,6 +7,7 @@
 //
 
 #import "PublicAlertView.h"
+#import "PublicPlayerManager.h"
 
 @interface PublicAlertView ()
 
@@ -195,7 +196,7 @@
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [UserPublic getInstance].userPlayList.count;
+    return [PublicPlayerManager getInstance].userPlayList.count;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -232,11 +233,11 @@
         cell.textLabel.font = [AppPublic appFontOfSize:appLabelFontSizeLittle];
     }
     
-    AppBasicMusicDetailInfo *item = [UserPublic getInstance].userPlayList[indexPath.row];
+    AppBasicMusicDetailInfo *item = [PublicPlayerManager getInstance].userPlayList[indexPath.row];
     cell.textLabel.text = item.showMediaDetailTitle;
     UIColor *color = appTextColor;
     UIColor *sub_color = [UIColor lightGrayColor];
-    if ([item.Music.Id isEqualToString:[UserPublic getInstance].playingData.Music.Id]) {
+    if ([item.Music.Id isEqualToString:[PublicPlayerManager getInstance].currentPlay.Music.Id]) {
         cell.imageView.image = [UIImage imageNamed:@"icon_playlist_playing_item"];
         color = appMainColor;
         sub_color = appMainColor;
@@ -251,6 +252,16 @@
     [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"-%@", item.showMediaItemPropertyAuthor] attributes:dic2]];
     cell.textLabel.attributedText = m_string;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    AppBasicMusicDetailInfo *item = [PublicPlayerManager getInstance].userPlayList[indexPath.row];
+    if (item.Music.Url) {
+        [[PublicPlayerManager getInstance] saveCurrentData:item];
+        [self.tableView reloadData];
+    }
 }
 
 @end

@@ -179,7 +179,7 @@
 		E48A22952018623C0017977A /* QualityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22942018623C0017977A /* QualityCell.m */; };
 		E48A2298201865C50017977A /* PublicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A2297201865C50017977A /* PublicButton.m */; };
 		E48A229E201888630017977A /* PublicPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A229D201888630017977A /* PublicPlayView.m */; };
-		E48A22A12018CAE70017977A /* PublicMusicPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22A02018CAE70017977A /* PublicMusicPlayerManager.m */; };
+		E48A22A12018CAE70017977A /* PublicPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22A02018CAE70017977A /* PublicPlayerManager.m */; };
 		E48A22AA201972400017977A /* PublicPlayBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22A9201972400017977A /* PublicPlayBar.m */; };
 		E48A22AD201976790017977A /* MusicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22AC201976790017977A /* MusicCell.m */; };
 		E48A22B0201994660017977A /* PublicSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A22AF201994660017977A /* PublicSlider.m */; };
@@ -596,8 +596,8 @@
 		E48A2297201865C50017977A /* PublicButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicButton.m; sourceTree = "<group>"; };
 		E48A229C201888630017977A /* PublicPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicPlayView.h; sourceTree = "<group>"; };
 		E48A229D201888630017977A /* PublicPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicPlayView.m; sourceTree = "<group>"; };
-		E48A229F2018CAE60017977A /* PublicMusicPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicMusicPlayerManager.h; sourceTree = "<group>"; };
-		E48A22A02018CAE70017977A /* PublicMusicPlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicMusicPlayerManager.m; sourceTree = "<group>"; };
+		E48A229F2018CAE60017977A /* PublicPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicPlayerManager.h; sourceTree = "<group>"; };
+		E48A22A02018CAE70017977A /* PublicPlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicPlayerManager.m; sourceTree = "<group>"; };
 		E48A22A8201972400017977A /* PublicPlayBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicPlayBar.h; sourceTree = "<group>"; };
 		E48A22A9201972400017977A /* PublicPlayBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicPlayBar.m; sourceTree = "<group>"; };
 		E48A22AB201976790017977A /* MusicCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicCell.h; sourceTree = "<group>"; };
@@ -1816,8 +1816,8 @@
 				E4B3CBE2200D95C3006807AE /* AppType.m */,
 				E4A2F9C8202341CA007F6599 /* AppXMLParse.h */,
 				E4A2F9C9202341CA007F6599 /* AppXMLParse.m */,
-				E48A229F2018CAE60017977A /* PublicMusicPlayerManager.h */,
-				E48A22A02018CAE70017977A /* PublicMusicPlayerManager.m */,
+				E48A229F2018CAE60017977A /* PublicPlayerManager.h */,
+				E48A22A02018CAE70017977A /* PublicPlayerManager.m */,
 				E4A72641202806A900E34BEA /* PublicMessageReadManager.h */,
 				E4A72642202806AA00E34BEA /* PublicMessageReadManager.m */,
 				E4B3CBDD200D95B6006807AE /* NSData+HTTPRequest.h */,
@@ -2330,7 +2330,7 @@
 				E469F15B20171A66000B3C04 /* PublicLabel.m in Sources */,
 				E4EE1916200DCE87005BD00F /* PublicShowTableVC.m in Sources */,
 				E4A725D02028028400E34BEA /* MBProgressHUD+Add.m in Sources */,
-				E48A22A12018CAE70017977A /* PublicMusicPlayerManager.m in Sources */,
+				E48A22A12018CAE70017977A /* PublicPlayerManager.m in Sources */,
 				E48B23C02022B8A800DD2DC4 /* PublicCollectionFooterLineView.m in Sources */,
 				E4A72640202802A800E34BEA /* DALabeledCircularProgressView.m in Sources */,
 				E4B3CB1D200D931D006807AE /* AppPublic.m in Sources */,

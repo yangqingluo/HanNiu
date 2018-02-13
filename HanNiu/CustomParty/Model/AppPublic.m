@@ -8,6 +8,7 @@
 
 #import "AppPublic.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "PublicPlayerManager.h"
 
 #import "LoginViewController.h"
 #import "MusicDetailVC.h"
@@ -359,8 +360,8 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
 
 - (void)goToMusicVC:(AppBasicMusicDetailInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type {
     if ([UserPublic getInstance].userData) {
-        [[UserPublic getInstance] savePlayingData:data];
-        [[UserPublic getInstance] savePlayList:list];
+        [[PublicPlayerManager getInstance] saveCurrentData:data];
+        [[PublicPlayerManager getInstance] savePlayList:list];
         
         MusicDetailVC *vc = [MusicDetailVC new];
         [self.topViewController.navigationController pushViewController:vc animated:YES];

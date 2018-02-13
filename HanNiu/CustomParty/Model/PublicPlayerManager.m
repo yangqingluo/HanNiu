@@ -98,7 +98,7 @@ static PublicPlayerManager *_sharedManager = nil;
     [self resetPlayState:PlayerManagerStatePreparing];
     
     [self clearPlayerItem];
-    self.playerItem = [[AVPlayerItem alloc] initWithURL:fileURLWithPID(self.currentMusic.Music.Url)];
+    self.playerItem = [[AVPlayerItem alloc] initWithURL:fileURLWithPID(self.currentPlay.Music.Url)];
     [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     
     [self clearPlayer];
@@ -134,16 +134,16 @@ static PublicPlayerManager *_sharedManager = nil;
 - (void)showLockScreenTotaltime:(float)totalTime andCurrentTime:(float)currentTime andLyricsPoster:(BOOL)isShow {
     NSMutableDictionary * songDict = [[NSMutableDictionary alloc] init];
     //设置歌曲题目
-    [songDict setObject:self.currentMusic.Music.Name forKey:MPMediaItemPropertyTitle];
+    [songDict setObject:self.currentPlay.Music.Name forKey:MPMediaItemPropertyTitle];
     //设置歌手名
-    [songDict setObject:self.currentMusic.showMediaItemPropertyArtist forKey:MPMediaItemPropertyArtist];
+    [songDict setObject:self.currentPlay.showMediaItemPropertyArtist forKey:MPMediaItemPropertyArtist];
     //设置专辑名
-    [songDict setObject:self.currentMusic.showMediaItemPropertyAlbumTitle forKey:MPMediaItemPropertyAlbumTitle];
+    [songDict setObject:self.currentPlay.showMediaItemPropertyAlbumTitle forKey:MPMediaItemPropertyAlbumTitle];
     //设置歌曲时长
     [songDict setObject:[NSNumber numberWithDouble:totalTime]  forKey:MPMediaItemPropertyPlaybackDuration];
     //设置已经播放时长
     [songDict setObject:[NSNumber numberWithDouble:currentTime] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
-    UIImage *m_image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:fileURLStringWithPID(self.currentMusic.University.Image)];
+    UIImage *m_image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:fileURLStringWithPID(self.currentPlay.University.Image)];
     if (m_image) {
         //设置显示的海报图片
         [songDict setObject:[[MPMediaItemArtwork alloc] initWithImage:m_image] forKey:MPMediaItemPropertyArtwork];
@@ -213,21 +213,17 @@ static PublicPlayerManager *_sharedManager = nil;
     [self.player seekToTime:time];
 }
 
-- (void)resetData:(AppBasicMusicDetailInfo *)quality {
-    if (!quality.Music.Url) {
-        return;
-    }
-    if (![quality.Music.Id isEqualToString:self.currentMusic.Music.Id]) {
-        if (self.state == PlayerManagerStatePlaying || self.state == PlayerManagerStatePause) {
-            [self stop];
+//保存当前播放数据
+- (void)saveCurrentData:(AppBasicMusicDetailInfo *)data {
+    if (![data.Id isEqualToString:self.currentPlay.Id]) {
+        BOOL needSwitch = NO;
+        if (data.Music.Url && ![data.Music.Id isEqualToString:self.currentPlay.Music.Id]) {
+            needSwitch = YES;
         }
-        [self resetPlayState:PlayerManagerStateDefault];
-        _currentMusic = quality;
+        _currentPlay = data;
         [self postNotificationName:kNotifi_Play_DataRefresh object:nil];
-        [self clearPlayerItem];
-        [self clearPlayer];
-        if (self.isAutoPlay) {
-            [self prepare];
+        if (needSwitch) {
+            [self resetPlay];
         }
     }
 }
@@ -236,6 +232,18 @@ static PublicPlayerManager *_sharedManager = nil;
 - (void)savePlayList:(NSArray *)array {
     [self.userPlayList removeAllObjects];
     [self.userPlayList addObjectsFromArray:array];
+}
+
+- (void)resetPlay {
+    if (self.state == PlayerManagerStatePlaying || self.state == PlayerManagerStatePause) {
+        [self stop];
+    }
+    [self resetPlayState:PlayerManagerStateDefault];
+    [self clearPlayerItem];
+    [self clearPlayer];
+    if (self.isAutoPlay) {
+        [self prepare];
+    }
 }
 
 #pragma mark - getter
