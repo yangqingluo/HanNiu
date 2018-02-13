@@ -42,12 +42,30 @@
     }];
 }
 
-- (void)doGetCollegeDetailFunction:(AppItemInfo *)item indexPath:(NSIndexPath *)indexPath {
+- (void)doGetMusicDetailFunction:(NSIndexPath *)indexPath {
     NSMutableDictionary *m_dic = [NSMutableDictionary new];
+    NSString *urlFooter = nil;
+    
+    AppMusicInfo *music = self.dataSource[indexPath.row];
+    NSString *key = music.showItemKey;
+    AppItemInfo *item = music.showItem;
     [m_dic setObject:item.Id forKey:@"id"];
+    if ([key isEqualToString:musicKeyUniversitys]) {
+        urlFooter = @"University/Detail";
+    }
+    else if ([key isEqualToString:musicKeySchools]) {
+        urlFooter = @"University/School/Detail";
+    }
+    else if ([key isEqualToString:musicKeyMajors]) {
+        urlFooter = @"University/Major/Detail";
+    }
+    else if ([key isEqualToString:musicKeyQualities]) {
+        urlFooter = @"Quality/Detail";
+    }
+    
     [self doShowHudFunction];
     QKWEAKSELF;
-    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"University/Detail" completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:urlFooter completion:^(id responseBody, NSError *error){
         [weakself endRefreshing];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
@@ -98,12 +116,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    AppMusicInfo *music = self.dataSource[indexPath.row];
-    NSString *key = music.showItemKey;
-    if ([key isEqualToString:musicKeyUniversitys]) {
-        [self doGetCollegeDetailFunction:music.Universitys[0] indexPath:indexPath];
-    }
+    [self doGetMusicDetailFunction:indexPath];
 }
 
 @end

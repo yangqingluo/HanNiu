@@ -91,19 +91,14 @@ static PublicMessageReadManager *detailInstance = nil;
 }
 
 #pragma mark - MWPhotoBrowserDelegate
-
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser
-{
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
     return [self.photos count];
 }
 
-- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index
-{
-    if (index < self.photos.count)
-    {
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.photos.count) {
         return [self.photos objectAtIndex:index];
     }
-    
     return nil;
 }
 
@@ -117,7 +112,7 @@ static PublicMessageReadManager *detailInstance = nil;
     [self showBrowserWithImages:imageArray currentPhotoIndex:0];
 }
 
-- (void)showBrowserWithImages:(NSArray *)imageArray currentPhotoIndex:(NSUInteger)index{
+- (void)showBrowserWithImages:(NSArray *)imageArray currentPhotoIndex:(NSUInteger)index {
     if (imageArray && [imageArray count] > 0) {
         NSMutableArray *photoArray = [NSMutableArray array];
         for (id object in imageArray) {
@@ -163,8 +158,7 @@ static PublicMessageReadManager *detailInstance = nil;
     [rootController presentViewController:self.photoNavigationController animated:YES completion:nil];
 }
 
-- (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize
-{
+- (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize {
     UIGraphicsBeginImageContext(CGSizeMake(image.size.width * scaleSize, image.size.height * scaleSize));
     [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize)];
     UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();

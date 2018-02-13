@@ -186,6 +186,7 @@ NSString *stringWithTimeInterval(NSTimeInterval interval);
 
 typedef enum {
     PublicMusicDetailDefault = 0, // default
+    PublicMusicDetailFromBar,
     PublicMusicDetailFromCollege,
     PublicMusicDetailFromSchool,
     PublicMusicDetailFromMajor,

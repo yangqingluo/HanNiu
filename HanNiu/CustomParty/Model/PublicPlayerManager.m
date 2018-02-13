@@ -215,16 +215,14 @@ static PublicPlayerManager *_sharedManager = nil;
 
 //保存当前播放数据
 - (void)saveCurrentData:(AppBasicMusicDetailInfo *)data {
-    if (![data.Id isEqualToString:self.currentPlay.Id]) {
-        BOOL needSwitch = NO;
-        if (data.Music.Url && ![data.Music.Id isEqualToString:self.currentPlay.Music.Id]) {
-            needSwitch = YES;
-        }
-        _currentPlay = data;
-        [self postNotificationName:kNotifi_Play_DataRefresh object:nil];
-        if (needSwitch) {
-            [self resetPlay];
-        }
+    BOOL needSwitch = NO;
+    if (data.Music.Url && ![data.Music.Id isEqualToString:self.currentPlay.Music.Id]) {
+        needSwitch = YES;
+    }
+    _currentPlay = data;
+    [self postNotificationName:kNotifi_Play_DataRefresh object:nil];
+    if (needSwitch) {
+        [self resetPlay];
     }
 }
 

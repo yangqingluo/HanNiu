@@ -140,6 +140,7 @@ extern PublicPlayerManager *musicPlayer;
 }
 
 - (void)updateSubviews {
+    self.title = self.data.showMediaDetailTitle;
     self.textView.text = notNilString(self.data.Introduce, @"暂无简介");
     [self.playView updateFavorButtonInCollection:self.data.Music.IsInCollect];
 }

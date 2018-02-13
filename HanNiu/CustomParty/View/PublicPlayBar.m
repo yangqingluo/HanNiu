@@ -32,6 +32,9 @@ static PublicPlayBar *_singleShare = nil;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDataRefreshNotification:) name:kNotifi_Play_DataRefresh object:nil];
         self.backgroundColor = [UIColor whiteColor];
         [self setupSubviews];
+        
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(barButtonAction)];
+        [self addGestureRecognizer:gesture];
     }
     return self;
 }
@@ -82,6 +85,10 @@ static PublicPlayBar *_singleShare = nil;
 - (void)listButtonAction {
     PublicAlertMusicListView *alert = [PublicAlertMusicListView new];
     [alert show];
+}
+
+- (void)barButtonAction {
+    [[AppPublic getInstance] goToMusicVC:nil list:nil type:PublicMusicDetailFromBar];
 }
 
 - (void)updateSubviewsWithState:(PlayerManagerState)state {

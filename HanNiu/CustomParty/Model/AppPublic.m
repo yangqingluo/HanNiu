@@ -360,11 +360,15 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
 
 - (void)goToMusicVC:(AppBasicMusicDetailInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type {
     if ([UserPublic getInstance].userData) {
-        [[PublicPlayerManager getInstance] saveCurrentData:data];
-        [[PublicPlayerManager getInstance] savePlayList:list];
+        if (type != PublicMusicDetailFromBar) {
+            [[PublicPlayerManager getInstance] saveCurrentData:data];
+            [[PublicPlayerManager getInstance] savePlayList:list];
+        }
         
-        MusicDetailVC *vc = [MusicDetailVC new];
-        [self.topViewController.navigationController pushViewController:vc animated:YES];
+        if ([PublicPlayerManager getInstance].currentPlay) {
+            MusicDetailVC *vc = [MusicDetailVC new];
+            [self.topViewController.navigationController pushViewController:vc animated:YES];
+        }
     }
     else {
         [self goToLoginCompletion:nil];
