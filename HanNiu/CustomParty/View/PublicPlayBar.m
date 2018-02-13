@@ -93,7 +93,7 @@ static PublicPlayBar *_singleShare = nil;
     }
 }
 
-- (void)updateSubviewsWithData:(AppQualityInfo *)data {
+- (void)updateSubviewsWithData:(AppBasicMusicDetailInfo *)data {
     [self.playImageView recoverRotating];
     [self.playImageView sd_setImageWithURL:fileURLWithPID(data.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     self.songName.text = notNilString(data.Music.Name, @"未知");

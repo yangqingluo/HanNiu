@@ -12,6 +12,6 @@
 @interface CollegeDetailHeaderView : PublicDetailImageAndSubTitleHeaderView
 
 @property (strong, nonatomic) PublicGridLabelView *gridLabelView;
-@property (copy, nonatomic) AppCollegeInfo *data;
+@property (copy, nonatomic) AppBasicMusicDetailInfo *data;
 
 @end

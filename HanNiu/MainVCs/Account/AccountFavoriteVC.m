@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的收藏";
+    self.tableView.height = screen_height - TAB_BAR_HEIGHT - self.navigationBarView.bottom;
+    
     [self updateTableViewHeader];
     [self beginRefreshing];
 }
@@ -35,8 +37,8 @@
         else {
             [weakself.dataSource removeAllObjects];
             [weakself.dataSource addObjectsFromArray:[AppMusicInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself updateSubviews];
         }
-        [weakself updateSubviews];
     }];
 }
 
@@ -51,7 +53,7 @@
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            AppCollegeInfo *college = [AppCollegeInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+            AppBasicMusicDetailInfo *college = [AppBasicMusicDetailInfo mj_objectWithKeyValues:responseBody[@"Data"]];
             [weakself updateSubviews];
         }
     }];

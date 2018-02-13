@@ -37,13 +37,13 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) AppTime *currentTime;
 @property (assign, nonatomic) BOOL isAutoPlay;
 @property (assign, nonatomic, readonly) PlayerManagerState state;
-@property (strong, nonatomic, readonly) AppQualityInfo *currentQulity;
+@property (strong, nonatomic, readonly) AppBasicMusicDetailInfo *currentQulity;
 //@property (assign, nonatomic) ShuffleAndRepeatState shuffleAndRepeatState;
 //@property (assign, nonatomic) NSInteger playingIndex;
 
 - (void)play;
 - (void)pause;
 - (void)seekToTime:(CMTime)time;
-- (void)resetData:(AppQualityInfo *)quality;
+- (void)resetData:(AppBasicMusicDetailInfo *)quality;
 
 @end

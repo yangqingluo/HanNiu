@@ -357,7 +357,7 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
     }
 }
 
-- (void)goToMusicVC:(AppQualityInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type {
+- (void)goToMusicVC:(AppBasicMusicDetailInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type {
     if ([UserPublic getInstance].userData) {
         [[UserPublic getInstance] savePlayingData:data];
         [[UserPublic getInstance] savePlayList:list];

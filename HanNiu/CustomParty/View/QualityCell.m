@@ -32,7 +32,7 @@
 }
 
 #pragma mark - setter
-- (void)setData:(AppQualityInfo *)data {
+- (void)setData:(AppBasicMusicDetailInfo *)data {
     _data = data;
     
     [self.showImageView sd_setImageWithURL:fileURLWithPID(data.Image)];

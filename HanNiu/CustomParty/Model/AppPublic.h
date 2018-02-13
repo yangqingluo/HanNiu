@@ -191,7 +191,7 @@ typedef enum {
     PublicMusicDetailFromMajor,
     PublicMusicDetailFromBetter,
 } PublicMusicDetailType;
-- (void)goToMusicVC:(AppQualityInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type;
+- (void)goToMusicVC:(AppBasicMusicDetailInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type;
 
 
 @end

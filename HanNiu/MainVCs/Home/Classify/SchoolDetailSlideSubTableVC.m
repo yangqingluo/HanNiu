@@ -20,7 +20,7 @@
 
 @property (weak, nonatomic) SchoolDetailVC *p_vc;
 @property (strong, nonatomic) SchoolIntroduceHeaderView *headerView;
-@property (strong, nonatomic) AppQualityInfo *detailData;
+@property (strong, nonatomic) AppBasicMusicDetailInfo *detailData;
 
 
 @end
@@ -66,7 +66,7 @@
                 [weakself.dataSource addObjectsFromArray:[AppCommentInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
             }
             else {
-                [weakself.dataSource addObjectsFromArray:[AppQualityInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+                [weakself.dataSource addObjectsFromArray:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
             }
         }
         [weakself updateSubviews];
@@ -82,7 +82,7 @@
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            weakself.detailData = [AppQualityInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+            weakself.detailData = [AppBasicMusicDetailInfo mj_objectWithKeyValues:responseBody[@"Data"]];
             [weakself updateSubviews];
         }
     }];

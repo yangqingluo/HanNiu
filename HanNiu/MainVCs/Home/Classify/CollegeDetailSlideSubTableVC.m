@@ -22,7 +22,7 @@
 @interface CollegeDetailSlideSubTableVC ()
 
 @property (strong, nonatomic) CollegeIntroduceHeaderView *headerView;
-@property (strong, nonatomic) AppCollegeInfo *detailData;
+@property (strong, nonatomic) AppBasicMusicDetailInfo *detailData;
 
 @end
 
@@ -67,11 +67,11 @@
                 [weakself.dataSource removeAllObjects];
             }
             if (self.indextag == 0) {
-                weakself.detailData = [AppCollegeInfo mj_objectWithKeyValues:responseBody[@"Data"]];
-                [weakself.dataSource addObject:[AppCollegeInfo mj_objectWithKeyValues:responseBody[@"Data"]]];
+                weakself.detailData = [AppBasicMusicDetailInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+                [weakself.dataSource addObject:[AppBasicMusicDetailInfo mj_objectWithKeyValues:responseBody[@"Data"]]];
             }
             else {
-                [weakself.dataSource addObjectsFromArray:[AppQualityInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+                [weakself.dataSource addObjectsFromArray:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
             }
         }
         [weakself updateSubviews];
@@ -106,7 +106,7 @@
 - (void)headerImageButtonAction {
     NSDictionary *m_dic = self.detailData.mj_keyValues;
     
-    [[AppPublic getInstance] goToMusicVC:[AppQualityInfo mj_objectWithKeyValues:m_dic] list:nil type:PublicMusicDetailFromCollege];
+    [[AppPublic getInstance] goToMusicVC:[AppBasicMusicDetailInfo mj_objectWithKeyValues:m_dic] list:nil type:PublicMusicDetailFromCollege];
 }
 
 #pragma mark - getter
@@ -119,7 +119,7 @@
     return _headerView;
 }
 
-- (AppCollegeInfo *)detailData {
+- (AppBasicMusicDetailInfo *)detailData {
     if (!_detailData) {
         CollegeDetailVC *p_VC = (CollegeDetailVC *)self.parentVC;
         _detailData = [p_VC.data copy];

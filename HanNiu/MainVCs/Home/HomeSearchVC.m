@@ -83,23 +83,20 @@
         return;
     }
     NSString *urlFooter = @"";
-    Class m_class;
+    Class m_class = AppBasicMusicDetailInfo.class;
     switch (selectedIndex) {
         case 0:{
             urlFooter = @"University/List";
-            m_class = AppCollegeInfo.class;
         }
             break;
             
         case 1:{
             urlFooter = @"University/School/List";
-            m_class = AppQualityInfo.class;
         }
             break;
             
         case 2:{
             urlFooter = @"University/Major/List";
-            m_class = AppMajorMusicInfo.class;
         }
             break;
             
@@ -175,7 +172,7 @@
         cell.tagLabel.frame = CGRectMake(0.5 * screen_width, cell.subTitleLabel.top, screen_width - 0.5 * screen_width, cell.subTitleLabel.height);
         cell.tagLabel.font = [AppPublic appFontOfSize:appLabelFontSizeTiny];
     }
-    AppCollegeInfo *item = self.dataSource[indexPath.row];
+    AppBasicMusicDetailInfo *item = self.dataSource[indexPath.row];
     [cell.showImageView sd_setImageWithURL:fileURLWithPID(item.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     cell.titleLabel.text = item.Name;
     cell.subTitleLabel.text = [NSString stringWithFormat:@"播放：%d次", item.Music.PlayTimes];

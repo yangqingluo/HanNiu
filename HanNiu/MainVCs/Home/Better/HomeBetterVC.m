@@ -76,7 +76,7 @@
         }
         else {
             [weakself.dataSource removeAllObjects];
-            [weakself.dataSource addObjectsFromArray:[AppQualityInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself.dataSource addObjectsFromArray:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
         }
         [weakself updateSubviews];
     }];

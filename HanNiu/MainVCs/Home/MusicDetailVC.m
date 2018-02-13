@@ -20,7 +20,7 @@
 extern PublicMusicPlayerManager *musicPlayer;
 @interface MusicDetailVC ()<UITextFieldDelegate>
 
-@property (strong, nonatomic) AppQualityInfo *data;
+@property (strong, nonatomic) AppBasicMusicDetailInfo *data;
 @property (strong, nonatomic) PublicPlayView *playView;
 @property (strong, nonatomic) UITextView *textView;
 
@@ -135,7 +135,7 @@ extern PublicMusicPlayerManager *musicPlayer;
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            weakself.data = [AppQualityInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+            weakself.data = [AppBasicMusicDetailInfo mj_objectWithKeyValues:responseBody[@"Data"]];
             [weakself doShowHintFunction:@"购买成功"];
         }
         [weakself updateSubviews];

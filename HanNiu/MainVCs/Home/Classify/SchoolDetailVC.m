@@ -81,7 +81,7 @@
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            [weakself updateMajorViews:[AppMajorMusicInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself updateMajorViews:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
         }
     }];
 }
@@ -91,7 +91,7 @@
     [self.dataSource addObject:[NSMutableArray new]];
     [self.dataSource addObject:[NSMutableArray new]];
     [self.dataSource addObject:[NSMutableArray new]];
-    for (AppMajorMusicInfo *item in majorList) {
+    for (AppBasicMusicDetailInfo *item in majorList) {
         int Grade = [item.Grade intValue];
         if (Grade < self.dataSource.count) {
             NSMutableArray *m_list = self.dataSource[Grade];

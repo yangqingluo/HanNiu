@@ -10,6 +10,6 @@
 
 @interface CollegeDetailVC : PublicSlideViewController
 
-@property (copy, nonatomic) AppCollegeInfo *data;
+@property (copy, nonatomic) AppBasicMusicDetailInfo *data;
 
 @end

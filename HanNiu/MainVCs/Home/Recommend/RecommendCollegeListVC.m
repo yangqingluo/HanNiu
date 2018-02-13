@@ -33,7 +33,7 @@
             if (isReset) {
                 [weakself.dataSource removeAllObjects];
             }
-            [weakself.dataSource addObjectsFromArray:[AppCollegeInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself.dataSource addObjectsFromArray:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
         }
         [weakself updateSubviews];
     }];

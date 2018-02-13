@@ -10,7 +10,7 @@
 
 @interface SchoolDetailVC : PublicSlideViewController
 
-@property (copy, nonatomic) AppQualityInfo *data;
+@property (copy, nonatomic) AppBasicMusicDetailInfo *data;
 
 @property (strong, nonatomic) NSMutableArray *majorListGrade0;
 @property (strong, nonatomic) NSMutableArray *majorListGrade1;

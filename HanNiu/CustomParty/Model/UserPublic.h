@@ -17,7 +17,7 @@
 //用户播放列表
 @property (strong, nonatomic) NSMutableArray *userPlayList;
 //用户当前播放数据
-@property (strong, nonatomic) AppQualityInfo *playingData;
+@property (strong, nonatomic) AppBasicMusicDetailInfo *playingData;
 
 
 //数据字典数据
@@ -38,7 +38,7 @@
 //保存用户播放列表
 - (void)savePlayList:(NSArray *)array;
 //保存用户当前播放数据
-- (void)savePlayingData:(AppQualityInfo *)data;
+- (void)savePlayingData:(AppBasicMusicDetailInfo *)data;
 
 
 @end

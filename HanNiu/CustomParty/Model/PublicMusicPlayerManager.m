@@ -213,7 +213,7 @@ static PublicMusicPlayerManager *_sharedManager = nil;
     [self.player seekToTime:time];
 }
 
-- (void)resetData:(AppQualityInfo *)quality {
+- (void)resetData:(AppBasicMusicDetailInfo *)quality {
     if (!quality.Music.Url) {
         return;
     }

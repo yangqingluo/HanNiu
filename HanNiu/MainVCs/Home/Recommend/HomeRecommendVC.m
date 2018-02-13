@@ -199,11 +199,11 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 1) {
         CollegeDetailVC *vc = [CollegeDetailVC new];
-        vc.data = [AppCollegeInfo mj_objectWithKeyValues:self.universityList[indexPath.row]];
+        vc.data = [AppBasicMusicDetailInfo mj_objectWithKeyValues:self.universityList[indexPath.row]];
         [self doPushViewController:vc animated:YES];
     }
     else if (indexPath.section == 2) {
-        [[AppPublic getInstance] goToMusicVC:[AppQualityInfo mj_objectWithKeyValues:self.qualityList[indexPath.row]] list:nil type:PublicMusicDetailFromBetter];
+        [[AppPublic getInstance] goToMusicVC:[AppBasicMusicDetailInfo mj_objectWithKeyValues:self.qualityList[indexPath.row]] list:nil type:PublicMusicDetailFromBetter];
     }
 }
 

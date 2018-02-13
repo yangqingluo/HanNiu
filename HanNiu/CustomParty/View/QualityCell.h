@@ -10,6 +10,6 @@
 
 @interface QualityCell : MusicCell
 
-@property (strong, nonatomic) AppQualityInfo *data;
+@property (strong, nonatomic) AppBasicMusicDetailInfo *data;
 
 @end

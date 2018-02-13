@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的购买";
-    
+    self.tableView.height = screen_height - TAB_BAR_HEIGHT - self.navigationBarView.bottom;
     [self updateTableViewHeader];
     [self beginRefreshing];
 }

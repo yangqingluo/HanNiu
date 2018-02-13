@@ -27,7 +27,7 @@
 }
 
 #pragma mark - setter
-- (void)setData:(AppCollegeInfo *)data {
+- (void)setData:(AppBasicMusicDetailInfo *)data {
     _data = data;
     [self.showImageView sd_setImageWithURL:fileURLWithPID(data.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     self.titleLabel.text = data.Name;

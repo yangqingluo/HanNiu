@@ -55,7 +55,7 @@ __strong static UserPublic *_singleManger = nil;
     [self.userPlayList addObjectsFromArray:array];
 }
 //保存用户当前播放数据
-- (void)savePlayingData:(AppQualityInfo *)data {
+- (void)savePlayingData:(AppBasicMusicDetailInfo *)data {
     self.playingData = data;
 }
 
@@ -78,7 +78,7 @@ __strong static UserPublic *_singleManger = nil;
     return _userPlayList;
 }
 
-- (AppQualityInfo *)playingData {
+- (AppBasicMusicDetailInfo *)playingData {
     if (!_playingData) {
         
     }

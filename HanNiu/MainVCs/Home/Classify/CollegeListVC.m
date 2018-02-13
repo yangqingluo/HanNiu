@@ -37,7 +37,7 @@
             if (isReset) {
                 [weakself.dataSource removeAllObjects];
             }
-            [weakself.dataSource addObjectsFromArray:[AppCollegeInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself.dataSource addObjectsFromArray:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
         }
         [weakself updateSubviews];
     }];
@@ -62,7 +62,7 @@
         cell.tagLabel.frame = CGRectMake(0.5 * screen_width, cell.subTitleLabel.top, screen_width - 0.5 * screen_width, cell.subTitleLabel.height);
         cell.tagLabel.font = [AppPublic appFontOfSize:appLabelFontSizeTiny];
     }
-    AppCollegeInfo *item = self.dataSource[indexPath.row];
+    AppBasicMusicDetailInfo *item = self.dataSource[indexPath.row];
     [cell.showImageView sd_setImageWithURL:fileURLWithPID(item.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     cell.titleLabel.text = item.Name;
     cell.subTitleLabel.text = [NSString stringWithFormat:@"播放：%d次", item.Music.PlayTimes];
