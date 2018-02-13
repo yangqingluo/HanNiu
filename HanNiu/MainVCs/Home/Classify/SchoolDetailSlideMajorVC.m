@@ -7,7 +7,7 @@
 //
 
 #import "SchoolDetailSlideMajorVC.h"
-#import "MusicDetailVC.h"
+#import "SchoolDetailVC.h"
 
 #import "QualityCell.h"
 
@@ -44,8 +44,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    [[AppPublic getInstance] goToMusicVC:self.dataSource[indexPath.row] list:nil type:PublicMusicDetailFromMajor];
+    SchoolDetailVC *p_vc = (SchoolDetailVC *)self.parentVC;
+    [[AppPublic getInstance] goToMusicVC:self.dataSource[indexPath.row] list:p_vc.majorList type:PublicMusicDetailFromMajor];
 }
 
 @end

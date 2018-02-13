@@ -132,7 +132,9 @@ extern PublicPlayerManager *musicPlayer;
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            weakself.data = [AppBasicMusicDetailInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+            AppMusicInfo *music = [AppMusicInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+            weakself.data.Music = music;
+            [[PublicPlayerManager getInstance] saveCurrentData:weakself.data];
             [weakself doShowHintFunction:@"购买成功"];
         }
         [weakself updateSubviews];

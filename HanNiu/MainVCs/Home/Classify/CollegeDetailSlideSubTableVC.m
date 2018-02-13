@@ -206,7 +206,7 @@
         [self doPushViewController:vc animated:YES];
     }
     else if (self.indextag == 2) {
-        [[AppPublic getInstance] goToMusicVC:self.dataSource[indexPath.row] list:nil type:PublicMusicDetailDefault];
+        [[AppPublic getInstance] goToMusicVC:self.dataSource[indexPath.row] list:self.dataSource type:PublicMusicDetailDefault];
     }
 }
 

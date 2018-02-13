@@ -216,8 +216,13 @@ static PublicPlayerManager *_sharedManager = nil;
 //保存当前播放数据
 - (void)saveCurrentData:(AppBasicMusicDetailInfo *)data {
     BOOL needSwitch = NO;
-    if (data.Music.Url && ![data.Music.Id isEqualToString:self.currentPlay.Music.Id]) {
-        needSwitch = YES;
+    if (data.Music.Url) {
+        if (![data.Music.Id isEqualToString:self.currentPlay.Music.Id]) {
+            needSwitch = YES;
+        }
+        else if (!self.currentPlay.Music.Url) {
+            needSwitch = YES;
+        }
     }
     _currentPlay = data;
     [self resetPlayIndex];

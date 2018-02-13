@@ -207,7 +207,7 @@
         [self goToCommentVCAction];
     }
     else if (self.indextag == 1) {
-        [[AppPublic getInstance] goToMusicVC:self.dataSource[indexPath.row] list:nil type:PublicMusicDetailDefault];
+        [[AppPublic getInstance] goToMusicVC:self.dataSource[indexPath.row] list:self.dataSource type:PublicMusicDetailDefault];
     }
 }
 
