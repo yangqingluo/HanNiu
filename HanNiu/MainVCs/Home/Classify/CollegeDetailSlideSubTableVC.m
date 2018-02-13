@@ -78,6 +78,28 @@
     }];
 }
 
+- (void)doGetSchoolPlayListFunction {
+    CollegeDetailVC *p_VC = (CollegeDetailVC *)self.parentVC;
+    NSMutableDictionary *m_dic = [NSMutableDictionary new];
+    
+    NSString *urlFooter = urlFooter = @"University/School/List";
+    [m_dic setObject:p_VC.data.Id forKey:@"universityId"];
+    
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:urlFooter completion:^(id responseBody, NSError *error){
+        [weakself endRefreshing];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            NSMutableArray *m_array = [NSMutableArray new];
+            [m_array addObject:weakself.detailData];
+            [m_array addObjectsFromArray:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [[AppPublic getInstance] goToMusicVC:weakself.detailData list:m_array type:PublicMusicDetailFromCollege];
+        }
+    }];
+}
+
 - (void)updateSubviews {
     [super updateSubviews];
     if (self.indextag == 0) {
@@ -85,7 +107,8 @@
     }
 }
 
-- (void)updateHeaderView{
+- (void)updateHeaderView {
+    self.headerView.imageBackgroundView.hidden = (self.detailData == nil);
     [self.headerView.showImageView sd_setImageWithURL:fileURLWithPID(self.detailData.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     self.headerView.titleLabel.text = self.detailData.Name;
     self.headerView.subTitleLabel.text = self.detailData.Web;
@@ -104,9 +127,7 @@
 }
 
 - (void)headerImageButtonAction {
-    NSDictionary *m_dic = self.detailData.mj_keyValues;
-    
-    [[AppPublic getInstance] goToMusicVC:[AppBasicMusicDetailInfo mj_objectWithKeyValues:m_dic] list:nil type:PublicMusicDetailFromCollege];
+    [self doGetSchoolPlayListFunction];
 }
 
 #pragma mark - getter
