@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"推荐精品";
+    self.tableView.height = screen_height - TAB_BAR_HEIGHT - self.navigationBarView.bottom;
+    
     [self updateTableViewHeader];
     [self beginRefreshing];
 }

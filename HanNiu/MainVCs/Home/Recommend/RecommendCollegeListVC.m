@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"推荐学校";
+    
+    self.tableView.height = screen_height - TAB_BAR_HEIGHT - self.navigationBarView.bottom;
 }
 
 - (void)pullBaseListData:(BOOL)isReset {

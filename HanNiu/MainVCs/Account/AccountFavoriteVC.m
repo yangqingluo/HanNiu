@@ -43,7 +43,7 @@
 - (void)doGetCollegeDetailFunction:(AppItemInfo *)item {
     NSMutableDictionary *m_dic = [NSMutableDictionary new];
     [m_dic setObject:item.Id forKey:@"id"];
-    
+    [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"University/Detail" completion:^(id responseBody, NSError *error){
         [weakself endRefreshing];

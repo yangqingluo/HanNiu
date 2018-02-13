@@ -65,7 +65,7 @@
     AppCollegeInfo *item = self.dataSource[indexPath.row];
     [cell.showImageView sd_setImageWithURL:fileURLWithPID(item.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     cell.titleLabel.text = item.Name;
-    cell.subTitleLabel.text = [NSString stringWithFormat:@"播放：%d次", item.TotalPlayTimes];
+    cell.subTitleLabel.text = [NSString stringWithFormat:@"播放：%d次", item.Music.PlayTimes];
     cell.tagLabel.text = [NSString stringWithFormat:@"分类：%@", item.showStringForTags];
     cell.subTagLabel.text = item.showStringForAddr;
     [AppPublic adjustLabelWidth:cell.titleLabel];

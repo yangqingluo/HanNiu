@@ -38,7 +38,7 @@
     NSDictionary *dic2 = @{NSForegroundColorAttributeName : appMainColor};
     NSMutableAttributedString *m_string = [NSMutableAttributedString new];
     [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:@"播放：" attributes:dic1]];
-    [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d", data.TotalPlayTimes] attributes:dic2]];
+    [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d", data.Music.PlayTimes] attributes:dic2]];
     [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:@"次" attributes:dic1]];
     self.tagLabel.attributedText = m_string;
 }

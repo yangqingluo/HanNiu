@@ -106,9 +106,9 @@ NSString *stringWithBoolValue(BOOL yn);
 @property (strong, nonatomic) NSString *UpdateTime;
 @property (strong, nonatomic) AppMusicInfo *Music;
 @property (strong, nonatomic) NSString *Status;
-@property (assign, nonatomic) int TotalPlayTimes;
-@property (strong, nonatomic) NSString *TotalComment;
-@property (strong, nonatomic) NSString *TotalDuration;
+//@property (assign, nonatomic) int TotalPlayTimes;
+//@property (strong, nonatomic) NSString *TotalComment;
+//@property (strong, nonatomic) NSString *TotalDuration;
 
 @end
 
