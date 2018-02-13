@@ -78,7 +78,7 @@
     }];
 }
 
-- (void)doGetSchoolPlayListFunction {
+- (void)doGetCollegePlayListFunction {
     CollegeDetailVC *p_VC = (CollegeDetailVC *)self.parentVC;
     NSMutableDictionary *m_dic = [NSMutableDictionary new];
     
@@ -127,7 +127,7 @@
 }
 
 - (void)headerImageButtonAction {
-    [self doGetSchoolPlayListFunction];
+    [self doGetCollegePlayListFunction];
 }
 
 #pragma mark - getter

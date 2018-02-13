@@ -106,7 +106,7 @@
         }
         else {
             NSArray *m_array = [AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]];
-            [[AppPublic getInstance] goToMusicVC:item list:m_array type:PublicMusicDetailDefault];
+            [[AppPublic getInstance] goToMusicVC:item list:m_array type:PublicMusicDetailFromBetter];
         }
     }];
 }

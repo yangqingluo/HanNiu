@@ -126,7 +126,7 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
         }
         else {
             NSArray *m_array = [AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]];
-            [[AppPublic getInstance] goToMusicVC:item list:m_array type:PublicMusicDetailDefault];
+            [[AppPublic getInstance] goToMusicVC:item list:m_array type:PublicMusicDetailFromBetter];
         }
     }];
 }

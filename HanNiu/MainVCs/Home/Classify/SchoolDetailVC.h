@@ -12,8 +12,6 @@
 
 @property (copy, nonatomic) AppBasicMusicDetailInfo *data;
 
-@property (strong, nonatomic) NSMutableArray *majorListGrade0;
-@property (strong, nonatomic) NSMutableArray *majorListGrade1;
-@property (strong, nonatomic) NSMutableArray *majorListGrade2;
+@property (strong, nonatomic) NSMutableArray *majorList;
 
 @end

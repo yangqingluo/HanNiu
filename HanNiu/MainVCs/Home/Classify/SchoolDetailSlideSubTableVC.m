@@ -117,7 +117,10 @@
 }
 
 - (void)cellHeaderViewAction {
-    [[AppPublic getInstance] goToMusicVC:self.p_vc.data list:nil type:PublicMusicDetailFromSchool];
+    NSMutableArray *m_array = [NSMutableArray new];
+    [m_array addObject:self.detailData];
+    [m_array addObjectsFromArray:self.p_vc.majorList];
+    [[AppPublic getInstance] goToMusicVC:self.detailData list:m_array type:PublicMusicDetailFromSchool];
 }
 
 #pragma mark - getter

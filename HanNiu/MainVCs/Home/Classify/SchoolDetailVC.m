@@ -81,7 +81,9 @@
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            [weakself updateMajorViews:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself.majorList removeAllObjects];
+            [weakself.majorList addObjectsFromArray:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself updateMajorViews:weakself.majorList];
         }
     }];
 }
@@ -123,6 +125,13 @@
         _majorGradeTitleArray = @[@"专科专业", @"本科专业", @"硕士专业"];
     }
     return _majorGradeTitleArray;
+}
+
+- (NSMutableArray *)majorList {
+    if (!_majorList) {
+        _majorList = [NSMutableArray new];
+    }
+    return _majorList;
 }
 
 @end
