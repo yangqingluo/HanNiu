@@ -45,7 +45,7 @@ extern PublicPlayerManager *musicPlayer;
     
     [self.view addSubview:self.textView];
     [self updateSubviews];
-    [self pullBaseListData:YES];
+//    [self pullBaseListData:YES];
     if (!self.data.Music.Url) {
         PublicAlertShowMusicBuyView *alert = [PublicAlertShowMusicBuyView new];
         alert.nameView.titleLabel.text = self.data.Music.Name;
