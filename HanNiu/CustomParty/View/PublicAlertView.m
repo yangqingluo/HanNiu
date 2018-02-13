@@ -38,7 +38,21 @@
 }
 
 - (void)show {
-    [[AppPublic getInstance].topViewController.view addSubview:self];
+    [[[UIApplication sharedApplication].keyWindow rootViewController].view addSubview:self];
+}
+
+- (void)cancelButtonAction {
+    [self dismiss];
+    if (self.block) {
+        self.block(self, 0);
+    }
+}
+
+- (void)sureButtonAction {
+    [self dismiss];
+    if (self.block) {
+        self.block(self, 1);
+    }
 }
 
 @end
@@ -49,16 +63,16 @@
 - (instancetype)init {
     self = [super initWithFrame:[UIScreen mainScreen].bounds];
     if (self) {
-        _baseView = [[UIView alloc] initWithFrame:CGRectMake(kEdgeHuge, 0, self.width - 2 * kEdgeHuge, 280)];
-        _baseView.backgroundColor = [UIColor whiteColor];
-        [AppPublic roundCornerRadius:_baseView cornerRadius:appViewCornerRadiusBig];
-        _baseView.centerY = 0.4 * self.height;
-        [self addSubview:_baseView];
+        self.baseView = [[UIView alloc] initWithFrame:CGRectMake(kEdgeHuge, 0, self.width - 2 * kEdgeHuge, 280)];
+        self.baseView.backgroundColor = [UIColor whiteColor];
+        [AppPublic roundCornerRadius:self.baseView cornerRadius:appViewCornerRadiusBig];
+        self.baseView.centerY = 0.4 * self.height;
+        [self addSubview:self.baseView];
         
         _titleLabel = NewLabel(CGRectMake(0, 0, self.baseView.width, 80), appTextColor, [AppPublic boldAppFontOfSize:appButtonTitleFontSize], NSTextAlignmentCenter);
         [self.baseView addSubview:_titleLabel];
         
-        UIButton *sureBtn = NewButton(CGRectMake(kEdgeToScreen, 200, _baseView.width - 2 * kEdgeToScreen, 44), @"确定", [UIColor whiteColor], nil);
+        UIButton *sureBtn = NewButton(CGRectMake(kEdgeToScreen, 200, self.baseView.width - 2 * kEdgeToScreen, 44), @"确定", [UIColor whiteColor], nil);
         [sureBtn setBackgroundImage:[UIImage imageNamed:@"back_dialog_confirm_btn"] forState:UIControlStateNormal];
         [sureBtn setBackgroundImage:[UIImage imageNamed:@"back_dialog_confirm_btn"] forState:UIControlStateHighlighted];
         [self.baseView addSubview:sureBtn];
@@ -75,20 +89,6 @@
         self.cancelButton = cancelBtn;
     }
     return self;
-}
-
-- (void)cancelButtonAction {
-    if (self.block) {
-        [self dismiss];
-        self.block(self, 0);
-    }
-}
-
-- (void)sureButtonAction {
-    if (self.block) {
-        [self dismiss];
-        self.block(self, 1);
-    }
 }
 
 @end
@@ -156,4 +156,102 @@
 
 @end
 
+
+@implementation PublicAlertMusicListView
+
+- (instancetype)init {
+    self = [super initWithFrame:[UIScreen mainScreen].bounds];
+    if (self) {
+        self.baseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, 0.5 * screen_height)];
+        self.baseView.bottom = self.height;
+        self.baseView.backgroundColor = [UIColor whiteColor];
+        [self addSubview:self.baseView];
+        
+        self.cancelButton = NewButton(CGRectMake(0, 0, 40, 40), nil, nil, nil);
+        [self.cancelButton setImage:[UIImage imageNamed:@"icon_close_playlist"] forState:UIControlStateNormal];
+        self.cancelButton.right = self.baseView.width;
+        [self.baseView addSubview:self.cancelButton];
+        [self.cancelButton addTarget:self action:@selector(cancelButtonAction) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.baseView addSubview:self.tableView];
+    }
+    return self;
+}
+
+#pragma mark - getter
+- (UITableView *)tableView{
+    if (_tableView == nil){
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.cancelButton.bottom, self.baseView.width, self.baseView.height - self.cancelButton.bottom) style:UITableViewStyleGrouped];
+        _tableView.separatorColor = appSeparatorColor;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight |  UIViewAutoresizingFlexibleBottomMargin;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.showsVerticalScrollIndicator = NO;
+    }
+    return _tableView;
+}
+
+#pragma mark - Table view data source
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [UserPublic getInstance].userPlayList.count;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.01;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.01;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return kCellHeight;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"show_cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.separatorInset = UIEdgeInsetsZero;
+        cell.textLabel.font = [AppPublic appFontOfSize:appLabelFontSizeLittle];
+    }
+    
+    AppBasicMusicDetailInfo *item = [UserPublic getInstance].userPlayList[indexPath.row];
+    cell.textLabel.text = item.showMediaDetailTitle;
+    UIColor *color = appTextColor;
+    UIColor *sub_color = [UIColor lightGrayColor];
+    if ([item.Music.Id isEqualToString:[UserPublic getInstance].playingData.Music.Id]) {
+        cell.imageView.image = [UIImage imageNamed:@"icon_playlist_playing_item"];
+        color = appMainColor;
+        sub_color = appMainColor;
+    }
+    else {
+        cell.imageView.image = nil;
+    }
+    NSDictionary *dic1 = @{NSForegroundColorAttributeName : color};
+    NSDictionary *dic2 = @{NSForegroundColorAttributeName : sub_color};
+    NSMutableAttributedString *m_string = [NSMutableAttributedString new];
+    [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:item.Music.Name attributes:dic1]];
+    [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"-%@", item.showMediaItemPropertyAuthor] attributes:dic2]];
+    cell.textLabel.attributedText = m_string;
+    return cell;
+}
+
+@end
 

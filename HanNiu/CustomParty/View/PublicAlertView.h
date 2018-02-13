@@ -15,22 +15,24 @@
 typedef void(^ActionAlertBlock)(PublicAlertView *view, NSInteger index);
 
 @property (strong, nonatomic) ActionAlertBlock block;
+@property (strong, nonatomic) UIView *baseView;
+@property (strong, nonatomic) UIButton *sureButton;
+@property (strong, nonatomic) UIButton *cancelButton;
 
 - (instancetype)initWithContentView:(UIView *)contentView;
 - (void)show;
 - (void)dismiss;
 
+- (void)cancelButtonAction;
+- (void)sureButtonAction;
+
 @end
 
 @interface PublicAlertShowView : PublicAlertView
 
-@property (strong, nonatomic) UIView *baseView;
 @property (strong, nonatomic) UILabel *titleLabel;
-@property (strong, nonatomic) UIButton *sureButton;
-@property (strong, nonatomic) UIButton *cancelButton;
 
-- (void)cancelButtonAction;
-- (void)sureButtonAction;
+
 
 @end
 
@@ -50,3 +52,9 @@ typedef void(^ActionAlertBlock)(PublicAlertView *view, NSInteger index);
 
 @end
 
+@interface PublicAlertMusicListView : PublicAlertView<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
+
+
+@end

@@ -95,7 +95,7 @@
 		E410D253200CB79100C6ACED /* icon_play_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E6200CB79000C6ACED /* icon_play_gray@2x.png */; };
 		E410D254200CB79100C6ACED /* icon_play_list_colorful@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E7200CB79000C6ACED /* icon_play_list_colorful@2x.png */; };
 		E410D255200CB79100C6ACED /* icon_play_list_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E8200CB79000C6ACED /* icon_play_list_gray@2x.png */; };
-		E410D256200CB79100C6ACED /* icon_playlist_playing_item.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E9200CB79000C6ACED /* icon_playlist_playing_item.png */; };
+		E410D256200CB79100C6ACED /* icon_playlist_playing_item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1E9200CB79000C6ACED /* icon_playlist_playing_item@2x.png */; };
 		E410D257200CB79100C6ACED /* icon_prev_music@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1EA200CB79000C6ACED /* icon_prev_music@2x.png */; };
 		E410D258200CB79100C6ACED /* icon_prev_music_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1EB200CB79000C6ACED /* icon_prev_music_gray@2x.png */; };
 		E410D259200CB79100C6ACED /* icon_right_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1EC200CB79000C6ACED /* icon_right_arrow@2x.png */; };
@@ -476,7 +476,7 @@
 		E410D1E6200CB79000C6ACED /* icon_play_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_play_gray@2x.png"; sourceTree = "<group>"; };
 		E410D1E7200CB79000C6ACED /* icon_play_list_colorful@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_play_list_colorful@2x.png"; sourceTree = "<group>"; };
 		E410D1E8200CB79000C6ACED /* icon_play_list_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_play_list_gray@2x.png"; sourceTree = "<group>"; };
-		E410D1E9200CB79000C6ACED /* icon_playlist_playing_item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_playlist_playing_item.png; sourceTree = "<group>"; };
+		E410D1E9200CB79000C6ACED /* icon_playlist_playing_item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_playlist_playing_item@2x.png"; sourceTree = "<group>"; };
 		E410D1EA200CB79000C6ACED /* icon_prev_music@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_prev_music@2x.png"; sourceTree = "<group>"; };
 		E410D1EB200CB79000C6ACED /* icon_prev_music_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_prev_music_gray@2x.png"; sourceTree = "<group>"; };
 		E410D1EC200CB79000C6ACED /* icon_right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_right_arrow@2x.png"; sourceTree = "<group>"; };
@@ -1113,7 +1113,7 @@
 				E410D1E6200CB79000C6ACED /* icon_play_gray@2x.png */,
 				E410D1E7200CB79000C6ACED /* icon_play_list_colorful@2x.png */,
 				E410D1E8200CB79000C6ACED /* icon_play_list_gray@2x.png */,
-				E410D1E9200CB79000C6ACED /* icon_playlist_playing_item.png */,
+				E410D1E9200CB79000C6ACED /* icon_playlist_playing_item@2x.png */,
 				E410D1EA200CB79000C6ACED /* icon_prev_music@2x.png */,
 				E410D1EB200CB79000C6ACED /* icon_prev_music_gray@2x.png */,
 				E410D1EC200CB79000C6ACED /* icon_right_arrow@2x.png */,
@@ -2054,7 +2054,7 @@
 				E410D273200CB79100C6ACED /* select_icon.png in Resources */,
 				E4A725F82028028400E34BEA /* UIBarButtonItemArrowRight@3x.png in Resources */,
 				E47887E1200C48D6009C86A7 /* Main.storyboard in Resources */,
-				E410D256200CB79100C6ACED /* icon_playlist_playing_item.png in Resources */,
+				E410D256200CB79100C6ACED /* icon_playlist_playing_item@2x.png in Resources */,
 				E410D231200CB79100C6ACED /* icon_bought_unit_selected.png in Resources */,
 				E4E0888D2021DEFC006D6B55 /* college_major.txt in Resources */,
 				E4A725ED2028028400E34BEA /* PlayButtonOverlayLarge.png in Resources */,

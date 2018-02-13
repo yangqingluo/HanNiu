@@ -151,6 +151,11 @@ extern PublicMusicPlayerManager *musicPlayer;
     [self doMusicCollectionFunction];
 }
 
+- (void)listButtonAction {
+    PublicAlertMusicListView *alert = [PublicAlertMusicListView new];
+    [alert show];
+}
+
 #pragma mark - getter
 - (PublicPlayView *)playView {
     if (!_playView) {
@@ -158,6 +163,7 @@ extern PublicMusicPlayerManager *musicPlayer;
         _playView.bottom = self.view.height;
         _playView.textField.delegate = self;
         [_playView.favorBtn addTarget:self action:@selector(favorButtonAction) forControlEvents:UIControlEventTouchUpInside];
+        [_playView.listBtn addTarget:self action:@selector(listButtonAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playView;
 }

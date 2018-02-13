@@ -125,20 +125,6 @@ NSString *stringWithBoolValue(BOOL yn);
 
 @end
 
-
-//@interface AppCollegeInfo : AppBasicMusicInfo
-//
-//@property (strong, nonatomic) NSString *Addr;//阿里地址库ID
-//@property (strong, nonatomic) NSString *Tags;
-//@property (strong, nonatomic) NSString *Web;//不可出现非外链图片, 同DetailHtml?
-//@property (strong, nonatomic) NSString *DetailHtml;//
-//@property (strong, nonatomic) NSString *DetailFiles;//
-//
-//- (NSString *)showStringForTags;
-//- (NSString *)showStringForAddr;
-//
-//@end
-
 @interface AppMajorInfo : AppItemInfo
 
 @property (strong, nonatomic) NSString *Type;//第几级
@@ -155,13 +141,6 @@ NSString *stringWithBoolValue(BOOL yn);
 @property (strong, nonatomic) NSString *ThirdTagImage;
 
 @end
-
-//@interface AppMajorMusicInfo : AppBasicMusicDetailInfo
-//
-//@property (strong, nonatomic) AppMajorDetailInfo *CommonMajor;
-//@property (strong, nonatomic) NSString *Grade;
-//
-//@end
 
 
 @interface AppCommentInfo : AppItemInfo
@@ -203,15 +182,13 @@ NSString *stringWithBoolValue(BOOL yn);
 @property (strong, nonatomic) AppItemInfo *University;
 @property (strong, nonatomic) AppItemInfo *College;
 @property (strong, nonatomic) AppItemInfo *Institute;//学院
-
-
+//学校
 @property (strong, nonatomic) NSString *Addr;//阿里地址库ID
 @property (strong, nonatomic) NSString *Tags;
 @property (strong, nonatomic) NSString *Web;//不可出现非外链图片, 同DetailHtml?
 @property (strong, nonatomic) NSString *DetailHtml;//
 @property (strong, nonatomic) NSString *DetailFiles;//
-
-
+//专业
 @property (strong, nonatomic) AppMajorDetailInfo *CommonMajor;
 @property (strong, nonatomic) NSString *Grade;
 

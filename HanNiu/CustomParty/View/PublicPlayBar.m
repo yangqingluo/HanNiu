@@ -9,6 +9,7 @@
 #import "PublicPlayBar.h"
 #import "UIImageView+WebCache.h"
 #import "UIImageView+Rotate.h"
+#import "PublicAlertView.h"
 
 PublicMusicPlayerManager *musicPlayer;
 @implementation PublicPlayBar
@@ -79,7 +80,8 @@ static PublicPlayBar *_singleShare = nil;
 }
 
 - (void)listButtonAction {
-    
+    PublicAlertMusicListView *alert = [PublicAlertMusicListView new];
+    [alert show];
 }
 
 - (void)updateSubviewsWithState:(PlayerManagerState)state {

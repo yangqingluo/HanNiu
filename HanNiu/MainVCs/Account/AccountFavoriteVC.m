@@ -42,7 +42,7 @@
     }];
 }
 
-- (void)doGetCollegeDetailFunction:(AppItemInfo *)item {
+- (void)doGetCollegeDetailFunction:(AppItemInfo *)item indexPath:(NSIndexPath *)indexPath {
     NSMutableDictionary *m_dic = [NSMutableDictionary new];
     [m_dic setObject:item.Id forKey:@"id"];
     [self doShowHudFunction];
@@ -54,9 +54,26 @@
         }
         else {
             AppBasicMusicDetailInfo *college = [AppBasicMusicDetailInfo mj_objectWithKeyValues:responseBody[@"Data"]];
-            [weakself updateSubviews];
+            college.Music = self.dataSource[indexPath.row];
+            [weakself goToMusicVC:college fromIndexPath:indexPath];
         }
     }];
+}
+
+- (void)goToMusicVC:(AppBasicMusicDetailInfo *)data fromIndexPath:(NSIndexPath *)indexPath {
+    NSMutableArray *m_array = [NSMutableArray arrayWithCapacity:self.dataSource.count];
+    for (NSInteger i = 0; i < self.dataSource.count; i++) {
+        if (i == indexPath.row) {
+            [m_array addObject:data];
+        }
+        else {
+            AppMusicInfo *music = self.dataSource[i];
+            AppBasicMusicDetailInfo *m_data = [AppBasicMusicDetailInfo mj_objectWithKeyValues:music.showItem.mj_keyValues];
+            m_data.Music = music;
+            [m_array addObject:m_data];
+        }
+    }
+    [[AppPublic getInstance] goToMusicVC:data list:m_array type:PublicMusicDetailDefault];
 }
 
 #pragma mark - UITableView
@@ -85,10 +102,8 @@
     AppMusicInfo *music = self.dataSource[indexPath.row];
     NSString *key = music.showItemKey;
     if ([key isEqualToString:musicKeyUniversitys]) {
-        [self doGetCollegeDetailFunction:music.Universitys[0]];
+        [self doGetCollegeDetailFunction:music.Universitys[0] indexPath:indexPath];
     }
-    
-//    [AppPublic getInstance] goToMusicVC:<#(AppQualityInfo *)#> list:<#(NSArray *)#> type:<#(PublicMusicDetailType)#>;
 }
 
 @end
