@@ -41,6 +41,58 @@
     }];
 }
 
+- (void)doGetMusicDetailFunction:(NSIndexPath *)indexPath {
+    NSMutableDictionary *m_dic = [NSMutableDictionary new];
+    NSString *urlFooter = nil;
+    
+    AppMusicInfo *music = self.dataSource[indexPath.row];
+    NSString *key = music.showItemKey;
+    AppItemInfo *item = music.showItem;
+    [m_dic setObject:item.Id forKey:@"id"];
+    if ([key isEqualToString:musicKeyUniversitys]) {
+        urlFooter = @"University/Detail";
+    }
+    else if ([key isEqualToString:musicKeySchools]) {
+        urlFooter = @"University/School/Detail";
+    }
+    else if ([key isEqualToString:musicKeyMajors]) {
+        urlFooter = @"University/Major/Detail";
+    }
+    else if ([key isEqualToString:musicKeyQualities]) {
+        urlFooter = @"Quality/Detail";
+    }
+    
+    [self doShowHudFunction];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:urlFooter completion:^(id responseBody, NSError *error){
+        [weakself endRefreshing];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            AppBasicMusicDetailInfo *college = [AppBasicMusicDetailInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+            college.Music = self.dataSource[indexPath.row];
+            [weakself goToMusicVC:college fromIndexPath:indexPath];
+        }
+    }];
+}
+
+- (void)goToMusicVC:(AppBasicMusicDetailInfo *)data fromIndexPath:(NSIndexPath *)indexPath {
+    NSMutableArray *m_array = [NSMutableArray arrayWithCapacity:self.dataSource.count];
+    for (NSInteger i = 0; i < self.dataSource.count; i++) {
+        if (i == indexPath.row) {
+            [m_array addObject:data];
+        }
+        else {
+            AppMusicInfo *music = self.dataSource[i];
+            AppBasicMusicDetailInfo *m_data = [AppBasicMusicDetailInfo mj_objectWithKeyValues:music.showItem.mj_keyValues];
+            m_data.Music = music;
+            [m_array addObject:m_data];
+        }
+    }
+    [[AppPublic getInstance] goToMusicVC:data list:m_array type:PublicMusicDetailDefault];
+}
+
 #pragma mark - UITableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataSource.count;
@@ -63,7 +115,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+    [self doGetMusicDetailFunction:indexPath];
 }
 
 @end
