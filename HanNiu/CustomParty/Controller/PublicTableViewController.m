@@ -79,7 +79,6 @@
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor clearColor];
     return view;
-
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

@@ -79,6 +79,18 @@
     return kEdge;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [UITableViewCell new];
 }

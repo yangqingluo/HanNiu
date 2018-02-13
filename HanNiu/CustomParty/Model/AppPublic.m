@@ -361,8 +361,8 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
 - (void)goToMusicVC:(AppBasicMusicDetailInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type {
     if ([UserPublic getInstance].userData) {
         if (type != PublicMusicDetailFromBar) {
-            [[PublicPlayerManager getInstance] saveCurrentData:data];
             [[PublicPlayerManager getInstance] savePlayList:list];
+            [[PublicPlayerManager getInstance] saveCurrentData:data];
         }
         
         if ([PublicPlayerManager getInstance].currentPlay) {

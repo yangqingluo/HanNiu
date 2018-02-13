@@ -52,7 +52,6 @@
             UIButton *btn = NewBackButton(nil);
             [btn addTarget:self action:@selector(cancelButtonAction) forControlEvents:UIControlEventTouchUpInside];
             return btn;
-            return btn;
         }
         else if (nIndex == 1) {
             UIButton *btn = NewRightButton([UIImage imageNamed:@"search"], nil);

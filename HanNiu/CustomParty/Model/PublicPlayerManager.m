@@ -220,6 +220,7 @@ static PublicPlayerManager *_sharedManager = nil;
         needSwitch = YES;
     }
     _currentPlay = data;
+    [self resetPlayIndex];
     [self postNotificationName:kNotifi_Play_DataRefresh object:nil];
     if (needSwitch) {
         [self resetPlay];
@@ -241,6 +242,17 @@ static PublicPlayerManager *_sharedManager = nil;
     [self clearPlayer];
     if (self.isAutoPlay) {
         [self prepare];
+    }
+}
+
+- (void)resetPlayIndex {
+    _playIndex = -1;
+    for (NSInteger i = 0; i < self.userPlayList.count; i++) {
+        AppBasicMusicDetailInfo *item = self.userPlayList[i];
+        if ([item.Music.Id isEqualToString:self.currentPlay.Music.Id]) {
+            _playIndex = i;
+            break;
+        }
     }
 }
 

@@ -20,10 +20,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"推荐精品";
-    self.tableView.height = screen_height - TAB_BAR_HEIGHT - self.navigationBarView.bottom;
-    
+    self.tableView.tableHeaderView = nil;
+    self.tableView = nil;
+    self.tableView.frame = CGRectMake(0, self.navigationBarView.bottom, screen_width, screen_height - TAB_BAR_HEIGHT - self.navigationBarView.bottom);
+    [self.view addSubview:self.tableView];
     [self updateTableViewHeader];
     [self beginRefreshing];
+}
+
+- (void)initializeNavigationBar {
+    [self createNavWithTitle:self.title createMenuItem:^UIView *(int nIndex) {
+        if (nIndex == 0) {
+            UIButton *btn = NewBackButton(nil);
+            [btn addTarget:self action:@selector(cancelButtonAction) forControlEvents:UIControlEventTouchUpInside];
+            return btn;
+        }
+        return nil;
+    }];
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
@@ -42,32 +55,6 @@
         }
         [weakself updateSubviews];
     }];
-}
-
-#pragma mark - UITableView
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSource.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [QualityCell tableView:tableView heightForRowAtIndexPath:indexPath];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"select_cell";
-    QualityCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[QualityCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    cell.data = self.dataSource[indexPath.row];
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    [[AppPublic getInstance] goToMusicVC:self.dataSource[indexPath.row] list:nil type:PublicMusicDetailFromBetter];
 }
 
 @end

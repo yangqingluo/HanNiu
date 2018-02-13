@@ -41,7 +41,8 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) NSMutableArray *userPlayList;
 //当前播放数据
 @property (strong, nonatomic, readonly) AppBasicMusicDetailInfo *currentPlay;
-
+//当前播放index
+@property (assign, nonatomic, readonly) NSInteger playIndex;
 
 - (void)play;
 - (void)pause;

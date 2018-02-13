@@ -76,7 +76,7 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
         }
         else {
             [weakself.universityList removeAllObjects];
-            [weakself.universityList addObjectsFromArray:responseBody[@"Data"]];
+            [weakself.universityList addObjectsFromArray:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
         }
         [weakself updateSubviews];
     }];
@@ -93,9 +93,41 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
         }
         else {
             [weakself.qualityList removeAllObjects];
-            [weakself.qualityList addObjectsFromArray:responseBody[@"Data"]];
+            [weakself.qualityList addObjectsFromArray:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
         }
         [weakself updateSubviews];
+    }];
+}
+
+- (void)doGetMusicDetailFunction:(NSIndexPath *)indexPath {
+    NSMutableDictionary *m_dic = [NSMutableDictionary new];
+    NSString *urlFooter = @"Quality/List";
+    
+    AppBasicMusicDetailInfo *item;
+    if (indexPath.section == 2) {
+        item = self.qualityList[indexPath.row];
+    }
+    if (item.Institute) {
+        [m_dic setObject:item.Institute.Id forKey:@"schoolId"];
+    }
+    else if (item.University) {
+        [m_dic setObject:item.University.Id forKey:@"universityId"];
+    }
+    else if (item.College) {
+        [m_dic setObject:item.College.Id forKey:@"universityId"];
+    }
+    
+    [self doShowHudFunction];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:urlFooter completion:^(id responseBody, NSError *error){
+        [weakself endRefreshing];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            NSArray *m_array = [AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]];
+            [[AppPublic getInstance] goToMusicVC:item list:m_array type:PublicMusicDetailDefault];
+        }
     }];
 }
 
@@ -122,12 +154,12 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSUInteger count = 0;
     if (section == 1) {
-        count = 6;
+        count = self.universityList.count;
     }
     else if (section == 2) {
-        count = 6;
+        count = self.qualityList.count;
     }
-    return count;
+    return MIN(6, count);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -176,21 +208,17 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
     
     cell.titleLabel.text = @"";
     cell.showImageView.hidden = YES;
+    AppBasicMusicDetailInfo *item = nil;
     if (indexPath.section == 1) {
-        if (indexPath.row < self.universityList.count) {
-            NSDictionary *item = self.universityList[indexPath.row];
-            [cell.showImageView sd_setImageWithURL:fileURLWithPID(item[@"Image"]) placeholderImage:nil];
-            cell.showImageView.hidden = NO;
-            cell.titleLabel.text = item[@"Name"];
-        }
+        item = self.universityList[indexPath.row];
     }
     else if (indexPath.section == 2) {
-        if (indexPath.row < self.qualityList.count) {
-            NSDictionary *item = self.qualityList[indexPath.row];
-            [cell.showImageView sd_setImageWithURL:fileURLWithPID(item[@"Image"]) placeholderImage:nil];
-            cell.showImageView.hidden = NO;
-            cell.titleLabel.text = item[@"Name"];
-        }
+        item = self.qualityList[indexPath.row];
+    }
+    if (item) {
+        [cell.showImageView sd_setImageWithURL:fileURLWithPID(item.Image) placeholderImage:nil];
+        cell.showImageView.hidden = NO;
+        cell.titleLabel.text = item.Name;
     }
     return cell;
 }
@@ -199,11 +227,11 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 1) {
         CollegeDetailVC *vc = [CollegeDetailVC new];
-        vc.data = [AppBasicMusicDetailInfo mj_objectWithKeyValues:self.universityList[indexPath.row]];
+        vc.data = self.universityList[indexPath.row];
         [self doPushViewController:vc animated:YES];
     }
     else if (indexPath.section == 2) {
-        [[AppPublic getInstance] goToMusicVC:[AppBasicMusicDetailInfo mj_objectWithKeyValues:self.qualityList[indexPath.row]] list:nil type:PublicMusicDetailFromBetter];
+        [self doGetMusicDetailFunction:indexPath];
     }
 }
 

@@ -179,6 +179,17 @@
     return self;
 }
 
+- (void)show {
+    [super show];
+    NSInteger index = [PublicPlayerManager getInstance].playIndex;
+    if (index >= 0) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        if (![self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }
+    }
+}
+
 #pragma mark - getter
 - (UITableView *)tableView{
     if (_tableView == nil){
@@ -237,7 +248,7 @@
     cell.textLabel.text = item.showMediaDetailTitle;
     UIColor *color = appTextColor;
     UIColor *sub_color = [UIColor lightGrayColor];
-    if ([item.Music.Id isEqualToString:[PublicPlayerManager getInstance].currentPlay.Music.Id]) {
+    if (indexPath.row == [PublicPlayerManager getInstance].playIndex) {
         cell.imageView.image = [UIImage imageNamed:@"icon_playlist_playing_item"];
         color = appMainColor;
         sub_color = appMainColor;

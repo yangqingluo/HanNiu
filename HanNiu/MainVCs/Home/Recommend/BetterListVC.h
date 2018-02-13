@@ -6,8 +6,8 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "PublicShowTableVC.h"
+#import "HomeBetterVC.h"
 
-@interface BetterListVC : PublicShowTableVC
+@interface BetterListVC : HomeBetterVC
 
 @end
