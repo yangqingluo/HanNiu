@@ -275,6 +275,33 @@ static PublicPlayerManager *_sharedManager = nil;
 }
 
 #pragma mark - getter
+- (BOOL)isAutoPlay {
+    BOOL yn = NO;
+    switch ([[AppPublic getInstance].internetReachability currentReachabilityStatus]) {
+        case NotReachable:{
+            NSLog(@"**********未连接");
+        }
+            break;
+            
+        case ReachableViaWiFi:{
+            NSLog(@"***********wifi");
+            yn = YES;
+        }
+            break;
+            
+        case ReachableViaWWAN:{
+            NSLog(@"*********蜂窝网络");
+            yn = [[AppPublic getInstance].isAutoPlayOnWWAN boolValue];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return yn;
+}
+
 - (AppTime *)currentTime {
     AppTime *m_time = nil;
     if (self.player.currentItem) {
