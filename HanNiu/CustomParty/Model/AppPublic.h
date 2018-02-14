@@ -93,7 +93,8 @@
 
 #define kUserName                       @"username_HanNiu"
 #define kUserData                       @"userdata_HanNiu"
-#define kUserZone                       @"userzone_HanNiu"
+#define kUserPlayList                   @"user_play_list_HanNiu"
+#define kUserPlayCurrent                @"user_play_current_HanNiu"
 
 #define kAppleSBLockstate               "apple.springboard.lockstate"
 #define kAppleSBHasBlankedScreen        "com.apple.springboard.hasBlankedScreen"

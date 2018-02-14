@@ -35,6 +35,11 @@ static PublicPlayerManager *_sharedManager = nil;
     if (self) {
         // 播放结束通知
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDidPlayToEndTime) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        NSDictionary *data = [ud objectForKey:kUserPlayCurrent];
+        if (data) {
+            [self saveCurrentData:[AppBasicMusicDetailInfo mj_objectWithKeyValues:data]];
+        }
         [self createRemoteCommandCenter];
     }
     return self;
@@ -225,6 +230,10 @@ static PublicPlayerManager *_sharedManager = nil;
         }
     }
     _currentPlay = data;
+    if (_currentPlay) {
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:[_currentPlay mj_keyValues] forKey:kUserPlayCurrent];
+    }
     [self resetPlayIndex];
     [self postNotificationName:kNotifi_Play_DataRefresh object:nil];
     if (needSwitch) {
@@ -236,6 +245,10 @@ static PublicPlayerManager *_sharedManager = nil;
 - (void)savePlayList:(NSArray *)array {
     [self.userPlayList removeAllObjects];
     [self.userPlayList addObjectsFromArray:array];
+    if (_userPlayList) {
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:[AppBasicMusicDetailInfo mj_keyValuesArrayWithObjectArray:_userPlayList] forKey:kUserPlayList];
+    }
 }
 
 - (void)resetPlay {
@@ -275,9 +288,25 @@ static PublicPlayerManager *_sharedManager = nil;
 - (NSMutableArray *)userPlayList {
     if (!_userPlayList) {
         _userPlayList = [NSMutableArray new];
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        NSArray *data = [ud objectForKey:kUserPlayList];
+        if (data.count) {
+            [_userPlayList addObjectsFromArray:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:data]];
+        }
     }
     return _userPlayList;
 }
+
+//- (AppBasicMusicDetailInfo *)currentPlay {
+//    if (!_currentPlay) {
+//        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+//        NSDictionary *data = [ud objectForKey:kUserPlayCurrent];
+//        if (data) {
+//            _currentPlay = [AppBasicMusicDetailInfo mj_objectWithKeyValues:data];
+//        }
+//    }
+//    return _currentPlay;
+//}
 
 #pragma mark - NSNotification
 - (void)playerDidPlayToEndTime {

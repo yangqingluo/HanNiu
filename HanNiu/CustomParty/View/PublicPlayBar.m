@@ -49,6 +49,7 @@ static PublicPlayBar *_singleShare = nil;
     [AppPublic roundCornerRadius:_playImageView];
     _playImageView.centerY = 0.5 * self.height;
     _playImageView.image = [UIImage imageNamed:defaultDownloadPlaceImageName];
+    _playImageView.backgroundColor = appLightWhiteColor;
     [self addSubview:_playImageView];
     
     _listBtn = NewButton(CGRectMake(0, 0, radius, radius), nil, nil, nil);
