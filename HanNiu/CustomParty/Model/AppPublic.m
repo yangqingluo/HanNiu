@@ -351,7 +351,6 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
 
 - (void)goToLoginCompletion:(void (^)(void))completion {
     LoginViewController *vc = [LoginViewController new];
-    vc.hidesBottomBarWhenPushed = YES;
     [self.topViewController.navigationController pushViewController:vc animated:YES];
     if (completion) {
         completion();

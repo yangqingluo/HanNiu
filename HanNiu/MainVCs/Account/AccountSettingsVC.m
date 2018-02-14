@@ -7,6 +7,7 @@
 //
 
 #import "AccountSettingsVC.h"
+#import "ChangePasswordVC.h"
 
 #import "PublicTableViewCell.h"
 
@@ -115,6 +116,14 @@
     cell.textLabel.text = dic[@"title"];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (indexPath.row == self.showArray.count - 1) {
+        ChangePasswordVC *vc = [ChangePasswordVC new];
+        [self doPushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - notification
