@@ -35,9 +35,41 @@ __strong static AppPublic  *_singleManger = nil;
     }
     self = [super init];
     if (self) {
-        
+        /*
+         Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the method reachabilityChanged will be called.
+         */
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+        self.internetReachability = [Reachability reachabilityForInternetConnection];
+        [self.internetReachability startNotifier];
+        [self updateInterface];
     }
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)updateInterface {
+    switch ([self.internetReachability currentReachabilityStatus]) {
+        case NotReachable:{
+            NSLog(@"**********未连接");
+        }
+            break;
+            
+        case ReachableViaWiFi:{
+            NSLog(@"***********wifi");
+        }
+            break;
+            
+        case ReachableViaWWAN:{
+            NSLog(@"*********蜂窝网络");
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark - public
@@ -408,5 +440,13 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
     }
     return nil;
 }
+
+#pragma mark - NSNotification
+- (void)reachabilityChanged:(NSNotification *)note {
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    [self updateInterface];
+}
+
 
 @end

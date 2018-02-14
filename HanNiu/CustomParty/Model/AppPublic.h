@@ -14,6 +14,7 @@
 #import "AppType.h"
 #import "MJExtension.h"
 #import "AppNetwork.h"
+#import "Reachability.h"
 
 #define iosVersion ([[[UIDevice currentDevice] systemVersion] floatValue])
 
@@ -112,6 +113,8 @@ typedef void(^AppDoneBlock)(id object);
 @property (strong, nonatomic) NSString *appVersion;
 //栈顶视图控制器
 @property (strong, nonatomic) UIViewController *topViewController;
+
+@property (nonatomic) Reachability *internetReachability;
 
 /*!
  @brief 检查版本是否第一次使用

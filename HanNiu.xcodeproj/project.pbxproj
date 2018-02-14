@@ -345,6 +345,7 @@
 		E4BA3002200F51B700395F70 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BA3001200F51B700395F70 /* ForgetViewController.m */; };
 		E4BA3005200FA0E200395F70 /* AccountAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BA3004200FA0E200395F70 /* AccountAboutVC.m */; };
 		E4D0139D2033BDCB00CD649C /* ChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D0139C2033BDCB00CD649C /* ChangePasswordVC.m */; };
+		E4D013A12033D7A800CD649C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D0139F2033D7A800CD649C /* Reachability.m */; };
 		E4DB3C502015B26500D5C465 /* AccountFavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C4F2015B26500D5C465 /* AccountFavoriteVC.m */; };
 		E4DB3C532015B31900D5C465 /* AccountSuggestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C522015B31900D5C465 /* AccountSuggestVC.m */; };
 		E4DB3C562015B81900D5C465 /* XHMessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C542015B81800D5C465 /* XHMessageTextView.m */; };
@@ -903,6 +904,8 @@
 		E4BA3004200FA0E200395F70 /* AccountAboutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountAboutVC.m; sourceTree = "<group>"; };
 		E4D0139B2033BDCB00CD649C /* ChangePasswordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePasswordVC.h; sourceTree = "<group>"; };
 		E4D0139C2033BDCB00CD649C /* ChangePasswordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordVC.m; sourceTree = "<group>"; };
+		E4D0139E2033D7A700CD649C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		E4D0139F2033D7A800CD649C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E4DB3C4E2015B26500D5C465 /* AccountFavoriteVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountFavoriteVC.h; sourceTree = "<group>"; };
 		E4DB3C4F2015B26500D5C465 /* AccountFavoriteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountFavoriteVC.m; sourceTree = "<group>"; };
 		E4DB3C512015B31900D5C465 /* AccountSuggestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountSuggestVC.h; sourceTree = "<group>"; };
@@ -1829,6 +1832,8 @@
 				E4B3CBDB200D95B6006807AE /* NSData+HTTPRequest.m */,
 				E4B3CBDE200D95B7006807AE /* UIResponder+Router.h */,
 				E4B3CBDC200D95B6006807AE /* UIResponder+Router.m */,
+				E4D0139E2033D7A700CD649C /* Reachability.h */,
+				E4D0139F2033D7A800CD649C /* Reachability.m */,
 				E404EB3C20284FCD00312B4D /* Emoji */,
 				E4B3CB1E200D94E9006807AE /* UIImage+Categories */,
 			);
@@ -2314,6 +2319,7 @@
 				E402AE7F2021BE3C00CF1306 /* SchoolAndCompanyDetailVC.m in Sources */,
 				E4A726172028028400E34BEA /* IQUIScrollView+Additions.m in Sources */,
 				E4A726072028028400E34BEA /* UIImage+MWPhotoBrowser.m in Sources */,
+				E4D013A12033D7A800CD649C /* Reachability.m in Sources */,
 				E4D0139D2033BDCB00CD649C /* ChangePasswordVC.m in Sources */,
 				E4A725D12028028400E34BEA /* MBProgressHUD.m in Sources */,
 				E4B3CBE3200D95C3006807AE /* AppType.m in Sources */,

@@ -33,7 +33,7 @@
         UITableView.appearance.estimatedSectionFooterHeight = 0;
         UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
-    
+    [AppPublic getInstance];
     return YES;
 }
 
