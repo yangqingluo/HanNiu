@@ -20,7 +20,7 @@
 extern PublicPlayerManager *musicPlayer;
 @interface MusicDetailVC ()<UITextFieldDelegate>
 
-@property (strong, nonatomic) AppBasicMusicDetailInfo *data;
+@property (copy, nonatomic) AppBasicMusicDetailInfo *data;
 @property (strong, nonatomic) PublicPlayView *playView;
 @property (strong, nonatomic) UITextView *textView;
 
@@ -28,24 +28,25 @@ extern PublicPlayerManager *musicPlayer;
 
 @implementation MusicDetailVC
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.hidesBottomBarWhenPushed = YES;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDataRefreshNotification:) name:kNotifi_Play_DataRefresh object:nil];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.data = [PublicPlayerManager getInstance].currentPlay;
-    
-    self.title = self.data.showMediaDetailTitle;
+    [self resetPlayData];
     [self.view addSubview:self.playView];
-    
     [self.view addSubview:self.textView];
     [self updateSubviews];
-//    [self pullBaseListData:YES];
     if (!self.data.Music.Url) {
         PublicAlertShowMusicBuyView *alert = [PublicAlertShowMusicBuyView new];
         alert.nameView.titleLabel.text = self.data.Music.Name;
@@ -90,18 +91,33 @@ extern PublicPlayerManager *musicPlayer;
     }];
 }
 
-- (void)pullBaseListData:(BOOL)isReset {
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Music.Id}];
-    [self doShowHudFunction];
+- (void)doGetDetailDataFunction {
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Id}];
+    NSString *urlFooter = @"";
+    if (self.data.CommonMajor) {
+        urlFooter = @"University/Major/Detail";
+    }
+    else if (self.data.Institute) {
+        urlFooter = @"Quality/Detail";
+    }
+    else if (self.data.University || self.data.College) {
+        urlFooter = @"University/School/Detail";
+    }
+    else {
+        urlFooter = @"University/Detail";
+    }
     QKWEAKSELF;
-    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Music/Detail" completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:urlFooter completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            weakself.data.Music = [AppMusicInfo mj_objectWithKeyValues:responseBody[@"Data"]];
-            [weakself updateSubviews];
+            AppBasicMusicDetailInfo *m_data = [AppBasicMusicDetailInfo mj_objectWithKeyValues:responseBody[@"Data"]];
+            if (m_data.Introduce) {
+                weakself.data.Introduce = [m_data.Introduce copy];
+                [weakself updateSubviews];
+            }
         }
     }];
 }
@@ -133,12 +149,20 @@ extern PublicPlayerManager *musicPlayer;
         }
         else {
             AppMusicInfo *music = [AppMusicInfo mj_objectWithKeyValues:responseBody[@"Data"]];
-            weakself.data.Music = music;
+            [PublicPlayerManager getInstance].currentPlay.Music = music;
             [[PublicPlayerManager getInstance] saveCurrentData:weakself.data];
+            [weakself resetPlayData];
             [weakself doShowHintFunction:@"购买成功"];
         }
         [weakself updateSubviews];
     }];
+}
+
+- (void)resetPlayData {
+    self.data = [[PublicPlayerManager getInstance].currentPlay copy];
+    if (!self.data.Introduce.length) {
+        [self doGetDetailDataFunction];
+    }
 }
 
 - (void)updateSubviews {
@@ -187,6 +211,12 @@ extern PublicPlayerManager *musicPlayer;
     vc.musicId = self.data.Music.Id;
     [self doPushViewController:vc animated:YES];
     return NO;
+}
+
+#pragma mark - NSNotification
+- (void)playerDataRefreshNotification:(NSNotification *)notification {
+    [self resetPlayData];
+    [self updateSubviews];
 }
 
 @end
