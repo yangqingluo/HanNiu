@@ -96,6 +96,8 @@
 #define kUserData                       @"userdata_HanNiu"
 #define kUserPlayList                   @"user_play_list_HanNiu"
 #define kUserPlayCurrent                @"user_play_current_HanNiu"
+#define kIsAutoPlayOnWWAN               @"isAutoPlayOnWWAN_HanNiu"
+#define kIsAutoPlayWhenOpen             @"isAutoPlayWhenOpen_HanNiu"
 
 #define kAppleSBLockstate               "apple.springboard.lockstate"
 #define kAppleSBHasBlankedScreen        "com.apple.springboard.hasBlankedScreen"
@@ -113,8 +115,12 @@ typedef void(^AppDoneBlock)(id object);
 @property (strong, nonatomic) NSString *appVersion;
 //栈顶视图控制器
 @property (strong, nonatomic) UIViewController *topViewController;
-
+//网络监测
 @property (nonatomic) Reachability *internetReachability;
+//蜂窝网络下是否自动播放
+@property (strong, nonatomic) NSNumber *isAutoPlayOnWWAN;
+//打开应用是否自动播放
+@property (strong, nonatomic) NSNumber *isAutoPlayWhenOpen;
 
 /*!
  @brief 检查版本是否第一次使用

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) UIImageView *showImageView;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *subTitleLabel;
+@property (strong, nonatomic) UISwitch *switchBtn;
 
 + (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 

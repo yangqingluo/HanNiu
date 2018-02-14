@@ -75,6 +75,23 @@
     }];
 }
 
+- (void)cellSwitchButtonAction:(UISwitch *)button {
+    switch (button.tag) {
+        case 0:{
+            [AppPublic getInstance].isAutoPlayOnWWAN = @(button.isOn);
+        }
+            break;
+            
+        case 1:{
+            [AppPublic getInstance].isAutoPlayWhenOpen = @(button.isOn);
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 #pragma mark - getter
 - (UIView *)footerView {
     if (!_footerView) {
@@ -111,9 +128,24 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = [AppPublic appFontOfSize:appLabelFontSize];
         cell.detailTextLabel.font = cell.textLabel.font;
+        
+        cell.switchBtn = [UISwitch new];
+        cell.switchBtn.onTintColor = appMainColor;
+        cell.switchBtn.right = screen_width - kEdgeMiddle;
+        cell.switchBtn.centerY = 0.5 * [self tableView:tableView heightForRowAtIndexPath:indexPath];
+        [cell.contentView addSubview:cell.switchBtn];
+        [cell.switchBtn addTarget:self action:@selector(cellSwitchButtonAction:) forControlEvents:UIControlEventValueChanged];
     }
     NSDictionary *dic = self.showArray[indexPath.row];
     cell.textLabel.text = dic[@"title"];
+    cell.switchBtn.tag = indexPath.row;
+    cell.switchBtn.hidden = (indexPath.row != 0 && indexPath.row != 1);
+    if (indexPath.row == 0) {
+        cell.switchBtn.on = [[AppPublic getInstance].isAutoPlayOnWWAN boolValue];
+    }
+    else if (indexPath.row == 1) {
+        cell.switchBtn.on = [[AppPublic getInstance].isAutoPlayWhenOpen boolValue];
+    }
     
     return cell;
 }

@@ -39,6 +39,9 @@ __strong static AppPublic  *_singleManger = nil;
          Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the method reachabilityChanged will be called.
          */
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+        _isAutoPlayOnWWAN = [[NSUserDefaults standardUserDefaults] objectForKey:kIsAutoPlayOnWWAN];
+        _isAutoPlayWhenOpen = [[NSUserDefaults standardUserDefaults] objectForKey:kIsAutoPlayWhenOpen];
+        
         self.internetReachability = [Reachability reachabilityForInternetConnection];
         [self.internetReachability startNotifier];
         [self updateInterface];
@@ -439,6 +442,17 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
         return vc;
     }
     return nil;
+}
+
+#pragma mark - setter
+- (void)setIsAutoPlayOnWWAN:(NSNumber *)isAutoPlayOnWWAN {
+    _isAutoPlayOnWWAN = isAutoPlayOnWWAN;
+    [[NSUserDefaults  standardUserDefaults] setObject:_isAutoPlayOnWWAN forKey:kIsAutoPlayOnWWAN];
+}
+
+- (void)setIsAutoPlayWhenOpen:(NSNumber *)isAutoPlayWhenOpen {
+    _isAutoPlayWhenOpen = isAutoPlayWhenOpen;
+    [[NSUserDefaults  standardUserDefaults] setObject:_isAutoPlayWhenOpen forKey:kIsAutoPlayWhenOpen];
 }
 
 #pragma mark - NSNotification
