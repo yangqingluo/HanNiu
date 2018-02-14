@@ -10,7 +10,9 @@
 #import "SDImageCache.h"
 #import "PublicPlayerManager.h"
 
-@interface PublicPlayerManager ()
+@interface PublicPlayerManager () {
+    BOOL firstWhenOpenApp;
+}
 
 @property (strong, nonatomic) AVPlayer *player;
 @property (strong, nonatomic) AVPlayerItem *playerItem;
@@ -38,6 +40,7 @@ static PublicPlayerManager *_sharedManager = nil;
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         NSDictionary *data = [ud objectForKey:kUserPlayCurrent];
         if (data) {
+            firstWhenOpenApp = YES;
             [self saveCurrentData:[AppBasicMusicDetailInfo mj_objectWithKeyValues:data]];
         }
         [self createRemoteCommandCenter];
@@ -239,6 +242,9 @@ static PublicPlayerManager *_sharedManager = nil;
     if (needSwitch) {
         [self resetPlay];
     }
+    else {
+        firstWhenOpenApp = NO;
+    }
 }
 
 //保存用户播放列表
@@ -259,7 +265,15 @@ static PublicPlayerManager *_sharedManager = nil;
     [self clearPlayerItem];
     [self clearPlayer];
     if (self.isAutoPlay) {
-        [self prepare];
+        if (firstWhenOpenApp) {
+            firstWhenOpenApp = NO;
+            if ([[AppPublic getInstance].isAutoPlayWhenOpen boolValue]) {
+                [self prepare];
+            }
+        }
+        else {
+            [self prepare];
+        }
     }
 }
 
