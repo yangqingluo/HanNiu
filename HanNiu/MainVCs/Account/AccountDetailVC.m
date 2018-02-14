@@ -35,7 +35,7 @@
     self.tableView.tableHeaderView = self.headerView;
     [self initializeData];
     [self updateSubviews];
-//    [self pullBaseListData:YES];
+    [self pullBaseListData:YES];
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
@@ -72,7 +72,7 @@
 }
 
 - (void)doUpdateUserImageFunction:(NSString *)pID {
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"v" : @"0",   @"Image" : pID}];
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"Image" : pID, @"NickName" : @"叶语"}];
     [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:[NSString stringWithFormat:@"UserInfo?%@", AFQueryStringFromParameters(m_dic)]  completion:^(id responseBody, NSError *error){

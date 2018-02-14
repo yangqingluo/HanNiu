@@ -137,8 +137,9 @@
     parm.NewPwd = self.passwordInputView.text;
     parm.VerifyCode = self.vcodeInputView.text;
     parm.PwdMode = @"0";
-    parm.Role = @"0";
+    parm.Role = @"1";
     parm.ClientId = @"2";
+    parm.LoginType = @"2";
     
     NSDictionary *m_dic = [parm mj_keyValues];
     [self doShowHudFunction];
