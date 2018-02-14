@@ -74,6 +74,19 @@ NSString *httpRespString(NSError *error, NSObject *object){
     return noticeString;
 }
 
+NSString *generateUuidString(){
+    // create a new UUID which you own
+    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+    
+    // create a new CFStringRef (toll-free bridged to NSString)
+    // that you own
+    NSString *uuidString = (NSString *)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, uuid));
+    
+    // release the UUID
+    CFRelease(uuid);
+    return uuidString;
+}
+
 #pragma mark - getter
 - (NSDictionary *)httpRespCodeDic {
     if (!_httpRespCodeDic) {
@@ -173,6 +186,34 @@ NSString *httpRespString(NSError *error, NSObject *object){
     NSString *urlStr = [urlStringWithService(urlFooter) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     QKWEAKSELF;
     [manager DELETE:urlStr parameters:userInfo success:^(NSURLSessionDataTask *task, id responseObject){
+        [weakself doResponseCompletion:responseObject block:completion];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError *error){
+        [weakself doResponseCompletion:nil block:completion];
+    }];
+}
+
+//pushImages
+- (void)PushImages:(NSArray *)imageDataArray completion:(AppNetworkBlock)completion withUpLoadProgress:(Progress)progress {
+    NSString *urlFooter = @"File";
+    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:nil andSuffix:urlFooter];
+    NSString *urlStr = [urlStringWithService(urlFooter) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    QKWEAKSELF;
+    [manager POST:urlStr parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        for (NSData *imageData in imageDataArray) {
+            NSString *imageExtension = [imageData getImageType];
+            NSString *fileName = [NSString stringWithFormat:@"%@.%@",generateUuidString(),imageExtension];
+            /*
+             此方法参数
+             1. 要上传的[二进制数据]
+             2. 对应网站上[upload.php中]处理文件的[字段"file"]
+             3. 要保存在服务器上的[文件名]
+             4. 上传文件的[mimeType]
+             */
+            [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:[NSString stringWithFormat:@"image/%@",imageExtension]];
+        }
+    } progress:^(NSProgress * _Nonnull uploadProgress){
+        progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
+    } success:^(NSURLSessionDataTask *task, id responseObject){
         [weakself doResponseCompletion:responseObject block:completion];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError *error){
         [weakself doResponseCompletion:nil block:completion];

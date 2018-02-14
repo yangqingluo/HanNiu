@@ -42,7 +42,7 @@
 #define appViewCornerRadius             4.0
 #define appViewCornerRadiusBig          12.0
 
-#define kImageDataMax                   100 * 1024//图像大小上限
+#define kImageDataMax                   4 * 1024 * 1024//图像大小上限
 #define kHeadImageSizeMax               96//头像图像 宽/高 大小上限
 
 #define kCellHeightSmall                32.0

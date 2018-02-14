@@ -36,7 +36,6 @@ __strong static UserPublic *_singleManger = nil;
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         [ud setObject:[_userData mj_keyValues] forKey:kUserData];
     }
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotifi_Login_StateRefresh object:nil];
 }
 //清除用户数据

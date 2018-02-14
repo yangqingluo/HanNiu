@@ -48,6 +48,8 @@ NSString *httpRespString(NSError *error, NSObject *object);
 //Delete
 - (void)Delete:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlFooter completion:(AppNetworkBlock)completion;
 
+//pushImages
+- (void)PushImages:(NSArray *)imageDataArray completion:(AppNetworkBlock)completion withUpLoadProgress:(Progress)progress;
 
 //login
 - (void)loginWithID:(NSString *)username Password:(NSString *)password completion:(AppNetworkBlock)completion;
