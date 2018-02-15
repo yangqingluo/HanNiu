@@ -48,7 +48,6 @@
     self.title = @"我的";
     
     self.tableView.height = screen_height - TAB_BAR_HEIGHT - self.navigationBarView.height;
-    [self initializeData];
 }
 
 //初始化数据
