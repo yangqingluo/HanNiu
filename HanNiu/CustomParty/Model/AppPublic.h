@@ -102,6 +102,7 @@
 #define kAppleSBLockstate               "apple.springboard.lockstate"
 #define kAppleSBHasBlankedScreen        "com.apple.springboard.hasBlankedScreen"
 #define kNotifi_Login_StateRefresh      @"kNn_Login_StateRefresh"//登录状态变化
+#define kNotifi_Pay_Alipay              @"kNn_Pay_Alipay"//支付宝支付结果
 
 typedef void(^AppDoneBlock)(id object);
 
@@ -193,6 +194,7 @@ NSString *stringWithTimeInterval(NSTimeInterval interval);
 - (void)goToMainVC;
 - (void)goToLoginCompletion:(void (^)(void))completion;
 
+- (void)doReceiveAlipayResult:(NSDictionary *)resultDic;
 
 typedef enum {
     PublicMusicDetailDefault = 0, // default

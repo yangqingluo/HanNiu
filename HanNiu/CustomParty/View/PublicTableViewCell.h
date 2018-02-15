@@ -18,3 +18,9 @@
 + (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
+
+@interface PayStyleCell : PublicTableViewCell
+
+@property (strong, nonatomic) UIImageView *tagImageView;
+
+@end

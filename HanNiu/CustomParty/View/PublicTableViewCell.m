@@ -41,3 +41,37 @@
 }
 
 @end
+
+
+@implementation PayStyleCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        UIView *baseView = [[UIView alloc] initWithFrame:CGRectMake(kEdgeBig, kEdge, screen_width - 2 * kEdgeBig, [[self class] tableView:nil heightForRowAtIndexPath:nil] - 2 * kEdge)];
+        [AppPublic roundCornerRadius:baseView cornerRadius:appViewCornerRadius];
+        baseView.layer.borderColor = appSeparatorColor.CGColor;
+        baseView.layer.borderWidth = appSeparaterLineSize;
+        [self.contentView addSubview:baseView];
+        
+        self.showImageView.frame = CGRectMake(kEdgeMiddle, 0, 24, 24);
+        self.showImageView.centerY = 0.5 * baseView.height;
+        [baseView addSubview:self.showImageView];
+        
+        self.tagImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_circle_unselected"]];
+        self.tagImageView.highlightedImage = [UIImage imageNamed:@"icon_circle_selected"];
+        self.tagImageView.right = baseView.width - kEdgeMiddle;
+        self.tagImageView.centerY = self.showImageView.centerY;
+        [baseView addSubview:self.tagImageView];
+        
+        self.titleLabel.frame = CGRectMake(self.showImageView.right + kEdgeMiddle, 0, self.tagImageView.left - self.showImageView.right - kEdgeMiddle, baseView.height);
+        [baseView addSubview:self.titleLabel];
+    }
+    return self;
+}
+
++ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return kCellHeightMiddle;
+}
+
+@end

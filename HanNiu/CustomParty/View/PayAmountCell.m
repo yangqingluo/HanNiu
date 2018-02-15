@@ -23,11 +23,13 @@
         [AppPublic roundCornerRadius:self cornerRadius:appViewCornerRadius];
         self.layer.borderColor = appSeparatorColor.CGColor;
         self.layer.borderWidth = appSeparaterLineSize;
-        self.showLabel.frame = CGRectMake(0, 0, self.width, 0.5 * self.height);
+        self.showLabel.frame = CGRectMake(0, 0, self.width, 0.6 * self.height);
         self.showLabel.textAlignment = NSTextAlignmentCenter;
         self.showLabel.font = [AppPublic appFontOfSize:appLabelFontSizeLittle];
+        self.showLabel.textColor = appTextColor;
         
         self.subTitleLabel = NewLabel(self.showLabel.frame, appMainColor, [AppPublic appFontOfSize:appLabelFontSizeTiny], self.showLabel.textAlignment);
+        self.subTitleLabel.top = 0.5 * self.height;
         self.subTitleLabel.height = 0.3 * self.height;
         [self addSubview:self.subTitleLabel];
         
@@ -53,7 +55,9 @@
             NSInteger lineIndex = i % PublicSelectLineCount;
             NSInteger rowIndex = i / PublicSelectLineCount;
             PublicSelectButton *btn = [[PublicSelectButton alloc] initWithFrame:CGRectMake(PublicSelectLineEdge + (m_width + PublicSelectLineEdge) * lineIndex, kEdgeMiddle + (m_height + PublicSelectRowEdge) * rowIndex, m_width, m_height)];
+            btn.tag = i;
             [self addSubview:btn];
+            [self.buttonArray addObject:btn];
         }
     }
     return self;
@@ -78,7 +82,7 @@
 
 #pragma mark - getter
 - (NSMutableArray *)buttonArray {
-    if (_buttonArray) {
+    if (!_buttonArray) {
         _buttonArray = [NSMutableArray new];
     }
     return _buttonArray;

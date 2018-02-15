@@ -392,6 +392,10 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
     }
 }
 
+- (void)doReceiveAlipayResult:(NSDictionary *)resultDic {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotifi_Pay_Alipay object:resultDic];
+}
+
 - (void)goToMusicVC:(AppBasicMusicDetailInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type {
     if ([UserPublic getInstance].userData) {
         if (type != PublicMusicDetailFromBar) {
