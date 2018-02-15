@@ -50,6 +50,8 @@ typedef void(^ActionAlertBlock)(PublicAlertView *view, NSInteger index);
 @property (strong, nonatomic) PublicSubTitleView *priceView;
 @property (strong, nonatomic) PublicSubTitleView *balanceView;
 
+@property (strong, nonatomic) AppBasicMusicDetailInfo *data;
+
 @end
 
 @interface PublicAlertMusicListView : PublicAlertView<UITableViewDelegate, UITableViewDataSource>

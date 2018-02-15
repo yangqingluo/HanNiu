@@ -10,6 +10,7 @@
 #import <notify.h>
 #import "MusicDetailVC.h"
 #import "MusicCommentVC.h"
+#import "AccountCoinVC.h"
 
 #import "PublicPlayView.h"
 #import "PublicAlertView.h"
@@ -23,6 +24,7 @@ extern PublicPlayerManager *musicPlayer;
 @property (copy, nonatomic) AppBasicMusicDetailInfo *data;
 @property (strong, nonatomic) PublicPlayView *playView;
 @property (strong, nonatomic) UITextView *textView;
+@property (strong, nonatomic) PublicAlertShowMusicBuyView *alertShowBuyView;
 
 @end
 
@@ -48,22 +50,8 @@ extern PublicPlayerManager *musicPlayer;
     [self.view addSubview:self.textView];
     [self updateSubviews];
     if (!self.data.Music.Url) {
-        PublicAlertShowMusicBuyView *alert = [PublicAlertShowMusicBuyView new];
-        alert.nameView.titleLabel.text = self.data.Music.Name;
-        alert.nameView.subTitleLabel.text = [NSString stringWithFormat:@"%d M币", self.data.Price];
-        alert.priceView.titleLabel.text = @"实支付";
-        alert.priceView.subTitleLabel.text = [NSString stringWithFormat:@"%d M币", self.data.Music.Price];
-        alert.balanceView.titleLabel.text = @"余额";
-        alert.balanceView.subTitleLabel.text = [NSString stringWithFormat:@"%d M币", [UserPublic getInstance].userData.Extra.userinfo.Coin];
-        alert.block = ^(PublicAlertView *view, NSInteger index) {
-            if (index == 1) {
-                [self doMusicBuyFunction];
-            }
-            else if (index == 0) {
-                [self doPopViewControllerAnimated:YES];
-            }
-        };
-        [alert show];
+        self.alertShowBuyView.data = [self.data copy];
+        [self.alertShowBuyView show];
     }
 }
 
@@ -145,12 +133,13 @@ extern PublicPlayerManager *musicPlayer;
     [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:[NSString stringWithFormat:@"Music/Buy?%@", AFQueryStringFromParameters(m_dic)] completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];
         if (error) {
+            [weakself.alertShowBuyView show];
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
             AppMusicInfo *music = [AppMusicInfo mj_objectWithKeyValues:responseBody[@"Data"]];
             [PublicPlayerManager getInstance].currentPlay.Music = music;
-            [[PublicPlayerManager getInstance] saveCurrentData:weakself.data];
+            [[PublicPlayerManager getInstance] saveCurrentData:[PublicPlayerManager getInstance].currentPlay];
             [weakself resetPlayData];
             [weakself doShowHintFunction:@"购买成功"];
         }
@@ -180,6 +169,21 @@ extern PublicPlayerManager *musicPlayer;
     [alert show];
 }
 
+- (void)alertSureButtonAction {
+    if ([UserPublic getInstance].userData.Extra.userinfo.Coin >= self.data.Music.Price) {
+        [self doMusicBuyFunction];
+        [self.alertShowBuyView dismiss];
+    }
+    else {
+        AccountCoinVC *vc = [AccountCoinVC new];
+        vc.doneBlock = ^(id object){
+            self.alertShowBuyView.data = [self.data copy];
+            [self.alertShowBuyView show];
+        };
+        [self doPushViewController:vc animated:YES];
+    }
+}
+
 #pragma mark - getter
 - (PublicPlayView *)playView {
     if (!_playView) {
@@ -203,6 +207,21 @@ extern PublicPlayerManager *musicPlayer;
         _textView.scrollIndicatorInsets = UIEdgeInsetsMake(kEdge, 0, kEdge, 0);
     }
     return _textView;
+}
+
+- (PublicAlertShowMusicBuyView *)alertShowBuyView {
+    if (!_alertShowBuyView) {
+        _alertShowBuyView = [PublicAlertShowMusicBuyView new];
+        _alertShowBuyView.block = ^(PublicAlertView *view, NSInteger index) {
+            if (index == 1) {
+                [self alertSureButtonAction];
+            }
+            else if (index == 0) {
+                [self doPopViewControllerAnimated:YES];
+            }
+        };
+    }
+    return _alertShowBuyView;
 }
 
 #pragma mark - TextFieldDelegate

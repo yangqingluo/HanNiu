@@ -149,10 +149,26 @@
         self.balanceView = [[PublicSubTitleView alloc] initWithFrame:CGRectMake(self.priceView.left, self.priceView.bottom + kEdgeMiddle, self.priceView.width, self.priceView.height)];
         [self.baseView addSubview:self.balanceView];
         
-        [self.sureButton setTitle:@"确定购买" forState:UIControlStateNormal];
         self.sureButton.bottom = self.baseView.height - 30;
     }
     return self;
+}
+
+- (void)setData:(AppBasicMusicDetailInfo *)data {
+    _data = data;
+    
+    self.nameView.titleLabel.text = data.Music.Name;
+    self.nameView.subTitleLabel.text = [NSString stringWithFormat:@"%d M币", data.Price];
+    self.priceView.titleLabel.text = @"实支付";
+    self.priceView.subTitleLabel.text = [NSString stringWithFormat:@"%d M币", data.Music.Price];
+    self.balanceView.titleLabel.text = @"余额";
+    self.balanceView.subTitleLabel.text = [NSString stringWithFormat:@"%d M币", [UserPublic getInstance].userData.Extra.userinfo.Coin];
+    if ([UserPublic getInstance].userData.Extra.userinfo.Coin >= data.Music.Price) {
+        [self.sureButton setTitle:@"确定购买" forState:UIControlStateNormal];
+    }
+    else {
+        [self.sureButton setTitle:@"余额不足，前往充值" forState:UIControlStateNormal];
+    }
 }
 
 @end

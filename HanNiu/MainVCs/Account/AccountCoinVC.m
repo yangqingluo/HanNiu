@@ -79,6 +79,9 @@
             [UserPublic getInstance].userData.Extra.userinfo = [AppUserInfo mj_objectWithKeyValues:responseBody[@"Data"]];
             [[UserPublic getInstance] saveUserData:nil];
             [weakself updateSubviews];
+            if (weakself.doneBlock) {
+                [weakself goBackWithDone:YES];
+            }
         }
     }];
 }
@@ -98,8 +101,13 @@
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            NSDictionary *m_data = responseBody[@"Data"];
-            [weakself doAliPayFunction:m_data[@"Data"]];
+            if (payStyleIndex == 0) {
+                NSDictionary *m_data = responseBody[@"Data"];
+                [weakself doAliPayFunction:m_data[@"Data"]];
+            }
+            else {
+                [weakself doShowHintFunction:@"该支付方式敬请期待"];
+            }
         }
     }];
 }
@@ -107,14 +115,10 @@
 - (void)doAliPayFunction:(NSString *)orderString {
     NSString *appScheme = @"com.zdz.HanNiu";
     [self doShowHudFunction];
-    QKWEAKSELF;
     [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
         
     }];
 }
-
-
-
 
 - (void)amountButtonAction:(UIButton *)button {
     payAmountIndex = button.tag;
