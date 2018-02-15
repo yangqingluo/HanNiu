@@ -340,6 +340,7 @@
 		E4B3CCC1200D9740006807AE /* PublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CCC0200D9740006807AE /* PublicViewController.m */; };
 		E4B3CCC5200D98A3006807AE /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CCC4200D98A3006807AE /* AccountViewController.m */; };
 		E4B3CCC9200D9F1E006807AE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3CCC8200D9F1E006807AE /* HomeViewController.m */; };
+		E4B65ABC20350C0100BFADCA /* AccountEditPropertyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B65ABB20350C0100BFADCA /* AccountEditPropertyVC.m */; };
 		E4B96B2A20273732007CEA3F /* CollegeIntroduceHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B96B2920273732007CEA3F /* CollegeIntroduceHeaderView.m */; };
 		E4BA2FCA200F2D4000395F70 /* AccountSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BA2FC9200F2D4000395F70 /* AccountSettingsVC.m */; };
 		E4BA3002200F51B700395F70 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BA3001200F51B700395F70 /* ForgetViewController.m */; };
@@ -894,6 +895,8 @@
 		E4B3CCC4200D98A3006807AE /* AccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		E4B3CCC7200D9F1E006807AE /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		E4B3CCC8200D9F1E006807AE /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		E4B65ABA20350C0100BFADCA /* AccountEditPropertyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountEditPropertyVC.h; sourceTree = "<group>"; };
+		E4B65ABB20350C0100BFADCA /* AccountEditPropertyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountEditPropertyVC.m; sourceTree = "<group>"; };
 		E4B96B2820273732007CEA3F /* CollegeIntroduceHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollegeIntroduceHeaderView.h; sourceTree = "<group>"; };
 		E4B96B2920273732007CEA3F /* CollegeIntroduceHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeIntroduceHeaderView.m; sourceTree = "<group>"; };
 		E4BA2FC8200F2D4000395F70 /* AccountSettingsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountSettingsVC.h; sourceTree = "<group>"; };
@@ -1702,6 +1705,8 @@
 				E4B3CCC4200D98A3006807AE /* AccountViewController.m */,
 				E48FE18B2015BE18007F1427 /* AccountDetailVC.h */,
 				E48FE18C2015BE18007F1427 /* AccountDetailVC.m */,
+				E4B65ABA20350C0100BFADCA /* AccountEditPropertyVC.h */,
+				E4B65ABB20350C0100BFADCA /* AccountEditPropertyVC.m */,
 				E4DB3C4E2015B26500D5C465 /* AccountFavoriteVC.h */,
 				E4DB3C4F2015B26500D5C465 /* AccountFavoriteVC.m */,
 				E469F12C2015EBEA000B3C04 /* AccountPurchaseVC.h */,
@@ -2258,6 +2263,7 @@
 				E4500386202DA32E0043E934 /* PublicPopView.m in Sources */,
 				E4A7260D2028028400E34BEA /* SDWebImageDownloaderOperation.m in Sources */,
 				E469F12E2015EBEA000B3C04 /* AccountPurchaseVC.m in Sources */,
+				E4B65ABC20350C0100BFADCA /* AccountEditPropertyVC.m in Sources */,
 				E4A7261F2028028400E34BEA /* IQBarButtonItem.m in Sources */,
 				E469F12B2015EAA8000B3C04 /* HomeSearchVC.m in Sources */,
 				E4A726292028028400E34BEA /* MJRefreshComponent.m in Sources */,

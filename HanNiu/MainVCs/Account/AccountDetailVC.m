@@ -7,6 +7,7 @@
 //
 
 #import "AccountDetailVC.h"
+#import "AccountEditPropertyVC.h"
 
 #import "PublicTableViewCell.h"
 #import "UIButton+WebCache.h"
@@ -35,7 +36,7 @@
     self.tableView.tableHeaderView = self.headerView;
     [self initializeData];
     [self updateSubviews];
-    [self pullBaseListData:YES];
+//    [self pullBaseListData:YES];
 }
 
 - (void)pullBaseListData:(BOOL)isReset {
@@ -72,16 +73,17 @@
 }
 
 - (void)doUpdateUserImageFunction:(NSString *)pID {
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"Image" : pID, @"NickName" : @"叶语"}];
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:self.userData.mj_keyValues];
+    [m_dic setObject:pID forKey:@"Image"];
     [self doShowHudFunction];
     QKWEAKSELF;
-    [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:[NSString stringWithFormat:@"UserInfo?%@", AFQueryStringFromParameters(m_dic)]  completion:^(id responseBody, NSError *error){
+    [[AppNetwork getInstance] Post:m_dic HeadParm:nil URLFooter:@"UserInfo?v=1" completion:^(id responseBody, NSError *error){
         [weakself doHideHudFunction];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
         else {
-            [UserPublic getInstance].userData.Extra.userinfo.Image = pID;
+            [UserPublic getInstance].userData.Extra.userinfo = [AppUserInfo mj_objectWithKeyValues:responseBody[@"Data"]];
             [[UserPublic getInstance] saveUserData:nil];
             weakself.userData = nil;
             [weakself updateSubviews];
@@ -212,6 +214,19 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    if (indexPath.row == 0) {
+        QKWEAKSELF;
+        AccountEditPropertyVC *vc = [AccountEditPropertyVC new];
+        vc.userData = self.userData;
+        vc.doneBlock = ^(id object){
+            [weakself updateSubviews];
+        };
+        [self doPushViewController:vc animated:YES];
+    }
+}
 #pragma mark UIImagePickerControllerDelegate协议的方法
 //用户点击图像选取器中的“cancel”按钮时被调用，这说明用户想要中止选取图像的操作
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
