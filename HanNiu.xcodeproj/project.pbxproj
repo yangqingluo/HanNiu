@@ -212,6 +212,7 @@
 		E4A2F9CA202341CA007F6599 /* AppXMLParse.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A2F9C9202341CA007F6599 /* AppXMLParse.m */; };
 		E4A2F9CC20234489007F6599 /* city_name.xml in Resources */ = {isa = PBXBuildFile; fileRef = E4A2F9CB20234488007F6599 /* city_name.xml */; };
 		E4A2F9CE202348F1007F6599 /* city_id.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4A2F9CD202348F1007F6599 /* city_id.txt */; };
+		E4A6BD44204CE1E800EF02ED /* AppPurchases.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A6BD43204CE1E800EF02ED /* AppPurchases.m */; };
 		E4A724D02027F92D00E34BEA /* PublicThreeImageButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A724CF2027F92D00E34BEA /* PublicThreeImageButtonCell.m */; };
 		E4A725C12028028400E34BEA /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A724D42028028300E34BEA /* AFHTTPSessionManager.m */; };
 		E4A725C22028028400E34BEA /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A724D72028028300E34BEA /* AFNetworkReachabilityManager.m */; };
@@ -741,6 +742,8 @@
 		E4A2F9C9202341CA007F6599 /* AppXMLParse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppXMLParse.m; sourceTree = "<group>"; };
 		E4A2F9CB20234488007F6599 /* city_name.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = city_name.xml; sourceTree = "<group>"; };
 		E4A2F9CD202348F1007F6599 /* city_id.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city_id.txt; sourceTree = "<group>"; };
+		E4A6BD42204CE1E800EF02ED /* AppPurchases.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppPurchases.h; sourceTree = "<group>"; };
+		E4A6BD43204CE1E800EF02ED /* AppPurchases.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppPurchases.m; sourceTree = "<group>"; };
 		E4A724CE2027F92D00E34BEA /* PublicThreeImageButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicThreeImageButtonCell.h; sourceTree = "<group>"; };
 		E4A724CF2027F92D00E34BEA /* PublicThreeImageButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicThreeImageButtonCell.m; sourceTree = "<group>"; };
 		E4A724D32028028300E34BEA /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -2071,6 +2074,8 @@
 				E48A22A02018CAE70017977A /* PublicPlayerManager.m */,
 				E4A72641202806A900E34BEA /* PublicMessageReadManager.h */,
 				E4A72642202806AA00E34BEA /* PublicMessageReadManager.m */,
+				E4A6BD42204CE1E800EF02ED /* AppPurchases.h */,
+				E4A6BD43204CE1E800EF02ED /* AppPurchases.m */,
 				E4B3CBDD200D95B6006807AE /* NSData+HTTPRequest.h */,
 				E4B3CBDB200D95B6006807AE /* NSData+HTTPRequest.m */,
 				E4B3CBDE200D95B7006807AE /* UIResponder+Router.h */,
@@ -2561,6 +2566,7 @@
 				E4A725FF2028028400E34BEA /* MWCaptionView.m in Sources */,
 				E4A7260E2028028400E34BEA /* SDWebImageManager.m in Sources */,
 				E48A99E0202C1F5E0098ABF4 /* PublicMessageTextView.m in Sources */,
+				E4A6BD44204CE1E800EF02ED /* AppPurchases.m in Sources */,
 				E4A726272028028400E34BEA /* MJRefreshAutoFooter.m in Sources */,
 				E4A725D42028028400E34BEA /* MJExtensionConst.m in Sources */,
 				E4B3CB25200D94E9006807AE /* UIImage+Color.m in Sources */,
@@ -2735,6 +2741,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5TL5JG9J98;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HanNiu/AliPaySDK",
@@ -2761,6 +2768,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5TL5JG9J98;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HanNiu/AliPaySDK",

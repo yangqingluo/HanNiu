@@ -13,7 +13,7 @@
 #import "PublicMessageReadManager.h"
 #import "UIImageView+WebCache.h"
 
-#define IMAGE_MAX_SIZE_5k 5120*2880
+#define IMAGE_MAX_SIZE_5k 5120 * 2880
 
 static PublicMessageReadManager *detailInstance = nil;
 

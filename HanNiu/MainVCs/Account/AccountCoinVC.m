@@ -13,6 +13,7 @@
 #import "PayAmountCell.h"
 
 #import <AlipaySDK/AlipaySDK.h>
+#import "AppPurchases.h"
 
 @interface AccountCoinVC (){
     NSInteger payAmountIndex;
@@ -57,12 +58,12 @@
     self.showArray = @[@{@"title":@"支付宝",@"subTitle":@"",@"key":@"icon_pay_by_zfb"},
                        @{@"title":@"微信支付",@"subTitle":@"",@"key":@"icon_pay_by_wx"},
                       ];
-    self.payAmountArray = @[@{@"title":@"200个M币", @"subTitle":@"", @"amount" : @"0.02"},
-                      @{@"title":@"400个M币", @"subTitle":@"", @"amount" : @"0.04"},
-                      @{@"title":@"600个M币", @"subTitle":@"", @"amount" : @"0.06"},
-                      @{@"title":@"1000个M币", @"subTitle":@"", @"amount" : @"0.1"},
-                      @{@"title":@"2000个M币", @"subTitle":@"", @"amount" : @"0.2"},
-                      @{@"title":@"5000个M币", @"subTitle":@"", @"amount" : @"0.5"},
+    self.payAmountArray = @[@{@"title":@"6个M币", @"subTitle":@"", @"amount" : @"6"},
+                      @{@"title":@"18个M币", @"subTitle":@"", @"amount" : @"18"},
+                      @{@"title":@"50个M币", @"subTitle":@"", @"amount" : @"50"},
+                      @{@"title":@"118个M币", @"subTitle":@"", @"amount" : @"118"},
+                      @{@"title":@"158个M币", @"subTitle":@"", @"amount" : @"158"},
+                      @{@"title":@"218个M币", @"subTitle":@"", @"amount" : @"218"},
                       ];
 }
 
@@ -134,7 +135,14 @@
         [self doShowHintFunction:@"请选择充值方式"];
         return;
     }
-    [self doGetPayDataFunction];
+//    [self doGetPayDataFunction];
+    if ([[AppPurchases getInstance] canMakePayments]) {
+        [[AppPurchases getInstance] requestProductData:[NSString stringWithFormat:@"com.zdz.HanNiu_%02d", (int)payAmountIndex + 1]];
+    }
+    else {
+        [self doShowHintFunction:@"不支持购买"];
+    }
+    
 }
 
 #pragma mark - getter
