@@ -9,6 +9,7 @@
 #import "AppPurchases.h"
 #import <StoreKit/StoreKit.h>
 #import "NSData+HTTPRequest.h"
+#import "SVProgressHUD.h"
 
 @interface AppPurchases ()<SKPaymentTransactionObserver, SKProductsRequestDelegate>
 
@@ -52,7 +53,7 @@ __strong static AppPurchases  *_singleManger = nil;
     
     NSLog(@"-------------请求对应的产品信息----------------");
     _currentProId = [type copy];
-//    [SVProgressHUD showWithStatus:nil];
+    [SVProgressHUD showWithStatus:nil];
     
     NSArray *product = [[NSArray alloc] initWithObjects:type,nil];
     
@@ -70,8 +71,8 @@ __strong static AppPurchases  *_singleManger = nil;
     NSLog(@"productID:%@", response.invalidProductIdentifiers);
     NSArray *product = response.products;
     if([product count] == 0){
-//        [SVProgressHUD dismiss];
-//        [[AppPublic getInstance].mainTabNav showHint:@"购买信息无效"];
+        [SVProgressHUD dismiss];
+        [[AppPublic getInstance].topViewController showHint:@"购买信息无效"];
         NSLog(@"--------------没有商品------------------");
         return;
     }
@@ -99,7 +100,7 @@ __strong static AppPurchases  *_singleManger = nil;
 
 //请求失败
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error{
-//    [SVProgressHUD showErrorWithStatus:@"支付失败"];
+    [SVProgressHUD showErrorWithStatus:@"支付失败"];
     NSLog(@"------------------错误-----------------:%@", error);
 }
 
@@ -128,8 +129,8 @@ __strong static AppPurchases  *_singleManger = nil;
     //创建请求到苹果官方进行购买验证
     NSURL *url=[NSURL URLWithString:SANDBOX];
     NSMutableURLRequest *requestM=[NSMutableURLRequest requestWithURL:url];
-    requestM.HTTPBody=bodyData;
-    requestM.HTTPMethod=@"POST";
+    requestM.HTTPBody = bodyData;
+    requestM.HTTPMethod = @"POST";
     //创建连接并发送同步请求
     NSError *error=nil;
     NSData *responseData=[NSURLConnection sendSynchronousRequest:requestM returningResponse:nil error:&error];
@@ -164,7 +165,7 @@ __strong static AppPurchases  *_singleManger = nil;
         switch (tran.transactionState) {
             case SKPaymentTransactionStatePurchased:{
                 NSLog(@"交易完成");
-//                [SVProgressHUD dismiss];
+                [SVProgressHUD dismiss];
                 [self completeTransaction:tran];
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
                 
@@ -176,16 +177,16 @@ __strong static AppPurchases  *_singleManger = nil;
                 break;
             case SKPaymentTransactionStateRestored:{
                 NSLog(@"已经购买过商品");
-//                [SVProgressHUD dismiss];
+                [SVProgressHUD dismiss];
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
-//                [SVProgressHUD showErrorWithStatus:@"重复购买"];
+                [SVProgressHUD showErrorWithStatus:@"重复购买"];
             }
                 break;
             case SKPaymentTransactionStateFailed:{
                 NSLog(@"交易失败");
-//                [SVProgressHUD dismiss];
+                [SVProgressHUD dismiss];
                 [[SKPaymentQueue defaultQueue] finishTransaction:tran];
-//                [SVProgressHUD showErrorWithStatus:@"购买失败"];
+                [SVProgressHUD showErrorWithStatus:@"购买失败"];
             }
                 break;
                 
@@ -203,26 +204,25 @@ __strong static AppPurchases  *_singleManger = nil;
 - (void)completeTransaction:(SKPaymentTransaction *)transaction{
     NSLog(@"交易结束");
     
-//    [SVProgressHUD dismiss];
-    
+    [SVProgressHUD dismiss];
     //从沙盒中获取交易凭证并且拼接成请求体数据
     NSURL *receiptUrl = [[NSBundle mainBundle] appStoreReceiptURL];
     NSData *receiptData = [NSData dataWithContentsOfURL:receiptUrl];
-    
+
     NSString *receiptString = [receiptData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];//转化为base64字符串
-    
+
     if ([receiptString length] > 0) {
         // 向自己的服务器验证购买凭证
-//        [SVProgressHUD showWithStatus:@"验证订单..."];
-        
+        [SVProgressHUD showWithStatus:@"验证订单..."];
+
         NSDictionary *m_dic = @{@"Data" : receiptString,
                                 @"Channel" : @"3",
                                 @"IsSuccess" : stringWithBoolValue(YES)
                                 };
         [[AppNetwork getInstance] Put:m_dic HeadParm:nil URLFooter:@"Pay/CheckIos" completion:^(id responseBody, NSError *error){
-//            [SVProgressHUD dismiss];
+            [SVProgressHUD dismiss];
             if (!error) {
-                
+
             }
             else{
                 [[AppPublic getInstance].topViewController showHint:@"网络出错"];

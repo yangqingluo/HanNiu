@@ -193,6 +193,11 @@
 		E48A99E7202C20110098ABF4 /* PublicEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = E48A99E5202C20110098ABF4 /* PublicEmoji.m */; };
 		E48B23BD2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48B23BC2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m */; };
 		E48B23C02022B8A800DD2DC4 /* PublicCollectionFooterLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = E48B23BF2022B8A800DD2DC4 /* PublicCollectionFooterLineView.m */; };
+		E48B6679204D219B00C10CD4 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E48B6671204D219A00C10CD4 /* SVIndefiniteAnimatedView.m */; };
+		E48B667A204D219B00C10CD4 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E48B6673204D219A00C10CD4 /* SVProgressAnimatedView.m */; };
+		E48B667B204D219B00C10CD4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E48B6674204D219A00C10CD4 /* SVProgressHUD.bundle */; };
+		E48B667C204D219B00C10CD4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E48B6676204D219A00C10CD4 /* SVProgressHUD.m */; };
+		E48B667D204D219B00C10CD4 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E48B6678204D219A00C10CD4 /* SVRadialGradientLayer.m */; };
 		E48FE18D2015BE18007F1427 /* AccountDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FE18C2015BE18007F1427 /* AccountDetailVC.m */; };
 		E49287C2203570C700BA070F /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E492876D203570C700BA070F /* AlipaySDK.bundle */; };
 		E49287C3203570C700BA070F /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E492876E203570C700BA070F /* AlipaySDK.framework */; };
@@ -642,6 +647,15 @@
 		E48B23BC2022B2B200DD2DC4 /* ClassifyMajorCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifyMajorCollectionVC.m; sourceTree = "<group>"; };
 		E48B23BE2022B8A800DD2DC4 /* PublicCollectionFooterLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicCollectionFooterLineView.h; sourceTree = "<group>"; };
 		E48B23BF2022B8A800DD2DC4 /* PublicCollectionFooterLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicCollectionFooterLineView.m; sourceTree = "<group>"; };
+		E48B6670204D219A00C10CD4 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		E48B6671204D219A00C10CD4 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		E48B6672204D219A00C10CD4 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		E48B6673204D219A00C10CD4 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		E48B6674204D219A00C10CD4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		E48B6675204D219A00C10CD4 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		E48B6676204D219A00C10CD4 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		E48B6677204D219A00C10CD4 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		E48B6678204D219A00C10CD4 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		E48FE18B2015BE18007F1427 /* AccountDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailVC.h; sourceTree = "<group>"; };
 		E48FE18C2015BE18007F1427 /* AccountDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailVC.m; sourceTree = "<group>"; };
 		E492876D203570C700BA070F /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
@@ -1402,6 +1416,22 @@
 			path = RecordView;
 			sourceTree = "<group>";
 		};
+		E48B666F204D219A00C10CD4 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E48B6670204D219A00C10CD4 /* SVIndefiniteAnimatedView.h */,
+				E48B6671204D219A00C10CD4 /* SVIndefiniteAnimatedView.m */,
+				E48B6672204D219A00C10CD4 /* SVProgressAnimatedView.h */,
+				E48B6673204D219A00C10CD4 /* SVProgressAnimatedView.m */,
+				E48B6674204D219A00C10CD4 /* SVProgressHUD.bundle */,
+				E48B6675204D219A00C10CD4 /* SVProgressHUD.h */,
+				E48B6676204D219A00C10CD4 /* SVProgressHUD.m */,
+				E48B6677204D219A00C10CD4 /* SVRadialGradientLayer.h */,
+				E48B6678204D219A00C10CD4 /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		E492876C203570C700BA070F /* AliPaySDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -2009,6 +2039,7 @@
 		E4FA9DA5200CB14E00EB8852 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				E48B666F204D219A00C10CD4 /* SVProgressHUD */,
 				E48A99CE202C1F5D0098ABF4 /* MessageToolbar */,
 				E4A7263A202802A800E34BEA /* DACircularProgress */,
 				E4A724D12028028300E34BEA /* AFNetworking */,
@@ -2365,6 +2396,7 @@
 				E410D268200CB79100C6ACED /* placeholder_banner@2x.png in Resources */,
 				E44E3B4C2023254A0046B587 /* icon_arrow_space@2x.png in Resources */,
 				E410D250200CB79100C6ACED /* icon_phone@2x.png in Resources */,
+				E48B667B204D219B00C10CD4 /* SVProgressHUD.bundle in Resources */,
 				E4A725DE2028028400E34BEA /* ImageError.png in Resources */,
 				E410D216200CB79100C6ACED /* back_comment_list_input@2x.png in Resources */,
 				E410D266200CB79100C6ACED /* page_welcome.png in Resources */,
@@ -2425,6 +2457,7 @@
 				E402AE812021BE3C00CF1306 /* HomeJobVC.m in Sources */,
 				E471FADA2029795D0088AD9C /* CompanyIntroduceSubVC.m in Sources */,
 				E402AE7A2021BE3C00CF1306 /* HomeBetterVC.m in Sources */,
+				E48B667C204D219B00C10CD4 /* SVProgressHUD.m in Sources */,
 				E469F15520170689000B3C04 /* PublicCollectionCell.m in Sources */,
 				E4A726252028028400E34BEA /* BlockActionSheet.m in Sources */,
 				E469F1462016D69C000B3C04 /* PublicSlideSubVC.m in Sources */,
@@ -2502,6 +2535,7 @@
 				E44E3B4F20232C3C0046B587 /* MajorDetailListVC.m in Sources */,
 				E469F15E2017707C000B3C04 /* PublicSlideSwitchView.m in Sources */,
 				E402AE862021BE9000CF1306 /* ClassifyCollegeCollectionVC.m in Sources */,
+				E48B667D204D219B00C10CD4 /* SVRadialGradientLayer.m in Sources */,
 				E404EB4120284FCD00312B4D /* NSAttributedString+JTATEmoji.m in Sources */,
 				E469F14C2016DAD7000B3C04 /* PublicCollectionViewController.m in Sources */,
 				E48A229220185D5A0017977A /* PublicSlideSubTableVC.m in Sources */,
@@ -2561,6 +2595,7 @@
 				E48A99E3202C1F5E0098ABF4 /* DXChatBarMoreView.m in Sources */,
 				E4A725DC2028028400E34BEA /* NSObject+MJProperty.m in Sources */,
 				E4A2F9CA202341CA007F6599 /* AppXMLParse.m in Sources */,
+				E48B6679204D219B00C10CD4 /* SVIndefiniteAnimatedView.m in Sources */,
 				E402AE832021BE3C00CF1306 /* HomeClassifyVC.m in Sources */,
 				E4A726142028028400E34BEA /* UIImageView+WebCache.m in Sources */,
 				E4A725FF2028028400E34BEA /* MWCaptionView.m in Sources */,
@@ -2618,6 +2653,7 @@
 				E48A99E1202C1F5E0098ABF4 /* DXFaceView.m in Sources */,
 				E4A725DB2028028400E34BEA /* NSObject+MJKeyValue.m in Sources */,
 				E4A726362028028400E34BEA /* MJRefreshConst.m in Sources */,
+				E48B667A204D219B00C10CD4 /* SVProgressAnimatedView.m in Sources */,
 				E4A725C82028028400E34BEA /* AFImageDownloader.m in Sources */,
 				E402AE7B2021BE3C00CF1306 /* MusicCommentVC.m in Sources */,
 				E4A724D02027F92D00E34BEA /* PublicThreeImageButtonCell.m in Sources */,
