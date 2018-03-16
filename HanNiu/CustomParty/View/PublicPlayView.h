@@ -19,14 +19,20 @@
 @property (strong, nonatomic) PublicSlider *progressSlider;
 @property (strong, nonatomic) UIButton *listBtn;
 @property (strong, nonatomic) UIButton *favorBtn;
-@property (strong, nonatomic) UIButton *messageBtn;
 @property (strong, nonatomic) UILabel *startLabel;
 @property (strong, nonatomic) UILabel *endLabel;
-@property (strong, nonatomic) UITextField *textField;
-
 
 @property (strong, nonatomic) id playerTimeObserver;
 
 - (void)updateFavorButtonInCollection:(BOOL)isInCollect;
+
+@end
+
+
+@interface PublicPlayMessageView : UIView
+
+@property (strong, nonatomic) UIButton *messageBtn;
+@property (strong, nonatomic) UITextField *textField;
+
 
 @end

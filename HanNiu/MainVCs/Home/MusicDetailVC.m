@@ -17,12 +17,15 @@
 
 #import "PublicPlayerManager.h"
 #import "SDImageCache.h"
+#import "UIImageView+WebCache.h"
 
 extern PublicPlayerManager *musicPlayer;
 @interface MusicDetailVC ()<UITextFieldDelegate>
 
 @property (copy, nonatomic) AppBasicMusicDetailInfo *data;
 @property (strong, nonatomic) PublicPlayView *playView;
+@property (strong, nonatomic) PublicPlayMessageView *messageView;
+@property (strong, nonatomic) UIImageView *headerImageView;
 @property (strong, nonatomic) UITextView *textView;
 @property (strong, nonatomic) PublicAlertShowMusicBuyView *alertShowBuyView;
 
@@ -46,8 +49,15 @@ extern PublicPlayerManager *musicPlayer;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self resetPlayData];
+    self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.navigationBarView.bottom, screen_width, screen_width * appImageScale)];
+    [self.view addSubview:self.headerImageView];
+    
+    self.playView.top = self.headerImageView.bottom - 0.5 * self.playView.progressSlider.height;
     [self.view addSubview:self.playView];
-    [self.view addSubview:self.textView];
+    
+    self.messageView.bottom = self.view.height;
+    [self.view addSubview:self.messageView];
+    
     [self updateSubviews];
     if (!self.data.Music.Url) {
         self.alertShowBuyView.data = [self.data copy];
@@ -156,7 +166,9 @@ extern PublicPlayerManager *musicPlayer;
 
 - (void)updateSubviews {
     self.title = self.data.showMediaDetailTitle;
+    [self.headerImageView sd_setImageWithURL:fileURLWithPID(self.data.Music.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     self.textView.text = notNilString(self.data.Introduce, @"暂无简介");
+    [self.messageView.messageBtn setTitle:[NSString stringWithFormat:@"%d", self.data.Music.Comment] forState:UIControlStateNormal];
     [self.playView updateFavorButtonInCollection:self.data.Music.IsInCollect];
 }
 
@@ -188,12 +200,18 @@ extern PublicPlayerManager *musicPlayer;
 - (PublicPlayView *)playView {
     if (!_playView) {
         _playView = [PublicPlayView new];
-        _playView.bottom = self.view.height;
-        _playView.textField.delegate = self;
         [_playView.favorBtn addTarget:self action:@selector(favorButtonAction) forControlEvents:UIControlEventTouchUpInside];
         [_playView.listBtn addTarget:self action:@selector(listButtonAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playView;
+}
+
+- (PublicPlayMessageView *)messageView {
+    if (!_messageView) {
+        _messageView = [PublicPlayMessageView new];
+        _messageView.textField.delegate = self;
+    }
+    return _messageView;
 }
 
 - (UITextView *)textView {
@@ -211,13 +229,14 @@ extern PublicPlayerManager *musicPlayer;
 
 - (PublicAlertShowMusicBuyView *)alertShowBuyView {
     if (!_alertShowBuyView) {
+        QKWEAKSELF;
         _alertShowBuyView = [PublicAlertShowMusicBuyView new];
         _alertShowBuyView.block = ^(PublicAlertView *view, NSInteger index) {
             if (index == 1) {
-                [self alertSureButtonAction];
+                [weakself alertSureButtonAction];
             }
             else if (index == 0) {
-                [self doPopViewControllerAnimated:YES];
+                [weakself doPopViewControllerAnimated:YES];
             }
         };
     }

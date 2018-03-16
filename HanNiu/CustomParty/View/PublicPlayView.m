@@ -10,6 +10,7 @@
 #import "UIButton+ImageAndText.h"
 
 extern PublicPlayerManager *musicPlayer;
+CGFloat m_edge = 2.0;
 @implementation PublicPlayView
 
 - (void)dealloc {
@@ -17,7 +18,7 @@ extern PublicPlayerManager *musicPlayer;
 }
 
 - (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0, 0, screen_width, 140)];
+    self = [super initWithFrame:CGRectMake(0, 0, screen_width, 90)];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerStateRefreshNotification:) name:kNotifi_Play_StateRefresh object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerTimeObserverNotification:) name:kNotifi_Play_TimeObserver object:nil];
@@ -31,7 +32,8 @@ extern PublicPlayerManager *musicPlayer;
 }
 
 - (void)setupSubviews {
-    _progressSlider = [[PublicSlider alloc] initWithFrame:CGRectMake(0, 0 , self.width, 20)];
+    _progressSlider = [[PublicSlider alloc] initWithFrame:CGRectMake(0, 0, self.width, 20)];
+    _progressSlider.backgroundColor = [UIColor clearColor];
     [_progressSlider setThumbImage:[UIImage imageNamed:@"icon_seekbar_thumb"] forState:UIControlStateNormal];
     _progressSlider.tintColor = appMainColor;
     [self addSubview:_progressSlider];
@@ -40,7 +42,7 @@ extern PublicPlayerManager *musicPlayer;
     _baseView.backgroundColor = [UIColor whiteColor];
     [self insertSubview:_baseView belowSubview:self.progressSlider];
     
-    _playBtn = NewButton(CGRectMake(0, kEdgeHuge, 40, 40), nil, nil, nil);
+    _playBtn = NewButton(CGRectMake(0, 20, 40, 40), nil, nil, nil);
     _playBtn.centerX = 0.5 * self.baseView.width;
     [self.baseView addSubview:_playBtn];
     
@@ -55,7 +57,6 @@ extern PublicPlayerManager *musicPlayer;
     [_nextBtn setImage:[UIImage imageNamed:@"icon_next_music"] forState:UIControlStateNormal];
     [self.baseView addSubview:_nextBtn];
     
-    CGFloat m_edge = 2.0;
     _listBtn = NewButton(CGRectMake(0, 0, 40, 40), @"列表", [UIColor grayColor], [AppPublic appFontOfSize:8.0]);
     _listBtn.centerY = _playBtn.centerY + kEdgeSmall;
     _listBtn.left = kEdgeBig;
@@ -76,22 +77,6 @@ extern PublicPlayerManager *musicPlayer;
     _endLabel = NewLabel(_startLabel.frame, _startLabel.textColor, _startLabel.font, NSTextAlignmentRight);
     _endLabel.right = self.baseView.width - _startLabel.left;
     [self.baseView addSubview:_endLabel];
-    
-    _messageBtn = NewButton(_listBtn.bounds, @"0", _listBtn.titleLabel.textColor, _listBtn.titleLabel.font);
-    _messageBtn.left = kEdgeSmall;
-    _messageBtn.bottom = self.baseView.height;
-    [_messageBtn setImage:[UIImage imageNamed:@"icon_make_comment"] forState:UIControlStateNormal];
-    [self.baseView addSubview:_messageBtn];
-    [_messageBtn verticalImageAndTitle:m_edge];
-    
-    _textField = [[UITextField alloc] initWithFrame:CGRectMake(_messageBtn.right + kEdgeSmall, 0, self.baseView.width - kEdgeSmall - (_messageBtn.right + kEdgeSmall), 30)];
-    _textField.backgroundColor = appLightWhiteColor;
-    _textField.placeholder = @"\t\t期待您的神评论";
-    _textField.font = [AppPublic appFontOfSize:appLabelFontSizeSmall];
-    _textField.borderStyle = UITextBorderStyleNone;
-    _textField.layer.cornerRadius = 0.5 * _textField.bounds.size.height;
-    _textField.centerY = self.messageBtn.centerY;
-    [self.baseView addSubview:_textField];
     
     [_playBtn addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_progressSlider addTarget:self action:@selector(playbackSliderValueChanged) forControlEvents:UIControlEventValueChanged];
@@ -162,6 +147,34 @@ extern PublicPlayerManager *musicPlayer;
 
 - (void)playerTimeObserverNotification:(NSNotification *)notification {
     [self updateSubviewsWithTime:notification.object];
+}
+
+@end
+
+
+@implementation PublicPlayMessageView
+
+- (instancetype)init {
+    self = [super initWithFrame:CGRectMake(0, 0, screen_width, DEFAULT_BAR_HEIGHT)];
+    if (self) {
+        self.backgroundColor = [UIColor whiteColor];
+        _messageBtn = NewButton(CGRectMake(0, 0, 40, 40), @"0", [UIColor grayColor], [AppPublic appFontOfSize:8.0]);
+        _messageBtn.left = kEdgeSmall;
+        _messageBtn.bottom = self.height;
+        [_messageBtn setImage:[UIImage imageNamed:@"icon_make_comment"] forState:UIControlStateNormal];
+        [self addSubview:_messageBtn];
+        [_messageBtn verticalImageAndTitle:m_edge];
+        
+        _textField = [[UITextField alloc] initWithFrame:CGRectMake(_messageBtn.right + kEdgeSmall, 0, self.width - kEdgeSmall - (_messageBtn.right + kEdgeSmall), 30)];
+        _textField.backgroundColor = appLightWhiteColor;
+        _textField.placeholder = @"\t\t期待您的神评论";
+        _textField.font = [AppPublic appFontOfSize:appLabelFontSizeSmall];
+        _textField.borderStyle = UITextBorderStyleNone;
+        _textField.layer.cornerRadius = 0.5 * _textField.bounds.size.height;
+        _textField.centerY = self.messageBtn.centerY;
+        [self addSubview:_textField];
+    }
+    return self;
 }
 
 @end
