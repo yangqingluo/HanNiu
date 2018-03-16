@@ -115,6 +115,7 @@
             [weakself.dataSource addObject:item];
             [weakself updateSubviews];
 //            [weakself scrollViewToBottom:NO];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotifi_Comment_Refresh object:nil];
         }
     }];
 }

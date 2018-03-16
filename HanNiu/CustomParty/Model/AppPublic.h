@@ -71,7 +71,7 @@
 #define appSeparaterLineSize            0.5//分割线尺寸
 #define appPageSize                     10//获取分页数据时分页size
 #define appTimeLabelWidth               70//获取分页数据时分页size
-#define appImageScale                   0.75//图片高宽比，3 : 4
+#define appImageScale                   (9.0 / 16.0)//图片高宽比9 : 16
 
 #define kPhoneNumberLength              0x0b
 #define kVCodeNumberLength              0x06
@@ -102,6 +102,7 @@
 #define kAppleSBLockstate               "apple.springboard.lockstate"
 #define kAppleSBHasBlankedScreen        "com.apple.springboard.hasBlankedScreen"
 #define kNotifi_Login_StateRefresh      @"kNn_Login_StateRefresh"//登录状态变化
+#define kNotifi_Comment_Refresh      @"kNn_Comment_Refresh"//评论变化
 #define kNotifi_Pay_Alipay              @"kNn_Pay_Alipay"//支付宝支付结果
 #define kNotifi_Pay_Wechatpay           @"kNn_Pay_Wechatpay"//微信支付结果
 

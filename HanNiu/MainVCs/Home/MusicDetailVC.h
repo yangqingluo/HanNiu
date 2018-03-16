@@ -6,8 +6,8 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "PublicViewController.h"
+#import "PublicShowTableVC.h"
 
-@interface MusicDetailVC : PublicViewController
+@interface MusicDetailVC : PublicShowTableVC
 
 @end

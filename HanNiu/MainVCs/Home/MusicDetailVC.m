@@ -14,6 +14,9 @@
 
 #import "PublicPlayView.h"
 #import "PublicAlertView.h"
+#import "CollegeIntroduceHeaderView.h"
+#import "PublicImageTagTitleCell.h"
+#import "PublicCollectionHeaderTitleView.h"
 
 #import "PublicPlayerManager.h"
 #import "SDImageCache.h"
@@ -26,7 +29,7 @@ extern PublicPlayerManager *musicPlayer;
 @property (strong, nonatomic) PublicPlayView *playView;
 @property (strong, nonatomic) PublicPlayMessageView *messageView;
 @property (strong, nonatomic) UIImageView *headerImageView;
-@property (strong, nonatomic) UITextView *textView;
+@property (strong, nonatomic) SchoolIntroduceHeaderView *introduceView;
 @property (strong, nonatomic) PublicAlertShowMusicBuyView *alertShowBuyView;
 
 @end
@@ -42,8 +45,16 @@ extern PublicPlayerManager *musicPlayer;
     if (self) {
         self.hidesBottomBarWhenPushed = YES;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDataRefreshNotification:) name:kNotifi_Play_DataRefresh object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needRefreshNotification:) name:kNotifi_Comment_Refresh object:nil];
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.needRefresh) {
+        [self beginRefreshing];
+    }
 }
 
 - (void)viewDidLoad {
@@ -57,6 +68,11 @@ extern PublicPlayerManager *musicPlayer;
     
     self.messageView.bottom = self.view.height;
     [self.view addSubview:self.messageView];
+    
+    self.tableView.frame = CGRectMake(0, self.playView.bottom + kEdge, screen_width, self.messageView.top - self.playView.bottom - kEdge);
+    self.tableView.tableHeaderView = self.introduceView;
+    [self updateTableViewHeader];
+    [self beginRefreshing];
     
     [self updateSubviews];
     if (!self.data.Music.Url) {
@@ -86,6 +102,24 @@ extern PublicPlayerManager *musicPlayer;
             return btn;
         }
         return nil;
+    }];
+}
+
+- (void)pullBaseListData:(BOOL)isReset {
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"musicId" : self.data.Music.Id}];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Music/Comment/List" completion:^(id responseBody, NSError *error){
+        [weakself endRefreshing];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            if (isReset) {
+                [weakself.dataSource removeAllObjects];
+            }
+            [weakself.dataSource addObjectsFromArray:[AppCommentInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself updateSubviews];
+        }
     }];
 }
 
@@ -165,9 +199,12 @@ extern PublicPlayerManager *musicPlayer;
 }
 
 - (void)updateSubviews {
+    [super updateSubviews];
     self.title = self.data.showMediaDetailTitle;
     [self.headerImageView sd_setImageWithURL:fileURLWithPID(self.data.Music.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
-    self.textView.text = notNilString(self.data.Introduce, @"暂无简介");
+    self.introduceView.tagLabel.text = notNilString(self.data.Introduce, @"暂无简介");
+    [self.introduceView adjustTagLabelHeight:self.introduceView.tagLabel.numberOfLines];
+    
     [self.messageView.messageBtn setTitle:[NSString stringWithFormat:@"%d", self.data.Music.Comment] forState:UIControlStateNormal];
     [self.playView updateFavorButtonInCollection:self.data.Music.IsInCollect];
 }
@@ -196,6 +233,22 @@ extern PublicPlayerManager *musicPlayer;
     }
 }
 
+- (void)foldButtonAction:(UIButton *)button {
+    if (self.introduceView.tagLabel.numberOfLines == 3) {
+        [self.introduceView adjustTagLabelHeight:0];
+    }
+    else {
+        [self.introduceView adjustTagLabelHeight:3];
+    }
+    [self.tableView reloadData];
+}
+
+- (void)goToCommentVCAction {
+    MusicCommentVC *vc = [MusicCommentVC new];
+    vc.musicId = self.data.Music.Id;
+    [self doPushViewController:vc animated:YES];
+}
+
 #pragma mark - getter
 - (PublicPlayView *)playView {
     if (!_playView) {
@@ -214,17 +267,12 @@ extern PublicPlayerManager *musicPlayer;
     return _messageView;
 }
 
-- (UITextView *)textView {
-    if (!_textView) {
-        _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, self.navigationBarView.bottom, self.view.width, self.playView.top - kEdge - self.navigationBarView.bottom)];
-        _textView.editable = NO;
-        _textView.textColor = [UIColor grayColor];
-        _textView.font = [AppPublic appFontOfSize: appLabelFontSizeSmall];
-        _textView.backgroundColor = [UIColor clearColor];
-        _textView.textContainerInset = UIEdgeInsetsMake(kEdge, kEdge, kEdge, 0);
-        _textView.scrollIndicatorInsets = UIEdgeInsetsMake(kEdge, 0, kEdge, 0);
+- (SchoolIntroduceHeaderView *)introduceView {
+    if (!_introduceView) {
+        _introduceView = [SchoolIntroduceHeaderView new];
+        [_introduceView.foldBtn addTarget:self action:@selector(foldButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _textView;
+    return _introduceView;
 }
 
 - (PublicAlertShowMusicBuyView *)alertShowBuyView {
@@ -243,11 +291,53 @@ extern PublicPlayerManager *musicPlayer;
     return _alertShowBuyView;
 }
 
+#pragma mark - UITableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSource.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppCommentInfo *item = self.dataSource[indexPath.row];
+    return [MusicCommentCell tableView:tableView heightForRowAtIndexPath:indexPath andSubTitle:item.showStringForContent];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return kCellHeight + kEdge;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    PublicCollectionHeaderTitleView *m_view = [[PublicCollectionHeaderTitleView alloc] initWithFrame:CGRectMake(0, 0, screen_width, kCellHeight)];
+    m_view.titleLabel.text = @"听众点评";
+    m_view.subTitleLabel.text = @"";
+    m_view.rightImageView.hidden = YES;
+    [m_view addSubview:NewSeparatorLine(CGRectMake(0, 0, m_view.width, appSeparaterLineSize))];
+    
+    UIView *baseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, m_view.width, m_view.height + kEdge)];
+    m_view.bottom = baseView.height;
+    [baseView addSubview:m_view];
+    return baseView;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"show_cell";
+    MusicCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[MusicCommentCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.likeBtn removeFromSuperview];
+    }
+    cell.data = self.dataSource[indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self goToCommentVCAction];
+}
+
 #pragma mark - TextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    MusicCommentVC *vc = [MusicCommentVC new];
-    vc.musicId = self.data.Music.Id;
-    [self doPushViewController:vc animated:YES];
+    [self goToCommentVCAction];
     return NO;
 }
 
