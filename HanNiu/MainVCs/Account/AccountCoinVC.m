@@ -13,6 +13,7 @@
 #import "PayAmountCell.h"
 
 #import <AlipaySDK/AlipaySDK.h>
+#import "WXApiManager.h"
 #import "AppPurchases.h"
 
 @interface AccountCoinVC (){
@@ -106,6 +107,23 @@
                 NSDictionary *m_data = responseBody[@"Data"];
                 [weakself doAliPayFunction:m_data[@"Data"]];
             }
+            else if (payStyleIndex == 1) {
+                NSDictionary *m_data = responseBody[@"Data"];
+                NSDictionary *info = [m_data[@"Data"] mj_JSONObject];
+                if (info.count) {
+                    PayReq *req = [PayReq new];
+                    req.partnerId = info[@"partnerid"];
+                    req.prepayId = info[@"prepayid"];
+                    req.nonceStr = info[@"noncestr"];
+                    req.timeStamp = [info[@"timestamp"] intValue];
+                    req.package = info[@"package"];
+                    req.sign = info[@"sign"];
+                    [weakself doWXPayFunction:req];
+                }
+                else {
+                    [weakself doShowHintFunction:@"数据异常"];
+                }
+            }
             else {
                 [weakself doShowHintFunction:@"该支付方式敬请期待"];
             }
@@ -119,6 +137,10 @@
     [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
         
     }];
+}
+
+- (void)doWXPayFunction:(PayReq *)prepay {
+    [WXApi sendReq:prepay];
 }
 
 - (void)amountButtonAction:(UIButton *)button {
@@ -135,13 +157,13 @@
         [self doShowHintFunction:@"请选择充值方式"];
         return;
     }
-//    [self doGetPayDataFunction];
-    if ([[AppPurchases getInstance] canMakePayments]) {
-        [[AppPurchases getInstance] requestProductData:[NSString stringWithFormat:@"com.zdz.HanNiu_%02d", (int)payAmountIndex + 1]];
-    }
-    else {
-        [self doShowHintFunction:@"不支持购买"];
-    }
+    [self doGetPayDataFunction];
+//    if ([[AppPurchases getInstance] canMakePayments]) {
+//        [[AppPurchases getInstance] requestProductData:[NSString stringWithFormat:@"com.zdz.HanNiu_%02d", (int)payAmountIndex + 1]];
+//    }
+//    else {
+//        [self doShowHintFunction:@"不支持购买"];
+//    }
     
 }
 

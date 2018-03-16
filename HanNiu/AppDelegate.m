@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <notify.h>
 #import <AlipaySDK/AlipaySDK.h>
+#import "WXApiManager.h"
 
 @interface AppDelegate ()
 
@@ -34,6 +35,10 @@
 //        UITableView.appearance.estimatedSectionFooterHeight = 0;
 //        UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
 //    }
+    
+    //注册微信
+    [WXApi registerApp:@"wx4bcd3ee13599fc9d"];
+    
     [AppPublic getInstance];
     return YES;
 }
@@ -72,16 +77,23 @@
             [[AppPublic getInstance] doReceiveAlipayResult:resultDic];
         }];
     }
+    else if ([[NSString stringWithFormat:@"%@",url] hasPrefix:@"wx"]) {
+        [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+    }
     return YES;
 }
 
 // NOTE: 9.0以后使用新API接口
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
+    NSLog(@"***%@", url.host);
     if ([url.host isEqualToString:@"safepay"]) {
         // 支付跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             [[AppPublic getInstance] doReceiveAlipayResult:resultDic];
         }];
+    }
+    else if ([[NSString stringWithFormat:@"%@",url] hasPrefix:@"wx"]) {
+        [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
     }
     return YES;
 }
