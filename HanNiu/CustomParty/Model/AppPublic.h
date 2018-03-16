@@ -103,6 +103,7 @@
 #define kAppleSBHasBlankedScreen        "com.apple.springboard.hasBlankedScreen"
 #define kNotifi_Login_StateRefresh      @"kNn_Login_StateRefresh"//登录状态变化
 #define kNotifi_Pay_Alipay              @"kNn_Pay_Alipay"//支付宝支付结果
+#define kNotifi_Pay_Wechatpay           @"kNn_Pay_Wechatpay"//微信支付结果
 
 typedef void(^AppDoneBlock)(id object);
 

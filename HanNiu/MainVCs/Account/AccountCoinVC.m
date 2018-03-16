@@ -37,6 +37,7 @@
     self = [super init];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(alipayResultNotification:) name:kNotifi_Pay_Alipay object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wechatpayResultNotification:) name:kNotifi_Pay_Wechatpay object:nil];
         self.hidesBottomBarWhenPushed = YES;
         payAmountIndex = -1;
         payStyleIndex = -1;
@@ -52,6 +53,9 @@
     [self.view addSubview:self.bottomView];
     self.tableView.height = self.bottomView.top - self.navigationBarView.bottom;
     self.tableView.tableFooterView = self.footerView;
+    
+    [self updateTableViewHeader];
+    [self beginRefreshing];
 }
 
 //初始化数据
@@ -59,7 +63,7 @@
     self.showArray = @[@{@"title":@"支付宝",@"subTitle":@"",@"key":@"icon_pay_by_zfb"},
                        @{@"title":@"微信支付",@"subTitle":@"",@"key":@"icon_pay_by_wx"},
                       ];
-    self.payAmountArray = @[@{@"title":@"6个M币", @"subTitle":@"", @"amount" : @"6"},
+    self.payAmountArray = @[@{@"title":@"6个M币", @"subTitle":@"", @"amount" : @"1"},
                       @{@"title":@"18个M币", @"subTitle":@"", @"amount" : @"18"},
                       @{@"title":@"50个M币", @"subTitle":@"", @"amount" : @"50"},
                       @{@"title":@"118个M币", @"subTitle":@"", @"amount" : @"118"},
@@ -68,12 +72,16 @@
                       ];
 }
 
+- (void)pullBaseListData:(BOOL)isReset {
+    [self doGetUserDataFunction];
+}
+
 - (void)doGetUserDataFunction {
 //    NSMutableDictionary *m_dic = [NSMutableDictionary new];
     [self doShowHudFunction];
     QKWEAKSELF;
     [[AppNetwork getInstance] Get:nil HeadParm:nil URLFooter:@"UserInfo" completion:^(id responseBody, NSError *error){
-        [weakself doHideHudFunction];
+        [weakself endRefreshing];
         if (error) {
             [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
         }
@@ -140,6 +148,7 @@
 }
 
 - (void)doWXPayFunction:(PayReq *)prepay {
+    [self doShowHudFunction];
     [WXApi sendReq:prepay];
 }
 
@@ -320,6 +329,24 @@
     if ([resultDic[@"resultStatus"] intValue] == 9000) {
         [self doShowHintFunction:@"充值完成"];
         [self doGetUserDataFunction];
+    }
+}
+
+- (void)wechatpayResultNotification:(NSNotification *)notification {
+    [self doHideHudFunction];
+    
+    PayResp *resp =notification.object;
+    if (resp.errCode == WXSuccess) {
+        [self doShowHintFunction:@"充值完成"];
+        [self doGetUserDataFunction];
+    }
+    else {
+        NSString *strMsg, *strTitle = [NSString stringWithFormat:@"支付结果"];
+        strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+        NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+
     }
 }
 
