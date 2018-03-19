@@ -46,6 +46,8 @@ typedef enum : NSUInteger {
 
 - (void)play;
 - (void)pause;
+- (void)playLast;
+- (void)playNext;
 - (void)seekToTime:(CMTime)time;
 - (void)saveCurrentData:(AppBasicMusicDetailInfo *)data;
 - (void)savePlayList:(NSArray *)array;

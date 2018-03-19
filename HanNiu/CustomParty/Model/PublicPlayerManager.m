@@ -129,6 +129,16 @@ static PublicPlayerManager *_sharedManager = nil;
         return MPRemoteCommandHandlerStatusSuccess;
     }];
     
+    [commandCenter.previousTrackCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+        [self playLast];
+        return MPRemoteCommandHandlerStatusSuccess;
+    }];
+    
+    [commandCenter.nextTrackCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
+        [self playNext];
+        return MPRemoteCommandHandlerStatusSuccess;
+    }];
+    
     [commandCenter.changePlaybackPositionCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull event) {
         CMTime totlaTime = self.player.currentItem.duration;
         MPChangePlaybackPositionCommandEvent * playbackPositionEvent = (MPChangePlaybackPositionCommandEvent *)event;
@@ -210,6 +220,34 @@ static PublicPlayerManager *_sharedManager = nil;
 
 - (void)pause {
     [self.player pause];
+}
+
+- (void)playLast {
+    if (self.userPlayList.count) {
+        NSInteger index = self.playIndex;
+        index--;
+        if (index < 0) {
+            index = self.userPlayList.count - 1;
+        }
+        AppBasicMusicDetailInfo *item = self.userPlayList[index];
+        if (item.Music.Url) {
+            [self saveCurrentData:item];
+        }
+    }
+}
+
+- (void)playNext {
+    if (self.userPlayList.count) {
+        NSInteger index = self.playIndex;
+        index++;
+        if (index >= self.userPlayList.count) {
+            index = 0;
+        }
+        AppBasicMusicDetailInfo *item = self.userPlayList[index];
+        if (item.Music.Url) {
+            [self saveCurrentData:item];
+        }
+    }
 }
 
 - (void)stop {

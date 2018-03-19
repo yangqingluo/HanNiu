@@ -20,6 +20,7 @@ CGFloat m_edge = 2.0;
 - (instancetype)init {
     self = [super initWithFrame:CGRectMake(0, 0, screen_width, 90)];
     if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDataRefreshNotification:) name:kNotifi_Play_DataRefresh object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerStateRefreshNotification:) name:kNotifi_Play_StateRefresh object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerTimeObserverNotification:) name:kNotifi_Play_TimeObserver object:nil];
         self.backgroundColor = [UIColor clearColor];
@@ -119,11 +120,11 @@ CGFloat m_edge = 2.0;
 }
 
 - (void)lastButtonAction:(UIButton *)button {
-    
+    [[PublicPlayerManager getInstance] playLast];
 }
 
 - (void)nextButtonAction:(UIButton *)button {
-    
+    [[PublicPlayerManager getInstance] playNext];
 }
 
 - (void)playbackSliderValueChanged {
@@ -148,6 +149,10 @@ CGFloat m_edge = 2.0;
 }
 
 #pragma mark - NSNotification
+- (void)playerDataRefreshNotification:(NSNotification *)notification {
+    [self updateSubviewsWithTime:musicPlayer.currentTime];
+}
+
 - (void)playerStateRefreshNotification:(NSNotification *)notification {
     [self updateSubviewsWithState:musicPlayer.state];
     if (musicPlayer.state == PlayerManagerStateDefault) {
