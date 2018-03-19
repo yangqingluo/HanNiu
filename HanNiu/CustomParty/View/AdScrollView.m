@@ -104,7 +104,7 @@
         self.layer.contents = (id)[UIImage imageNamed:@"placeholder_banner"].CGImage;
         self.PageControlShowStyle = UIPageControlShowStyleCenter;
         self.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-        self.pageControl.currentPageIndicatorTintColor = appMainColor;
+        self.pageControl.currentPageIndicatorTintColor = [UIColor darkGrayColor];
         
         self.bounces = NO;
         

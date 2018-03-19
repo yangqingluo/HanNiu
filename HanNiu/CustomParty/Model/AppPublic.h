@@ -25,7 +25,7 @@
 
 #define RGBA(R, G, B, A) [UIColor colorWithRed:R / 255.f green:G / 255.f blue:B / 255.f alpha:A]
 
-#define appMainColor                    RGBA(0xff, 0x4f, 0x6e, 1.0)
+#define appMainColor                    RGBA(0x3f, 0x8b, 0xfa, 1.0)
 #define appSeparatorColor               RGBA(0xdb, 0xdb, 0xdb, 1.0)
 #define appTextColor                    RGBA(0x21, 0x21, 0x21, 1.0)
 #define appTextLightColor               RGBA(0xf2, 0xb4, 0xa9, 1.0)

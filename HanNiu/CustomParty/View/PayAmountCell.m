@@ -34,8 +34,9 @@
         [self addSubview:self.subTitleLabel];
         
         self.showImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_bought_unit_selected"]];
-        self.showImageView.right = self.width;
-        self.showImageView.top = 0;
+        self.showImageView.frame = self.bounds;
+//        self.showImageView.right = self.width;
+//        self.showImageView.top = 0;
         [self addSubview:self.showImageView];
     }
     return self;

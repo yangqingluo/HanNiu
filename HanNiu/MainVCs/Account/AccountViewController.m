@@ -52,7 +52,7 @@
 
 //初始化数据
 - (void)initializeData {
-    self.showArray = @[@{@"title":@"我的收藏",@"subTitle":@"",@"key":@"icon_me_suggestion"},
+    self.showArray = @[@{@"title":@"我的收藏",@"subTitle":@"",@"key":@"icon_my_collection"},
                       @{@"title":@"我的购买",@"subTitle":@"",@"key":@"icon_me_bought"},
                        @{@"title":@"我的M币",@"subTitle":@"充值",@"key":@"icon_me_coin"},
                        @{@"title":@"意见反馈",@"subTitle":@"",@"key":@"icon_me_suggestion"},

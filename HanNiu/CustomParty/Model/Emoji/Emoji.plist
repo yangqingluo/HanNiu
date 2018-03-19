@@ -10,5 +10,7 @@
 	<string>e02</string>
 	<key>[duration]</key>
 	<string>e03</string>
+	<key>[education]</key>
+	<string>e04</string>
 </dict>
 </plist>

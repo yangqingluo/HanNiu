@@ -81,7 +81,7 @@
     [self.view addSubview:self.headerView];
     self.headerView.titleLabel.text = self.data.Name;
     self.headerView.subTitleLabel.text = self.data.Salary;
-    self.headerView.tagLabel.attributedText = [NSAttributedString emojiAttributedString:[NSString stringWithFormat:@"[place] %@　[place] %@　[place] %@及以上", self.data.Area, self.data.Exp, self.data.Edu] withFont:self.headerView.tagLabel.font];
+    self.headerView.tagLabel.attributedText = [NSAttributedString emojiAttributedString:[NSString stringWithFormat:@"[place] %@　[duration] %@　[education] %@及以上", self.data.Area, self.data.Exp, self.data.Edu] withFont:self.headerView.tagLabel.font];
     
     if (self.showCompany) {
         [self.view addSubview:self.companyView];

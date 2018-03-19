@@ -126,11 +126,11 @@
     
     CGFloat radius = 50.0;
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(80, 60, radius, radius)];
-    imageView.image = [UIImage imageNamed:@"icon_classify_tab_title_back"];
+//    imageView.image = [UIImage imageNamed:@"icon_classify_tab_title_back"];
     
     UIImage *m_image = [UIImage imageNamed:dic[@"image"]];
     CGSize m_size = m_image.size;
-    UIImageView *subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0.6 * radius, 0.6 * radius * m_size.height / m_size.width)];
+    UIImageView *subImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0.8 * radius, 0.8 * radius * m_size.height / m_size.width)];
     subImageView.image = m_image;
     subImageView.center = CGPointMake(0.5 * imageView.width, 0.5 * imageView.height);
     [imageView addSubview:subImageView];

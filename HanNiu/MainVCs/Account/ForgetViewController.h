@@ -6,8 +6,8 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "PublicViewController.h"
+#import "PublicClearNavBarVC.h"
 
-@interface ForgetViewController : PublicViewController
+@interface ForgetViewController : PublicClearNavBarVC
 
 @end

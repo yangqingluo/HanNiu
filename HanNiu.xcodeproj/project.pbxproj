@@ -146,6 +146,9 @@
 		E415D902205B5F01009B02CA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E415D901205B5F01009B02CA /* libsqlite3.tbd */; };
 		E42085682023F5170044D4D8 /* PublicGridLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E42085672023F5170044D4D8 /* PublicGridLabelView.m */; };
 		E4211D0E2020707100216EF7 /* UIImageView+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4211D0D2020707100216EF7 /* UIImageView+Rotate.m */; };
+		E42AFDDD205FF51200799EC0 /* icon_my_collection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E42AFDDC205FF51200799EC0 /* icon_my_collection@2x.png */; };
+		E42AFDE0205FFA0300799EC0 /* PublicClearNavBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AFDDF205FFA0300799EC0 /* PublicClearNavBarVC.m */; };
+		E42AFDE4205FFD8500799EC0 /* icon_edu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E42AFDE2205FFD8400799EC0 /* icon_edu@2x.png */; };
 		E437F4A020104E33001DA60E /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E437F49F20104E33001DA60E /* RegistViewController.m */; };
 		E4481EE22015E06400F69201 /* PublicBarTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E4481EE12015E06400F69201 /* PublicBarTextField.m */; };
 		E44E3B4C2023254A0046B587 /* icon_arrow_space@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E44E3B4B202325490046B587 /* icon_arrow_space@2x.png */; };
@@ -561,6 +564,10 @@
 		E42085672023F5170044D4D8 /* PublicGridLabelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicGridLabelView.m; sourceTree = "<group>"; };
 		E4211D0C2020707100216EF7 /* UIImageView+Rotate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Rotate.h"; sourceTree = "<group>"; };
 		E4211D0D2020707100216EF7 /* UIImageView+Rotate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Rotate.m"; sourceTree = "<group>"; };
+		E42AFDDC205FF51200799EC0 /* icon_my_collection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_my_collection@2x.png"; sourceTree = "<group>"; };
+		E42AFDDE205FFA0300799EC0 /* PublicClearNavBarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicClearNavBarVC.h; sourceTree = "<group>"; };
+		E42AFDDF205FFA0300799EC0 /* PublicClearNavBarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicClearNavBarVC.m; sourceTree = "<group>"; };
+		E42AFDE2205FFD8400799EC0 /* icon_edu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_edu@2x.png"; sourceTree = "<group>"; };
 		E437F49E20104E33001DA60E /* RegistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
 		E437F49F20104E33001DA60E /* RegistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
 		E4481EE02015E06400F69201 /* PublicBarTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicBarTextField.h; sourceTree = "<group>"; };
@@ -1201,6 +1208,8 @@
 		E410D1A7200CB79000C6ACED /* Pics */ = {
 			isa = PBXGroup;
 			children = (
+				E42AFDE2205FFD8400799EC0 /* icon_edu@2x.png */,
+				E42AFDDC205FF51200799EC0 /* icon_my_collection@2x.png */,
 				E4F7E9E0201586E0009E22E3 /* icon_close_dialog@2x.png */,
 				E4EE191A200DE35B005BD00F /* download_image_default@2x.png */,
 				E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */,
@@ -2098,6 +2107,8 @@
 				E4FA9DAB200CB1B700EB8852 /* PublicNavigationController.m */,
 				E4B3CCBF200D973F006807AE /* PublicViewController.h */,
 				E4B3CCC0200D9740006807AE /* PublicViewController.m */,
+				E42AFDDE205FFA0300799EC0 /* PublicClearNavBarVC.h */,
+				E42AFDDF205FFA0300799EC0 /* PublicClearNavBarVC.m */,
 				E4EE190E200DC97B005BD00F /* PublicTableViewController.h */,
 				E4EE190F200DC97B005BD00F /* PublicTableViewController.m */,
 				E469F14A2016DAD7000B3C04 /* PublicCollectionViewController.h */,
@@ -2331,6 +2342,7 @@
 				E410D252200CB79100C6ACED /* icon_play_big@2x.png in Resources */,
 				E4A726352028028400E34BEA /* MJRefresh.bundle in Resources */,
 				E410D234200CB79100C6ACED /* icon_classify_sub_recycler_item_back_normal@2x.png in Resources */,
+				E42AFDE4205FFD8500799EC0 /* icon_edu@2x.png in Resources */,
 				E410D24B200CB79100C6ACED /* icon_not_collect@2x.png in Resources */,
 				E410D237200CB79100C6ACED /* icon_classify_tab_title_left@2x.png in Resources */,
 				E4EE191B200DE35C005BD00F /* download_image_default@2x.png in Resources */,
@@ -2437,6 +2449,7 @@
 				E410D271200CB79100C6ACED /* rotate_progress.png in Resources */,
 				E410D224200CB79100C6ACED /* ic_allmusic_black_24dp.png in Resources */,
 				E410D21F200CB79100C6ACED /* back_register_btn@2x.png in Resources */,
+				E42AFDDD205FF51200799EC0 /* icon_my_collection@2x.png in Resources */,
 				E410D221200CB79100C6ACED /* back_switch_btn.png in Resources */,
 				E4A725E82028028400E34BEA /* ImageSelectedSmallOff@2x.png in Resources */,
 				E410D25C200CB79100C6ACED /* icon_share@2x.png in Resources */,
@@ -2616,6 +2629,7 @@
 				E4A2F9C420233A5B007F6599 /* CollegeDetailHeaderView.m in Sources */,
 				E4500382202D84A10043E934 /* CommentCellFooterView.m in Sources */,
 				E4A725DD2028028400E34BEA /* NSString+MJExtension.m in Sources */,
+				E42AFDE0205FFA0300799EC0 /* PublicClearNavBarVC.m in Sources */,
 				E4A726032028028400E34BEA /* MWPhotoBrowser.m in Sources */,
 				E4A725C22028028400E34BEA /* AFNetworkReachabilityManager.m in Sources */,
 				E48A22AD201976790017977A /* MusicCell.m in Sources */,

@@ -40,8 +40,8 @@
     
     _navigationBarView = [[UIImageView alloc] initWithFrame:CGRectMake(0, _nSpaceNavY, self.view.width, 64 - _nSpaceNavY)];
     [self.view addSubview:_navigationBarView];
-    _navigationBarView.image = [UIImage imageNamed:@"navigation_bar_back"];
-    [_navigationBarView setBackgroundColor:[UIColor clearColor]];
+//    _navigationBarView.image = [UIImage imageNamed:@"navigation_bar_back"];
+    [_navigationBarView setBackgroundColor:[UIColor whiteColor]];
     
     _navView = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, StatusbarSize, self.view.width, 44.f)];
     ((UIImageView *)_navView).backgroundColor = [UIColor clearColor];
@@ -73,7 +73,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         [_titleLabel setTextAlignment:NSTextAlignmentCenter];
-        [_titleLabel setTextColor:[UIColor whiteColor]];
+        [_titleLabel setTextColor:appTextColor];
         [_titleLabel setFont:[UIFont systemFontOfSize:18.0]];
         [_titleLabel setBackgroundColor:[UIColor clearColor]];
     }

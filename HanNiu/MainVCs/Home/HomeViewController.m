@@ -46,13 +46,13 @@
     [self createNavWithTitle:self.title createMenuItem:^UIView *(int nIndex) {
         if (nIndex == 0) {
             UIButton *btn = NewBackButton(nil);
-            [btn setImage:[UIImage imageNamed:@"main_me_icon"] forState:UIControlStateNormal];
+            [btn setImage:[[UIImage imageNamed:@"main_me_icon"] imageWithColor:appMainColor] forState:UIControlStateNormal];
             btn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
             [btn addTarget:self action:@selector(accountButtonAction) forControlEvents:UIControlEventTouchUpInside];
             return btn;
         }
         else if (nIndex == 1) {
-            UIButton *btn = NewRightButton([UIImage imageNamed:@"main_msg_icon"], nil);
+            UIButton *btn = NewRightButton([UIImage imageNamed:@"main_msg_icon"], appMainColor);
             [btn addTarget:self action:@selector(messageButtonAction) forControlEvents:UIControlEventTouchUpInside];
             return btn;
         }

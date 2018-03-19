@@ -6,8 +6,8 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "PublicViewController.h"
+#import "PublicClearNavBarVC.h"
 
-@interface ChangePasswordVC : PublicViewController
+@interface ChangePasswordVC : PublicClearNavBarVC
 
 @end

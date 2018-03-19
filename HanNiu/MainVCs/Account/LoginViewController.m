@@ -55,7 +55,7 @@
     [super viewDidLoad];
     self.title = @"登录";
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back_login_fragment"]];
+    self.view.backgroundColor = appMainColor;
     
     self.usernameInputView = NewPublicInputView(CGRectMake(kEdgeToScreen, 120, screen_width - 2 * kEdgeToScreen, 44), @"请输入手机号", @"icon_login_username");
     self.usernameInputView.textField.textAlignment = NSTextAlignmentCenter;
@@ -116,11 +116,6 @@
     [agreementLabel yb_addAttributeTapActionWithStrings:@[agreementString] tapClicked:^(NSString *string, NSRange range, NSInteger index) {
         [weakself agreeButtonAction];
     }];
-}
-
-- (void)initializeNavigationBar {
-    [super initializeNavigationBar];
-    self.navigationBarView.image = nil;
 }
 
 - (void)loginButtonAction {
