@@ -28,7 +28,7 @@
     [super viewDidLoad];
     self.title = @"注册";
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back_login_fragment"]];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back_login_fragment"]];
     
     self.phoneInputView = NewPublicInputView(CGRectMake(kEdgeToScreen, 120, screen_width - 2 * kEdgeToScreen, 44), @"手机号", @"icon_phone");
     self.phoneInputView.textField.keyboardType = UIKeyboardTypePhonePad;

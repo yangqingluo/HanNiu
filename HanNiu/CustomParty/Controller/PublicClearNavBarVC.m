@@ -32,6 +32,7 @@
     self.titleLabel.textColor = color;
     if (color) {
         self.navigationBarView.backgroundColor = [UIColor clearColor];
+        self.view.backgroundColor = appMainColor;
     }
 }
 

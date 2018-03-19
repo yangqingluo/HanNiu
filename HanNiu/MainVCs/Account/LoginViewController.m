@@ -55,8 +55,6 @@
     [super viewDidLoad];
     self.title = @"登录";
     
-    self.view.backgroundColor = appMainColor;
-    
     self.usernameInputView = NewPublicInputView(CGRectMake(kEdgeToScreen, 120, screen_width - 2 * kEdgeToScreen, 44), @"请输入手机号", @"icon_login_username");
     self.usernameInputView.textField.textAlignment = NSTextAlignmentCenter;
     self.usernameInputView.textField.keyboardType = UIKeyboardTypePhonePad;

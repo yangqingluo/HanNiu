@@ -31,7 +31,7 @@
     [super viewDidLoad];
     self.title = @"修改密码";
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back_login_fragment"]];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back_login_fragment"]];
     
     self.oldPsdInputView = NewPublicInputView(CGRectMake(kEdgeToScreen, 120, screen_width - 2 * kEdgeToScreen, 44), @"请输入旧密码", @"icon_login_password");
     self.oldPsdInputView.textField.textAlignment = NSTextAlignmentCenter;

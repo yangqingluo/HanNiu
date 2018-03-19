@@ -79,6 +79,8 @@ CGFloat m_edge = 2.0;
     [self.baseView addSubview:_endLabel];
     
     [_playBtn addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_lastBtn addTarget:self action:@selector(lastButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_nextBtn addTarget:self action:@selector(nextButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_progressSlider addTarget:self action:@selector(playbackSliderValueChanged) forControlEvents:UIControlEventValueChanged];
 }
 
@@ -114,6 +116,14 @@ CGFloat m_edge = 2.0;
     else {
         [musicPlayer play];
     }
+}
+
+- (void)lastButtonAction:(UIButton *)button {
+    
+}
+
+- (void)nextButtonAction:(UIButton *)button {
+    
 }
 
 - (void)playbackSliderValueChanged {
