@@ -223,7 +223,7 @@ static PublicPlayerManager *_sharedManager = nil;
 }
 
 - (void)playLast {
-    if (self.userPlayList.count) {
+    if (self.userPlayList.count > 1) {
         NSInteger index = self.playIndex;
         index--;
         if (index < 0) {
@@ -237,7 +237,7 @@ static PublicPlayerManager *_sharedManager = nil;
 }
 
 - (void)playNext {
-    if (self.userPlayList.count) {
+    if (self.userPlayList.count > 1) {
         NSInteger index = self.playIndex;
         index++;
         if (index >= self.userPlayList.count) {
