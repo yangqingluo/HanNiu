@@ -130,13 +130,13 @@ extern PublicPlayerManager *musicPlayer;
         urlFooter = @"University/Major/Detail";
     }
     else if (self.data.Institute) {
-        urlFooter = @"Quality/Detail";
-    }
-    else if (self.data.University || self.data.College) {
         urlFooter = @"University/School/Detail";
     }
-    else {
+    else if (self.data.University || self.data.College) {
         urlFooter = @"University/Detail";
+    }
+    else {
+        urlFooter = @"Quality/Detail";
     }
     QKWEAKSELF;
     [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:urlFooter completion:^(id responseBody, NSError *error){

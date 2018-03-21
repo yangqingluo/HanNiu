@@ -99,8 +99,8 @@
         
         UIButton *logoutBtn = NewButton(CGRectMake(kEdgeToScreen, 0, _footerView.width - 2 * kEdgeToScreen, 44), @"退出登录", [UIColor whiteColor], nil);
         logoutBtn.bottom = _footerView.height;
-        [logoutBtn setBackgroundImage:[UIImage imageNamed:@"back_dialog_confirm_btn"] forState:UIControlStateNormal];
-        [logoutBtn setBackgroundImage:[UIImage imageNamed:@"back_dialog_confirm_btn"] forState:UIControlStateHighlighted];
+        logoutBtn.backgroundColor = appMainColor;
+        [AppPublic roundCornerRadius:logoutBtn cornerRadius:appButtonCornerRadius];
         [_footerView addSubview:logoutBtn];
         [logoutBtn addTarget:self action:@selector(logoutButtonAction) forControlEvents:UIControlEventTouchUpInside];
     }

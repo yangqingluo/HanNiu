@@ -74,8 +74,8 @@
         [self.baseView addSubview:_titleLabel];
         
         UIButton *sureBtn = NewButton(CGRectMake(kEdgeToScreen, 200, self.baseView.width - 2 * kEdgeToScreen, 44), @"确定", [UIColor whiteColor], nil);
-        [sureBtn setBackgroundImage:[UIImage imageNamed:@"back_dialog_confirm_btn"] forState:UIControlStateNormal];
-        [sureBtn setBackgroundImage:[UIImage imageNamed:@"back_dialog_confirm_btn"] forState:UIControlStateHighlighted];
+        sureBtn.backgroundColor = appMainColor;
+        [AppPublic roundCornerRadius:sureBtn cornerRadius:appButtonCornerRadius];
         [self.baseView addSubview:sureBtn];
         [sureBtn addTarget:self action:@selector(sureButtonAction) forControlEvents:UIControlEventTouchUpInside];
         

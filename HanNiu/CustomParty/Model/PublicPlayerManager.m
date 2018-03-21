@@ -103,6 +103,9 @@ static PublicPlayerManager *_sharedManager = nil;
 }
 
 - (void)prepare {
+    if (!self.currentPlay.Music.Url) {
+        return;
+    }
     [self resetPlayState:PlayerManagerStatePreparing];
     
     [self clearPlayerItem];
@@ -261,13 +264,10 @@ static PublicPlayerManager *_sharedManager = nil;
 
 //保存当前播放数据
 - (void)saveCurrentData:(AppBasicMusicDetailInfo *)data {
-    BOOL needSwitch = NO;
+    BOOL needSwitch = YES;
     if (data.Music.Url) {
-        if (![data.Music.Id isEqualToString:self.currentPlay.Music.Id]) {
-            needSwitch = YES;
-        }
-        else if (!self.currentPlay.Music.Url) {
-            needSwitch = YES;
+        if ([data.Music.Id isEqualToString:self.currentPlay.Music.Id]) {
+            needSwitch = NO;
         }
     }
     _currentPlay = data;
@@ -280,9 +280,7 @@ static PublicPlayerManager *_sharedManager = nil;
     if (needSwitch) {
         [self resetPlay];
     }
-    else {
-        firstWhenOpenApp = NO;
-    }
+    firstWhenOpenApp = NO;
 }
 
 //保存用户播放列表
@@ -304,7 +302,6 @@ static PublicPlayerManager *_sharedManager = nil;
     [self clearPlayer];
     if (self.isAutoPlay) {
         if (firstWhenOpenApp) {
-            firstWhenOpenApp = NO;
             if ([[AppPublic getInstance].isAutoPlayWhenOpen boolValue]) {
                 [self prepare];
             }
@@ -331,18 +328,15 @@ static PublicPlayerManager *_sharedManager = nil;
     BOOL yn = NO;
     switch ([[AppPublic getInstance].internetReachability currentReachabilityStatus]) {
         case NotReachable:{
-            NSLog(@"**********未连接");
         }
             break;
             
         case ReachableViaWiFi:{
-            NSLog(@"***********wifi");
             yn = YES;
         }
             break;
             
         case ReachableViaWWAN:{
-            NSLog(@"*********蜂窝网络");
             yn = [[AppPublic getInstance].isAutoPlayOnWWAN boolValue];
         }
             break;

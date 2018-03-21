@@ -63,7 +63,7 @@
     self.showArray = @[@{@"title":@"支付宝",@"subTitle":@"",@"key":@"icon_pay_by_zfb"},
                        @{@"title":@"微信支付",@"subTitle":@"",@"key":@"icon_pay_by_wx"},
                       ];
-    self.payAmountArray = @[@{@"title":@"6个M币", @"subTitle":@"", @"amount" : @"1"},
+    self.payAmountArray = @[@{@"title":@"6个M币", @"subTitle":@"", @"amount" : @"6"},
                       @{@"title":@"18个M币", @"subTitle":@"", @"amount" : @"18"},
                       @{@"title":@"50个M币", @"subTitle":@"", @"amount" : @"50"},
                       @{@"title":@"118个M币", @"subTitle":@"", @"amount" : @"118"},

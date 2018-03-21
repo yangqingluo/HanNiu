@@ -81,7 +81,6 @@
     NSArray *m_array = self.dataSource[indexPath.section][@"ListValue"];
     AppItemInfo *item = m_array[indexPath.row];
     [cell.button setTitle:item.Name forState:UIControlStateNormal];
-    cell.button.userInteractionEnabled = NO;
     cell.button.tag = indexPath.row;
     
     return cell;

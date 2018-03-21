@@ -167,7 +167,6 @@
     NSArray *m_array = self.dataSource[indexPath.section];
     AppMajorInfo *item = m_array[indexPath.row];
     [cell.button setTitle:item.FirstTag forState:UIControlStateNormal];
-    cell.button.userInteractionEnabled = NO;
     cell.button.tag = indexPath.row;
     
     return cell;
