@@ -30,6 +30,7 @@
 		E404EB4620285C9400312B4D /* PublicImageAndSubTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB4520285C9400312B4D /* PublicImageAndSubTitleView.m */; };
 		E404EB49202898C700312B4D /* CompanyDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB48202898C700312B4D /* CompanyDetailVC.m */; };
 		E40CDB862062417C00A89FB4 /* BetterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E40CDB852062417C00A89FB4 /* BetterVC.m */; };
+		E40CDB89206251F200A89FB4 /* DoubleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E40CDB88206251F200A89FB4 /* DoubleImageView.m */; };
 		E410D1A6200CB5EE00C6ACED /* MainTabNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */; };
 		E410D215200CB79100C6ACED /* back_college_list_item_class.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */; };
 		E410D216200CB79100C6ACED /* back_comment_list_input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A9200CB79000C6ACED /* back_comment_list_input@2x.png */; };
@@ -442,6 +443,8 @@
 		E404EB48202898C700312B4D /* CompanyDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanyDetailVC.m; sourceTree = "<group>"; };
 		E40CDB842062417C00A89FB4 /* BetterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetterVC.h; sourceTree = "<group>"; };
 		E40CDB852062417C00A89FB4 /* BetterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BetterVC.m; sourceTree = "<group>"; };
+		E40CDB87206251F200A89FB4 /* DoubleImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoubleImageView.h; sourceTree = "<group>"; };
+		E40CDB88206251F200A89FB4 /* DoubleImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoubleImageView.m; sourceTree = "<group>"; };
 		E410D1A4200CB5EE00C6ACED /* MainTabNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabNavController.h; sourceTree = "<group>"; };
 		E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabNavController.m; sourceTree = "<group>"; };
 		E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_college_list_item_class.png; sourceTree = "<group>"; };
@@ -2194,6 +2197,8 @@
 				E469F15A20171A66000B3C04 /* PublicLabel.m */,
 				E48A2296201865C50017977A /* PublicButton.h */,
 				E48A2297201865C50017977A /* PublicButton.m */,
+				E40CDB87206251F200A89FB4 /* DoubleImageView.h */,
+				E40CDB88206251F200A89FB4 /* DoubleImageView.m */,
 				E48A22AE201994660017977A /* PublicSlider.h */,
 				E48A22AF201994660017977A /* PublicSlider.m */,
 				E469F1482016DA9C000B3C04 /* LongPressFlowLayout.h */,
@@ -2619,6 +2624,7 @@
 				E4884E0D2023FFDC002771CC /* CollegeDetailSlideSubTableVC.m in Sources */,
 				E4B96B2A20273732007CEA3F /* CollegeIntroduceHeaderView.m in Sources */,
 				E4A725C72028028400E34BEA /* AFAutoPurgingImageCache.m in Sources */,
+				E40CDB89206251F200A89FB4 /* DoubleImageView.m in Sources */,
 				E4481EE22015E06400F69201 /* PublicBarTextField.m in Sources */,
 				E4AA28F62022EC8400521FCB /* CollegeListVC.m in Sources */,
 				E4DB3C502015B26500D5C465 /* AccountFavoriteVC.m in Sources */,

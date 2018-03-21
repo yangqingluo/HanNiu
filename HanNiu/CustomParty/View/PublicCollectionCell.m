@@ -16,7 +16,7 @@
         self.contentView.backgroundColor = [UIColor whiteColor];
         
         CGFloat i_radius = self.contentView.width;
-        _showImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, i_radius, i_radius)];
+        _showImageView = [[DoubleImageView alloc] initWithFrame:CGRectMake(0, 0, i_radius, i_radius)];
         _showImageView.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:_showImageView];
         [AppPublic roundCornerRadius:_showImageView cornerRadius:appViewCornerRadius];

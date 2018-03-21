@@ -50,7 +50,7 @@
     
     self.shadowLine = [[UIView alloc]initWithFrame:CGRectMake(0, _navView.bounds.size.height - 0.5, _navView.bounds.size.width, 0.5)];
     self.shadowLine.backgroundColor = appSeparatorColor;
-    self.shadowLine.hidden = YES;
+//    self.shadowLine.hidden = YES;
     [_navView addSubview:self.shadowLine];
     
     self.titleLabel.frame = CGRectMake(60, 0, _navView.width - 120, _navView.height);

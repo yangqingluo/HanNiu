@@ -16,7 +16,7 @@
         self.backgroundColor = [UIColor whiteColor];
         
         CGFloat i_radius = self.height - 2 * kEdgeMiddle;
-        _showImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kEdgeMiddle, kEdgeMiddle, i_radius, i_radius)];
+        _showImageView = [[DoubleImageView alloc] initWithFrame:CGRectMake(kEdgeMiddle, kEdgeMiddle, i_radius, i_radius)];
         [AppPublic roundCornerRadius:_showImageView cornerRadius:appViewCornerRadius];
         [self addSubview:_showImageView];
         

@@ -205,18 +205,22 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PublicCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId_cell_school forIndexPath:indexPath];
-    
+    cell.backgroundColor = [UIColor greenColor];
     cell.titleLabel.text = @"";
     cell.showImageView.hidden = YES;
     AppBasicMusicDetailInfo *item = nil;
     if (indexPath.section == 1) {
+        cell.showImageView.showImageView.contentMode = UIViewContentModeScaleAspectFit;
+        [cell.showImageView adjustShowImageViewWithScale:0.8];
         item = self.universityList[indexPath.row];
     }
     else if (indexPath.section == 2) {
+        cell.showImageView.showImageView.contentMode = UIViewContentModeScaleAspectFill;
+        [cell.showImageView adjustShowImageViewWithScale:1.0];
         item = self.qualityList[indexPath.row];
     }
     if (item) {
-        [cell.showImageView sd_setImageWithURL:fileURLWithPID(item.Image) placeholderImage:nil];
+        [cell.showImageView.showImageView sd_setImageWithURL:fileURLWithPID(item.Image) placeholderImage:nil];
         cell.showImageView.hidden = NO;
         cell.titleLabel.text = item.Name;
     }
@@ -237,10 +241,12 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
 
 //#pragma mark - UICollectionViewDelegateFlowLayout
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    
+//    if (indexPath.section == 1) {
+//        double width = [PublicCollectionViewController cellWithWithListCount:4 sectionInset:UIEdgeInsetsZero];
+//        return CGSizeMake(width, width + 40);
+//    }
 //    return [(UICollectionViewFlowLayout *)collectionViewLayout itemSize];
 //}
-
 
 #pragma mark - UIResponder+Router
 - (void)routerEventWithName:(NSString *)eventName userInfo:(NSObject *)userInfo {

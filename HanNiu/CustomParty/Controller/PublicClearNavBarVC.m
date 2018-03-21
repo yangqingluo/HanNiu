@@ -32,6 +32,7 @@
     self.titleLabel.textColor = color;
     if (color) {
         self.navigationBarView.backgroundColor = [UIColor clearColor];
+        self.shadowLine.hidden = YES;
         self.view.backgroundColor = appMainColor;
     }
 }

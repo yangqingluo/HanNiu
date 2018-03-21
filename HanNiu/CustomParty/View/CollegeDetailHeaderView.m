@@ -22,6 +22,10 @@
         
         self.gridLabelView = [[PublicGridLabelView alloc] initWithFrame:CGRectMake(self.tagLabel.left, self.tagLabel.bottom + kEdge, self.tagLabel.width, appLabelFontSizeTiny + kEdgeSmall)];
         [self addSubview:self.gridLabelView];
+        
+        self.showImageView.layer.borderColor = appSeparatorColor.CGColor;
+        self.showImageView.layer.borderWidth = appSeparaterLineSize;
+        [self.showImageView adjustShowImageViewWithScale:0.7];
     }
     return self;
 }
@@ -29,7 +33,7 @@
 #pragma mark - setter
 - (void)setData:(AppBasicMusicDetailInfo *)data {
     _data = data;
-    [self.showImageView sd_setImageWithURL:fileURLWithPID(data.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
+    [self.showImageView.showImageView sd_setImageWithURL:fileURLWithPID(data.Image) placeholderImage:[UIImage imageNamed:defaultDownloadPlaceImageName]];
     self.titleLabel.text = data.Name;
     self.subTitleLabel.text = data.showStringForAddr;
     [self.gridLabelView resetGridWithStringArray:[data.Tags componentsSeparatedByString:@"|"]];

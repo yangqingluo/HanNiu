@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "PublicLabel.h"
+#import "DoubleImageView.h"
 
 @interface PublicCollectionCell : UICollectionViewCell
 
-@property (strong, nonatomic) UIImageView *showImageView;
+@property (strong, nonatomic) DoubleImageView *showImageView;
 @property (strong, nonatomic) PublicLabel *titleLabel;
 
 @end

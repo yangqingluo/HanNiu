@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 
++ (CGFloat)cellWithWithListCount:(NSUInteger)countH sectionInset:(UIEdgeInsets)sectionInset;
 //- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout;
 - (instancetype)initWithCollectionRowCount:(NSUInteger)count cellHeight:(CGFloat)height;
 - (instancetype)initWithCollectionRowCount:(NSUInteger)count cellHeight:(CGFloat)height sectionInset:(UIEdgeInsets)sectionInset;

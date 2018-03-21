@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DoubleImageView.h"
 
 @interface PublicDetailImageAndSubTitleHeaderView : UIView
 
-@property (strong, nonatomic) UIImageView *showImageView;
+@property (strong, nonatomic) DoubleImageView *showImageView;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *subTitleLabel;
 @property (strong, nonatomic) UILabel *tagLabel;
