@@ -6,8 +6,8 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "PublicSlideSubTableVC.h"
+#import "BetterVC.h"
 
-@interface HomeBetterVC : PublicSlideSubTableVC
+@interface HomeBetterVC : BetterVC
 
 @end

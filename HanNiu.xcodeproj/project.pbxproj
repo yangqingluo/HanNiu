@@ -29,6 +29,7 @@
 		E404EB432028509300312B4D /* Emoji.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E404EB422028509200312B4D /* Emoji.xcassets */; };
 		E404EB4620285C9400312B4D /* PublicImageAndSubTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB4520285C9400312B4D /* PublicImageAndSubTitleView.m */; };
 		E404EB49202898C700312B4D /* CompanyDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E404EB48202898C700312B4D /* CompanyDetailVC.m */; };
+		E40CDB862062417C00A89FB4 /* BetterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E40CDB852062417C00A89FB4 /* BetterVC.m */; };
 		E410D1A6200CB5EE00C6ACED /* MainTabNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */; };
 		E410D215200CB79100C6ACED /* back_college_list_item_class.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */; };
 		E410D216200CB79100C6ACED /* back_comment_list_input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E410D1A9200CB79000C6ACED /* back_comment_list_input@2x.png */; };
@@ -439,6 +440,8 @@
 		E404EB4520285C9400312B4D /* PublicImageAndSubTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicImageAndSubTitleView.m; sourceTree = "<group>"; };
 		E404EB47202898C700312B4D /* CompanyDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanyDetailVC.h; sourceTree = "<group>"; };
 		E404EB48202898C700312B4D /* CompanyDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanyDetailVC.m; sourceTree = "<group>"; };
+		E40CDB842062417C00A89FB4 /* BetterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetterVC.h; sourceTree = "<group>"; };
+		E40CDB852062417C00A89FB4 /* BetterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BetterVC.m; sourceTree = "<group>"; };
 		E410D1A4200CB5EE00C6ACED /* MainTabNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabNavController.h; sourceTree = "<group>"; };
 		E410D1A5200CB5EE00C6ACED /* MainTabNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabNavController.m; sourceTree = "<group>"; };
 		E410D1A8200CB79000C6ACED /* back_college_list_item_class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_college_list_item_class.png; sourceTree = "<group>"; };
@@ -2050,6 +2053,8 @@
 				E47E9739202D3BFD00AE646E /* HomeMessageVC.m */,
 				E47E973B202D429A00AE646E /* HomeMessageSubTableVC.h */,
 				E47E973C202D429A00AE646E /* HomeMessageSubTableVC.m */,
+				E40CDB842062417C00A89FB4 /* BetterVC.h */,
+				E40CDB852062417C00A89FB4 /* BetterVC.m */,
 				E402AE762021BE3B00CF1306 /* MusicDetailVC.h */,
 				E402AE662021BE3B00CF1306 /* MusicDetailVC.m */,
 				E402AE642021BE3B00CF1306 /* MusicCommentVC.h */,
@@ -2528,6 +2533,7 @@
 				E4211D0E2020707100216EF7 /* UIImageView+Rotate.m in Sources */,
 				E4E47119202FEE9E005C8B43 /* SchoolDetailSlideMajorVC.m in Sources */,
 				E4A7262C2028028400E34BEA /* MJRefreshAutoGifFooter.m in Sources */,
+				E40CDB862062417C00A89FB4 /* BetterVC.m in Sources */,
 				E4BA3005200FA0E200395F70 /* AccountAboutVC.m in Sources */,
 				E469F1432016D4B5000B3C04 /* PublicSlideViewController.m in Sources */,
 				E4A725D52028028400E34BEA /* MJFoundation.m in Sources */,

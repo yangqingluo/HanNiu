@@ -7,9 +7,6 @@
 //
 
 #import "BetterListVC.h"
-#import "MusicDetailVC.h"
-
-#import "QualityCell.h"
 
 @interface BetterListVC ()
 
@@ -20,11 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"推荐精品";
-    self.tableView.tableHeaderView = nil;
-    self.tableView = nil;
     self.tableView.frame = CGRectMake(0, self.navigationBarView.bottom, screen_width, screen_height - TAB_BAR_HEIGHT - self.navigationBarView.bottom);
-    [self.view addSubview:self.tableView];
-    [self updateTableViewHeader];
     [self beginRefreshing];
 }
 

@@ -56,7 +56,7 @@
 
 #pragma mark - getter
 - (UITableView *)tableView{
-    if (_tableView == nil){
+    if (!_tableView){
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT, self.view.width, self.view.height - STATUS_BAR_HEIGHT) style:_style];
         _tableView.separatorColor = appSeparatorColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;

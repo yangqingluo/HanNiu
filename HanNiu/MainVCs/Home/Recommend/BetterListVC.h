@@ -6,8 +6,8 @@
 //  Copyright © 2018年 zdz. All rights reserved.
 //
 
-#import "HomeBetterVC.h"
+#import "BetterVC.h"
 
-@interface BetterListVC : HomeBetterVC
+@interface BetterListVC : BetterVC
 
 @end
