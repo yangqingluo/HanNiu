@@ -60,7 +60,7 @@
         }
         else if (nIndex == 2) {
             UITextField *searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(STATUS_BAR_HEIGHT, 7, screen_width - 2 * STATUS_BAR_HEIGHT, 30)];
-            searchTextField.backgroundColor = [UIColor whiteColor];
+            searchTextField.background = [UIImage imageNamed:@"bg_search"];
             searchTextField.placeholder = @"搜索您感兴趣的内容";
             searchTextField.font = [AppPublic appFontOfSize:appLabelFontSizeSmall];
             searchTextField.borderStyle = UITextBorderStyleNone;

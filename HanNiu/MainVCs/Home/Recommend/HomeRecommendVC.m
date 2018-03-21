@@ -235,6 +235,13 @@ static NSString *reuseId_cell_school = @"reuseId_cell_school";
     }
 }
 
+//#pragma mark - UICollectionViewDelegateFlowLayout
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    return [(UICollectionViewFlowLayout *)collectionViewLayout itemSize];
+//}
+
+
 #pragma mark - UIResponder+Router
 - (void)routerEventWithName:(NSString *)eventName userInfo:(NSObject *)userInfo {
     if ([eventName isEqualToString:Event_PublicCollectionHeaderTitleViewTapped]) {

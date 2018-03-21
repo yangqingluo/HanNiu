@@ -124,19 +124,27 @@ extern PublicPlayerManager *musicPlayer;
 }
 
 - (void)doGetDetailDataFunction {
-    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"id" : self.data.Id}];
+    NSMutableDictionary *m_dic = [NSMutableDictionary new];
     NSString *urlFooter = @"";
     if (self.data.CommonMajor) {
         urlFooter = @"University/Major/Detail";
+        [m_dic setObject:self.data.CommonMajor.Id forKey:@"id"];
     }
     else if (self.data.Institute) {
         urlFooter = @"University/School/Detail";
+        [m_dic setObject:self.data.Institute.Id forKey:@"id"];
     }
-    else if (self.data.University || self.data.College) {
+    else if (self.data.University) {
         urlFooter = @"University/Detail";
+        [m_dic setObject:self.data.University.Id forKey:@"id"];
+    }
+    else if (self.data.College) {
+        urlFooter = @"University/Detail";
+        [m_dic setObject:self.data.College.Id forKey:@"id"];
     }
     else {
         urlFooter = @"Quality/Detail";
+        [m_dic setObject:self.data.Id forKey:@"id"];
     }
     QKWEAKSELF;
     [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:urlFooter completion:^(id responseBody, NSError *error){
