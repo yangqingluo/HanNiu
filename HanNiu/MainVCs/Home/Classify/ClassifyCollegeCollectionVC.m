@@ -82,6 +82,7 @@
     AppItemInfo *item = m_array[indexPath.row];
     [cell.button setTitle:item.Name forState:UIControlStateNormal];
     cell.button.tag = indexPath.row;
+    cell.button.userInteractionEnabled = NO;
     
     return cell;
 }

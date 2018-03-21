@@ -168,6 +168,7 @@
     AppMajorInfo *item = m_array[indexPath.row];
     [cell.button setTitle:item.FirstTag forState:UIControlStateNormal];
     cell.button.tag = indexPath.row;
+    cell.button.userInteractionEnabled = NO;
     
     return cell;
 }
