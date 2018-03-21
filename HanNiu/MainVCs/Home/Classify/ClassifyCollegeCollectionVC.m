@@ -82,7 +82,7 @@
     AppItemInfo *item = m_array[indexPath.row];
     [cell.button setTitle:item.Name forState:UIControlStateNormal];
     cell.button.tag = indexPath.row;
-    cell.button.userInteractionEnabled = NO;
+    cell.button.userInteractionEnabled = NO;//使用cell的select方法响应点击事件，故屏蔽按钮点击事件
     
     return cell;
 }

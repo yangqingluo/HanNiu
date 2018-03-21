@@ -7,6 +7,16 @@
 //
 
 #import "CollegeListVC.h"
+#import "DoubleImageView.h"
+#import "PublicGridLabelView.h"
+#import "PublicImageSubTagTitleCell.h"
+
+@interface RecommendCollegeListCell : PublicImageSubTagTitleCell
+
+@property (strong, nonatomic) PublicGridLabelView *gridLabelView;
+@property (strong, nonatomic) UIImageView *bigImageView;
+
+@end
 
 @interface RecommendCollegeListVC : CollegeListVC
 
