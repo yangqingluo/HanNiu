@@ -162,18 +162,17 @@
         [self doShowHintFunction:@"请选择充值金额"];
         return;
     }
-    else if (payStyleIndex < 0) {
-        [self doShowHintFunction:@"请选择充值方式"];
-        return;
+//    else if (payStyleIndex < 0) {
+//        [self doShowHintFunction:@"请选择充值方式"];
+//        return;
+//    }
+//    [self doGetPayDataFunction];
+    if ([[AppPurchases getInstance] canMakePayments]) {
+        [[AppPurchases getInstance] requestProductData:[NSString stringWithFormat:@"com.zdz.HanNiu_%02d", (int)payAmountIndex + 1]];
     }
-    [self doGetPayDataFunction];
-//    if ([[AppPurchases getInstance] canMakePayments]) {
-//        [[AppPurchases getInstance] requestProductData:[NSString stringWithFormat:@"com.zdz.HanNiu_%02d", (int)payAmountIndex + 1]];
-//    }
-//    else {
-//        [self doShowHintFunction:@"不支持购买"];
-//    }
-    
+    else {
+        [self doShowHintFunction:@"不支持购买"];
+    }
 }
 
 #pragma mark - getter
@@ -207,7 +206,7 @@
 
 #pragma mark - UITableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
