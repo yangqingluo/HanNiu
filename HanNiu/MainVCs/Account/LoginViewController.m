@@ -12,11 +12,14 @@
 
 #import "PublicInputView.h"
 #import "UILabel+YBAttributeTextTapAction.h"
+#import "AppActivity.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 
 @property (strong, nonatomic) PublicInputView *usernameInputView;
 @property (strong, nonatomic) PublicInputView *passwordInputView;
+
+@property (strong, nonatomic) NSString *courseString;
 
 @end
 
@@ -151,10 +154,21 @@
 }
 
 - (void)agreeButtonAction {
-    [self doShowHintFunction:@"服务条款"];
+    AppActivity *activity = [[AppActivity alloc]initWithTitle:@"服务条款" message:self.courseString delegate:self cancelButtonTitle:@"取消" otherButtonTitle:@"确认"];
+    
+    [activity showInView:self.view];
 }
 
-
-
+#pragma mark - getter
+- (NSString *)courseString {
+    if (!_courseString) {
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"agreement" ofType:@"txt"];
+        NSData *courseData = [NSData dataWithContentsOfFile:path];
+        NSStringEncoding strEncode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+        _courseString = [[NSString alloc]initWithData:courseData encoding:strEncode];
+    }
+    
+    return _courseString;
+}
 
 @end

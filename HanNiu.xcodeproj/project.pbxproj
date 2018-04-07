@@ -376,6 +376,8 @@
 		E4BA3005200FA0E200395F70 /* AccountAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BA3004200FA0E200395F70 /* AccountAboutVC.m */; };
 		E4D0139D2033BDCB00CD649C /* ChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D0139C2033BDCB00CD649C /* ChangePasswordVC.m */; };
 		E4D013A12033D7A800CD649C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D0139F2033D7A800CD649C /* Reachability.m */; };
+		E4D9C5FB2079015A00AD5477 /* AppActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D9C5F92079015900AD5477 /* AppActivity.m */; };
+		E4D9C5FD2079035B00AD5477 /* agreement.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4D9C5FC2079035B00AD5477 /* agreement.txt */; };
 		E4DB3C502015B26500D5C465 /* AccountFavoriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C4F2015B26500D5C465 /* AccountFavoriteVC.m */; };
 		E4DB3C532015B31900D5C465 /* AccountSuggestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C522015B31900D5C465 /* AccountSuggestVC.m */; };
 		E4DB3C562015B81900D5C465 /* XHMessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB3C542015B81800D5C465 /* XHMessageTextView.m */; };
@@ -1057,6 +1059,9 @@
 		E4D0139C2033BDCB00CD649C /* ChangePasswordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordVC.m; sourceTree = "<group>"; };
 		E4D0139E2033D7A700CD649C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		E4D0139F2033D7A800CD649C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		E4D9C5F92079015900AD5477 /* AppActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppActivity.m; sourceTree = "<group>"; };
+		E4D9C5FA2079015900AD5477 /* AppActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppActivity.h; sourceTree = "<group>"; };
+		E4D9C5FC2079035B00AD5477 /* agreement.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = agreement.txt; sourceTree = "<group>"; };
 		E4DB3C4E2015B26500D5C465 /* AccountFavoriteVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountFavoriteVC.h; sourceTree = "<group>"; };
 		E4DB3C4F2015B26500D5C465 /* AccountFavoriteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountFavoriteVC.m; sourceTree = "<group>"; };
 		E4DB3C512015B31900D5C465 /* AccountSuggestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountSuggestVC.h; sourceTree = "<group>"; };
@@ -1347,6 +1352,7 @@
 		E469F165201837D1000B3C04 /* Datas */ = {
 			isa = PBXGroup;
 			children = (
+				E4D9C5FC2079035B00AD5477 /* agreement.txt */,
 				E4A2F9CD202348F1007F6599 /* city_id.txt */,
 				E4A2F9CB20234488007F6599 /* city_name.xml */,
 				E469F166201837D1000B3C04 /* province.txt */,
@@ -2171,6 +2177,8 @@
 		E4FA9DA9200CB17C00EB8852 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E4D9C5FA2079015900AD5477 /* AppActivity.h */,
+				E4D9C5F92079015900AD5477 /* AppActivity.m */,
 				E4B3CCB6200D96DC006807AE /* QCSlideSwitchView.h */,
 				E4B3CCB7200D96DC006807AE /* QCSlideSwitchView.m */,
 				E469F15C2017707C000B3C04 /* PublicSlideSwitchView.h */,
@@ -2472,6 +2480,7 @@
 				E410D253200CB79100C6ACED /* icon_play_gray@2x.png in Resources */,
 				E410D269200CB79100C6ACED /* placeholder_college_logo.png in Resources */,
 				E410D27A200CB79100C6ACED /* toolbar_back_05.png in Resources */,
+				E4D9C5FD2079035B00AD5477 /* agreement.txt in Resources */,
 				E410D244200CB79100C6ACED /* icon_me_about_us@2x.png in Resources */,
 				E410D22C200CB79100C6ACED /* ic_star_on.png in Resources */,
 				E410D23A200CB79100C6ACED /* icon_collected@2x.png in Resources */,
@@ -2584,6 +2593,7 @@
 				E4FA9DAC200CB1B700EB8852 /* PublicNavigationController.m in Sources */,
 				E4A726202028028400E34BEA /* IQPreviousNextView.m in Sources */,
 				E4A726392028028400E34BEA /* UIView+MJExtension.m in Sources */,
+				E4D9C5FB2079015A00AD5477 /* AppActivity.m in Sources */,
 				E4B3CCBD200D96DD006807AE /* UIView+KGViewExtend.m in Sources */,
 				E4A725D22028028400E34BEA /* UIViewController+HUD.m in Sources */,
 				E4A7262F2028028400E34BEA /* MJRefreshBackGifFooter.m in Sources */,
