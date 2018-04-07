@@ -197,7 +197,7 @@
     if (!_footerView) {
         _footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 120)];
         UILabel *noticeLabel = NewLabel(CGRectMake(kEdgeMiddle, kEdgeSmall, _footerView.width - 2 * kEdgeMiddle, 100), [UIColor grayColor], [AppPublic appFontOfSize:appLabelFontSizeLittle], NSTextAlignmentLeft);
-        noticeLabel.text = @"充值说明：\n1.M币充值成功后无法退款，不可提现。\n2.如遇到无法充值、充值失败等问题，请关注汗牛微信公众号，我们会及时为您解决问题。\n3.根据苹果公司规定，安卓平台内充值的M币与苹果设备充值的M币不能相互通用。";
+        noticeLabel.text = @"充值说明：\n1.M币用于购买精品音频，某个精品音频购买成功以后就可以一直收听了。\n2.M币充值成功后无法退款，不可提现。\n3.如遇到无法充值、充值失败等问题，请关注汗牛微信公众号，我们会及时为您解决问题。";
         noticeLabel.numberOfLines = 0;
         [_footerView addSubview:noticeLabel];
     }

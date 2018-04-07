@@ -40,7 +40,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>7</string>
+	<string>8</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -49,9 +49,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>App需要您的同意,才能访问相机</string>
+	<string>允许访问相机使得可以上传设置您的头像</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>App需要您的同意,才能访问相册</string>
+	<string>允许访问相册使得可以上传设置您的头像</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
