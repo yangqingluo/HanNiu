@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-#define appUrlAddress       @"http://101.201.51.208:9528/api/"
+#define appUrlAddress       @"http://39.105.12.231:9528/api/"
+//#define appUrlAddress       @"http://101.201.51.208:9528/api/"//开发服务器
 #define appHttpMessage      @"message"
 
 #define HTTP_SUCCESS_NOT_SUPPORT        0x10000//成功, 但该功能在当前版本中不受支持, 将不保证返回结果的正确性

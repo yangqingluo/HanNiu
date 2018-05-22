@@ -64,4 +64,23 @@
     }];
 }
 
+- (void)pullBaseListData:(BOOL)isReset {
+    NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"mode" : @"2"}];
+    
+    QKWEAKSELF;
+    [[AppNetwork getInstance] Get:m_dic HeadParm:nil URLFooter:@"Quality/List" completion:^(id responseBody, NSError *error){
+        [weakself endRefreshing];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            if (isReset) {
+                [weakself.dataSource removeAllObjects];
+            }
+            [weakself.dataSource addObjectsFromArray:[AppBasicMusicDetailInfo mj_objectArrayWithKeyValuesArray:responseBody[@"Data"]]];
+            [weakself updateSubviews];
+        }
+    }];
+}
+
 @end

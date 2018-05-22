@@ -45,6 +45,9 @@
     NSString *urlFooter = @"";
     if (self.indextag == 0) {
         urlFooter = @"Music/Comment/List";
+        if (!self.p_vc.data.Music) {
+            return;
+        }
         [m_dic setObject:self.p_vc.data.Music.Id forKey:@"musicId"];
     }
     else if (self.indextag == 1) {
