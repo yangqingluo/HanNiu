@@ -54,5 +54,6 @@ NSString *httpRespString(NSError *error, NSObject *object);
 
 //login
 - (void)loginWithID:(NSString *)username Password:(NSString *)password completion:(AppNetworkBlock)completion;
+- (void)visitorLoginCompletion:(AppNetworkBlock)completion;
 
 @end

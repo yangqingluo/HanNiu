@@ -226,6 +226,18 @@ NSString *generateUuidString(){
     if (password) {
         [m_dic setObject:password forKey:@"CurPwd"];
     }
+    [self loginWithDic:m_dic ID:username Password:password completion:completion];
+}
+
+- (void)visitorLoginCompletion:(AppNetworkBlock)completion {
+    NSString *username = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSString *password = @"3196";
+    
+    NSMutableDictionary *m_dic = [[NSMutableDictionary alloc]initWithDictionary:@{@"ClientId":@"2", @"Name":username, @"Role":@"1", @"CurPwd":password, @"PwdMode":@"4", @"LoginType":@"1"}];
+    [self loginWithDic:m_dic ID:username Password:password completion:completion];
+}
+
+- (void)loginWithDic:(NSDictionary *)m_dic ID:(NSString *)username Password:(NSString *)password completion:(AppNetworkBlock)completion {
     [self Post:m_dic HeadParm:nil URLFooter:@"Token?v=2&misc=userinfo&misc=Exp" completion:^(id responseBody, NSError *error){
         if (!error) {
             [[AppPublic getInstance] loginDoneWithUserData:responseBody[@"Data"] username:username password:password];

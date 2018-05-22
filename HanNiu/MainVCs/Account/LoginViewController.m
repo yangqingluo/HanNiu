@@ -64,7 +64,10 @@
     self.usernameInputView.textField.delegate = self;
     [self.view addSubview:self.usernameInputView];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    self.usernameInputView.textField.text = [ud objectForKey:kUserName];
+    NSString *username = [ud objectForKey:kUserName];
+    if (isMobilePhone(username)) {
+        self.usernameInputView.textField.text = username;
+    }
     
     self.passwordInputView = NewPublicInputView(self.usernameInputView.frame, @"请输入密码", @"icon_login_password");
     self.passwordInputView.top = self.usernameInputView.bottom + 40;
@@ -99,24 +102,37 @@
     [registBtn addTarget:self action:@selector(registButtonAction) forControlEvents:UIControlEventTouchUpInside];
     
     NSString *agreementString = @"服务条款";
-    NSDictionary *dic1 = @{NSForegroundColorAttributeName : appTextLightColor};
-    NSDictionary *dic2 = @{NSForegroundColorAttributeName : [UIColor whiteColor], NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
-    NSMutableAttributedString *m_string = [NSMutableAttributedString new];
-    [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:@"登录即代表阅读并同意  " attributes:dic1]];
-    [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:agreementString attributes:dic2]];
-    NSMutableParagraphStyle *m_style = [NSMutableParagraphStyle new];
-    m_style.alignment = NSTextAlignmentCenter;
-    m_style.lineSpacing = 0;
-    [m_string addAttribute:NSParagraphStyleAttributeName value:m_style range:NSMakeRange(0, m_string.length)];
-    
-    UILabel *agreementLabel = NewLabel(CGRectMake(0, lineView.bottom + kEdgeMiddle, screen_width, 40), appTextLightColor, [AppPublic appFontOfSize:appLabelFontSizeLittle], NSTextAlignmentCenter);
-    agreementLabel.attributedText = m_string;
+    UILabel *agreementLabel = [self createAttributeTapLabel:agreementString noteString:@"登录即代表阅读并同意  " frame:CGRectMake(0, lineView.bottom + kEdgeMiddle, screen_width, 20)];
     [self.view addSubview:agreementLabel];
     
     QKWEAKSELF;
     [agreementLabel yb_addAttributeTapActionWithStrings:@[agreementString] tapClicked:^(NSString *string, NSRange range, NSInteger index) {
         [weakself agreeButtonAction];
     }];
+    
+    NSString *visitorString = @"游客登录";
+    UILabel *visitorLabel = [self createAttributeTapLabel:visitorString noteString:@"随便看看可以  " frame:CGRectMake(0, agreementLabel.bottom + kEdge, screen_width, 20)];
+    [self.view addSubview:visitorLabel];
+    
+    [visitorLabel yb_addAttributeTapActionWithStrings:@[visitorString] tapClicked:^(NSString *string, NSRange range, NSInteger index) {
+        [weakself visitButtonAction];
+    }];
+}
+
+- (UILabel *)createAttributeTapLabel:(NSString *)tabString noteString:(NSString *)noteString frame:(CGRect)frame {
+    NSDictionary *dic1 = @{NSForegroundColorAttributeName : appTextLightColor};
+    NSDictionary *dic2 = @{NSForegroundColorAttributeName : [UIColor whiteColor], NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
+    NSMutableAttributedString *m_string = [NSMutableAttributedString new];
+    [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:noteString attributes:dic1]];
+    [m_string appendAttributedString:[[NSAttributedString alloc] initWithString:tabString attributes:dic2]];
+    NSMutableParagraphStyle *m_style = [NSMutableParagraphStyle new];
+    m_style.alignment = NSTextAlignmentCenter;
+    m_style.lineSpacing = 0;
+    [m_string addAttribute:NSParagraphStyleAttributeName value:m_style range:NSMakeRange(0, m_string.length)];
+    
+    UILabel *label = NewLabel(frame, appTextLightColor, [AppPublic appFontOfSize:appLabelFontSizeLittle], NSTextAlignmentCenter);
+    label.attributedText = m_string;
+    return label;
 }
 
 - (void)loginButtonAction {
@@ -155,8 +171,31 @@
 
 - (void)agreeButtonAction {
     AppActivity *activity = [[AppActivity alloc]initWithTitle:@"服务条款" message:self.courseString delegate:self cancelButtonTitle:@"取消" otherButtonTitle:@"确认"];
-    
     [activity showInView:self.view];
+}
+
+- (void)visitButtonAction {
+    QKWEAKSELF;
+    BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:@"游客登录" message:@"游客登录后购买记录等用户数据可能会丢失，请谨慎使用" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+        if (buttonIndex == 1) {
+            [weakself doVisitorLoginFunction];
+        }
+    } otherButtonTitles:@"游客登录", nil];
+    [alert show];
+}
+
+- (void)doVisitorLoginFunction {
+    [self doShowHudFunction];
+    QKWEAKSELF;
+    [[AppNetwork getInstance] visitorLoginCompletion:^(id responseBody, NSError *error){
+        [weakself doHideHudFunction];
+        if (error) {
+            [weakself doShowHintFunction:error.userInfo[appHttpMessage]];
+        }
+        else {
+            [weakself goBackWithDone:NO];
+        }
+    }];
 }
 
 #pragma mark - getter
