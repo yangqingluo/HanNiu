@@ -9,7 +9,6 @@
 #import "HomeSearchVC.h"
 #import "CollegeDetailVC.h"
 #import "SchoolDetailVC.h"
-#import "MusicDetailVC.h"
 
 #import "PublicPopView.h"
 #import "PublicImageSubTagTitleCell.h"

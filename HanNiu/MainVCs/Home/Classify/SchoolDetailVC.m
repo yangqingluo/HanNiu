@@ -34,6 +34,7 @@
 - (void)viewDidLoad {
     self.title = self.data.Name;
     self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.navigationBarView.bottom, screen_width, screen_width * appImageScale)];
+    self.headerImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:self.headerImageView];
     self.slidePageView.frame = CGRectMake(0, self.headerImageView.bottom, screen_width, screen_height - self.headerImageView.bottom);
     [super viewDidLoad];

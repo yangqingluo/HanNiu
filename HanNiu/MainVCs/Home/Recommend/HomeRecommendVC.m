@@ -10,7 +10,6 @@
 #import "CollegeDetailVC.h"
 #import "RecommendCollegeListVC.h"
 #import "BetterListVC.h"
-#import "MusicDetailVC.h"
 
 #import "PublicCollectionHeaderTitleView.h"
 #import "PublicCollectionCell.h"

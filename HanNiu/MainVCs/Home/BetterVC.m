@@ -7,7 +7,6 @@
 //
 
 #import "BetterVC.h"
-#import "MusicDetailVC.h"
 
 #import "QualityCell.h"
 

@@ -9,7 +9,6 @@
 #import "CollegeDetailSlideSubTableVC.h"
 #import "CollegeDetailVC.h"
 #import "SchoolDetailVC.h"
-#import "MusicDetailVC.h"
 
 #import "QualityCell.h"
 #import "PublicThreeImageButtonCell.h"

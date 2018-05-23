@@ -8,7 +8,6 @@
 
 #import "SchoolDetailSlideSubTableVC.h"
 #import "SchoolDetailVC.h"
-#import "MusicDetailVC.h"
 #import "MusicCommentVC.h"
 
 #import "QualityCell.h"

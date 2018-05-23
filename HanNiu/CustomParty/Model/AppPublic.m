@@ -397,6 +397,10 @@ NSString *stringWithTimeInterval(NSTimeInterval interval) {
 }
 
 - (void)goToMusicVC:(AppBasicMusicDetailInfo *)data list:(NSArray *)list type:(PublicMusicDetailType)type {
+    if (!data.Music) {
+        return;
+    }
+    
     if ([UserPublic getInstance].userData) {
         if (type != PublicMusicDetailFromBar) {
             [[PublicPlayerManager getInstance] savePlayList:list];
