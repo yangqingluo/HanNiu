@@ -84,7 +84,6 @@
         return NO;
     }
     return YES;
-    
 }
 
 #pragma tableview
@@ -120,7 +119,5 @@
     NSMutableDictionary *m_dic = [NSMutableDictionary dictionaryWithDictionary:@{@"indexPath" : indexPath}];
     [[NSNotificationCenter defaultCenter] postNotificationName:Event_PublicPopViewCellSelected object:m_dic userInfo:nil];
 }
-
-
 
 @end
