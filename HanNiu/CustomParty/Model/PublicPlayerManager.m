@@ -186,35 +186,26 @@ static PublicPlayerManager *_sharedManager = nil;
                 m_time.currentTime = CMTimeGetSeconds(time);
                 [weakself postNotificationName:kNotifi_Play_TimeObserver object:m_time];
                 
-                //监听锁屏状态 lock=1则为锁屏状态
-                uint64_t locked;
-                __block int token = 0;
-                notify_register_dispatch(kAppleSBLockstate, &token, dispatch_get_main_queue(), ^(int t){
-                });
-                notify_get_state(token, &locked);
-                
-                //监听屏幕点亮状态 screenLight = 1则为变暗关闭状态
-                uint64_t screenLight;
-                __block int lightToken = 0;
-                notify_register_dispatch(kAppleSBHasBlankedScreen, &lightToken, dispatch_get_main_queue(), ^(int t){
-                });
-                notify_get_state(lightToken, &screenLight);
-                
-                BOOL isShowLyricsPoster = NO;
-                if (screenLight == 0 && locked == 1) {
-                    //点亮且锁屏时
-                    isShowLyricsPoster = YES;
+//                BOOL isShowLyricsPoster = NO;
+//                if (screenLight == 0 && locked == 1) {
+//                    //点亮且锁屏时
+//                    isShowLyricsPoster = YES;
+//                }
+//                else if(screenLight) {
+//                    return;
+//                }
+//
+//                [weakself showLockScreenTotaltime:m_time.totalTime andCurrentTime:m_time.currentTime andLyricsPoster:isShowLyricsPoster];
+                if ([AppPublic getInstance].screenLock) {
+                    [weakself showLockScreenTotaltime:m_time.totalTime andCurrentTime:m_time.currentTime andLyricsPoster:YES];
                 }
-                else if(screenLight) {
-                    return;
-                }
-                [weakself showLockScreenTotaltime:m_time.totalTime andCurrentTime:m_time.currentTime andLyricsPoster:isShowLyricsPoster];
             }];
         }
     }
     else if (self.state == PlayerManagerStateEnd) {
         CMTime targetTime = CMTimeMake(0, 1);
         [self seekToTime:targetTime];
+        [self.player play];
     }
     else if (self.state == PlayerManagerStateDefault || self.state == PlayerManagerStateFailed) {
         [self prepare];

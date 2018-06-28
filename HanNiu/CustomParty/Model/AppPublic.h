@@ -99,8 +99,6 @@
 #define kIsAutoPlayOnWWAN               @"isAutoPlayOnWWAN_HanNiu"
 #define kIsAutoPlayWhenOpen             @"isAutoPlayWhenOpen_HanNiu"
 
-#define kAppleSBLockstate               "apple.springboard.lockstate"
-#define kAppleSBHasBlankedScreen        "com.apple.springboard.hasBlankedScreen"
 #define kNotifi_Login_StateRefresh      @"kNn_Login_StateRefresh"//登录状态变化
 #define kNotifi_Comment_Refresh      @"kNn_Comment_Refresh"//评论变化
 #define kNotifi_Pay_Alipay              @"kNn_Pay_Alipay"//支付宝支付结果
@@ -124,6 +122,8 @@ typedef void(^AppDoneBlock)(id object);
 @property (strong, nonatomic) NSNumber *isAutoPlayOnWWAN;
 //打开应用是否自动播放
 @property (strong, nonatomic) NSNumber *isAutoPlayWhenOpen;
+
+@property (assign, nonatomic) BOOL screenLock;
 
 /*!
  @brief 检查版本是否第一次使用
