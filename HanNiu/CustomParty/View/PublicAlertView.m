@@ -137,6 +137,7 @@
     self = [super init];
     if (self) {
         self.titleLabel.text = @"支付购买";
+        self.titleLabel.numberOfLines = 0;
         
         self.nameView = [[PublicSubTitleView alloc] initWithFrame:CGRectMake(kEdgeHuge, self.titleLabel.bottom, self.baseView.width - 2 * kEdgeHuge, 30)];
         [self.baseView addSubview:self.nameView];
@@ -157,6 +158,7 @@
 - (void)setData:(AppBasicMusicDetailInfo *)data {
     _data = data;
     
+    self.titleLabel.text = [NSString stringWithFormat:@"支付购买\n%@，您需要购买才能够收听", data.Name];
     self.nameView.titleLabel.text = data.Music.Name;
     self.nameView.subTitleLabel.text = [NSString stringWithFormat:@"%d M币", data.Price];
     self.priceView.titleLabel.text = @"实支付";
